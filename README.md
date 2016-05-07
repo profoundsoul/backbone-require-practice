@@ -1,2 +1,2 @@
 # backbone-require-practice
-learning backbone、SAP、requirejs and combination
+learning backbone、SPA、requirejs and combination
