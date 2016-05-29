@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>日期格式化</title>
+    <script>
+        var dateUtil = (function () {
+            var util = {};
+
+            /**
+             * 自动将不足位数补零
+             * @param num
+             * @param len
+             * @returns {string}
+             */
+            util.fillZero = function (num, digit) {
+                digit = digit || 2;
+                return ("0000" + num).slice(Math.abs(digit) * -1);
+            };
+
+            util.toString = function (d, format) {
+                d = d || new Date();
+                var p = util.fillZero;
+
+                return format ? format.replace(/(yy?yy?|MM?|dd?|HH?|hh?|mm?|ss?)/g, function (m) {
+                    console.log(m);
+                    switch (m) {
+                        case 'yyyy':
+                            return p(d.getFullYear(), 4);
+                        case 'yy':
+                            return d.getFullYear();
+                        case 'MM':
+                            return p(d.getMonth() + 1);
+                        case 'M':
+                            return d.getMonth() + 1;
+                        case 'dd':
+                            return p(d.getDate());
+                        case 'd':
+                            return d.getDate();
+                        case 'H':
+                        case 'HH':
+                        case 'h':
+                        case 'hh':
+                            return p(d.getHours());
+                        case 'm':
+                        case 'mm':
+                            return p(d.getMinutes());
+                        case 's':
+                        case 'ss':
+                            return p(d.getSeconds());
+                        default:
+                            return m;
+                    }
+                }) : d.toString();
+            };
+            return util;
+        }());
+    </script>
+</head>
+<body>
+<script>
+    var d = new Date();
+    d.setDate(d.getDate() + 7);
+    document.write(dateUtil.fillZero(d.getDate(), 2) + '<br/>');
+    document.write(dateUtil.toString(d, 'yyyy-MM-dd HH:mm:ss') + '<br/>');
+    document.write(dateUtil.toString(d, 'yy/M/d H:m:s') + '<br/>');
+    document.write(dateUtil.toString(d, 'yyyy/M/d H m s') + '<br/>');
+</script>
+</body>
+</html>
