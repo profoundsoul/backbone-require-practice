@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+    //此方法属于偏方，目前来说各大浏览器均支持此种方式。
+    function openwin(src) {
+        var a = document.createElement('a');
+        a.setAttribute('id', 'openwin');
+        a.setAttribute('href', src);
+        a.setAttribute('target', '_blank');
+        document.body.appendChild(a);
+        a.click();
+        //使用完成后立即移除该标签
+        document.body.removeChild(a);
+    }
+
+
+    setTimeout(function(){
+        window.open('http://qq.com', '_blank');
+    }, 100);
+</script>
+<input type="button" value="打开新窗体" onclick="openwin('http://www.baidu.com')"/>
+</body>
+</html>

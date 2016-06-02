@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h1>this is Parent Window</h1>
+
+<div>请输入您的信息：<input type="text" id="info"/>
+    <button id="inject">注入子页面</button>
+</div>
+<div style="margin-top: 50px;">
+    <iframe src="http://mg.yitb.com" frameborder="1" id="otherdomain"
+            style="width:100%;min-height: 400px;background: lightcyan;"></iframe>
+</div>
+<div style="margin-top: 50px;">
+    <iframe src="postMessage2.html" frameborder="1" id="iframe2"
+            style="width:100%;min-height: 400px;background: lightcyan;"></iframe>
+</div>
+<script>
+//    document.domain+iframe的设置，应用于主域相同而子域不同；
+//    利用iframe和location.hash，数据直接暴露在了url中，数据容量和类型都有限
+//    Flash LocalConnection， 对象可在一个 SWF 文件中或多个 SWF 文件间进行通信， 只要在同一客户端就行，跨应用程序， 可以跨域。
+//    window.name 保存数据以及跨域 iframe 静态代理动态传输方案，充分的运用了window.name因为页面的url改变而name不改变的特性。
+//    常见的跨域方案：
+//    (1)使用设置相同document.domain + iframe，直接访问contentWindow对象属性或方法
+//    (2)利用iframe + location.hash or URI parameter ，将数据直接暴露在URI上，数据的类型和容量都有限制
+//    (3)利用三方插件Flash LocalConnection， 对象可在一个 SWF 文件中或多个 SWF 文件间进行通信， 只要在同一客户端就行，跨应用程序， 可以跨域
+//    (4)利用window.name在多个不同窗口间不会被改变的特性进行跨域
+//    (5)利用response header set-cookies:利用document.cookie 在domain特性相同或后缀相互匹配时，允许跨域访问。
+//    (6)使用H5 postMessage窗口跨域技术；低端浏览器不支持
+    if (window.addEventListener) {
+        window.addEventListener('load', onDomRead, false);
+    } else if (window.attachEvent) {
+        window.attachEvent('onload', onDomRead);
+    }
+
+    function onDomRead(evt) {
+        var info = document.getElementById('inject');
+        info.addEventListener('click', function (e) {
+            var input = document.getElementById('info'),
+                    v = input.value;
+            document.getElementById('iframe2').contentWindow.postMessage(v, '/');
+            console.log('game over2');
+        }, false);
+    }
+</script>
+
+<script>
+    //传统跨域
+    if (window.addEventListener) {
+        window.addEventListener('load', onDomRead, false);
+    } else if (window.attachEvent) {
+        window.attachEvent('onload', onDomRead);
+    }
+
+    function onDomRead(evt) {
+        var info = document.getElementById('inject');
+        info.addEventListener('click', function (e) {
+            var input = document.getElementById('info'),
+                    v = input.value;
+            var otherwin = document.getElementById('otherdomain').contentWindow;
+            otherwin.postMessage(v, 'http://192.168.2.151:8001');
+            //为了浏览器安全情况，如果两个窗口document.domain不相同，otherwindow不能get和set操作。也只有小部分函数允许call
+            console.log(otherwin);
+            console.log('game over1');
+        }, false);
+    }
+</script>
+</body>
+</html>
