@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Model展示</title>
+</head>
+<body>
+<script src="//res.yitb.com/libs/3rdlibs/jquery.js"></script>
+<script src="//res.yitb.com/libs/3rdlibs/require.min.js"></script>
+<script src="//res.yitb.com/libs/core.js"></script>
+<script>
+    //需要把当前目录所有文件放到mg.yitb.com中，方能webapi请求成功
+    //
+    $(function(){
+        require(['cBase', 'usermodel'], function(cBase, UserModel){
+            var provincesListModel =  UserModel.ProvincesListModel.getInstance(),
+                    queryUserInfoModel =  UserModel.QueryUserInfoModel.getInstance(),
+                    getShopWebTypeModel = UserModel.GetShopWebTypeModel.getInstance();
+
+            provincesListModel.excute(function(data){
+                console.log(data);
+                $(document.body).append('<h1>provincesListModel：服务加载成功咯~</h1>>');
+            }, function(err){
+                console.log(err);
+                $(document.body).append('<h1>provincesListModel：'+JSON.stringify(err) + '</h1>>');
+            }, false, this);
+
+            queryUserInfoModel.excute(function(data){
+                console.log(data);
+            }, function(err){
+                console.log(err);
+            }, true, this);
+
+            getShopWebTypeModel.excute(function(data){
+                console.log(data);
+            }, function(err){
+                console.log(err);
+            }, true, this);
+        });
+    });
+</script>
+</body>
+</html>
