@@ -10,10 +10,10 @@
 
 ## 使用
 
-依赖jquery.js和require.js这两个js库可以去download下来
+依赖jquery.js和require.js这两个js库可以去download下来,可以统一使用res.yitb.com库中的
 
 ```
-<script src="../lib/jquery-1.12.3.js"></script>
+<script src="//res.yitb.com/libs/3rdlibs/jquery.js"></script>
 <script src="//res.yitb.com/libs/3rdlibs/require.min.js"></script>
 <script src="//res.yitb.com/libs/core.js"></script>
 <script>
