@@ -33,7 +33,7 @@ module.exports = function (grunt) {
         },
         clean:{
             all:{
-                src:['dist/'],
+                src:['dist/', 'dest/'],
                 options:{
                     force:true
                 }
@@ -54,14 +54,44 @@ module.exports = function (grunt) {
                     dest: 'dist/'
                 }]
             }
+        },
+        copy:{
+            main:{
+                expand: true,
+                dest:'dest/',
+                src:['**/*.*', '!node_modules/**/*.*', '!dist/**/*.*','!Gruntfile.js', '!package.json'],
+                filter:'isFile'
+            }
+        },
+        watch:{
+            main:{
+                files:['**/*.*', '!node_modules/**/*.*', '!dist/**/*.*','!Gruntfile.js', '!package.json','!dest/**/*.*'],
+                tasks:['copy:main']
+            }
+        },
+        imagemin:{
+            main:{
+                expand:true,
+                cwd:'images/',
+                src:['*.gif','*.png'],
+                dest:'dest/images/',
+                filter:'isFile'
+            }
         }
     });
+
+    grunt.loadNpmTasks('grunt-contrib-imagemin');
+
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
     grunt.loadNpmTasks('grunt-contrib-clean');
 
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     //加载插件
     grunt.loadNpmTasks('grunt-contrib-uglify');
+
+    //加载copy插件
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
     ////注册自动化任务
     //grunt.registerTask('default', ['uglify:build']);
