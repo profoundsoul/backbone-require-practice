@@ -27,7 +27,10 @@ module.exports = function (grunt) {
                     expand: true,
                     cwd: "",
                     src: ['source/*.js', 'lib/util.js'],
-                    dest: 'dist/'
+                    dest: 'dist/all',
+                    ext:'.min.js',
+                    extDot:'last',
+                    flatten:true
                 }]
             }
         },
@@ -40,9 +43,13 @@ module.exports = function (grunt) {
             }
         },
         htmlmin: {
+            options:{
+                removeComments: true,
+                minifyCSS:false,
+                minifyJS:false
+            },
             dist: {
                 options: {
-                    removeComments: true,
                     collapseWhitespace: true,
                     minifyCSS:true,
                     minifyJS:true
@@ -50,7 +57,7 @@ module.exports = function (grunt) {
                 files: [{
                     expand: true,
                     cwd: '',
-                    src: '**/*.html',
+                    src: ['**/*.html', '!**/node_modules/**'],
                     dest: 'dist/'
                 }]
             }
@@ -72,10 +79,18 @@ module.exports = function (grunt) {
         imagemin:{
             main:{
                 expand:true,
-                cwd:'images/',
-                src:['*.gif','*.png'],
-                dest:'dest/images/',
-                filter:'isFile'
+                src:['images/*.{gif,png}'],
+                dest:'dest/',
+                filter:'isFile',
+                fattern:false,
+                rename:function(dest, src){
+                    //取出文件后缀，将每个文件都加上.min.picextension,此处没有实现功能，需要自己去用node实现
+                    var path = require('path'),
+                        subdir  = path.dirname(src),
+                        ext  = path.extname(src),
+                        name = path.basename(src, ext);
+                    return dest + '/' + subdir +'/' + name + '.min' + ext;
+                }
             }
         }
     });
