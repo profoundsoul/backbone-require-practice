@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body div{
+            margin:0 auto;
+            padding:0px;
+            border: 0px;
+        }
+
+        a{
+            text-decoration: none;
+            color:#242426;
+            cursor:pointer;
+        }
+        .container{
+            width: 800px;
+        }
+
+        .header {
+            height: 50px;
+            line-height: 50px;
+            background: #008080;
+        }
+        .header .menu{
+            display: block;
+            float: left;
+            width: 25%;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .header .menu:hover{
+            background: rosybrown;
+        }
+
+        .main{
+            border:1px solid #dcdcdc;
+            border-radius: 4px;
+            box-shadow:5px 5px 5px #888888 inset;
+            margin:5px auto;
+            min-height: 600px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <a class="menu" href="#aaaa">aaaaa</a>
+        <a class="menu" href="#bbbb">bbbbb</a>
+        <a class="menu" href="#cccc">ccccc</a>
+        <a class="menu" href="#dddd">ddddd</a>
+    </div>
+    <div id="main" class="main">
+
+    </div>
+</div>
+
+<script src="../../lib/jquery-1.12.3.js"></script>
+<script src="../../lib/require.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

@@ -94,6 +94,6 @@
             //require(['cUIToast']);
             //require(['cUILayer']);
 
-        }, 2000)
+        }, 2000);
     });
 }());

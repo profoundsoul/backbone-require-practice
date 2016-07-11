@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../lib/jquery-1.12.3.js"></script>
+    <style>
+        .bar{
+            position: relative;
+            min-height: 40px;
+        }
+
+        .header_left{
+            float: left;
+            width: 40px;
+            height: 40px;
+            vertical-align: middle;
+        }
+
+        .header_left:hover{
+            background: #808080;
+        }
+
+        .arrow {
+            position: absolute;
+            left: 5px;
+            top: 15px;
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-bottom: 2px solid red;
+            border-left: 2px solid red;
+            transform:rotate(45deg);
+        }
+        .header_middle {
+            list-style-type: none;
+        }
+        .header_middle li{
+            float: left;
+            width: 60px;
+            line-height: 40px;;
+            text-align: center;
+        }
+        .header_middle li:hover{
+            border: 1px dotted greenyellow;
+        }
+    </style>
+</head>
+<body>
+<div class="bar">
+    <div class="header_left">
+        <span class="arrow"></span>
+    </div>
+    <ul class="header_middle">
+        <li>首页</li>
+        <li>评价</li>
+        <li>详情</li>
+    </ul>
+</div>
+</body>
+</html>

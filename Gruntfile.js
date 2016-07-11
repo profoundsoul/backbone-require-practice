@@ -97,6 +97,8 @@ module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-imagemin');
 
+
+
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     grunt.loadNpmTasks('grunt-contrib-clean');
@@ -110,5 +112,4 @@ module.exports = function (grunt) {
 
     ////注册自动化任务
     //grunt.registerTask('default', ['uglify:build']);
-
 };
