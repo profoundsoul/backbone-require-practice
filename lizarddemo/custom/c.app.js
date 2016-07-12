@@ -44,16 +44,13 @@ define(['Core'], function (Core) {
         },
 
         switchView:function(path) {
-            //切换页面
             var id = path;
-            if(!this.views[id]) {
+            if(!this.views[id])  {
                 this.loadView(id, function(View){
                     var curView = new View();
                     curView.id = id;
                     this.views[id] = curView;
                 });
-            }else{
-
             }
         },
         loadView:function(id, fn) {
@@ -81,6 +78,5 @@ define(['Core'], function (Core) {
             container.append(this.mainframe);
             this.isCreate = true;
         }
-
     });
 });

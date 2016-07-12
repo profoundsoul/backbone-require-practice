@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <script src="../lib/jquery-1.12.3.js"></script>
+    <style>
+        body, div, ul, li {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .list {
+            list-style: none;
+            overflow-y: auto;
+            /*transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1);*/
+            /*transition-duration: 0ms;*/
+            transform: translate(0px,0px) translateZ(0px);
+        }
+
+        .list li {
+            position: relative;
+            height: 45px;
+            line-height: 45px;
+            padding: 0px 10px;;
+        }
+
+        .list li::after {
+            content: '';
+            display: inline-block;
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            right: 20px;
+            top: 15px;
+            border-top: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+            transform: rotate(45deg);
+        }
+
+        .list li:hover {
+            background: #ddd;
+        }
+
+        .underline {
+            border-bottom: 1px solid #ccc;
+        }
+
+    </style>
+</head>
+<body>
+<div>
+    <ul class="list">
+        <li class="underline">1</li>
+        <li class="underline">2</li>
+        <li class="underline">3</li>
+        <li class="underline">4</li>
+        <li class="underline">5</li>
+        <li class="underline">6</li>
+        <li class="underline">7</li>
+        <li class="underline">8</li>
+        <li class="underline">9</li>
+        <li class="underline">10</li>
+        <li class="underline">11</li>
+        <li class="underline">12</li>
+        <li class="underline">13</li>
+        <li class="underline">14</li>
+        <li class="underline">15</li>
+        <li class="underline">16</li>
+        <li class="underline">17</li>
+        <li class="underline">18</li>
+        <li class="underline">19</li>
+    </ul>
+</div>
+<script type="text/javascript">
+    $(function () {
+        //初始化后加载touch事件
+        var $ul = $('.list');
+        var x = 0,
+                y = 0;
+        var startX = 0,
+                startY = 0;
+        var pointX = 0,
+                pointY = 0;
+
+
+        $ul.on('touchstart', function (e) {
+            e = e.originalEvent;
+            startX = x = 0;
+            startY = y = 0;
+
+            var point = e.touches ? e.touches[0] : e;
+            pointX = point.pageX;
+            pointY = point.pageY;
+
+        });
+        $ul.on('touchmove', function (e) {
+            e = e.originalEvent;
+            var point = e.touches ? e.touches[0] : e;
+            var deltaX = point.pageX - pointX;
+            var deltaY = point.pageY - pointY;
+
+            pointX = point.pageX;
+            pointY = point.pageY;
+
+            var newX = Math.round(x + deltaX);
+            var newY = Math.round(y + deltaY);
+
+            _translate(newX, newY);
+
+            console.log(newX, newY);
+        });
+        $ul.on('touchend', function (e) {
+            console.log('end', e);
+            _translateTime(600);
+            _translateTimeFunction();
+            _translate(0, 0);
+        });
+
+        function _translate(newx, newy) {
+            $ul.get(0).style["transform"] = "translate(0px, "+newy+"px) translateZ(0px)";
+            x = newx;
+            y = newy;
+        }
+        function _translateTime(time){
+            $ul.get(0).style["transition-duration"] = time + "ms";
+        }
+
+        function _translateTimeFunction(easing){
+            $ul.get(0).style["transition-timing-function"] = "cubic-bezier(0.1, 0.57, 0.1, 1)";
+        }
+    });
+</script>
+</body>
+
+</html>
