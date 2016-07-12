@@ -17,7 +17,7 @@ define([], function(){
     //6、返回构造函数
     Core.Class = function(){
         var parent = null;
-        var propertys = arguments.slice();
+        var propertys = [].slice.call(arguments);
         if(!propertys.length || propertys.length >2) {
             return;
         }
@@ -27,19 +27,46 @@ define([], function(){
         propertys = propertys[0];
 
         function Atom(){
-            this.__propertys.apply(this, arguments);
+            __propertys.apply(this, arguments);
             this.initialize.apply(this, arguments);
         }
 
-        Atom.supclass = null;
+        Atom.supclass = parent;
         Atom.subclasses = [];
 
-        for(var k in propertys) {
-            if(k && k !== '__propertys_' && k !== 'initialize')
-            Atom.property[k] = propertys[k];
+        var subpropertys = propertys.__propertys__ || function(){};
+        var suppropertys = parent ? parent.prototype.__propertys__ : function(){};
+
+        if(parent) {
+            var F = function(){};
+            F.prototype = parent.prototype;
+            F.prototype.constructor = F;
+            Atom.propertype = new F();
+            parent.subclasses.push(Atom);
         }
 
-        Atom.property.constructor = Atom;
+        for(var k in propertys) {
+            if(k){
+               if(k === 'initialize') {
+                   //initialize是否存在第一个参数为$super,如果存在就重写initialize方法
+                   if(propertys[k].toString() === '$super') {
+                       var value = propertys[k];
+                       propertys[k] = (function(){
+                           var args = [parent.prototype.initialize];
+                           value.apply(this, args.concat(arguments));
+                       });
+                   }
+               }
+                Atom.prototype[k] = propertys[k];
+            }
+        }
+
+        var __propertys = function(){
+            suppropertys.apply(this, arguments);
+            subpropertys.apply(this, arguments);
+        };
+
+        Atom.prototype.constructor = Atom;
         return Atom;
     };
 
