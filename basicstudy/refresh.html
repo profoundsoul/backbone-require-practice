@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="fresh_box">
+		<div class="fresh_icon addspin"></div>
+	</div>
+</body>
+</html>
+
+
+<style>
+*{
+	margin:0;
+	padding:0;
+}
+.fresh_icon{
+	width: 35px;
+	height: 35px;
+	box-sizing: border-box;
+    border: 4px solid #E6E43D;
+    border-left-color:transparent;
+    border-radius:50%;
+    display:inline-block;
+    vertical-align: middle;
+    position:relative;
+}
+.fresh_icon:before{
+	display: block;
+	content:"";
+	position:absolute;
+	width: 0;
+	height: 0;
+    border-width: 8px;
+    border-color: #E6E43D transparent transparent transparent;
+    border-style: solid dashed dotted dashed;
+    transform: rotate(136deg);
+    top: 11px;
+    left: -11px;
+}
+.fresh_box{
+	display: table-cell;
+	width: 60px;
+	height: 60px;
+	text-align: center;
+	vertical-align: middle;
+	background:#fff;
+	border:1px solid #e9eef5;
+	border-radius:50%;
+	box-shadow:1px 1px 3px rgba(0,0,0,.3)
+}
+.addspin{
+	animation:spin 1.8s infinite linear; 
+}
+@keyframes spin{
+	0% {
+        transform: rotate(0)
+    }
+	25%{
+		transform: rotate(30deg)
+	}
+	50%{
+		transform: rotate(45deg)
+	}
+	75%{
+		transform: rotate(270deg)
+	}
+    100% {
+        transform: rotate(360deg)
+    }
+}
+</style>

@@ -6,7 +6,9 @@
     <meta charset="utf-8">
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <script src="../lib/jquery-1.12.3.js"></script>
+    <script src="//res.yitb.com/libs/3rdlibs/jquery.js"></script>
+    <script src="//res.yitb.com/libs/3rdlibs/require.min.js"></script>
+    <script src="//res.yitb.com/libs/core.js"></script>
     <style>
         body, div, ul, li {
             margin: 0px;
@@ -14,11 +16,12 @@
         }
 
         .list {
+            position: relative;
             list-style: none;
             overflow-y: auto;
             /*transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1);*/
             /*transition-duration: 0ms;*/
-            transform: translate(0px,0px) translateZ(0px);
+            transform: translate(0px, 0px) translateZ(0px);
         }
 
         .list li {
@@ -49,10 +52,88 @@
             border-bottom: 1px solid #ccc;
         }
 
+        .list_fresh_box {
+            position: absolute;
+            display: inline-block;
+            left: 40%;
+            top: 0px;
+            transform: translate(0px, -1000px) translateZ(0px);
+            -webkit-transform-style: preserve-3d;
+            -webkit-backface-visibility: hidden;
+        }
+
+        .fresh_box {
+            display: table-cell;
+            width: 60px;
+            height: 60px;
+            text-align: center;
+            vertical-align: middle;
+            background: #fff;
+            border: 1px solid #e9eef5;
+            border-radius: 50%;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, .3)
+        }
+
+        .fresh_icon {
+            width: 35px;
+            height: 35px;
+            box-sizing: border-box;
+            border: 4px solid #E6E43D;
+            border-left-color: transparent;
+            border-radius: 50%;
+            display: inline-block;
+            vertical-align: middle;
+            position: relative;
+        }
+
+        .fresh_icon:before {
+            display: block;
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-width: 8px;
+            border-color: #E6E43D transparent transparent transparent;
+            border-style: solid dashed dotted dashed;
+            transform: rotate(136deg);
+            top: 11px;
+            left: -11px;
+        }
+
+
+
+        .addspin {
+            animation: spin 1.8s infinite linear;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0)
+            }
+            25% {
+                transform: rotate(30deg)
+            }
+            50% {
+                transform: rotate(45deg)
+            }
+            75% {
+                transform: rotate(270deg)
+            }
+            100% {
+                transform: rotate(360deg)
+            }
+        }
+
     </style>
 </head>
 <body>
-<div>
+<div class="js_box" style="position: relative;">
+    <!--<div class="box">-->
+        <!--<div class="fresh_box">-->
+            <!--<div class="fresh_icon addspin"></div>-->
+        <!--</div>-->
+    <!--</div>-->
+
     <ul class="list">
         <li class="underline">1</li>
         <li class="underline">2</li>
@@ -75,12 +156,13 @@
         <li class="underline">19</li>
     </ul>
 </div>
-<script type="text/javascript">
+<!--<script type="text/javascript">
     $(function () {
         //初始化后加载touch事件
-        var $ul = $('.list');
+        var $ul = $('.list'),
+                $flexbox = $('.fresh_box');
         var x = 0,
-                y = 0;
+                y = -100;
         var startX = 0,
                 startY = 0;
         var pointX = 0,
@@ -90,7 +172,9 @@
         $ul.on('touchstart', function (e) {
             e = e.originalEvent;
             startX = x = 0;
-            startY = y = 0;
+            startY = y = -100;
+
+            _translateTime();
 
             var point = e.touches ? e.touches[0] : e;
             pointX = point.pageX;
@@ -109,6 +193,8 @@
             var newX = Math.round(x + deltaX);
             var newY = Math.round(y + deltaY);
 
+            if (newY < -100)return;
+
             _translate(newX, newY);
 
             console.log(newX, newY);
@@ -121,19 +207,43 @@
         });
 
         function _translate(newx, newy) {
-            $ul.get(0).style["transform"] = "translate(0px, "+newy+"px) translateZ(0px)";
+            $flexbox.get(0).style["transform"] = "translate(0px, " + newy + "px) translateZ(0px)";
             x = newx;
             y = newy;
         }
-        function _translateTime(time){
-            $ul.get(0).style["transition-duration"] = time + "ms";
+
+        function _translateTime(time) {
+            time = time || 0;
+            $flexbox.get(0).style["transition-duration"] = time + "ms";
         }
 
-        function _translateTimeFunction(easing){
-            $ul.get(0).style["transition-timing-function"] = "cubic-bezier(0.1, 0.57, 0.1, 1)";
+        function _translateTimeFunction(easing) {
+            $flexbox.get(0).style["transition-timing-function"] = "cubic-bezier(0.1, 0.57, 0.1, 1)";
         }
     });
+</script>-->
+<script type="text/javascript">
+    require.config({
+        paths:{
+            "ListRefresh":'c.ui.refresh'
+        }
+    });
+    $(function () {
+        require(['ListRefresh'], function (ListRefresh) {
+            var lr = new ListRefresh({
+                box:$('.js_box')
+            });
+            lr.listener(function(){
+                var _this = this;
+                setTimeout(function(){
+                    console.log('game over!');
+                    _this.hide();
+                }, 1000)
+            });
+        });
+    });
 </script>
+
 </body>
 
 </html>
