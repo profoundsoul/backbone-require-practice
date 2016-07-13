@@ -9,10 +9,9 @@ define(['UserCore'], function(UserCore) {
         },
         initialize: function($super, options){
 //            $super(options);
-        }
+        },
+        getDomain:function(){}
     });
-
-    console.log(new Model());
 
     return Model;
 });

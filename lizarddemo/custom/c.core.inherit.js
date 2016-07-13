@@ -85,10 +85,10 @@ define([], function() {
 //   }
 
    //兼容代码，非原型属性也需要进行继承
-   for (key in parent) {
-     if (parent.hasOwnProperty(key) && key !== 'prototype' && key !== 'superclass')
-       klass[key] = parent[key];
-   }
+//   for (key in parent) {
+//     if (parent.hasOwnProperty(key) && key !== 'prototype' && key !== 'superclass')
+//       klass[key] = parent[key];
+//   }
 
    klass.prototype.constructor = klass;
 

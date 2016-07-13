@@ -8,7 +8,8 @@ define(['UserCore', 'cModel'], function(UserCore, cModel){
         },
         initialize: function($super, options){
 //            $super(options);
-        }
+        },
+        setPath: function(){}
     });
     return Model;
 });

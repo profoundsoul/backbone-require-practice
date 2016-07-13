@@ -40,8 +40,7 @@ define([], function(){
         if(parent) {
             var F = function(){};
             F.prototype = parent.prototype;
-            F.prototype.constructor = F;
-            Atom.propertype = new F();
+            Atom.prototype = new F;
             parent.subclasses.push(Atom);
         }
 
