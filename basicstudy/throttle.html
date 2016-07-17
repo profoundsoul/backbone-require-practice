@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>javascript节流函数throttle之Demo</title>
+</head>
+<style>
+    body {
+        min-height: 1200px;
+        background: #dcdcdc;
+    }
+</style>
+<body>
+<p>
+    <a href="https://keelii.github.io/2016/06/11/javascript-throttle/">参考-JavaScript 节流函数 Throttle 详解</a>
+</p>
+<script>
+    (function () {
+        /**
+         * 节流函数处理代码,避免一些高频率的事件不间断的被触发，设置一个延期执行，避免不间断触发造成性能损失。
+         * 两次触发时间小于delay不执行fn。
+         * @param fn 延迟执行函数
+         * @param delay 延迟执行时间
+         * @returns {Function}
+         */
+        var throttle1 = function (fn, delay) {
+            var timeoutid = null;
+            return function () {
+                clearTimeout(timeoutid);
+                timeoutid = setTimeout(fn, delay);
+            }
+        };
+
+//        window.onscroll = throttle1(function () {
+//
+//        }, 200);
+
+        var num = 0;
+        //测试滚动条执行情况
+//        window.addEventListener('scroll',throttle(function(){
+//                console.log('-----执行了'+ ++num+'次');
+//            },200), false);
+        /**
+         * 延迟执行，在atleast时间范围内至少执行一次
+         * @param fn 延迟执行函数
+         * @param delay 执行时间
+         * @param atleast 至少执行一次的时间
+         */
+        var throttle = function (fn, delay, atleast) {
+            var timeoutid = null;
+            var previous = 0;
+            return function () {
+                var now = +new Date;
+                if (!previous) {
+                    previous = now;
+                }
+                clearTimeout(timeoutid);
+                if (atleast && now - previous >= atleast) {
+                    fn(now - previous);
+                    previous = now;
+                } else {
+                    timeoutid = setTimeout(function () {
+                        fn();
+                        previous = null;
+                    }, delay);
+                }
+            }
+        };
+        var f = throttle(function (inteval) {
+            console.log('-----执行了' + ++num + '次;时间间隙：', inteval);
+        }, 200, 500);
+
+        //默认情况下，scroll是放到viewport上的，body或html元素的高度都是100%
+        //所以，默认下应该使用window绑定scroll滚动条和resize等事件。
+        //当然如果html或body设置了具体高度，他们是可能出现滚动条的。
+        window.addEventListener('scroll', function () {
+            f();
+        }, false);
+
+    }());
+</script>
+<script>
+    (function () {
+        var shuffle = function (list) {
+            var arr = list.concat();
+            var temp;
+            for (var i = 0, len = arr.length; i < len; i++) {
+                var rand = Math.floor(Math.random() * len);
+                temp = arr[i];
+                arr[i] = arr[rand];
+                arr[rand] = temp;
+            }
+            return arr;
+        };
+
+        var i =10;
+        var arr = [1,2,3,4,5,6,7,8,9];
+        while(i-->0) {
+            console.log(shuffle(arr));
+        }
+    }());
+</script>
+</body>
+</html>

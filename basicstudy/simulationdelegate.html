@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>h5原生模拟事件委托</title>
+    <style>
+        body, div, ul, li {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        ul {
+            background: yellowgreen;
+            list-style: none;
+            list-style-type: none;
+        }
+
+        ul .space {
+            font-size: 18px;
+            text-align: center;
+            line-height: 30px;
+            background: dimgrey;
+        }
+
+        ul .space:hover {
+            background: palevioletred;
+            color: darkmagenta;
+        }
+    </style>
+</head>
+
+<body>
+<div>
+    <div></div>
+</div>
+
+<ul>
+    <li class="space">1</li>
+    <li id="name" class="space">2</li>
+    <li class="space js_q">3</li>
+    <li class="space">4</li>
+    <li class="space">5</li>
+    <li  class="space js_q">6</li>
+    <li class="">7</li>
+</ul>
+<script>
+    var util = (function () {
+        //从delegateTarget--target范围内，匹配样式selectors样式集合
+        //从selectors取出最后一个selector，从target开始匹配
+        //如果匹配到，selectors元素减一，如果没有匹配到继续匹配target.parent元素
+        //继续匹配selectors中最后一个selector，从上次匹配到目标parent开始进行匹配。
+        //当匹配完所有selectors时，可以认为委托匹配成功
+        //当匹配元素等于delegateTarget元素时，判断此次匹配完后是否匹配完所有selectors元素，如果是，则认为委托匹配成功
+        function matchDelegateTarget(delegateTarget, target, selectors) {
+            var s = selectors.pop();
+            if (findEle(delegateTarget, target, s)) {
+                if (!selectors.length) {
+                    return true;
+                } else {
+                    return matchDelegateTarget(delegateTarget, target.parentNode, selectors);
+                }
+            } else {
+                return false;
+            }
+        }
+
+        function findEle(delegateTarget, target, selector) {
+            var ele = target;
+            if (ele && !queryelement(ele, selector)) {
+                if (delegateTarget === target.parentNode) {
+                    return false;
+                }
+                return findEle(delegateTarget, target.parentNode, selector)
+            }
+            return ele;
+        }
+
+        /**
+         * 取巧的方法，采用h5实现元素查找{取巧原理，将当前target的outerHTML元素获取，加入到一个div元素中，利用querySelector方法}
+         * @param target 目标元素
+         * @param selector 选择器
+         * @returns {HTMLElement}
+         */
+        function queryelement(target, selector) {
+            var html = target.outerHTML;
+            var div = document.createElement('div');
+            div.innerHTML = html;
+
+            return div.querySelector(selector);
+        }
+
+        this.addEvent = function (targetNode, event, delegate, handles) {
+            var selectors = delegate.split(/\s/g),
+                    isAll = false;
+            if (selectors.length === 1) {
+                if (!selectors[0]) {
+                    return isAll;
+                }
+            }
+            if (typeof targetNode === 'string') {
+                targetNode = document.querySelector(targetNode);
+            }
+
+            targetNode.addEventListener(event, function (e) {
+                var target = e.target;
+                if (isAll || matchDelegateTarget(this, target, selectors.concat())) {
+                    handles.apply(this, arguments);
+                }
+            });
+        };
+        return this;
+    }).call({});
+    util.addEvent('ul', 'click', 'li.space.js_q', function () {
+        console.log('执行成了---1！', arguments);
+    });
+
+    util.addEvent('ul', 'click', 'li#name', function () {
+        console.log('执行成了---2！', arguments);
+    });
+</script>
+</body>
+</html>

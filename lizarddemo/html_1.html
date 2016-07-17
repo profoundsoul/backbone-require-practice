@@ -3,15 +3,43 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Model展示</title>
+    <style>
+        body,ul,li,div{
+            margin:0px;
+            padding:0px;
+        }
+        ul{
+            list-style: none;
+            text-align: center;
+            border:2px solid darkslategrey;
+            border-radius: 5px;
+        }
+        li{
+            background: #eeeeee;
+            line-height: 35px;
+            border: 1px solid darkslategrey;
+        }
+        li:hover{
+            background: mediumpurple;
+            cursor:pointer;
+        }
+    </style>
 </head>
 <body>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+</ul>
 <script src="//res.yitb.com/libs/3rdlibs/jquery.js"></script>
 <script src="//res.yitb.com/libs/3rdlibs/require.min.js"></script>
 <script src="//res.yitb.com/libs/core.js"></script>
 <script>
     //需要把当前目录所有文件放到mg.yitb.com中，方能webapi请求成功
     //
-    $(function(){
+    /*$(function(){
         require(['cBase', 'usermodel'], function(cBase, UserModel){
             var provincesListModel =  UserModel.ProvincesListModel.getInstance(),
                     queryUserInfoModel =  UserModel.QueryUserInfoModel.getInstance(),
@@ -36,6 +64,23 @@
             }, function(err){
                 console.log(err);
             }, true, this);
+        });
+    });*/
+</script>
+<script>
+    require(['common'], function(util){
+        util.page({
+            el:'body',
+            events:{
+                'click ul li': 'getInnerText'
+            },
+            initialize:function(){
+                console.log('执行了！');
+            },
+            getInnerText: function(e){
+                var target = $(e.currentTarget)
+                console.log(target.html());
+            }
         });
     });
 </script>
