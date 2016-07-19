@@ -53,19 +53,32 @@
         }
 
         .list_fresh_box {
+            z-index:20;
             position: absolute;
             display: inline-block;
             left: 40%;
             top: 0px;
-            transform: translate(0px, -1000px) translateZ(0px);
+
             -webkit-transform-style: preserve-3d;
+            -moz-transform-style: preserve-3d;
+            -o-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+
             -webkit-backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
+            -o-backface-visibility: hidden;
+            backface-visibility: hidden;
+
+            -webkit-transform: translate3d(0px, -100px, 0px);
+            -moz-transform: translate3d(0px, -100px, 0px);
+            -o-transform: translate3d(0px, -100px, 0px);
+            transform: translate3d(0px, -100px, 0px);
         }
 
         .fresh_box {
             display: table-cell;
-            width: 60px;
-            height: 60px;
+            width: 40px;
+            height: 40px;
             text-align: center;
             vertical-align: middle;
             background: #fff;
@@ -75,10 +88,10 @@
         }
 
         .fresh_icon {
-            width: 35px;
-            height: 35px;
+            width: 20px;
+            height: 20px;
             box-sizing: border-box;
-            border: 4px solid #E6E43D;
+            border: 3px solid #5f6ccf;
             border-left-color: transparent;
             border-radius: 50%;
             display: inline-block;
@@ -92,29 +105,87 @@
             position: absolute;
             width: 0;
             height: 0;
-            border-width: 8px;
-            border-color: #E6E43D transparent transparent transparent;
+            border-width: 5px;
+            border-color: #5f6ccf transparent transparent transparent;
             border-style: solid dashed dotted dashed;
+            -webkit-transform: rotate(136deg);
+            -moz-transform: rotate(136deg);
+            -o-transform: rotate(136deg);
             transform: rotate(136deg);
-            top: 11px;
-            left: -11px;
+            top: 6px;
+            left: -5px;
         }
 
-
-
         .addspin {
-            animation: spin 1.8s infinite linear;
+            -webkit-animation: spin 1s infinite linear;
+            -moz-animation: spin 1s infinite linear;
+            -o-animation: spin 1s infinite linear;
+            animation: spin 1s infinite linear;
+        }
+
+        @-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+            25% {
+                -webkit-transform: rotate(60deg)
+            }
+            50% {
+                -webkit-transform: rotate(120deg)
+            }
+            75% {
+                -webkit-transform: rotate(270deg)
+            }
+            100% {
+                -webkit-transform: rotate(360deg)
+            }
+        }
+
+        @-moz-keyframes spin {
+            0% {
+                -moz-transform: rotate(0deg);
+            }
+            25% {
+                -moz-transform: rotate(60deg)
+            }
+            50% {
+                -moz-transform: rotate(120deg)
+            }
+            75% {
+                -moz-transform: rotate(270deg)
+            }
+            100% {
+                -moz-transform: rotate(360deg)
+            }
+        }
+
+        @-o-keyframes spin {
+            0% {
+                -o-transform: rotate(0deg);
+            }
+            25% {
+                -o-transform: rotate(60deg)
+            }
+            50% {
+                -o-transform: rotate(120deg)
+            }
+            75% {
+                -o-transform: rotate(270deg)
+            }
+            100% {
+                -o-transform: rotate(360deg)
+            }
         }
 
         @keyframes spin {
             0% {
-                transform: rotate(0)
+                transform: rotate(0deg);
             }
             25% {
-                transform: rotate(30deg)
+                transform: rotate(60deg)
             }
             50% {
-                transform: rotate(45deg)
+                transform: rotate(120deg)
             }
             75% {
                 transform: rotate(270deg)

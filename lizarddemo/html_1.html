@@ -68,7 +68,8 @@
     });*/
 </script>
 <script>
-    require(['common'], function(util){
+    require(['common', 'CommonStore'], function(util,st){
+        console.log(st.UserStore.getInstance().get());
         util.page({
             el:'body',
             events:{
@@ -78,7 +79,7 @@
                 console.log('执行了！');
             },
             getInnerText: function(e){
-                var target = $(e.currentTarget)
+                var target = $(e.currentTarget);
                 console.log(target.html());
             }
         });

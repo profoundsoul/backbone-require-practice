@@ -6,16 +6,18 @@ define([], function () {
 
     util.page = function (options) {
         var handleBindEvent = function () {
-            var _evtArr = [];
+            var _this = this,
+             _evtArr = [];
+
             for (var k in this.events) {
                 if (this.events.hasOwnProperty(k)) {
-                    var key = k.replace(/(^\s*)|(\s*$)/g, '');
+                    var key = $.trim(k);
                     var value = this.events[k];
                     var evtObj = {};
 
                     if (typeof value === 'string') {
-                        value = value.replace(/(^\s*)|(\s*$)/g, '');
-                        if (this[value]) {
+                        value = $.trim(value);
+                        if (this[value] && typeof this[value] === 'function') {
                             evtObj.handle = this[value];
                         }
                     } else {
@@ -28,14 +30,12 @@ define([], function () {
                     }
                 }
             }
-            var _this = this,
-                delegateTarget = $(this.el);
-            _evtArr.forEach(function(item){
+            var delegateTarget = $(this.el);
+            $.each(_evtArr, function(idx, item){
                 delegateTarget.off(item.eventName).on(item.eventName, item.delegate, function(){
                     item.handle.apply(_this, arguments);
                 });
             });
-
         }
         var instance = (function () {
             this.el =this.el || 'body';
