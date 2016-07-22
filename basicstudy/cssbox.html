@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body,div,ul,li{
+            margin:0px;
+            padding: 0px;
+        }
+        .container{
+            padding: 5px;
+            margin:6px;
+            border:1px solid yellowgreen;
+            overflow-x: auto;
+            height: 400px;
+            width:300px;
+        }
+
+        .box{
+            padding: 2px;
+            margin:3px;
+            border:3px solid blueviolet;
+            overflow-y: auto;
+            width: 700px;
+            height: 200px;
+            overflow-x: auto;
+        }
+
+        .child{
+            min-width: 1000px;
+            line-height: 45px;
+            background: royalblue;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="box">
+        <div class="child">11111111111111111</div>
+        <div class="child">222222222222222</div>
+        <div class="child">333333333333333</div>
+        <div class="child">444444444444444</div>
+        <div class="child">55555555555555555</div>
+        <div class="child">666666666666666</div>
+    </div>
+</div>
+<div style="position: relative">
+    <div style="position:absolute;left:50%;top: 50px;">测试内容</div>
+</div>
+<script src="//res.yitb.com/libs/3rdlibs/jquery.js"></script>
+</body>
+</html>
