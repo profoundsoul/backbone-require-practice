@@ -128,7 +128,6 @@ define(['cBase'], function (cBase) {
             this.box.off('touchend').on('touchend', bind(this._end));
             this.freshBox.off(utils.events.transitionEnd).on(utils.events.transitionEnd, bind(this._animationEnd));
         },
-
         listener: function (fn) {
             this.bindEvent();
             this.refreshFn = fn || function () {
@@ -144,11 +143,16 @@ define(['cBase'], function (cBase) {
             this._translate(this.originY);
         },
 
+        /**
+         * 方便调试和测试
+         * @param str 内容
+         * @private
+         */
         _consoleTest: function (str) {
             var _this = this;
             var useLog = false;
 
-            console.log(useLog = true);
+            //console.log(useLog = true);
 
             useLog && consoleLog();
 
@@ -170,8 +174,13 @@ define(['cBase'], function (cBase) {
                 return '';
             }
         },
+        /**
+         * 针对此功能调试和测试
+         * @param prefix 前缀
+         * @private
+         */
         _test: function (prefix) {
-            this._consoleTest((prefix ? prefix + '---' : '') + 'y:' + this.y + '    pointY:' + this.pointY);
+            this._consoleTest((prefix ? prefix + '---' : '') + 'y:' + this.y + '    pointY:' + this.pointY + '     client:Y:'+this.clientY);
         },
 
         _animationEnd: function (e) {
@@ -193,6 +202,7 @@ define(['cBase'], function (cBase) {
             this._translateTime();
             this.pointY = point.pageY;
             this.startY = point.pageY;
+            this.clientY = point.clientY;
             this._translate(this.y = this.originY);
             this._test('start');
 
@@ -203,8 +213,13 @@ define(['cBase'], function (cBase) {
             var deltaY = point.pageY - this.pointY,
                 newY = Math.round(deltaY + this.y);
             this.pointY = point.pageY;
+            this.clientY = point.clientY;
             //Math.abs(deltaY) < this.moveSensibility ||
-            if (deltaY <= 0) {
+
+            //计算出当前DocumentElement元素的高度及坐标
+            //var MaxvisialY = $(document.documentElement).offset().height -100;
+
+            if (deltaY <= 0 || point.pageY >point.clientY) {
                 //此处必须返回True，如果是false可能会禁用掉当前的触摸事件
                 return true;
             } else {
