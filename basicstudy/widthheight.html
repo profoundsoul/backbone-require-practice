@@ -5,34 +5,48 @@
     <title></title>
 </head>
 <body>
-<div id="divParent" style="padding: 8px; background-color: #aaa; position: relative;">
+<div id="divParent" style="padding: 8px;width:400px; background-color: #aaa; position: relative;overflow: hidden;">
     <div id="divDisplay" style="background-color: #0f0; margin: 30px; padding: 10px;
-            height: 200px; width: 200px; border: solid 3px #f00;">
+            height: 400px; width: 600px; border: solid 3px #f00;">
     </div>
 </div>
 <script type="text/javascript">
     var div = document.getElementById('divDisplay');
+
+    //根据标准W3C盒子模型
+    //Content Edge + Right/Left/Top/Bottom Padding Edge = clientHeight or Client Width
 
     var clientHeight = div.clientHeight;
     var clientWidth = div.clientWidth;
     div.innerHTML += 'clientHeight: ' + clientHeight + '<br/>';
     div.innerHTML += 'clientWidth: ' + clientWidth + '<br/>';
 
+
+    //根据标准W3C盒子模型
+    //clientLeft = Border Left Edge
+    //clientTop  = Border Top Edge
     var clientLeft = div.clientLeft;
     var clientTop = div.clientTop;
     div.innerHTML += 'clientLeft: ' + clientLeft + '<br/>';
     div.innerHTML += 'clientTop: ' + clientTop + '<br/>';
 
+
+    //根据标准W3C盒子模型
+    //Content Edge + Right/Left/Top/Bottom Padding Edge + Right/Left/Top/Bottom Padding Edge + Scroll Self Width/Height = offsetHeight/offsetWidth
     var offsetHeight = div.offsetHeight;
     var offsetWidth = div.offsetWidth;
     div.innerHTML += 'offsetHeight: ' + offsetHeight + '<br/>';
     div.innerHTML += 'offsetWidth: ' + offsetWidth + '<br/>';
 
+    //根据标准W3C盒子模型
+    //Offset Left = Margin Left Edge + Parent Padding Left Edge
+    //Offset Top =  Margin Top Edge + Parent Padding Top Edge
     var offsetLeft = div.offsetLeft;
     var offsetTop = div.offsetTop;
     div.innerHTML += 'offsetLeft: ' + offsetLeft + '<br/>';
     div.innerHTML += 'offsetTop: ' + offsetTop + '<br/>';
 
+    //定位offset父级窗口
     var offsetParent = div.offsetParent;
     div.innerHTML += 'offsetParent: ' + offsetParent.id + '<br/>';
 </script>
