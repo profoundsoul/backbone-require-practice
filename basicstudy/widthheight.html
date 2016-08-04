@@ -14,27 +14,37 @@
     var div = document.getElementById('divDisplay');
 
     //可视高端和宽度，只包括Padding
+    //Content Edge + Right/Left/Top/Bottom Padding Edge = clientHeight or Client Width
     var clientHeight = div.clientHeight;
     var clientWidth = div.clientWidth;
     div.innerHTML += 'clientHeight: ' + clientHeight + '<br/>';
     div.innerHTML += 'clientWidth: ' + clientWidth + '<br/>';
 
+
+    //根据标准W3C盒子模型
+    //clientLeft = Border Left Edge
+    //clientTop  = Border Top Edge
     var clientLeft = div.clientLeft;
     var clientTop = div.clientTop;
     div.innerHTML += 'clientLeft: ' + clientLeft + '<br/>';
     div.innerHTML += 'clientTop: ' + clientTop + '<br/>';
 
-    //可视高度和宽度，包括边框
+    //根据标准W3C盒子模型
+    //Content Edge + Right/Left/Top/Bottom Padding Edge + Right/Left/Top/Bottom Padding Edge + Scroll Self Width/Height = offsetHeight/offsetWidth
     var offsetHeight = div.offsetHeight;
     var offsetWidth = div.offsetWidth;
     div.innerHTML += 'offsetHeight: ' + offsetHeight + '<br/>';
     div.innerHTML += 'offsetWidth: ' + offsetWidth + '<br/>';
 
+    //根据标准W3C盒子模型
+    //Offset Left = Margin Left Edge + Parent Padding Left Edge
+    //Offset Top =  Margin Top Edge + Parent Padding Top Edge
     var offsetLeft = div.offsetLeft;
     var offsetTop = div.offsetTop;
     div.innerHTML += 'offsetLeft: ' + offsetLeft + '<br/>';
     div.innerHTML += 'offsetTop: ' + offsetTop + '<br/>';
 
+    //定位offset父级窗口
     var offsetParent = div.offsetParent;
     div.innerHTML += 'offsetParent: ' + offsetParent.id + '<br/>';
 
