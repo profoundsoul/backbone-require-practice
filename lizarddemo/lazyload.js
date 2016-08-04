@@ -20,10 +20,12 @@ define(['cBase'], function (cBase) {
                 var o = $(this.imgs[i]);
                 var offset = o.offset(),
                     y = offset.top;
-                if (this.imgContainer[y]) {
-                    this.imgContainer[y].push(o);
-                } else {
-                    this.imgContainer[y] = [o];
+                if(o.attr('data-src') && !o.attr('data-load')) {
+                    if (this.imgContainer[y]) {
+                        this.imgContainer[y].push(o);
+                    } else {
+                        this.imgContainer[y] = [o];
+                    }
                 }
             }
         },
