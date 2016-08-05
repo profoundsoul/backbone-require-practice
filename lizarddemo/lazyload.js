@@ -5,10 +5,10 @@ define(['cBase'], function (cBase) {
     'use strict'
     var ImgLazyload = new cBase.Class({
         __propertys__: function () {
-            this.isError = false;
+            this.imgList=[];
         },
         initialize: function (opts) {
-            this.init();
+            $.extend(this, opts);
         }
     });
     return ImgLazyload;
