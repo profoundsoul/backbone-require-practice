@@ -5,17 +5,16 @@
     <title></title>
 </head>
 <body>
-<div id="divParent" style="padding: 8px;width:400px; background-color: #aaa; position: relative;overflow: hidden;">
+<div id="divParent" style="padding: 8px;border:2px solid yellowgreen;width: 100px;overflow: auto; background-color: #aaa; position: relative;">
     <div id="divDisplay" style="background-color: #0f0; margin: 30px; padding: 10px;
-            height: 400px; width: 600px; border: solid 3px #f00;">
+            height: 300px; width: 200px; border: solid 3px #f00;">
     </div>
 </div>
 <script type="text/javascript">
     var div = document.getElementById('divDisplay');
 
-    //根据标准W3C盒子模型
+    //可视高端和宽度，只包括Padding
     //Content Edge + Right/Left/Top/Bottom Padding Edge = clientHeight or Client Width
-
     var clientHeight = div.clientHeight;
     var clientWidth = div.clientWidth;
     div.innerHTML += 'clientHeight: ' + clientHeight + '<br/>';
@@ -29,7 +28,6 @@
     var clientTop = div.clientTop;
     div.innerHTML += 'clientLeft: ' + clientLeft + '<br/>';
     div.innerHTML += 'clientTop: ' + clientTop + '<br/>';
-
 
     //根据标准W3C盒子模型
     //Content Edge + Right/Left/Top/Bottom Padding Edge + Right/Left/Top/Bottom Padding Edge + Scroll Self Width/Height = offsetHeight/offsetWidth
@@ -49,6 +47,18 @@
     //定位offset父级窗口
     var offsetParent = div.offsetParent;
     div.innerHTML += 'offsetParent: ' + offsetParent.id + '<br/>';
+
+    //表示滚动条部分的高度或宽度
+    var scrollTop = div.scrollTop;
+    var scrollLeft = div.scrollLeft;
+    div.innerHTML += 'scrollTop:' + scrollTop + '<br/>';
+    div.innerHTML += 'scrollLeft' + scrollLeft + '<br/>';
+
+    //表示Content + Padding 容器实际高度和宽度，
+    var scrollWidth = div.scrollWidth;
+    var scrollHeight = div.scrollHeight;
+    div.innerHTML += 'scrollWidth:'+ scrollWidth + '<br/>';
+    div.innerHTML += 'scrollHeight:'+scrollHeight + '<br/>';
 </script>
 </body>
 </html>
