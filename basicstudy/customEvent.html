@@ -11,11 +11,25 @@
     $(function(){
         //自定义方法
 
-        $(document.body).on('myEvent', function(){
-            console.log('事件触发了！');
-        });
+        function MyClass() {
 
+        }
+        MyClass.prototype.showName=function(){
+            console.log('myname');
+            console.log('事件触发了！');
+        }
+
+
+        var c1 = new MyClass();
+        var c2 = new MyClass();
+        $(document.body).on('myEvent', c1.showName);
+        $(document.body).on('myEvent', c2.showName);
+        $(document.body).off('myEvent', '', c1.showName);
         $(document.body).trigger('myEvent');
+
+
+
+
     });
 </script>
 </body>

@@ -79,7 +79,7 @@ module.exports = function (grunt) {
         imagemin:{
             main:{
                 expand:true,
-                src:['images/*.{gif,png}'],
+                src:['images/*.{gif,png,jpg,jpeg}'],
                 dest:'dest/',
                 filter:'isFile',
                 fattern:false,
@@ -97,8 +97,6 @@ module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-imagemin');
 
-
-
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     grunt.loadNpmTasks('grunt-contrib-clean');
@@ -110,6 +108,11 @@ module.exports = function (grunt) {
     //加载copy插件
     grunt.loadNpmTasks('grunt-contrib-copy');
 
+    grunt.loadNpmTasks('grunt-newer');
+
+
     ////注册自动化任务
-    //grunt.registerTask('default', ['uglify:build']);
+    grunt.registerTask('default', ['uglify:build']);
+
+    grunt.registerTask('image', ['newer:imagemin:main']);
 };

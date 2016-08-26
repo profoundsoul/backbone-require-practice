@@ -1,0 +1,16 @@
+{
+  "name": "handleimage",
+  "version": "1.0.0",
+  "description": "处理一些图片压缩",
+  "main": "gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-imagemin": "^1.0.1"
+  }
+}

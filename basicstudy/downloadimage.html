@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>下载图片</title>
+    <style>
+        .img_container {
+            float: left;
+        }
+
+        .img_container img {
+            width: 220px;
+            height: 220px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div class="img_container">
+        <img src="http://res.yitb.com/upload/material/823/item/01 (2).jpg" alt=""/>
+    </div>
+    <div class="img_container">
+        <img src="http://res.yitb.com/upload/material/823/item/01 (2).jpg" alt=""/>
+    </div>
+    <div class="img_container">
+        <img src="http://res.yitb.com/upload/material/823/item/01 (2).jpg" alt=""/>
+    </div>
+    <div class="img_container">
+        <img src="http://res.yitb.com/upload/material/823/item/01 (2).jpg" alt=""/>
+    </div>
+    <div class="img_container">
+        <img src="http://res.yitb.com/upload/material/823/item/01 (2).jpg" alt=""/>
+    </div>
+    <div class="img_container">
+        <img src="http://res.yitb.com/upload/material/823/item/01 (2).jpg" alt=""/>
+    </div>
+    <div class="img_container">
+        <img src="http://res.yitb.com/upload/material/823/item/01 (2).jpg" alt=""/>
+    </div>
+    <div class="img_container">
+        <img src="http://res.yitb.com/upload/material/823/item/01 (2).jpg" alt=""/>
+    </div>
+    <div class="img_container">
+        <img src="http://res.yitb.com/upload/material/823/item/01 (2).jpg" alt=""/>
+    </div>
+    <br/>
+    <button id="downBtn">下载图片</button>
+</div>
+
+</body>
+<script>
+    (function (global) {
+        this.getBase64Image = function (img) {
+            var canvas = document.createElement("canvas");
+            canvas.width = img.width;
+            canvas.height = img.height;
+
+            var ctx = canvas.getContext("2d");
+            ctx.drawImage(img, 0, 0, img.width, img.height);
+            var ext = img.src.substring(img.src.lastIndexOf(".")+1).toLowerCase();
+            var dataURL = canvas.toDataURL("image/"+ext);
+            return dataURL;
+        };
+
+        this.downloadImage = function (imgsrc, fn) {
+            var image = new Image();
+//            image.crossOrigin = '';
+            image.src = imgsrc;
+            var _this = this;
+            image.onload = function () {
+                image.crossOrigin = '';
+                var base64 = _this.getBase64Image(image);
+                typeof fn === 'function' && fn.call(this, image, base64);
+                console.log(base64);
+            };
+        };
+        global.util = this;
+    }.call({}, this));
+    document.getElementById('downBtn').addEventListener('click', function(){
+        var allimg = document.querySelectorAll('.img_container img');
+        if(allimg.length) {
+            window.util.downloadImage(allimg[0].getAttribute('src'), function(img, base64){
+                console.log(img, base64);
+            });
+        }
+    })
+</script>
+</html>

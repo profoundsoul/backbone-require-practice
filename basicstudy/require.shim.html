@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>require shim配置精要</title>
+</head>
+<body>
+
+<script src="../lib/jquery-1.12.3.js"></script>
+<script src="../lib/require.js"></script>
+<script>
+    require.config({
+        shim: {
+            'jquery-private': {
+                exports: 'jQuery'
+            },
+            'jquery.custom': {
+                deps: ['jquery-private'],
+                exports: 'jQuery.fn.custom'
+            }
+        },
+        paths: {
+            'jquery-private': '../lib/jquery-1.12.3',
+            'jquery.custom': 'jquery.custom.plugin'
+        }
+    });
+
+    //此时允许不需要全局用jquery访问jQuery.fn.Custom插件，直接使用customPlugin即可
+    require(['jquery.custom'], function (customPlugin) {
+        console.log(customPlugin);
+    });
+</script>
+</body>
+</html>
