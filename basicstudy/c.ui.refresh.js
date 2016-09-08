@@ -180,7 +180,7 @@ define(['cBase'], function (cBase) {
          * @private
          */
         _test: function (prefix) {
-            this._consoleTest((prefix ? prefix + '---' : '') + 'y:' + this.y + '    pointY:' + this.pointY + '     client:Y:'+this.clientY);
+            this._consoleTest((prefix ? prefix + '---' : '') + 'y:' + this.y + '    pointY:' + this.pointY + '     client:Y:' + this.clientY);
         },
 
         _animationEnd: function (e) {
@@ -219,7 +219,7 @@ define(['cBase'], function (cBase) {
             //计算出当前DocumentElement元素的高度及坐标
             //var MaxvisialY = $(document.documentElement).offset().height -100;
 
-            if (deltaY <= 0 || point.pageY >point.clientY) {
+            if (deltaY <= 0 || point.pageY > point.clientY) {
                 //此处必须返回True，如果是false可能会禁用掉当前的触摸事件
                 return true;
             } else {
