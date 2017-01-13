@@ -1,4 +1,5 @@
 (function ($) {
+
     function Core() {
     }
 
@@ -46,9 +47,9 @@
                 }
             }
             //清除所有的事件
-            delegateTarget.off('.' + this.mid);
+            delegateTarget.off('.' + this.__mid);
             $.each(_evtArr, function (idx, item) {
-                var argArr = [item.eventName + '.' + _this.mid];
+                var argArr = [item.eventName + '.' + _this.__mid];
                 if (item.delegate) {
                     argArr.push(item.delegate);
                 }
@@ -62,55 +63,15 @@
         };
         this.initialize = function () {
         };
-        /**
-         * 重写提示框弹出，关闭时自动移除Dom
-         * @param msg   提示语
-         * @param delay 延时多少秒后关闭
-         * @param callback 回调
-         * @param clickToHide 点击自动隐藏
-         */
-        this.showToast = function (msg, delay, callback, clickToHide) {
-        };
-        /**
-         * 确认提示框，点击确定和取消时会自动回调oKFn与failFn
-         * @param msg 消息
-         * @param okFn 点击确定回调
-         * @param context 改变回调事件上下文
-         * @param failFn 点击取消回调
-         */
-        this.showConfirm = function (msg, okFn, context, failFn) {
+        this.destory = function () {
+            this.$el.empty().off('.' + this.__mid);
         };
         return this;
     }).call({});
     Core.prototype.constructor = Core;
 
     var util = (function () {
-        this.View = function (options) {
-            var instance = new Core;
-            $.extend(instance, options || {});
-            var ulitity = this;
-            //创建通用实例，将el属性包装成为jQuery或Zepto对象
-            (function () {
-                //生成包装对象，如果传入el无效，则使用__el对象进行包装
-                this.$el = (function () {
-                    var $ele = $(this.el);
-                    if (!($ele && $ele.length)) {
-                        $ele = $(this.__el);
-                    }
-                    return $ele;
-                }).call(instance);
-                this.mid = ulitity.getUniqueViewId();
-                this.handleBindEvent();
-
-                //业务代码异步执行处理
-                var _this = this;
-                setTimeout(function(){
-                    _this.__propertys__();
-                    _this.initialize();
-                });
-            }).call(instance);
-            return instance;
-        };
+        var currentDirRegExp = /([\\\/]*)[\w\.]+.js$/i;
 
         /**
          * 将指定cookie字符串转换为对象，不传入参数cookieStr时，默认取document.cookie
@@ -188,7 +149,6 @@
                     };
                 for (var i = 0, l = array.length; i < l; i++) {
                     for (var j = i + 1; j < l; j++) {
-                        console.log(++count);
                         if (__predicate(array[i], array[j], {preIndex: i, nextIndex: j, origin: array})) {
                             j = ++i;
                         }
@@ -200,19 +160,37 @@
         }());
 
         /**
-         * 获取页面唯一标识
+         * 生成唯一标识id偏函数
          */
-        this.getUniqueViewId = (function () {
-            var prefixName = 'view';
+        this.generateUniqueId = function (prefix) {
             var maxIndex = 0;
             return function () {
-                return prefixName + (++maxIndex);
+                return prefix + (++maxIndex);
             }
-        }());
+        };
 
-        /**
-         * 获取URL中的search参数
-         */
+        this.getTemplateByUrl = function (url, okFn, ctx, failFn) {
+            $.get(url).success(function () {
+                typeof okFn === 'function' && okFn.apply(ctx, arguments);
+            }).fail(function (res, status, xhr) {
+                console.log(res, status, xhr);
+                typeof failFn === 'function' && failFn.apply(ctx, arguments);
+            });
+        };
+
+        this.getTemplateSync = function (url, okFn, ctx, failFn) {
+            $.ajax({
+                type: "get",
+                url: url,
+                async: false
+            }).success(function () {
+                typeof okFn === 'function' && okFn.apply(ctx, arguments);
+            }).fail(function (res, status, xhr) {
+                console.log(res, status, xhr);
+                typeof failFn === 'function' && failFn.apply(ctx, arguments);
+            });
+        };
+
         this.getParamsFromUrl = (function () {
             return function () {
                 var param = {},
@@ -238,11 +216,125 @@
             return _search;
         };
 
+        this.getCurrentScript = function () {
+            if (document.currentScript) {
+                return document.currentScript;
+            }
+
+            // For IE6-9 browsers, the script onload event may not fire right
+            // after the script is evaluated. Kris Zyp found that it
+            // could query the script nodes and the one that is in "interactive"
+            // mode indicates the current script
+            // ref: http://goo.gl/JHfFW
+            var scripts = document.getElementsByTagName("script");
+            for (var i = scripts.length - 1; i >= 0; i--) {
+                var script = scripts[i];
+                if (script.readyState === "interactive") {
+                    var interactiveScript = script;
+                    return interactiveScript
+                }
+            }
+            return scripts[scripts.length - 1];
+        };
+
+        this.getScriptRelativeUrl = function (path) {
+            var script = this.getCurrentScript(),
+                src = $(script).attr('src');
+            return src.replace(currentDirRegExp, '$1' + path);
+        };
+
+        this.View = (function (ulitity) {
+            var getViewId = ulitity.generateUniqueId('__view_');
+            return function (options) {
+                var instance = new Core;
+                $.extend(instance, options || {});
+                //创建通用实例，将el属性包装成为jQuery或Zepto对象
+                (function () {
+                    //生成包装对象，如果传入el无效，则使用__el对象进行包装
+                    this.$el = (function () {
+                        var $ele = $(this.el);
+                        if (!($ele && $ele.length)) {
+                            $ele = $(this.__el);
+                        }
+                        return $ele;
+                    }).call(instance);
+                    this.__mid = getViewId();
+                    this.__propertys__();
+                    //业务代码异步执行处理
+                    var _this = this;
+                    setTimeout(function () {
+                        _this.handleBindEvent();
+                        _this.initialize();
+                    });
+                }).call(instance);
+                return instance;
+            }
+        })(this);
+        this.Component = function (options) {
+            var currentSrc = $(this.getCurrentScript()).attr('src');
+            var getComponentId = this.generateUniqueId('__component_');
+            var defaults = {
+                __compPath: currentSrc || location.href,
+                data: null,
+                templatePath: '',   // template file path
+                templateStr: ''     // text template html
+            };
+            var checkParams = function (attrs, fn, ctx) {
+                if (!attrs.templateStr && !attrs.templatePath) {
+                    console.log('参数不合法！');
+                    return false;
+                }
+                if (!attrs.templateStr && attrs.templatePath) {
+                    var relativeTplSrc = attrs.__compPath.replace(currentDirRegExp, '$1' + attrs.templatePath);
+                    util.getTemplateSync(relativeTplSrc, function (str) {
+                        typeof fn === 'function' && fn.apply(ctx, arguments);
+                    }, this, function () {
+                        console.log('无效的template path！');
+                    });
+                } else {
+                    typeof fn === 'function' && fn.call(ctx, attrs.templateStr);
+                }
+            };
+            return function (box, attrs) {
+                var settings = $.extend({}, defaults, options || {}, attrs);
+                var instance = new Core;
+                //创建通用实例，将el属性包装成为jQuery或Zepto对象
+                (function () {
+                    this.$el = $(box);
+                    if (!(this.$el && this.$el.length)) {
+                        throw new Error("no available box element!");
+                    }
+                    this.__mid = getComponentId();
+                    //业务代码异步执行处理
+                    var _this = this;
+                    checkParams(settings, function (str) {
+                        $.extend(instance, settings, {templateStr: str});
+                        var wrapper = $('<div>').attr('data-compid', _this.__mid);
+                        if (_this.data) {
+                            wrapper.html(_.template(str, settings.data));
+                        } else {
+                            wrapper.html(str);
+                        }
+                        _this.$el.html(wrapper);
+                        _this.__propertys__();
+                        setTimeout(function () {
+                            _this.handleBindEvent();
+                            _this.initialize();
+                        });
+                    }, this);
+                }).call(instance);
+                return instance;
+            };
+        };
+
         return this;
     }).call({});
 
     //extend jQuery statics method
-    $.extend({custom: util});
+    if (typeof $.custom !== 'object') {
+        $.extend({custom: {}});
+    }
+    $.extend($.custom, util);
 
     return util;
 }(jQuery));

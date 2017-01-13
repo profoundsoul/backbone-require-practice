@@ -15,6 +15,11 @@
 <div class="js_frm_box" style="margin: 20px;">
 
 </div>
+
+<div id="component">
+
+</div>
+
 <script type="text/template" id="js_frm_tpl">
     << if(data){ >>
     <form action="xx.aspx">
@@ -34,8 +39,6 @@
     </form>
     << } >>
 </script>
-<div></div>
-
 <script id="js_ul_tpl" type="text/template">
     << if(data && data.length){ >>
     << _.each(data, function(item){ >>
@@ -43,9 +46,17 @@
     << }); >>
     << } >>
 </script>
-
 <script src="lib/jquery-1.10.2.js"></script>
-<script src="lib/core.min.js"></script>
+<!--<script src="lib/core.min.js"></script>-->
+<script src="lib/underscore.js"></script>
+<script src="lib/core.js"></script>
+<script src="lib/jquery.advance.js"></script>
+<script >
+    $('#component').advanceSearch({
+//        tpl:'<ul><li>111111</li><li>2222222222222</li></ul>'
+        tplUrl:'test.html'
+    });
+</script>
 <!--<script src="lib/underscore.js"></script>-->
 <!--<script src="lib/util.js"></script>-->
 <script src="main.js"></script>

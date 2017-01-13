@@ -1,0 +1,139 @@
+<script type="text/template" id="js_search">
+    <div class="guolvtc" style="float:none;">
+        <<if(typelist && typelist.length >0){
+        var curid = typelist[0].id;
+        var curtitle = typelist[0].title;
+        var curItem = _.find(typelist, function(item){return item.id === post.srchType;});
+        if(curItem){
+        curid = curItem.id;
+        curtitle = curItem.title;
+        }
+        >>
+        <<if(typelist && typelist.length){>>
+        <div class="filterbox" data-col="type" data-value="<<=typelist[0].id>>" style="float:left;margin-right:10px;">
+            <div class="filteCrt" data-dp="cnt"><<=typelist[0].title>></div>
+            <div class="opt_box" data-dp="box">
+                <<_.each(typelist, function(item){>>
+                <dd data-id="<<=item.id>>" data-title="<<=item.title>>"><<=item.title>></dd>
+                <<});>>
+            </div>
+        </div>
+        <<}>>
+        <input name="keywords" type="text" class="input_gjc2" data-col="kwd" placeholder="请输入完整的网店单号"/>
+        <input type="button" class="search_botton" data-searchbtn="1" value="订单搜索"/>
+         <a id="search_botton" class="advanced_search">高级筛选<i></i></a>
+        <<}>>
+    </div>
+    <div class="guolvtc_box js_advance_box">
+        <div class="box_advsc">
+            <div class="filter_box">
+                <em></em>
+                <ul>
+                    <li class="filter_s">
+                        <span class="filter_opt">目的省市</span>
+                        <div class="inputxl" data-col="city" style="width:118px;">
+                            <div class="inputnr"><span>全部</span><i></i></div>
+                            <div data-dp="box" style="display: none;">
+                                <div class="address_box" >
+                                    <div class="address_wrap">
+                                        <div class="address_tab">
+                                            <ul>
+                                                <li data-type="province">省份</li>
+                                                <li data-type="city">城市</li>
+                                            </ul>
+                                        </div>
+                                        <div data-dp="cnt"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </li>
+                    <li  class="filter_s">
+                        <span class="filter_opt">创建时间</span>
+                        <div class="inputxl" style="width:330px;">
+                            <span class="select_date"><input type="text" class="select_date_end" style="width:132px;" data-date="begin"></span>
+                            &nbsp;至&nbsp;
+                            <span class="select_date"><input type="text" class="select_date_end" style="width:132px;" data-date="end"></span>
+                        </div>
+                    </li>
+                    <li  class="filter_s">
+                        <span class="filter_opt">订单状态</span>
+                        <div class="inputxl"  data-col="status"  style="width:118px;">
+                            <div class="inputnr"><span>全部</span><i></i></div>
+                            <div data-dp="box" style="display:none;"></div>
+                        </div>
+                    </li>
+                    <li  class="filter_s">
+                        <span class="filter_opt">订单来源</span>
+                        <div class="inputxl" style="width:118px;" data-col="origin">
+                            <div class="inputnr"><span>全部</span><i></i></div>
+                            <div data-dp="box" style="display: none;"></div>
+                        </div>
+                    </li>
+                    <li  class="filter_s">
+                        <span class="filter_opt">发货仓库</span>
+                        <div class="inputxl" data-col="store" style="width:118px;">
+                            <div class="inputnr"><span>全部</span> <i></i></div>
+                            <div data-dp="box" style="display: none;"></div>
+                        </div>
+                    </li>
+                    <li  class="filter_s">
+                        <span class="filter_opt">订单性质</span>
+                        <div class="inputxl"  data-col="sources"  style="width:118px;">
+                            <div class="inputnr"><span>全部</span><i></i></div>
+                            <div data-dp="box" style="display:none;">
+                                <div class="inputxlbox">
+                                    <dd data-id=""><a href="javascript:void(0);">全部</a></dd>
+                                    <dd data-id="1"><a href="javascript:void(0);">手动订单</a></dd>
+                                    <dd data-id="2"><a href="javascript:void(0);">同步订单</a></dd>
+                                    <dd data-id="3"><a href="javascript:void(0);">导入订单</a></dd>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="advbtn_wrap">
+                <input type="button" class="red_btn" data-searchbtn="2" value="搜索"/>
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/template" id="js_orderorigin_tpl">
+    <<if(data && data.length>1){>>
+    <div class="inputxlbox">
+        <<_.each(data, function(item){>>
+        <dd data-id="<<=item.id>>"><a href="javascript:void(0);"><<=item.sName>></a></dd>
+        <<});>>
+    </div>
+    <<}>>
+</script>
+<script type="text/template" id="js_store_tpl">
+    <<if(data && data.length>1){>>
+    <div class="inputxlbox">
+        <<_.each(data, function(item){>>
+        <dd data-id="<<=item.ckNo>>"><a href="javascript:void(0);"><<=item.ckName>></a></dd>
+        <<});>>
+    </div>
+    <<}>>
+</script>
+<script type="text/template" id="js_status_tpl">
+    <<if(data && data.length>1){>>
+    <div class="inputxlbox">
+        <<_.each(data, function(item){>>
+        <dd data-id="<<=item.id>>"><a href="javascript:void(0);"><<=item.name>></a></dd>
+        <<});>>
+    </div>
+    <<}>>
+</script>
+<script type="text/template" id="js_erea_tpl">
+    <<if(data && data.length){>>
+    <div class="address_list">
+        <<_.each(data, function(item){>>
+        <dd data-id="<<=item.id>>" class="<<=chkid == item.id ? 'act':''>>"><<=item.aname>></dd>
+        <<});>>
+    </div>
+    <<}>>
+</script>
+
