@@ -29,11 +29,21 @@
     </style>
 </head>
 <body>
-<div class="cfui_mask"></div>
+<input type="button" id="test" value="蒙版"/>
+<!--<div class="cfui_mask"></div>-->
 
 <script src="lib/jquery-1.10.2.js"></script>
 <!--<script src="lib/core.min.js"></script>-->
 <script src="lib/underscore.js"></script>
 <script src="lib/core.js"></script>
+<script>
+    $('#test').click(function(){
+        var mask = new $.custom.Mask();
+        mask.$el.click(function(){
+            mask.destory();
+        })
+        mask.show();
+    });
+</script>
 </body>
 </html>

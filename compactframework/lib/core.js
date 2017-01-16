@@ -1,78 +1,18 @@
 (function ($) {
-
-    function Core() {
+    'use strict'
+    //well compatible
+    if (!(window.console && console.log && console.error || console.warn)) {
+        window.console = window.console || {};
+        console.log = console.log || function () {
+        };
+        console.error = console.error || function () {
+        };
+        console.warn = console.warn || function () {
+        };
     }
 
-    Core.prototype = (function () {
-        this.__el = 'body';
-        this.el = 'body';
-        this.events = {};
-        this.handleBindEvent = function () {
-            var _this = this,
-                _evtArr = [];
-            var delegateTarget = this.$el;
-            for (var k in this.events) {
-                if (this.events.hasOwnProperty(k)) {
-                    var key = $.trim(k);
-                    var value = this.events[k];
-                    var evtObj = {};
-                    var delegateSelector = '';
-
-                    if (typeof value === 'string') {
-                        value = $.trim(value);
-                        if (this[value] && typeof this[value] === 'function') {
-                            evtObj.handle = this[value];
-                        }
-                    } else if (typeof value === 'function') {
-                        evtObj.handle = value;
-                    }
-
-                    if (evtObj.handle) {
-                        evtObj.eventName = key.match(/\w+/)[0];
-                        if (key.length === evtObj.eventName.length) {
-                            evtObj.delegate = '';
-                            _evtArr.push(evtObj);
-                        } else {
-                            delegateSelector = $.trim(key.substr(evtObj.eventName.length));
-                            try {
-                                //此处主要是为了判定选择器是否有效，如果为无效，抛出异常操作，直接PASS掉
-                                var isExist = delegateTarget.find(delegateSelector).length > 0;
-                                evtObj.delegate = delegateSelector;
-                                _evtArr.push(evtObj);
-                            } catch (e) {
-                                console.error('invalid event delegate binding : ' + key + ' : ' + value);
-                            }
-                        }
-                    }
-                }
-            }
-            //清除所有的事件
-            delegateTarget.off('.' + this.__mid);
-            $.each(_evtArr, function (idx, item) {
-                var argArr = [item.eventName + '.' + _this.__mid];
-                if (item.delegate) {
-                    argArr.push(item.delegate);
-                }
-                argArr.push(function () {
-                    item.handle.apply(_this, arguments);
-                });
-                delegateTarget.on.apply(delegateTarget, argArr);
-            });
-        };
-        this.__propertys__ = function () {
-        };
-        this.initialize = function () {
-        };
-        this.destory = function () {
-            this.$el.empty().off('.' + this.__mid);
-        };
-        return this;
-    }).call({});
-    Core.prototype.constructor = Core;
-
+    var currentDirRegExp = /([\\\/]*)[\w\.]+.js$/i;
     var util = (function () {
-        var currentDirRegExp = /([\\\/]*)[\w\.]+.js$/i;
-
         /**
          * 将指定cookie字符串转换为对象，不传入参数cookieStr时，默认取document.cookie
          * @param cookieStr cookie字符串
@@ -243,13 +183,89 @@
             return src.replace(currentDirRegExp, '$1' + path);
         };
 
-        this.View = (function (ulitity) {
-            var getViewId = ulitity.generateUniqueId('__view_');
-            return function (options) {
-                var instance = new Core;
-                $.extend(instance, options || {});
-                //创建通用实例，将el属性包装成为jQuery或Zepto对象
-                (function () {
+        return this;
+    }).call({});
+
+    var uiHelper = (function (ulitity) {
+        var __dialog_Name_Reg = /^[A-z]\w{2,16}$/gi;
+        var __getViewId = ulitity.generateUniqueId('__view_');
+        var __getComponentId = ulitity.generateUniqueId('__component_');
+        var __getMaskId = ulitity.generateUniqueId('__mask_');
+        var __getDialogId = ulitity.generateUniqueId('__dialog_');
+        var __handleBindEvent = function () {
+            var _this = this,
+                _evtArr = [];
+            var delegateTarget = this.$el;
+            for (var k in this.events) {
+                if (this.events.hasOwnProperty(k)) {
+                    var key = $.trim(k);
+                    var value = this.events[k];
+                    var evtObj = {};
+                    var delegateSelector = '';
+
+                    if (typeof value === 'string') {
+                        value = $.trim(value);
+                        if (this[value] && typeof this[value] === 'function') {
+                            evtObj.handle = this[value];
+                        }
+                    } else if (typeof value === 'function') {
+                        evtObj.handle = value;
+                    }
+
+                    if (evtObj.handle) {
+                        evtObj.eventName = key.match(/\w+/)[0];
+                        if (key.length === evtObj.eventName.length) {
+                            evtObj.delegate = '';
+                            _evtArr.push(evtObj);
+                        } else {
+                            delegateSelector = $.trim(key.substr(evtObj.eventName.length));
+                            try {
+                                //此处主要是为了判定选择器是否有效，如果为无效，抛出异常操作，直接PASS掉
+                                var isExist = delegateTarget.find(delegateSelector).length > 0;
+                                evtObj.delegate = delegateSelector;
+                                _evtArr.push(evtObj);
+                            } catch (e) {
+                                console.error('invalid event delegate binding : ' + key + ' : ' + value);
+                            }
+                        }
+                    }
+                }
+            }
+            //清除所有的事件
+            delegateTarget.off('.' + this.__mid);
+            $.each(_evtArr, function (idx, item) {
+                var argArr = [item.eventName + '.' + _this.__mid];
+                if (item.delegate) {
+                    argArr.push(item.delegate);
+                }
+                argArr.push(function () {
+                    item.handle.apply(_this, arguments);
+                });
+                delegateTarget.on.apply(delegateTarget, argArr);
+            });
+        };
+        var __checkTemplate = function (attrs, fn, ctx) {
+            if (!attrs.templateStr && !attrs.templatePath) {
+                console.log('参数不合法！');
+                return false;
+            }
+            if (!attrs.templateStr && attrs.templatePath) {
+                var relativeTplSrc = attrs.__compPath.replace(currentDirRegExp, '$1' + attrs.templatePath);
+                util.getTemplateSync(relativeTplSrc, function (str) {
+                    typeof fn === 'function' && fn.apply(ctx, arguments);
+                }, this, function () {
+                    console.log('无效的template path！');
+                });
+            } else {
+                typeof fn === 'function' && fn.call(ctx, attrs.templateStr);
+            }
+        };
+
+        this.View = function (options) {
+            var instance = new Core;
+            $.extend(instance, options || {});
+            (function () {
+                this.__create = function () {
                     //生成包装对象，如果传入el无效，则使用__el对象进行包装
                     this.$el = (function () {
                         var $ele = $(this.el);
@@ -258,84 +274,208 @@
                         }
                         return $ele;
                     }).call(instance);
-                    this.__mid = getViewId();
+                    this.__mid = __getViewId();
                     this.__propertys__();
                     //业务代码异步执行处理
                     var _this = this;
                     setTimeout(function () {
-                        _this.handleBindEvent();
+                        _this.__handleBindEvent();
                         _this.initialize();
                     });
-                }).call(instance);
-                return instance;
-            }
-        })(this);
+                };
+            }).call(instance);
+            instance.__create();
+            return instance;
+        };
 
         this.Component = function (options) {
-            var currentSrc = $(this.getCurrentScript()).attr('src');
-            var getComponentId = this.generateUniqueId('__component_');
+            var currentSrc = $(ulitity.getCurrentScript()).attr('src');
             var defaults = {
                 __compPath: currentSrc || location.href,
                 data: null,
                 templatePath: '',   // template file path
                 templateStr: ''     // text template html
             };
-            var checkParams = function (attrs, fn, ctx) {
-                if (!attrs.templateStr && !attrs.templatePath) {
-                    console.log('参数不合法！');
-                    return false;
-                }
-                if (!attrs.templateStr && attrs.templatePath) {
-                    var relativeTplSrc = attrs.__compPath.replace(currentDirRegExp, '$1' + attrs.templatePath);
-                    util.getTemplateSync(relativeTplSrc, function (str) {
-                        typeof fn === 'function' && fn.apply(ctx, arguments);
-                    }, this, function () {
-                        console.log('无效的template path！');
-                    });
-                } else {
-                    typeof fn === 'function' && fn.call(ctx, attrs.templateStr);
-                }
-            };
             return function (box, attrs) {
                 var settings = $.extend({}, defaults, options || {}, attrs);
                 var instance = new Core;
                 //创建通用实例，将el属性包装成为jQuery或Zepto对象
                 (function () {
-                    this.$el = $(box);
-                    if (!(this.$el && this.$el.length)) {
-                        throw new Error("no available box element!");
-                    }
-                    this.__mid = getComponentId();
-                    //业务代码异步执行处理
-                    var _this = this;
-                    checkParams(settings, function (str) {
-                        $.extend(instance, settings, {templateStr: str});
-                        var wrapper = $('<div>').attr('data-compid', _this.__mid);
-                        if (_this.data) {
-                            wrapper.html(_.template(str, settings.data));
-                        } else {
-                            wrapper.html(str);
+                    this.__create = function () {
+                        this.$el = $(box);
+                        if (!(this.$el && this.$el.length)) {
+                            throw new Error("no available box element!");
                         }
-                        _this.$el.html(wrapper);
-                        _this.__propertys__();
-                        setTimeout(function () {
-                            _this.handleBindEvent();
-                            _this.initialize();
-                        });
-                    }, this);
+                        this.__mid = __getComponentId();
+                        //业务代码异步执行处理
+                        var _this = this;
+                        __checkTemplate(settings, function (str) {
+                            $.extend(instance, settings, {templateStr: str});
+                            var wrapper = $('<div>').attr('data-compid', _this.__mid);
+                            if (_this.data) {
+                                wrapper.html(_.template(str, settings.data));
+                            } else {
+                                wrapper.html(str);
+                            }
+                            _this.$el.html(wrapper);
+                            _this.__propertys__();
+                            setTimeout(function () {
+                                _this.__handleBindEvent();
+                                _this.initialize();
+                            });
+                        }, this);
+                    };
                 }).call(instance);
+                instance.__create();
                 return instance;
             };
         };
 
+        this.Mask = function () {
+            var instance = new Core();
+            (function () {
+                this.__create = function () {
+                    this.__mid = __getMaskId();
+                    this.el = '<div class="cfui_mask"></div>';
+                    this.$el = $(this.el);
+                    this.$el.attr('data-maskid', this.__mid);
+                    this.setzIndexTop();
+                    $(document.body).append(this.$el);
+                };
+                this.destory = function () {
+                    this.$el.remove();
+                };
+                this.setzIndexTop = function () {
+                    this.$el.css('z-index', this.getBiggerzIndex());
+                };
+            }).call(instance);
+            instance.__create();
+            return instance;
+        };
+
+        this.Dialog = function (dialogName, options) {
+            var currentSrc = $(ulitity.getCurrentScript()).attr('src');
+            var defaults = {
+                __compPath: currentSrc || location.href,
+                isStartAnimation: false,
+                isClickHide: false,
+                templatePath: '',   // template file path
+                templateStr: ''     // text template html
+            };
+
+            return uiHelper.Dialog.__register(dialogName, function (attrs) {
+                var settings = $.extend({}, defaults, options || {}, attrs);
+                var instance = new Core();
+
+                //创建通用实例，将el属性包装成为jQuery或Zepto对象
+                (function () {
+                    //业务代码异步执行处理
+                    this.__create = function () {
+                        var _this = this;
+                        this.__mid = __getDialogId();
+                        __checkTemplate(settings, function (str) {
+                            $.extend(instance, settings, {templateStr: str});
+                            _this.$el = $('<div class="cfui_view cfui_view_pos">').attr('data-dialogid', _this.__mid);
+                            if (_this.data) {
+                                _this.$el.html(_.template(str, settings.data));
+                            } else {
+                                _this.$el.html(str);
+                            }
+                        }, this);
+                    };
+
+                    this.__show = function () {
+                        var _this = this;
+                        this.mask = new uiHelper.Mask();
+                        $(document.body).append(this.$el);
+                        this.setzIndexTop();
+                        _this.__propertys__();
+                        setTimeout(function () {
+                            _this.__handleBindEvent();
+                            _this.initialize();
+                        });
+                        if(this.isClickHide) {
+                            this.mask.$el.on('click', function () {
+                                _this.destory();
+                            })
+                        }
+                    };
+                    this.destory = function () {
+                        var _this = this;
+                        if (this.isStartAnimation) {
+                            _this.$el.addClass('cfui_view_out');
+                            _this.mask.$el.remove();
+                            setTimeout(function () {
+                                _this.mask.destory();
+                                _this.$el.remove();
+                            }, 1500);
+                        } else {
+                            this.mask.destory();
+                            this.$el.remove();
+                        }
+                    };
+
+                    this.setzIndexTop = function () {
+                        this.$el.css('z-index', this.getBiggerzIndex());
+                    };
+                }).call(instance);
+                instance.__create();
+                instance.__show();
+                return instance;
+            });
+        };
+
+        this.Dialog.__register = function (name, fn) {
+            var dialogHash = uiHelper.Dialog;
+            if (typeof name !== 'string' || !__dialog_Name_Reg.test(name)) {
+                console.error('the name of the dialog  is not availble, Regular expression rules is /^[A-z]\w{2,16}$/gi');
+                return fn;
+            }
+
+            if (typeof fn !== 'function') {
+                console.error('= the dialog must be availble function');
+                return fn;
+            }
+            if (dialogHash[name]) {
+                console.warn('$.custom.dialog.' + name + ' is exist，please rename dialog name or check dialog');
+                return fn;
+            }
+            dialogHash[name] = fn;
+            return fn;
+        };
+
+        function Core() {
+        }
+
+        Core.prototype = (function () {
+            this.__el = 'body';
+            this.el = 'body';
+            this.events = {};
+            this.__handleBindEvent = __handleBindEvent;
+            this.__propertys__ = function () {
+            };
+            this.initialize = function () {
+            };
+            this.destory = function () {
+                this.$el.empty().off('.' + this.__mid);
+            };
+            this.getBiggerzIndex = (function () {
+                var startzIndex = 3000;
+                return function () {
+                    return ++startzIndex;
+                };
+            })();
+            return this;
+        }).call({});
+        Core.prototype.constructor = Core;
+
         return this;
-    }).call({});
+    }).call({}, util);
 
     //extend jQuery statics method
     if (typeof $.custom !== 'object') {
         $.extend({custom: {}});
     }
-    $.extend($.custom, util);
+    $.extend($.custom, util, uiHelper);
 
-    return util;
 }(jQuery));
