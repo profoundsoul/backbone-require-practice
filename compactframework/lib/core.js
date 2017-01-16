@@ -270,6 +270,7 @@
                 return instance;
             }
         })(this);
+
         this.Component = function (options) {
             var currentSrc = $(this.getCurrentScript()).attr('src');
             var getComponentId = this.generateUniqueId('__component_');

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>通用弹窗模型</title>
+    <style>
+        .cfui_view {
+            display: block;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
+            -o-transition:all 1s ease 0.3s;
+            -moz-transition:all 1s ease 0.3s;
+            -webkit-transition:all 1s ease 0.3s;
+            transition:all 1s ease 0.3s;
+        }
+        .cfui_view:before{
+            content: '';
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            opacity:0.1;
+            -ms-filter: "alpha(opacity=10)";
+            filter: alpha(opacity=10);
+            z-index: 1;
+        }
+
+        .cfui_view .cfui_view_box{
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -o-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            transition:all 1s ease 0.2s;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+<div class="cfui_view">
+    <div class="cfui_view_box">
+        <div style="width:100px;height: 100px;background: greenyellow"></div>
+    </div>
+</div>
+<script src="lib/jquery-1.10.2.js"></script>
+<!--<script src="lib/core.min.js"></script>-->
+<script src="lib/underscore.js"></script>
+<script src="lib/core.js"></script>
+</body>
+</html>

@@ -2,7 +2,8 @@
  * Created by mumu on 2017/1/11.
  */
 $.custom.View({
-    el: 'bodya',
+    el: 'body',
+    aaa:'11',
     events: {
         'click input[name="list"]':'genList',
         'click input[name="submit"]':'submitForm'
@@ -12,9 +13,12 @@ $.custom.View({
         //模板函数
         this.ulTplFn = _.template(_el.find('#js_ul_tpl').html());
         this.frmTplFn = _.template(_el.find('#js_frm_tpl').html());
+
+        this.aaa = 1;
     },
     initialize: function () {
         this.initFrmData();
+        console.log(this.aaa);
     },
     initFrmData:function(){
         var mockData = {
