@@ -65,8 +65,12 @@
 <script src="lib/alert.js"></script>
 <script>
     $('#dialog').click(function(){
-        $.custom.Dialog.alert({
-            isStartAnimation:false,
+        $.custom.Dialog.Confirm('确定取消订单？', function(){
+            console.log('确定！');
+        }, this, {
+            cancelFn:function(){
+                console.log('取消！');
+            }
         });
     });
 </script>

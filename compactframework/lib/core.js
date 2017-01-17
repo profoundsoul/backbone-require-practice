@@ -292,12 +292,10 @@
             var currentSrc = $(ulitity.getCurrentScript()).attr('src');
             var defaults = {
                 __compPath: currentSrc || location.href,
-                data: null,
                 templatePath: '',   // template file path
                 templateStr: ''     // text template html
             };
             return function (box, attrs) {
-                var settings = $.extend({}, defaults, options || {}, attrs);
                 var instance = new Core;
                 //创建通用实例，将el属性包装成为jQuery或Zepto对象
                 (function () {
@@ -309,14 +307,11 @@
                         this.__mid = __getComponentId();
                         //业务代码异步执行处理
                         var _this = this;
+                        var settings = $.extend(true, {}, defaults, options || {}, attrs);
                         __checkTemplate(settings, function (str) {
                             $.extend(instance, settings, {templateStr: str});
                             var wrapper = $('<div>').attr('data-compid', _this.__mid);
-                            if (_this.data) {
-                                wrapper.html(_.template(str, settings.data));
-                            } else {
-                                wrapper.html(str);
-                            }
+                            wrapper.html(str);
                             _this.$el.html(wrapper);
                             _this.__propertys__();
                             setTimeout(function () {
@@ -353,7 +348,7 @@
             return instance;
         };
 
-        this.Dialog = function (dialogName, options) {
+        this.Dialog = function (options) {
             var currentSrc = $(ulitity.getCurrentScript()).attr('src');
             var defaults = {
                 __compPath: currentSrc || location.href,
@@ -363,8 +358,7 @@
                 templateStr: ''     // text template html
             };
 
-            return uiHelper.Dialog.__register(dialogName, function (attrs) {
-                var settings = $.extend({}, defaults, options || {}, attrs);
+            return function (attrs) {
                 var instance = new Core();
 
                 //创建通用实例，将el属性包装成为jQuery或Zepto对象
@@ -372,18 +366,14 @@
                     //业务代码异步执行处理
                     this.__create = function () {
                         var _this = this;
+                        var settings = $.extend(true, {}, defaults, options||{}, attrs||{});
                         this.__mid = __getDialogId();
                         __checkTemplate(settings, function (str) {
                             $.extend(instance, settings, {templateStr: str});
                             _this.$el = $('<div class="cfui_view cfui_view_pos">').attr('data-dialogid', _this.__mid);
-                            if (_this.data) {
-                                _this.$el.html(_.template(str, settings.data));
-                            } else {
-                                _this.$el.html(str);
-                            }
+                            _this.$el.html(str);
                         }, this);
                     };
-
                     this.__show = function () {
                         var _this = this;
                         this.mask = new uiHelper.Mask();
@@ -394,17 +384,12 @@
                             _this.__handleBindEvent();
                             _this.initialize();
                         });
-                        if(this.isClickHide) {
-                            this.mask.$el.on('click', function () {
-                                _this.destory();
-                            })
-                        }
+
                     };
                     this.destory = function () {
                         var _this = this;
                         if (this.isStartAnimation) {
                             _this.$el.addClass('cfui_view_out');
-                            _this.mask.$el.remove();
                             setTimeout(function () {
                                 _this.mask.destory();
                                 _this.$el.remove();
@@ -414,7 +399,6 @@
                             this.$el.remove();
                         }
                     };
-
                     this.setzIndexTop = function () {
                         this.$el.css('z-index', this.getBiggerzIndex());
                     };
@@ -422,10 +406,10 @@
                 instance.__create();
                 instance.__show();
                 return instance;
-            });
+            };
         };
 
-        this.Dialog.__register = function (name, fn) {
+        this.Dialog.register = function (name, fn) {
             var dialogHash = uiHelper.Dialog;
             if (typeof name !== 'string' || !__dialog_Name_Reg.test(name)) {
                 console.error('the name of the dialog  is not availble, Regular expression rules is /^[A-z]\w{2,16}$/gi');

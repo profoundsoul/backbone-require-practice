@@ -101,12 +101,15 @@
         width: 85px;
     }
 </style>
-<div class="cui-pop-box">
-    <div class="cui-bd">
-        <div class="cui-error-tips">确认签收？</div>
-        <div class="cui-roller-btns">
-            <div class="cui-flexbd cui-btns-cancel">取消</div>
-            <div class="cui-flexbd cui-btns-sure">确定</div>
+<div class="js_confirm_box"></div>
+<script type="text/template" id="js_confirm_tpl">
+    <div class="cui-pop-box">
+        <div class="cui-bd">
+            <div class="cui-error-tips"><<=message>></div>
+            <div class="cui-roller-btns">
+                <div class="cui-flexbd cui-btns-cancel"><<=cancelBtnName>></div>
+                <div class="cui-flexbd cui-btns-sure"><<=okBtnName>></div>
+            </div>
         </div>
     </div>
-</div>
+</script>

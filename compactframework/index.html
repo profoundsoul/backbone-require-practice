@@ -54,11 +54,23 @@
 <script >
     $('#component').advanceSearch({
 //        tpl:'<ul><li>111111</li><li>2222222222222</li></ul>'
-        tplUrl:'test.html'
+//        templatePath:'../test.html',
+//        data:{title:'test'}
     });
 </script>
 <!--<script src="lib/underscore.js"></script>-->
 <!--<script src="lib/util.js"></script>-->
 <script src="main.js"></script>
+<script>
+    var str = '<div>test 任命</div>'+
+    '<p>23423424232</p>'+
+            '<p><<=title>></p>'+
+            '<script type="text/template" id="js_tpl">'+
+            '<<if(title){>>'+
+            '<div>aaaaaaa</div>'+
+            '<<}>>'+'<\/script>';
+    var fn = _.template(str);
+    console.log(fn({title:'1111'}));
+</script>
 </body>
 </html>
