@@ -11,7 +11,7 @@
         };
     }
 
-    var currentDirRegExp = /([\\\/]*)[\w\.]+.js$/i;
+    var currentDirRegExp = /([\\\/]*)(\w+\.?)*\w+$/i;
     var util = (function () {
         /**
          * 将指定cookie字符串转换为对象，不传入参数cookieStr时，默认取document.cookie
@@ -187,7 +187,9 @@
     }).call({});
 
     var uiHelper = (function (ulitity) {
-        var __dialog_Name_Reg = /^[A-z]\w{2,16}$/gi;
+        var __dialogNameReg = '^[A-z]\\w{2,16}$';
+        var __absoluteAddrReg = '^(https?|file|ftp|\/\/|\/)';
+        //new RegExp('^(https?|file|ftp|\/\/|\/)','i')
         var __getViewId = ulitity.generateUniqueId('__view_');
         var __getComponentId = ulitity.generateUniqueId('__component_');
         var __getMaskId = ulitity.generateUniqueId('__mask_');
@@ -245,13 +247,14 @@
             });
         };
         var __checkTemplate = function (attrs, fn, ctx) {
-            if (!attrs.templateStr && !attrs.templatePath) {
-                console.log('参数不合法！');
-                return false;
-            }
-            if (!attrs.templateStr && attrs.templatePath) {
-                var relativeTplSrc = attrs.__compPath.replace(currentDirRegExp, '$1' + attrs.templatePath);
-                util.getTemplateSync(relativeTplSrc, function (str) {
+            if (attrs.templatePath) {
+                //识别当前地址是否为绝对地址或相对domain地址
+                var absoluteAddrReg = new RegExp(__absoluteAddrReg, 'i');
+                var tplSrc = attrs.templatePath;
+                if(!absoluteAddrReg.test(attrs.templatePath)) {
+                    tplSrc = attrs.__compPath.replace(currentDirRegExp, '$1' + attrs.templatePath);
+                }
+                util.getTemplateSync(tplSrc, function (str) {
                     typeof fn === 'function' && fn.apply(ctx, arguments);
                 }, this, function () {
                     console.log('无效的template path！');
@@ -366,7 +369,7 @@
                     //业务代码异步执行处理
                     this.__create = function () {
                         var _this = this;
-                        var settings = $.extend(true, {}, defaults, options||{}, attrs||{});
+                        var settings = $.extend(true, {}, defaults, options || {}, attrs || {});
                         this.__mid = __getDialogId();
                         __checkTemplate(settings, function (str) {
                             $.extend(instance, settings, {templateStr: str});
@@ -384,7 +387,6 @@
                             _this.__handleBindEvent();
                             _this.initialize();
                         });
-
                     };
                     this.destory = function () {
                         var _this = this;
@@ -411,7 +413,7 @@
 
         this.Dialog.register = function (name, fn) {
             var dialogHash = uiHelper.Dialog;
-            if (typeof name !== 'string' || !__dialog_Name_Reg.test(name)) {
+            if (typeof name !== 'string' || !new RegExp(__dialogNameReg, 'i').test(name)) {
                 console.error('the name of the dialog  is not availble, Regular expression rules is /^[A-z]\w{2,16}$/gi');
                 return fn;
             }

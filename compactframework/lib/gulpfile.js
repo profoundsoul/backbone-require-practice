@@ -6,7 +6,7 @@ var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 
 gulp.task('default', function(){
-    gulp.src(['underscore.js', 'core.js'])
+    gulp.src(['underscore.js', 'core.js', 'toast.js', 'confirm.js'])
         .pipe(uglify())
         .pipe(concat({path:'core.min.js'}))
         .pipe(gulp.dest(''));

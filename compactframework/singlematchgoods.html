@@ -1,0 +1,157 @@
+﻿<div class="popupbox">
+    <div class="popupbox_tit">一通百商品库<i class="icon-close"></i></div>
+    <div class="popupbox_cont w782" data-box="body" style="min-height: 450px;">
+        <div class="js_matchgoods_box"></div>
+        <div class="matchBox">
+            <div class="matchBox_bar">
+                <ul class="match_sel">
+                    <li><input type="radio" name="matchway" value="0" checked="checked"/>单品</li>
+                    <li><input type="radio" name="matchway" value="1"/>高级匹配</li>
+                    <li><input type="checkbox" id="js_autochk"/>自动匹配</li>
+                </ul>
+                <div class="match_search">
+                    <div class="search_bar">
+                        一通百商品库：
+                        <input type="text" class="search_ipt" data-srch="kwd" value=""
+                               style="cursor: pointer; margin-right: -4px;margin-top: 0px;" placeholder="货号/商品名称">
+                        <input type="submit" class="search_btn" data-btn="srch" style="margin-top: 0px;" title="点击搜索"
+                               value="">
+                    </div>
+                </div>
+                <div class="js_goodsstock_box">
+
+                </div>
+                <div class="btn_wrap" style="line-height:0px;margin:0px;">
+                    <div class="btn_box">
+                        <!--<div type="submit" class="subBtn" data-btn="cancel">取消</div>-->
+                        <div type="submit" class="subBtn single_center" data-btn="confirm">确认</div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/template" id="js_matchgoods_tpl">
+    <table class="pro_stock">
+        <tr>
+            <th style="width:190px;">商品名称</th>
+            <th style="width:130px;">网店货号<span class="interLine">|</span>数量</th>
+            <th style="width:110px;">已匹配货号</th>
+            <th style="width:165px;">数量<span class="interLine">|</span>订单总数</th>
+            <th style="width:135px;">匹配状态</th>
+        </tr>
+        <<if(pro.mps && pro.mps.length){
+        var mpscount = pro.mps.length;
+        isAdvan = mpscount >1?true:isAdvan;
+        >>
+        <<_.each(pro.mps, function(matchpro, idx){>>
+        <tr class="borderbox" data-item='<<=JSON.stringify(matchpro)>>'>
+            <<if(idx <1){>>
+            <td class="ctlft" rowspan="<<=mpscount>>" title="<<=pro.pTitle>>">
+                <div><<=pro.pTitle>></div>
+            </td>
+            <td rowspan="<<=mpscount>>" style="border-right: 1px solid #d4d4d4;text-align:left;">
+                <span class="textlimit72" title="<<=pro.pNo>>"><<=pro.pNo>></span><span class="interLine">|</span><span
+                    class="textlimit45"><<=pro.pCount>></span>
+            </td>
+            <<}>>
+            <td>
+                <span class="textlimit100" title="<<=matchpro.pNo>>"><<=matchpro.pNo>></span>
+            </td>
+            <td>
+                <<if(isAdvan){>>
+                <span class="num_cal">
+                     <i class="num_calNimus" data-btn="minus">-</i>
+                     <input type="text" class="num_calTxt" data-col="procount" data-value="<<=matchpro.pCount>>"
+                            value="<<=matchpro.pCount>>"/>
+                     <i class="num_calAdd" data-btn="add">+</i>
+                </span>
+                <span class="interLine">|</span>
+                <i class="ordersTotal" data-col="total" title=""><<=Number(matchpro.pCount *
+                    pro.pCount).toFixed(0)>></i>
+                <<}else{>>
+                <span class="numBox" data-col="procount"><<=matchpro.pCount>></span>
+                <<}>>
+            </td>
+            <td>
+                <a class="matchSta"><i class="selectIc"></i>已匹配商品</a>
+                <i class="deleteIc" data-btn="del" title="删除已匹配商品"></i>
+            </td>
+        </tr>
+        <<});>>
+        <<}else{>>
+        <tr class="borderbox" data-item=''>
+            <td class="ctlft" title="<<=pro.pTitle>>">
+                <div><<=pro.pTitle>></div>
+            </td>
+            <td style="text-align: left;border-right:1px solid #d4d4d4">
+                <span class="textlimit72"><<=pro.pNo>></span><span class="interLine">|</span><span class="textlimit45"><<=pro.pCount>></span>
+            </td>
+            <td><span class="textlimit100">&nbsp;</span></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <<}>>
+    </table>
+
+    <p class="matchTip">
+        <<if(!pro.isEnough){>>
+        该商品缺货！匹配后您可以挂起订单，等待有货时生成订单。
+        <<}>>
+    </p>
+</script>
+<script type="text/template" id="js_goodsstock_tpl">
+    <div class="bg_gray js_scroll" style="text-align: center;">
+        <<
+        var chkStr = isAutoChk ? 'checked':'';
+        var chkclsName = isAutoChk ? 'matchListCur':'';
+        _.each(data, function(pro){>>
+        <div class="match_item" data-pid="<<=pro.pid>>" data-item='<<=JSON.stringify(pro)>>'>
+            <<if(isAdvan =="1"){>>
+            <input type="checkbox" name="advan" data-btn="advan" class="js_chk" <<=chkStr>> />
+            <<}else{>>
+            <input type="radio" name="single" data-btn="single" class="js_chk" <<=chkStr>> />
+            <<}>>
+            <ul class="matchList <<=chkclsName>>" data-btn='<<=(isAdvan =="1"?"advan":"single")>>'>
+                <li class="textlimit224 firstLi" title="<<=pro.ptitle>>"><<=pro.ptitle>></li>
+                <li><span class="prono_img_wrap"><<=pro.pno>>
+                    <img src="//res.yitb.com/images/img.png" style="width: 14px;height: 12px;margin-left: 2px;"/>
+                    <img src="<<=pro.simg>>" class="pic_insert" style="left:90px;top:50%;margin-top: -95px;"></span>
+                </li>
+                <!--<li>¥<<=pro.fprice>></li>-->
+                <li style="width: 28%;">
+                    <div style="display: inline-block;min-width: 80%;" data-col="storageprice" data-pid="<<=pro.pid>>">
+                        <div class="font12 fcgray lh30 select_wrap js_show_storePrice">
+                            <label data-dp="cnt" style="display:inline-block;max-width:176px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;vertical-align:middle;cursor: pointer;color:#e71f19">查看各仓售价</label>
+                            <div style="display:inline-block;position:relative;vertical-align:middle;margin-top:7px;"><i class="rt_arrowdown"></i></div>
+                        </div>
+                        <div style="display: none;" class="js_storageprice_box" data-pri="<<=pro.fprice>>"></div>
+                    </div>
+                </li>
+                <li style="width: 16%;"><<=pro.stkubl>></li>
+            </ul>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+        <<});>>
+    </div>
+    <<if(isAdvan =="1"){>>
+    <p class="matchTip" style="text-align: left;">温馨提示：你只需匹配网店商品和一通百商品关系，套装数量会根据网店订单数量自动加倍。</p>
+    <<}>>
+</script>
+<!--left: 401px;top: 50%;-->
+<script type="text/template" id="js_storageprice_tpl">
+    <<if(data && data.length){>>
+    <div data-dp="box" style="position: absolute;margin-left:-10px;padding: 5px 10px; border: 1px solid #dfdfdf;width: 165px;background: #fff;z-index: 999;">
+        <<_.each(data, function(item){>>
+        <div class="opt_s" data-cno="<<=item.cno>>">
+            <div class="optlabel" title="<<=item.cname>>"><<=item.cname>></div>
+            <span>¥<<=item.salePrice>></span>
+            <div class="clear"></div>
+        </div>
+        <<});>>
+    </div>
+    <<}>>
+</script>
+

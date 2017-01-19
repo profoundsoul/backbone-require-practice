@@ -3,13 +3,23 @@
  */
 (function ($) {
     var Confirm = $.custom.Dialog({
-        templatePath: 'alert.html',
         events: {
             'click .cui-btns-cancel': 'cancel',
             'click .cui-btns-sure': 'sure'
         },
         __propertys__:function(){
-            this.tplFn = _.template(this.$el.find('#js_confirm_tpl').html());
+            var tplArr = [];
+            tplArr.push('<div class="cui-pop-box">');
+            tplArr.push('    <div class="cui-bd">');
+            tplArr.push('        <div class="cui-error-tips"><<=message>></div>');
+            tplArr.push('        <div class="cui-roller-btns">');
+            tplArr.push('            <div class="cui-flexbd cui-btns-cancel"><<=cancelBtnName>></div>');
+            tplArr.push('            <div class="cui-flexbd cui-btns-sure"><<=okBtnName>></div>');
+            tplArr.push('        </div>');
+            tplArr.push('    </div>');
+            tplArr.push('</div>');
+
+            this.tplFn = _.template(tplArr.join(''));
         },
         initialize: function () {
             this.render();
@@ -17,14 +27,14 @@
         },
         render:function(){
             var html = this.tplFn(this);
-            this.$el.find('.js_confirm_box').html(html);
+            this.$el.html(html);
         },
         setMaskClickHandle: function () {
             var _this = this;
             if (this.isClickHide) {
                 this.mask.$el.on('click', function () {
                     _this.destory();
-                })
+                });
             }
         },
         cancel:function(){
@@ -51,15 +61,17 @@
         title: '选择确认框',                    //可选，框标题
         okBtnName:'确定',                       //可选，确定按钮名称
         cancelBtnName:'取消',                   //可选，取消按钮名称
-        isStartAnimation: true,                 //可选，是否开启动画
-        isClickHide: true,                      //可选，是否点击关闭弹窗
+        isStartAnimation: false,                //可选，是否开启动画
+        isClickHide: false,                     //可选，是否点击关闭弹窗
     };
 
     $.custom.Dialog.register('Confirm', function (msg, okFn, context, defs) {
         defs = defs || {};
-        var settings = $.extend(true, defaults, defs, {
-            message: msg, okFn: okFn, context: context
-        });
+        defs.message = msg;
+        defs.okFn = okFn || defaults.okFn;
+        defs.context = context || defaults.context;
+
+        var settings = $.extend(true, defaults, defs);
         new Confirm(settings);
     });
 })(jQuery);

@@ -3,66 +3,30 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>通用弹窗模型</title>
-    <style>
-        .cfui_mask {
-            display: block;
-            position: fixed;
-            top: 0px;
-            left: 0px;
-            width: 100%;
-            height: 100%;
-            z-index: 1000;
-            background: #000;
-            opacity: 0.1;
-            -ms-filter: "alpha(opacity=10)";
-            filter: alpha(opacity=10);
-            -o-transition: all 1s ease 0.3s;
-            -moz-transition: all 1s ease 0.3s;
-            -webkit-transition: all 1s ease 0.3s;
-            transition: all 1s ease 0.3s;
-        }
+    <link rel="stylesheet" href="style/interface.css"/>
+    <link rel="stylesheet" href="style/header.css"/>
+    <link rel="stylesheet" href="style/orders.css"/>
 
-        .cfui_mask:before{
-            content: '';
-            display: block;
-        }
-
-        .cfui_view {
-            display: block;
-            position: fixed;
-            top: 0px;
-            left: 0px;
-            z-index: -1;
-            transition: all 1.3s ease 0.2s;
-        }
-
-        .cfui_view_pos {
-            top: 50%;
-            left: 50%;
-            -o-transform: translate(-50%, -50%);
-            -moz-transform: translate(-50%, -50%);
-            -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-        }
-
-        .cfui_view_out{
-            -o-transform: translate(-50%, -50%) scale(0.01);
-            -moz-transform: translate(-50%, -50%) scale(0.01);
-            -webkit-transform: translate(-50%, -50%) scale(0.01);
-            transform: translate(-50%, -50%) scale(0.01);
-        }
-    </style>
 </head>
 <body>
-<input type="button" id="dialog" value="弹窗"/>
+<div style="margin: 20px;">
+    <input type="button" style="margin: 5px;" id="dialog" value="弹窗"/>
+    <input type="button" style="margin: 5px;" id="toast" value="消息窗口"/>
+    <input type="button" style="margin: 5px;" id="matchgoods" value="匹配商品弹窗"/>
+    <input type="button" style="margin: 5px;" id="customDialog" value="自定义弹窗"/>
+</div>
+
 <!--<div class="cfui_view cfui_view_pos">-->
     <!--<div style="width:100px;height: 100px;background: greenyellow"></div>-->
 <!--</div>-->
 <script src="lib/jquery-1.10.2.js"></script>
 <!--<script src="lib/core.min.js"></script>-->
 <script src="lib/underscore.js"></script>
+<!--<script src="lib/core.min.js"></script>-->
 <script src="lib/core.js"></script>
-<script src="lib/alert.js"></script>
+<script src="lib/confirm.js"></script>
+<script src="lib/toast.js"></script>
+<script src="singlematchgoods.js"></script>
 <script>
     $('#dialog').click(function(){
         $.custom.Dialog.Confirm('确定取消订单？', function(){
@@ -72,6 +36,33 @@
                 console.log('取消！');
             }
         });
+    });
+
+    $('#toast').click(function(){
+        $.custom.Dialog.Toast('测试22');
+    });
+
+    var testData = '{"order":{"id":940319,"fxsNo":"B1410","oId":"2017011900004851","oONo":"2039597748_CF1","oEPri":"0.00","oType":null,"eSId":912,"oState":"等待卖家发货","payMent":"0.00","addTime":"2016-12-29 11:06:20","cPayTime":null,"pFrom":"苏宁易购","tForm":"","cName":"陈胜","cMtel":"18867523056","ctel":"","cAddr":"浙江省杭州市余杭区乔司镇永西村11组23号电话联系","cPoCode":"","cUName":"18167139771","sUName":"","buEmail":null,"cRem":"","oRem":"陈胜&quot;421127198909134758&quot;","invInfo":null,"oNo":null,"idCardNo":"421127198909134758","oCreate":0,"isPaied":0,"errMsg":null,"autoResult":0,"isAuto":0,"haserr":0,"provinceid":1020,"cityid":1021,"countyid":1030,"status":1,"tkstatus":0,"oProList":[{"id":162597,"mmode":0,"impOId":940319,"oNo":"2039597748_CF1","pTitle":"荷兰牛栏诺优能（ Nutrilon） 原装海外进口婴幼儿奶粉4段(1~2周岁) 宝盒装 800g 保税区发货","pNo":"NLB004","skuno":"NLB004","pCount":1,"pri":"118.00","status":1,"mps":[],"simg":"","_pno":"NLB004 NLB004"}],"ckname":null,"ename":null,"eprice":"0.00","costfee":"0.00","taxfee":"0.00","cuxtaxfee":"0.00","stores":[],"isMutilGoodsMatch":false,"isEnoughStock":false,"needMatch":true,"isOk":false,"amount":"0.00","totalAmount":"0.00","totalProCount":1},"proIdx":0}';
+    $('#matchgoods').click(function(){
+        var obj = JSON.parse(testData);
+        obj.updateFn = function(){
+            console.log('更新数据了！');
+        };
+        obj.callBack = function(){
+            console.log('执行回调了！');
+        };
+        $.custom.Dialog.SingleMatchGoods(obj);
+    });
+
+    $('#customDialog').click(function(){
+        //test address
+        var AAA = new $.custom.Dialog({
+            templatePath:'/backbone-require-practice/compactframework/testaaaa.html',
+            events:{
+                'click #aaaa':'destory'
+            }
+        });
+        new AAA();
     });
 </script>
 </body>
