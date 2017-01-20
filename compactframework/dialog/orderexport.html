@@ -1,0 +1,53 @@
+﻿<script type="text/template" id="js_popwin_tpl">
+    <div class="popupbox w434">
+        <div class="popupbox_tit">导出订单<i class="icon-close"></i></div>
+        <div class="poplist">
+            <div class="poplistnav">
+                <ul>
+                    <li class="wid300">月份</li>
+                    <li class="wid115">操作</li>
+                </ul>
+            </div>
+            <div class="poplistnav">
+                <ul style="padding:2px 20px;">
+                    <li>自定义时间</li>&nbsp
+                    <input type="text" class="select_date_end ht20" data-date="begin">
+                    &nbsp至&nbsp
+                    <input type="text" class="select_date_end ht20" data-date="end">
+                    <li style="float:right; margin-right:43px;">
+                        <span style="cursor:pointer;" class="export">导出</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="itemlist">
+                <div class="itembx">
+                    <div class="colm1 wid300">
+                        <<=data.startM>>月份(<<=data.startD===data.endD?data.endD:data.startD+'至'+data.endD>>)订单
+                    </div>
+                    <div class="colm5 wid115" data-m="<<=data.startM>>" data-y="<<=data.startY>>">
+                        <span data-m="<<=data.startM>>" data-y="<<=data.startY>>">导出</span>
+                    </div>
+                </div>
+                <<for(var i=0,len=data.m.length;i < len;i++){>>
+                <div class="itembx">
+                    <div class="colm1 wid300">
+                        <<=data.startM===data.m[i].y?data.m[i].m:data.m[i].y+'年'+data.m[i].m>>月份订单
+                    </div>
+                    <div class="colm5 wid115" data-y="<<=data.m[i].y>>" data-m="<<=data.m[i].m>>">
+                        <span data-y="<<=data.m[i].y>>" data-m="<<=data.m[i].m>>">导出</span>
+                    </div>
+                </div>
+                <<}>>
+            </div>
+                <<if(data.status==5 || data.status==4){>>
+            <p style="padding:10px 20px;">
+                您可导出最近半年（含当月）的订单，订单以一通百发货时间为准！
+            </p>
+                <<}else{>>
+                    <p style="padding:10px 20px;">
+                        您可导出最近半年（含当月）的订单，订单以您从网店导入一通百平台时所生成的订单时间为准！
+                    </p>
+                <<}>>
+         </div>
+    </div>
+</script>

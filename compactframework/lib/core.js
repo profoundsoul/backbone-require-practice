@@ -183,6 +183,50 @@
             return src.replace(currentDirRegExp, '$1' + path);
         };
 
+        this.dateParse = function (str) {
+            if (typeof str === 'undefined') {
+                return new Date();
+            }
+            if (typeof str === 'string') {
+                str = str || '';
+                var regtime = /^(\d{4})\-?(\d{1,2})\-?(\d{1,2})/i;
+                if (str.match(regtime)) {
+                    str = str.replace(regtime, "$2/$3/$1");
+                }
+                var st = Date.parse(str);
+                return new Date(st || new Date());
+            } else if (typeof str === 'number') {
+                return new Date(str);
+            } else if(Object.prototype.toString.call(str) === '[object Date]'){
+                return str;
+            } else {
+                return new Date();
+            }
+        };
+
+        this.dateFormat = function (d, fmt) {
+            d = util.dateParse(d);
+
+            var o = {
+                "M+": d.getMonth() + 1, //月份
+                "d+": d.getDate(), //日
+                "h+": d.getHours(), //小时
+                "m+": d.getMinutes(), //分
+                "s+": d.getSeconds(), //秒
+                "q+": Math.floor((d.getMonth() + 3) / 3), //季度
+                "S": d.getMilliseconds() //毫秒
+            };
+            if (/(y+)/.test(fmt)) {
+                fmt = fmt.replace(/(y+)/, (d.getFullYear() + "").substr(4 - RegExp.$1.length));
+            }
+            for (var k in o) {
+                if (new RegExp("(" + k + ")").test(fmt)) {
+                    fmt = fmt.replace(new RegExp("(" + k + ")"), (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+                }
+            }
+            return fmt;
+        };
+
         return this;
     }).call({});
 

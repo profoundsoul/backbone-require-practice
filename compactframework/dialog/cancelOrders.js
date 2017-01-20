@@ -12,11 +12,14 @@
             var _this = this;
             var type = this.$el.find('input[type="radio"]:checked').attr('data-reason-type');
 
+            _this.destory();
+            _this._callUpdateFn({oid: _this.oids, reason: type});
+
             //orderCancelModel.setParam({oid: this.oids, reason: type});
             //orderCancelModel.excute(function (data) {
             //    _this.destory();
             //    if (data.flag) {
-            //        _this._callUpdateFn({oid: _this.data, reason: type});
+            //        _this._callUpdateFn({oid: _this.oids, reason: type});
             //    } else {
             //        $.custom.Dialog.Toast(data.msg || '取消订单失败！');
             //    }
@@ -28,9 +31,8 @@
     });
 
     var defaults = {
-        updateFn: function () {
-        },
-        content: null,
+        updateFn: function () {},
+        context: null,
         oids: ''
     };
 

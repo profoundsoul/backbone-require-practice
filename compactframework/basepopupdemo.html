@@ -65,6 +65,7 @@
 
     <input type="button" style="margin: 5px;" id="matchgoods" value="匹配商品弹窗"/>
     <input type="button" style="margin: 5px;" id="cancelorder" value="取消订单"/>
+    <input type="button" style="margin: 5px;" id="exportorder" value="导出订单"/>
 </div>
 <!--<div class="cfui_view cfui_view_pos">-->
 <!--<div style="width:100px;height: 100px;background: greenyellow"></div>-->
@@ -77,6 +78,7 @@
 <script src="lib/toast.js"></script>
 <script src="dialog/singlematchgoods.js"></script>
 <script src="dialog/cancelOrders.js"></script>
+<script src="dialog/orderexport.js"></script>
 <!--公用弹窗/自定义弹窗-->
 <script>
     $('#mask').click(function () {
@@ -132,16 +134,19 @@
 <!--取消订单-->
 <script>
     $('#cancelorder').click(function () {
-        var obj = {};
-        obj.updateFn = function () {
+        $.custom.Dialog.CancelOrders(111, function () {
             console.log('更新数据了！');
             console.log(arguments);
-        };
-        obj.data = {oids: 1111};
-        obj.context = this;
-        $.custom.Dialog.CancelOrders(obj);
+        }, this);
     });
-
+</script>
+<script>
+    $('#exportorder').click(function () {
+        $.custom.Dialog.OrderExport(0, function () {
+            console.log('更新数据了！');
+            console.log(arguments);
+        }, this);
+    });
 </script>
 </body>
 </html>
