@@ -233,7 +233,6 @@
     var uiHelper = (function (ulitity) {
         var __dialogNameReg = '^[A-z]\\w{2,16}$';
         var __absoluteAddrReg = '^(https?|file|ftp|\/\/|\/)';
-        //new RegExp('^(https?|file|ftp|\/\/|\/)','i')
         var __getViewId = ulitity.generateUniqueId('__view_');
         var __getComponentId = ulitity.generateUniqueId('__component_');
         var __getMaskId = ulitity.generateUniqueId('__mask_');

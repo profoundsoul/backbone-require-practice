@@ -1,20 +1,31 @@
 # costom framework小框架
 
 > 基于jquery，使用前必须先引入jquery，对jQuery静态对象进行拓展，具有如下特点：
-> + 所有拓展均在jQuery.custom
-> + 内部集成underscore库，使用underscore模板引擎和underscore常用的拓展库
-> + 页面Controller，使用$.custom.View() 进行使用
++ 所有拓展均在jQuery.custom
++ 内部集成underscore库，使用underscore模板引擎和underscore常用的拓展库
++ 页面Controller，使用$.custom.View() 进行使用
++ 页面组件Component，使用$.custom.component()进行组件拓展和使用
++ 页面蒙版Mask，使用$.custom.Mask()展示页面蒙版
++ 页面弹窗Dialog，使用$.custom.Dialog()进行弹窗展示
++ 注册弹窗至Dialog命名空间下面，使用$.custom.Dialog.register进行弹窗名字注册
+
 
 
 ## jQuery.custom
 
 目前拓展方法：
-+ $.custom.View   页面Controller函数拓展
++ $.custom.View                  页面Controller函数拓展
++ $.custom.Component
++ $.custom.Mask
++ $.custom.Dialog
++ $.custom.Dialog.Register
 + $.custom.convertCookieObject   获取当前页面cookie，并转化为object
 + $.custom.createDynamicScript   动态创建script脚本标签，创建成功后执行回调函数
 + $.custom.uniqueArray           数组去重
 + $.custom.getParamsFromUrl      从Url中获取？后面参数
 + $.custom.generateUrlParam      将对象生成？参数字符串
++ $.custom.dateParse             日期解析函数
++ $.custom.dateFormat            日期格式化函数
 
 
 ##jQuery.custom.View
@@ -47,6 +58,22 @@ $.custom.View({
     }
 });
 ```
+
+##jQuery.custom.Component
+
+> 解决组件比较难于管理和编写问题，使用templatePath或templateStr参数支持组件内容模板
+
+##jQuery.custom.Mask
+
+> 统一蒙版管理，支持蒙版自带事件处理
+
+##jQuery.custom.Dialog
+
+> 统一弹窗，使用与View 一致Controller控制思想处理入口、属性、事件管理等，并能够自动管理蒙版与弹窗关系，默认保持Dialog自动居中处理。
+
+##jQuery.custom.Dialog.register
+
+> 弹窗对象注册至jQuery.custom.Dialog命名空间下，便于用户使用与调用
 
 
 ##underscore.template 
