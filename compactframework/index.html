@@ -3,27 +3,24 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>精简框架-基于jQuery快速开发异步刷新、集成模板技术</title>
+    <link rel="stylesheet" href="style/interface.css"/>
+    <link rel="stylesheet" href="style/header.css"/>
+    <link rel="stylesheet" href="style/orders.css"/>
 </head>
 <body>
 <div style="overflow: hidden;">
     <input type="button" name="list" value="生成列表"/>
     <input type="button" name="submit" value="提交表单"/>
 </div>
-<ol class="js_ul_box">
-
-</ol>
-<div class="js_frm_box" style="margin: 20px;">
-
-</div>
-
-<div id="component">
-
-</div>
+<ol class="js_ul_box"></ol>
+<div class="js_frm_box" style="margin: 20px;"></div>
+<div id="component"></div>
 
 <script type="text/template" id="js_frm_tpl">
     << if(data){ >>
     <form action="xx.aspx">
         <input type="hidden" name="action" value="xx"/>
+
         <div style="overflow: hidden;">
             <span>编码：</span>
             <input type="text" name="code" value="<<= data.code >>"/>
@@ -46,31 +43,27 @@
     << }); >>
     << } >>
 </script>
+
 <script src="lib/jquery-1.10.2.js"></script>
 <!--<script src="lib/core.min.js"></script>-->
 <script src="lib/underscore.js"></script>
 <script src="lib/core.js"></script>
-<script src="lib/jquery.advance.js"></script>
-<script >
-    $('#component').advanceSearch({
-//        tpl:'<ul><li>111111</li><li>2222222222222</li></ul>'
-//        templatePath:'../test.html',
-//        data:{title:'test'}
-    });
-</script>
-<!--<script src="lib/underscore.js"></script>-->
-<!--<script src="lib/util.js"></script>-->
-<script src="main.js"></script>
+<script src="lib/toast.js"></script>
+<script src="lib/confirm.js"></script>
+<!--模板基本玩法-->
 <script>
-    var str = '<div>test 任命</div>'+
-    '<p>23423424232</p>'+
-            '<p><<=title>></p>'+
-            '<script type="text/template" id="js_tpl">'+
-            '<<if(title){>>'+
-            '<div>aaaaaaa</div>'+
-            '<<}>>'+'<\/script>';
+    var str = '<div>test 任命</div>' +
+            '<p>23423424232</p>' +
+            '<p><<=title>></p>' +
+            '<script type="text/template" id="js_tpl">' +
+            '   <<if(title){>>' +
+            '       <div>aaaaaaa</div>' +
+            '   <<}>>' +
+            '<\/script>';
     var fn = _.template(str);
-    console.log(fn({title:'1111'}));
+    console.log(fn({title: '1111'}));
 </script>
+<!--页面View基本玩法-->
+<script src="main.js"></script>
 </body>
 </html>

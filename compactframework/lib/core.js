@@ -251,8 +251,13 @@
                 //识别当前地址是否为绝对地址或相对domain地址
                 var absoluteAddrReg = new RegExp(__absoluteAddrReg, 'i');
                 var tplSrc = attrs.templatePath;
-                if(!absoluteAddrReg.test(attrs.templatePath)) {
+                if (!absoluteAddrReg.test(attrs.templatePath)) {
                     tplSrc = attrs.__compPath.replace(currentDirRegExp, '$1' + attrs.templatePath);
+                }
+                //模板路径等价于当前组件路径，出现死循环问题，应该规避
+                if (tplSrc === attrs.__compPath) {
+                    console.log('Template Path is the same as the current path!');
+                    return false;
                 }
                 util.getTemplateSync(tplSrc, function (str) {
                     typeof fn === 'function' && fn.apply(ctx, arguments);
@@ -329,16 +334,24 @@
             };
         };
 
-        this.Mask = function () {
+        this.Mask = function (options) {
             var instance = new Core();
             (function () {
                 this.__create = function () {
+                    $.extend(instance, options || {});
                     this.__mid = __getMaskId();
                     this.el = '<div class="cfui_mask"></div>';
                     this.$el = $(this.el);
                     this.$el.attr('data-maskid', this.__mid);
                     this.setzIndexTop();
                     $(document.body).append(this.$el);
+
+                    this.__propertys__();
+                    var _this = this;
+                    setTimeout(function () {
+                        _this.__handleBindEvent();
+                        _this.initialize();
+                    });
                 };
                 this.destory = function () {
                     this.$el.remove();
@@ -368,21 +381,22 @@
                 (function () {
                     //业务代码异步执行处理
                     this.__create = function () {
-                        var _this = this;
                         var settings = $.extend(true, {}, defaults, options || {}, attrs || {});
                         this.__mid = __getDialogId();
                         __checkTemplate(settings, function (str) {
                             $.extend(instance, settings, {templateStr: str});
-                            _this.$el = $('<div class="cfui_view cfui_view_pos">').attr('data-dialogid', _this.__mid);
-                            _this.$el.html(str);
                         }, this);
                     };
                     this.__show = function () {
-                        var _this = this;
+                        this.$el = $('<div class="cfui_view cfui_view_pos">').attr('data-dialogid', this.__mid);
+                        this.$el.html(this.templateStr);
                         this.mask = new uiHelper.Mask();
-                        $(document.body).append(this.$el);
+
                         this.setzIndexTop();
-                        _this.__propertys__();
+                        $(document.body).append(this.$el);
+                        this.__propertys__();
+
+                        var _this = this;
                         setTimeout(function () {
                             _this.__handleBindEvent();
                             _this.initialize();
