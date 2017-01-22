@@ -66,6 +66,7 @@
     <input type="button" style="margin: 5px;" id="matchgoods" value="匹配商品弹窗"/>
     <input type="button" style="margin: 5px;" id="cancelorder" value="取消订单"/>
     <input type="button" style="margin: 5px;" id="exportorder" value="导出订单"/>
+    <input type="button" style="margin: 5px;" id="updateorderinfo" value="更新网店信息"/>
 </div>
 <!--<div class="cfui_view cfui_view_pos">-->
 <!--<div style="width:100px;height: 100px;background: greenyellow"></div>-->
@@ -79,6 +80,7 @@
 <script src="dialog/singlematchgoods.js"></script>
 <script src="dialog/cancelOrders.js"></script>
 <script src="dialog/orderexport.js"></script>
+<script src="dialog/updorderinfo.js"></script>
 <!--公用弹窗/自定义弹窗-->
 <script>
     $('#mask').click(function () {
@@ -146,6 +148,13 @@
             console.log('更新数据了！');
             console.log(arguments);
         }, this);
+    });
+</script>
+<script>
+    var testData = '{"id":6285631,"fxsNo":"B1740","oId":"2017011900007385","oONo":"E20160307113345030975062","oEPri":"0.00","oType":"FIXED","eSId":2067,"oState":"等待卖家发货","payMent":"0.01","addTime":"2017-01-19 17:13:38","cPayTime":"2016-03-07 11:34:05","pFrom":"有赞","tForm":null,"cName":"谭清华","cMtel":"13267179674","ctel":"","cAddr":"广东 深圳市 南山区 康和盛大厦501室","cPoCode":"","cUName":"呼吸","sUName":"呼___吸","buEmail":null,"cRem":"43250","oRem":"","invInfo":"不需发票","oNo":null,"idCardNo":"360424198908135898","oCreate":0,"isPaied":0,"errMsg":"","autoResult":0,"isAuto":0,"haserr":0,"provinceid":2147,"cityid":2174,"countyid":2178,"status":1,"ishang":0,"oProList":[{"id":1379955,"mmode":1,"impOId":6285631,"oNo":"E20160307113345030975062","pTitle":"TEST002【保税】日本花王Merries纸尿裤 大号 L54","pNo":"TEST002","pCount":1,"pri":"0.01","status":1,"mps":[{"pId":169,"pNo":"KJE-3710","pCount":1,"oiId":2343082,"isMatch":true,"fxPrice":"92.00","imgurl":"http://newad.yitb.com/upload/Thumbnails/201641216753422_350x350.jpg","cuxpros":null,"cks":[{"cno":"D2587","prono":null,"cname":"荷兰直邮仓","qty":0,"change":0,"cfee":"0.00","cprice":"92.00","cuxinfo":null,"pms":null}],"salePrice":92}],"simg":"http://newad.yitb.com/upload/Thumbnails/201641216753422_350x350.jpg"}],"ckname":null,"ename":null,"eprice":"0.00","costfee":"0.00","taxfee":"0.00","cuxtaxfee":"0.00","shopname":"呼___吸","stores":[{"uno":"D2587","utitle":"荷兰直邮仓","cfee":"0.00","isok":true,"exps":[{"expname":"EMS","exptypeid":3,"expprice":"0.00","ischeck":true,"tcode":null,"showtitle":"EMS（¥0.00）"}],"ischeck":true,"showtitle":"荷兰直邮仓"}],"isMutilGoodsMatch":false,"isEnoughStock":true,"isCanDelivery":true,"needMatch":false,"isOk":true,"amount":"92.00","totalAmount":"92.00","expprice":0}';
+    $('#updateorderinfo').click(function () {
+        $.custom.Dialog.UpdOrderInfo(JSON.parse(testData), function () {
+        }, {context: this});
     });
 </script>
 </body>

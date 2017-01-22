@@ -116,7 +116,7 @@ define(['cBase'], function (cBase) {
             //获取最新的fleshBox
             this.freshBox = this.box.find(this.tplBoxClsName);
         },
-        bindEvent: function () {
+        render: function () {
             var _this = this,
                 bind = (function (fn) {
                     return function () {
@@ -129,7 +129,7 @@ define(['cBase'], function (cBase) {
             this.freshBox.off(utils.events.transitionEnd).on(utils.events.transitionEnd, bind(this._animationEnd));
         },
         listener: function (fn) {
-            this.bindEvent();
+            this.render();
             this.refreshFn = fn || function () {
             };
         },

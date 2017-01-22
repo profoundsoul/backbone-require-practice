@@ -1,0 +1,110 @@
+<script type="text/template" id="js_addressedit_tpl">
+    <div class="popupbox">
+        <div class="popupbox_tit">修改网单信息<i class="icon-close"></i></div>
+        <div class="popupbox_cont" style="max-height:none;width: 522px;" data-box="body">
+            <div class="underlinecont_no">
+                <table>
+                    <tbody>
+                    <tr>
+                        <td class="atd" style="text-align:right;"><em>*</em>&nbsp;网店单号：</td>
+                        <td class="atd_name ptop10">
+                            <input type="text" data-col="ono" value="<<=data.oONo>>" class="nameipt" maxlength="50"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="atd" style="text-align:right;"><em>*</em>&nbsp;姓名：</td>
+                        <td class="atd_name ptop10">
+                            <input type="text" data-col="name" value="<<=data.cName>>" class="nameipt" maxlength="50"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="atd" style="text-align:right;"><em>*</em>收货地址：</td>
+                        <td class="atd_address_info ptop10">
+                            <select class="prvc m-right10 js_province_box" data-col="pid">
+                                <option value="">请选择省份/州</option>
+                            </select>
+                            <select class="ctarea m-right10 js_city_box" data-col="cid">
+                                <option value="">请选择城市/县区</option>
+                            </select>
+                            <select class="ctarea js_area_box" data-col="aid">
+                                <option value="">选择县/区</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="atd" style="text-align:right;">&nbsp;</td>
+                        <td class="ptop10">
+                            <textarea class="txtarea"  data-col="addetails"  maxlength="200"
+                                      placeholder="路名或街道地址、门牌号，至少为10个字"><<=data.addrdetails>></textarea>
+                            <p style="font-size: 12px;color: #777373;">详细地址中不需填写省市区</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="atd" style="text-align:right;"><em>*</em>&nbsp;身份证号码：</td>
+                        <td class="ptop10 atd_name">
+                            <input type="text" data-col="idno" value="<<=data.idCardNo>>" maxlength="20"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="atd" style="text-align:right;"><em>*</em>&nbsp;手机号码：</td>
+                        <td class="ptop10 atd_name">
+                            <input type="text" placeholder="请输入11位有效手机号码" data-col="mtel" value="<<=data.cMtel || ''>>"
+                                   maxlength="11">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="atd" style="text-align:right;">&nbsp;座机号码：</td>
+                        <td class="ptop10 atd_name">
+                            <input type="text" placeholder="请输入有效座机号码" data-col="ctel" value="<<=data.ctel>>"
+                                   maxlength="13" style="float:left;width:150px;">
+
+                            <div style="font-size: 12px;float:left;line-height:32px;margin-left:10px;">手机号码/座机号码至少提供一项
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="atd" style="text-align:right;">&nbsp;邮政编码：</td>
+                        <td class="ptop10 atd_name">
+                            <input type="text" data-col="pcode" value="<<=data.cPoCode>>" maxlength="6"
+                                   placeholder="请输入有效的邮政编码"/>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <input data-btn="save" type="button" value="保存" class="subBtn single_center">
+        </div>
+    </div>
+</script>
+<!--省-->
+<script type="text/template" id="js_province_tpl">
+    <option value="">请选择省份/州</option>
+    <<if(data && data.length>0){
+    _.each(data,function (d,i){
+    >>
+    <option <<=data.selprovinceid && (data.selprovinceid)===d.id?'selected="selected"':''>> data-idx="<<=i>>" value="<<=d.id>>" label="<<=d.aname>>"><<=d.aname>></option>
+    <<});
+    }>>
+</script>
+
+<!--市-->
+<script type="text/template" id="js_city_tpl">
+    <option value="">请选择城市/县区</option>
+    <<if(data && data.length>0){
+    _.each(data,function (d,i){
+    >>
+    <option <<=data.selid && (data.selid)===d.id?'selected="selected"':''>> data-idx="<<=i>>" value="<<=d.id>>" label="<<=d.aname>>"><<=d.aname>></option>
+    <<});
+    }>>
+</script>
+
+<!--地区县-->
+<script type="text/template" id="js_area_tpl">
+    <option value="">选择县/区</option>
+    <<if(data && data.length>0){
+    _.each(data,function (d,i){
+    >>
+    <option <<=data.selid && (data.selid)===d.id?'selected="selected"':''>> data-idx="<<=i>>" value="<<=d.id>>" label="<<=d.aname>>"><<=d.aname>></option>
+    <<});
+    }>>
+</script>

@@ -13,7 +13,7 @@ define(['cBase'], function (cBase) {
             $.extend(this, opts);
             this.init();
             this.lazyLoad();
-            this.bindEvent();
+            this.render();
         },
         init: function () {
             for (var i = 0, len = this.imgs.length; i < len; i++) {
@@ -52,7 +52,7 @@ define(['cBase'], function (cBase) {
             }
             tmpImg.src=src;
         },
-        bindEvent:function() {
+        render:function() {
             var _this = this;
             this.container.on('scroll.lazyimageload',function(e) {
                 _this.lazyLoad();
