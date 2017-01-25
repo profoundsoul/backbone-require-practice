@@ -47,8 +47,17 @@
          * @param fn  loaded回调函数
          */
         this.createDynamicScript = function (attrs, src, fn, context) {
+            //模仿jquery参数漂移
+            if (typeof  attrs === 'string') {
+                context = fn;
+                fn = src;
+                src = attrs;
+                attrs = {};
+            }
             var script = document.createElement('script');
             script.setAttribute('type', 'text/javascript');
+            script.setAttribute('async','');
+            script.setAttribute('charset', 'utf-8');
             if (attrs) {
                 for (var key in attrs) {
                     //不处理src为了兼容IE对于动态Script标签问题
@@ -60,6 +69,7 @@
             script.onload = script.onreadystatechange = function () {
                 if (!this.readyState || this.readyState === 'loaded' || this.readyState === 'complete') {
                     script.onreadystatechange = script.onload = null;
+                    script.parentNode && script.parentNode.removeChild(script);
                     (typeof fn === 'function') && fn.call(context || null, arguments);
                 }
             };
