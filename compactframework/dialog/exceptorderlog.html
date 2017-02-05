@@ -1,0 +1,21 @@
+<script type="text/template" id="js_popwin_tpl">
+    <div class="modal_dynamic">
+        <div class="popupbox w434">
+            <div class="popupbox_tit">异常日志<i class="icon-close"></i></div>
+            <div class="popupbox_cont" style="overflow:hidden;padding-right:0px;">
+                <div class="tipsinfo" style="height:auto;margin-left:0px;background-position:10px 20px;padding-top:10px;">
+                    <div class="errorcontent">
+                        <<if(data && data.length >0){>>
+                        <<_.each(data, function(item, idx){>>
+                        <div class="erroritem">
+                            <<=(idx + 1) + '.    '>>
+                            <<=item>>
+                        </div>
+                        <<});>>
+                        <<}>>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>

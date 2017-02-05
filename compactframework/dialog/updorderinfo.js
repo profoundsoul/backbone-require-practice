@@ -305,6 +305,6 @@
         defs.updateFn = updateFn || defaults.updateFn;
         var settings = $.extend({}, defaults, defs);
 
-        new BaseView(settings);
+        return new BaseView(settings);
     });
 })(jQuery);

@@ -612,6 +612,6 @@
         if (!settings.pro) {
             settings.pro = settings.order.oProList[settings.proIdx || 0]
         }
-        new BaseView(settings);
+        return new BaseView(settings);
     });
 })(jQuery);

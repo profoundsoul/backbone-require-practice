@@ -6,21 +6,66 @@
     <link rel="stylesheet" href="style/interface.css"/>
     <link rel="stylesheet" href="style/header.css"/>
     <link rel="stylesheet" href="style/orders.css"/>
+    <style>
+        body{
+            min-width: inherit;
+            overflow: auto;
+            margin: 10px;
+        }
+
+        input{
+            border:none;
+        }
+    </style>
 </head>
 <body>
 <div id="adsearch">
 
+</div>
+<br/>
+<div style="margin: 10px">
+    <div id="js_texttag1"></div>
+    <div id="js_texttag2"></div>
 </div>
 <script src="lib/jquery-1.10.2.js"></script>
 <!--<script src="lib/core.min.js"></script>-->
 <script src="lib/underscore.js"></script>
 <script src="lib/core.js"></script>
 <script src="component/advansearch.js"></script>
+<script src="component/texttag.js"></script>
 <!--高级搜索组件-->
 <script>
     $('#adsearch').AdvanceSearch({
         ids:[1,2,9,10,3,5,4]
     });
+</script>
+<script>
+    (function(){
+        var ORDER_CONFIG_CONSTANT = {
+            SplitChar: '|',
+            NotFilterChar: '$'
+        };
+
+        $('#js_texttag1').TextTag({
+            splitChar: ORDER_CONFIG_CONSTANT.SplitChar,
+            height: 85,
+            placeholder: '不包含关键字标签',
+            content: '测试1',
+            changed: function (content) {
+                console.log(content);
+            }
+        });
+        $('#js_texttag2').TextTag({
+            splitChar: ORDER_CONFIG_CONSTANT.SplitChar,
+            height: 105,
+            placeholder: '不包含关键字标签',
+            content: '测试2',
+            changed: function (content) {
+                console.log(content);
+            }
+        });
+    })();
+
 </script>
 </body>
 </html>
