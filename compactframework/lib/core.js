@@ -11,7 +11,7 @@
         };
     }
 
-    var currentDirRegExp = /([\\\/]*)(\w+\.?)*\w+$/i;
+
     var util = (function () {
         /**
          * 将指定cookie字符串转换为对象，不传入参数cookieStr时，默认取document.cookie
@@ -56,7 +56,7 @@
             }
             var script = document.createElement('script');
             script.setAttribute('type', 'text/javascript');
-            script.setAttribute('async','');
+            script.setAttribute('async', '');
             script.setAttribute('charset', 'utf-8');
             if (attrs) {
                 for (var key in attrs) {
@@ -141,17 +141,15 @@
             });
         };
 
-        this.getParamsFromUrl = (function () {
-            return function () {
-                var param = {},
-                    url = location.search.substr(1);
-                url.replace(/([^?&]+)=([^?&]+)/g, function (s, v, k) {
-                    param[v] = $.trim(decodeURIComponent(k));
-                    return k + '=' + $.trim(v);
-                });
-                return param;
-            }
-        }());
+        this.getParamsFromUrl = function () {
+            var param = {},
+                url = location.search.substr(1);
+            url.replace(/([^?&]+)=([^?&]+)/g, function (s, v, k) {
+                param[v] = $.trim(decodeURIComponent(k));
+                return k + '=' + $.trim(v);
+            });
+            return param;
+        };
 
         this.generateUrlParam = function (param) {
             var _search = '?';
@@ -187,10 +185,21 @@
             return scripts[scripts.length - 1];
         };
 
-        this.getScriptRelativeUrl = function (path) {
-            var script = this.getCurrentScript(),
-                src = $(script).attr('src');
-            return src.replace(currentDirRegExp, '$1' + path);
+        var __currentDirRegExp = /([\\\/]*)(\w+\.?)*\w+$/i;
+        var __absoluteAddrReg = '^(https?|file|ftp|\/\/|\/)';
+        /**
+         * 获取相对组件地址路径
+         * @param compPath 组件路径
+         * @param sourcePath 资源路径
+         * @returns {*} 返回相对组件资源路径
+         */
+        this.getRealSourcePath = function (compPath, sourcePath) {
+            //识别当前地址是否为绝对地址或相对domain地址
+            var absoluteAddrReg = new RegExp(__absoluteAddrReg, 'i');
+            if (!absoluteAddrReg.test(sourcePath)) {
+                sourcePath = compPath.replace(__currentDirRegExp, '$1' + sourcePath);
+            }
+            return sourcePath;
         };
 
         this.dateParse = function (str) {
@@ -236,6 +245,7 @@
             }
             return fmt;
         };
+
         this.isIdCard = function (idCard) {
             var num = idCard.toLowerCase().match(/\w/g);
             if (idCard.match(/^\d{17}[\dx]$/i)) {
@@ -256,9 +266,8 @@
         return this;
     }).call({});
 
-    var uiHelper = (function (ulitity) {
+    var uiHelper = (function (ulitity){
         var __dialogNameReg = '^[A-z]\\w{2,16}$';
-        var __absoluteAddrReg = '^(https?|file|ftp|\/\/|\/)';
         var __getViewId = ulitity.generateUniqueId('__view_');
         var __getComponentId = ulitity.generateUniqueId('__component_');
         var __getMaskId = ulitity.generateUniqueId('__mask_');
@@ -318,17 +327,13 @@
         var __checkTemplate = function (attrs, fn, ctx) {
             if (attrs.templatePath) {
                 //识别当前地址是否为绝对地址或相对domain地址
-                var absoluteAddrReg = new RegExp(__absoluteAddrReg, 'i');
-                var tplSrc = attrs.templatePath;
-                if (!absoluteAddrReg.test(attrs.templatePath)) {
-                    tplSrc = attrs.__compPath.replace(currentDirRegExp, '$1' + attrs.templatePath);
-                }
+                var tplSrc = ulitity.getRealSourcePath(attrs.__compPath, attrs.templatePath);
                 //模板路径等价于当前组件路径，出现死循环问题，应该规避
                 if (tplSrc === attrs.__compPath) {
                     console.log('Template Path is the same as the current path!');
                     return false;
                 }
-                util.getTemplateSync(tplSrc, function (str) {
+                ulitity.getTemplateSync(tplSrc, function (str) {
                     typeof fn === 'function' && fn.apply(ctx, arguments);
                 }, this, function () {
                     console.log('无效的template path！');
@@ -338,6 +343,12 @@
             }
         };
 
+        /**
+         * Controller控制器
+         * @param options
+         * @returns {Core}
+         * @constructor
+         */
         this.View = function (options) {
             var instance = new Core;
             $.extend(instance, options || {});
@@ -365,6 +376,12 @@
             return instance;
         };
 
+        /**
+         * 组件
+         * @param options
+         * @returns {Function}
+         * @constructor
+         */
         this.Component = function (options) {
             var currentSrc = $(ulitity.getCurrentScript()).attr('src');
             var defaults = {
@@ -397,12 +414,21 @@
                             });
                         }, this);
                     };
+                    this.getCompPath = function () {
+                        return this.__compPath;
+                    };
                 }).call(instance);
                 instance.__create();
                 return instance;
             };
         };
 
+        /**
+         * 蒙版
+         * @param options
+         * @returns {Core}
+         * @constructor
+         */
         this.Mask = function (options) {
             var instance = new Core();
             (function () {
@@ -433,6 +459,12 @@
             return instance;
         };
 
+        /**
+         * 弹窗
+         * @param options
+         * @returns {Function}
+         * @constructor
+         */
         this.Dialog = function (options) {
             var currentSrc = $(ulitity.getCurrentScript()).attr('src');
             var defaults = {
@@ -487,6 +519,9 @@
                     this.setzIndexTop = function () {
                         this.$el.css('z-index', this.getBiggerzIndex());
                     };
+                    this.getCompPath = function () {
+                        return this.__compPath;
+                    };
                 }).call(instance);
                 instance.__create();
                 instance.__show();
@@ -494,6 +529,12 @@
             };
         };
 
+        /**
+         * 将指定Dialog注册至Dialog命名空间下函数
+         * @param name Dialog名称
+         * @param fn Dialog构造函数
+         * @returns {*}
+         */
         this.Dialog.register = function (name, fn) {
             var dialogHash = uiHelper.Dialog;
             if (typeof name !== 'string' || !new RegExp(__dialogNameReg, 'i').test(name)) {
@@ -515,7 +556,6 @@
 
         function Core() {
         }
-
         Core.prototype = (function () {
             this.__el = 'body';
             this.el = 'body';
@@ -546,5 +586,4 @@
         $.extend({custom: {}});
     }
     $.extend($.custom, util, uiHelper);
-
 }(jQuery));

@@ -1,0 +1,46 @@
+<div class="popupbox w434">
+    <div class="popupbox_tit">付款密码设置<i class="icon-close"></i></div>
+    <div class="popupbox_cont js_paypwd_box" style="min-width: 394px;"></div>
+</div>
+<script type="text/template" id="js_paypwd_tpl">
+    <<if(!isExist){>>
+    <div class="poptips setcode js_message_info">提示：为了保证您的预付款账户的安全性，请设置付款密码。</div>
+    <table class="tab1 codetab">
+        <tr>
+            <td class="s1" style="width:30%">输入密码：&nbsp;</td>
+            <td>
+                <input type="password" class="textsize1 codetext js_newpwd_val" maxlength="16" placeholder="6-16个字符，建议使用数字和字母的组合">
+            </td>
+        </tr>
+        <tr>
+            <td class="s1" style="width:30%">确认密码：&nbsp;</td>
+            <td>
+                <input type="password" maxlength="16" class="textsize1 js_agpwd_val codetext"></td>
+        </tr>
+    </table>
+    <input type="submit" value="保存" class="subBtn single_center js_setpwd_do" >
+    <<}else{>>
+    <div class="poptips setcode js_message_info">提示：您已设置付款密码，可以进行修改。</div>
+    <table class="tab1 codetab">
+        <tr>
+            <td class="s1" style="width:31%">输入旧密码：&nbsp;</td>
+            <td>
+                <input type="password" class="textsize1 codetext js_oldpwd_val" maxlength="16"  placeholder=""></td>
+        </tr>
+        <tr>
+            <td class="s1" style="width:31%">输入新密码：&nbsp;</td>
+            <td>
+                <input type="password" class="textsize1 codetext js_newpwd_val" maxlength="16"  placeholder="(6-16个字符，建议使用数字和字母的组合)"></td>
+        </tr>
+        <tr>
+            <td class="s1" style="width:31%">确认新密码：&nbsp;</td>
+            <td>
+                <input type="password" maxlength="16" class="textsize1 codetext js_agpwd_val"></td>
+        </tr>
+    </table>
+    <div style="margin: 0 auto;width: 80px;">
+        <input type="submit" value="保存" class="subBtn single_center js_updpwd_do" >
+    </div>
+
+    <<}>>
+</script>

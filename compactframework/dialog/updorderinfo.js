@@ -295,7 +295,7 @@
         callBack: function () {},
         context:null
     };
-    $.custom.Dialog.register('UpdOrderInfo', function (order, updateFn, defs) {
+    $.custom.Dialog.register('UpdOrderInfo', function (order, updateFn, defs){
         if (!order) {
             $.custom.Dialog.Toast('组件输入参数有误！');
             return;

@@ -78,6 +78,8 @@
     <input type="button" class="demo" id="updateorderinfo" value="更新网店信息"/>
     <input type="button" class="demo" id="exceptorderlog" value="异常网店日志"/>
     <input type="button" class="demo" id="autogenorder" value="自动生成订单"/>
+    <input type="button" class="demo" id="modifyloginpwd" value="修改登录密码"/>
+    <input type="button" class="demo" id="setpaypwd" value="设置支付密码"/>
 </div>
 <!--<div class="cfui_view cfui_view_pos">-->
 <!--<div style="width:100px;height: 100px;background: greenyellow"></div>-->
@@ -94,12 +96,14 @@
 <!--<script src="dialog/updorderinfo.js"></script>-->
 <script src="dialog/exceptorderlog.js"></script>
 <script src="dialog/autogensetting.js"></script>
+<script src="dialog/modifyloginpwd.js"></script>
+<script src="dialog/setpaypwd.js"></script>
 <!--公用弹窗/自定义弹窗-->
 <script>
     $('#mask').click(function () {
         var mask = new $.custom.Mask({
             events: {
-                'click': 'destory'
+                 'click': 'destory'
             }
         });
 //        var mask = $.custom.Mask();
@@ -122,12 +126,14 @@
     $('#customDialog').click(function () {
         //test address
         var AAA = new $.custom.Dialog({
-            templatePath: '/backbone-require-practice/compactframework/customtpl.html',
+
             events: {
                 'click #aaaa': 'destory'
             }
         });
-        new AAA();
+        new AAA({
+            templatePath: 'customtpl.html',
+        });
     });
 </script>
 <!--匹配商品弹窗-->
@@ -191,6 +197,18 @@
         $.custom.Dialog.AutoGenSetting();
     });
 //    AutoGenSetting
+</script>
+<!--修改登录密码-->
+<script>
+    $('#modifyloginpwd').click(function(){
+        $.custom.Dialog.ModifyLoginPwd();
+    });
+</script>
+<!--设置支付密码-->
+<script>
+    $('#setpaypwd').click(function(){
+        $.custom.Dialog.SetPayPwd();
+    });
 </script>
 </body>
 </html>
