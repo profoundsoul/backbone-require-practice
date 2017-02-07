@@ -355,7 +355,7 @@
     });
 
     var defaults = {
-        eshopId:4697,
+        eshopId:0,
         updateFn: function () {},
         context: null,
     };
