@@ -396,7 +396,8 @@
                     this.__create = function () {
                         this.$el = $(box);
                         if (!(this.$el && this.$el.length)) {
-                            throw new Error("no available box element!");
+                            console.warn("no available box element!");
+                            return;
                         }
                         this.__mid = __getComponentId();
                         //业务代码异步执行处理

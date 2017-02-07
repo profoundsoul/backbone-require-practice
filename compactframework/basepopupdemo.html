@@ -80,6 +80,7 @@
     <input type="button" class="demo" id="autogenorder" value="自动生成订单"/>
     <input type="button" class="demo" id="modifyloginpwd" value="修改登录密码"/>
     <input type="button" class="demo" id="setpaypwd" value="设置支付密码"/>
+    <input type="button" class="demo" id="syncordersetting" value="同步订单设置"/>
 </div>
 <!--<div class="cfui_view cfui_view_pos">-->
 <!--<div style="width:100px;height: 100px;background: greenyellow"></div>-->
@@ -98,6 +99,7 @@
 <script src="dialog/autogensetting.js"></script>
 <script src="dialog/modifyloginpwd.js"></script>
 <script src="dialog/setpaypwd.js"></script>
+<script src="dialog/syncsetting.js"></script>
 <!--公用弹窗/自定义弹窗-->
 <script>
     $('#mask').click(function () {
@@ -208,6 +210,14 @@
 <script>
     $('#setpaypwd').click(function(){
         $.custom.Dialog.SetPayPwd();
+    });
+</script>
+<!--同步订单设置-->
+<script>
+    $('#syncordersetting').click(function(){
+        $.custom.Dialog.SyncOrderSetting(4697, function(){
+            console.log('成功更新数据了！');
+        });
     });
 </script>
 </body>

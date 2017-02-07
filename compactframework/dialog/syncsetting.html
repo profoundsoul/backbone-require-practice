@@ -1,0 +1,123 @@
+<script type="text/template" id="js_popwin_tpl">
+    <style>
+        .orderconStyle {
+            overflow: visible !important;
+            max-height: none !important;
+            padding-right: 15px !important;
+        }
+
+        .w100 {
+            width: 100%;
+        }
+    </style>
+    <div class="popupbox w735 " data-root="config">
+        <div class="popupbox_tit">同步订单设置<i class="icon-close"></i></div>
+        <div class="popupbox_cont pb10 orderconStyle pdt10" data-box="body">
+            <div class="reg_body">
+                <div class="funcbx">
+                    <<
+                    var statusObj = data.statusObj;
+                    var _autoDownChecked ="";
+                    if(statusObj.autoDown){
+                    _autoDownChecked = "checked";
+                    }
+                    >>
+                    <label><input type="checkbox" data-col="autodown" <<=_autoDownChecked>> >
+                        &nbsp;&nbsp;<span>开启订单自动下载</span></label>
+
+                    <div class="bxbg">
+                        每隔
+                        <input type="text"
+                               value="<<=statusObj.downTime>>"
+                               data-col="downtime"
+                               class="ipttxt wid50"
+                               onkeyup="this.value=this.value.replace(/\D/g,'')"
+                               onafterpaste="this.value=this.value.replace(/\D/g,'')"/>
+                        分钟，自动下载订单（<span style="color:#939292;">不要小于10分钟，推荐30分钟</span>）
+                    </div>
+                </div>
+                <div class="funcbx">
+                    <<
+                    var _keyWordfilterChecked = "";
+                    if(statusObj.keyWordfilter){
+                    _keyWordfilterChecked="checked";
+                    }
+                    >>
+                    <label><input type="checkbox" data-col="keywordfilter" <<=_keyWordfilterChecked>> class="vt">&nbsp;&nbsp;
+                    <span>
+                        开启订单商品标题关键字过滤
+                        <!--（商品标题包含以下关键字的订单会被下载或删除，多个用“|”隔开）<br/>-->
+                        <!--例如：品牌A|$品牌B，这样设置，品牌A会被下载，品牌B不会被下载，注意$表示排除。-->
+                    </span></label>
+                    <!--<textarea data-col="orderwordfilter" value=""><<=statusObj.orderWordfilter>></textarea>-->
+                    <div style="margin-top: 5px;">
+                        <div style="float: left; width: 48%; margin-right: 20px;"  data-col="orderwordfilter" data-value="<<=statusObj.orderWordObj.filter>>"></div>
+                        <div style="float: left;width: 48%;"  data-col="notorderwordfilter" data-value="<<=statusObj.orderWordObj.notFilter>>"></div>
+                        <div style="clear: both;"></div>
+                    </div>
+
+                </div>
+                <div class="funcbx">
+                    <<
+                    var _sellerKeyFilterChecked = "";
+                    if(statusObj.sellerKeyFilter){
+                    _sellerKeyFilterChecked = "checked";
+                    }
+                    >>
+                    <label>
+                        <span>
+                        <input type="checkbox" data-col="sellerkeyfilter" <<=_sellerKeyFilterChecked>> class="vt">&nbsp;&nbsp;
+                            开启卖家备注关键字过滤
+                        </span>
+                    </label>
+                    <!--（包含以下关键字的订单会被下载或删除，多个用“|”隔开，“$”用作排除）<br/>-->
+                    <div style="margin-bottom: 10px">
+                        <em style="color:#545454;">针对订单类型：</em>
+                        <div class="inputxl wid120 wout" data-col="ordertype" data-value="<<=statusObj.orderType>>">
+                            <a class="inputnr w100" data-dp="cnt">
+                                <span> <<=statusObj.orderTypeName>></span>
+                                <i></i>
+                            </a>
+
+                            <div data-dp="box" class="inputxlbox"></div>
+                        </div>
+                        <div style="clear: both;"></div>
+                    </div>
+                    <div style="margin-top: 5px;">
+                        <div style="float: left; width: 48%; margin-right: 20px;"  data-col="sellerremarkfilter" data-value="<<=statusObj.sellerRemarkObj.filter>>"></div>
+                        <div style="float: left;width: 48%;"  data-col="notsellerremarkfilter" data-value="<<=statusObj.sellerRemarkObj.notFilter>>"></div>
+                        <div style="clear: both;"></div>
+                    </div>
+                </div>
+                <div class="funcbx">
+                    <<
+                    var _autoOrderchecked = "";
+                    if(statusObj.autoOrdercheck){
+                    _autoOrderchecked = "checked";
+                    }
+                    >>
+                    <label><input type="checkbox" data-col="autoorder" <<=_autoOrderchecked>> class="vt">&nbsp;&nbsp;<span>
+                        开启客服人员自主领取订单进行审核
+                    </span>
+                    </label>
+                </div>
+                <!--<div class="funcbx" style="text-align: center;">-->
+                <!--<input type="submit" value="保存" style="display: inline-block;" data-config-save class="popbtn1 mgl0">-->
+                <!--&lt;!&ndash;<input type="submit" value="重置" style="display: inline-block;" data-config-save class="popbtn1 mgl0">&ndash;&gt;-->
+                <!--&lt;!&ndash;<span class="detail_tips hide" data-config-msg></span>&ndash;&gt;-->
+                <!--</div>-->
+            </div>
+            <div class="subBtn single_center" data-config-save>保存</div>
+        </div>
+    </div>
+</script>
+
+<script type="text/template" id="js_ordertype_tpl">
+    <<_.each(data, function(item, index){>>
+    <dd data-index="<<=index>>" data-item='<<=JSON.stringify(item)>>'>
+        <a class="hgt31">
+            <<=item.typeName>>
+        </a>
+    </dd>
+    <<});>>
+</script>

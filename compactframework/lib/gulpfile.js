@@ -5,6 +5,7 @@ var gulp = require('gulp');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
+var cleanDist = require('gulp-clean-dest');
 
 gulp.task('core', function(){
     gulp.src(['underscore.js', 'core.js', 'toast.js', 'confirm.js'])
@@ -14,7 +15,7 @@ gulp.task('core', function(){
 });
 
 gulp.task('secure', function(){
-    gulp.src(['../secure/*.js'])
+    gulp.src(['../secure/*.js', '!../secure/*.min.js'])
         .pipe(uglify())
         .pipe(rename({suffix:'.min'}))
         .pipe(gulp.dest('../secure'));

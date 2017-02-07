@@ -3,7 +3,7 @@
  */
 (function ($) {
     var BaseView = $.custom.Component({
-        events:{
+        events: {
             'click': 'focusRoot'
         },
         __propertys__: function () {
@@ -165,7 +165,7 @@
             return [
                 '<div class="' + this.boxClass + '">',
                 '   <span data-btn="input">',
-                '       <input type="text" class="' + this.textClass + '"/>',
+                '       <input type="text" style="border: none;" class="' + this.textClass + '"/>',
                 '   </span>',
                 '</div>'
             ].join(' ');
@@ -176,14 +176,15 @@
         content: '',                //标签内容
         splitChar: ',',             //多标签分隔字符
         placeholder: '标签',        //占位符提示
-        height:80,                  //组件高度
+        height: 80,                  //组件高度
         //css clsname
         boxClass: 'btn_arrow_tag',  //组件clsname
         textClass: 'js_tagtext',    //组件输入框clsname
         delClass: 'icon_close',     //tag关闭样式
         //tag标签发生变化后：del/add
-        changed: function () {},    //标签变化后事件
-        context:null                //上下文对象
+        changed: function () {
+        },    //标签变化后事件
+        context: null                //上下文对象
     };
 
     $.fn.TextTag = function (attrs) {
