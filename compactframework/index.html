@@ -28,6 +28,13 @@
     </label>
 </div>
 
+<div style="margin:20px;">
+    <a href="javascript:document.body.appendChild(document.createElement('div'))">点我</a>
+</div>
+<div style="margin:20px;">
+    <a href='javascript:(function(e){e.setAttribute("src","http://localhost:8080/target/target-script-min.js#anonymous");document.getElementsByTagName("body")[0].appendChild(e);})(document.createElement("script"));void(0);'>联调测试标签</a>
+</div>
+
 <script type="text/template" id="js_frm_tpl">
     << if(data){ >>
     <form action="xx.aspx">

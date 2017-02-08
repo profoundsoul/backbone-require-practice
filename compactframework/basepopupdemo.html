@@ -74,6 +74,7 @@
 
     <input type="button" class="demo" id="matchgoods" value="匹配商品弹窗"/>
     <input type="button" class="demo" id="cancelorder" value="取消订单"/>
+    <input type="button" class="demo" id="cancelweborder" value="取消网店订单"/>
     <input type="button" class="demo" id="exportorder" value="导出订单"/>
     <input type="button" class="demo" id="updateorderinfo" value="更新网店信息"/>
     <input type="button" class="demo" id="exceptorderlog" value="异常网店日志"/>
@@ -93,6 +94,7 @@
 <script src="lib/toast.js"></script>
 <script src="dialog/singlematchgoods.js"></script>
 <script src="dialog/cancelOrders.js"></script>
+<script src="dialog/cancelweborders.js"></script>
 <script src="dialog/orderexport.js"></script>
 <!--<script src="dialog/updorderinfo.js"></script>-->
 <script src="dialog/exceptorderlog.js"></script>
@@ -158,6 +160,14 @@
 <script>
     $('#cancelorder').click(function () {
         $.custom.Dialog.CancelOrders(111, function () {
+            console.log('更新数据了！');
+            console.log(arguments);
+        }, this);
+    });
+</script>
+<script>
+    $('#cancelweborder').click(function(){
+        $.custom.Dialog.CancelWebOrders([{id:123}], function () {
             console.log('更新数据了！');
             console.log(arguments);
         }, this);
