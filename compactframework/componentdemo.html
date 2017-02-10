@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="style/interface.css"/>
     <link rel="stylesheet" href="style/header.css"/>
     <link rel="stylesheet" href="style/orders.css"/>
+    <link rel="stylesheet" href="style/common.css"/>
     <style>
         body{
             min-width: inherit;
@@ -15,6 +16,10 @@
 
         input{
             border:none;
+        }
+
+        .bg_gray {
+            overflow: inherit!important;
         }
     </style>
 </head>
@@ -27,12 +32,19 @@
     <div id="js_texttag1"></div>
     <div id="js_texttag2"></div>
 </div>
+<div style="margin:20px;">
+    <input type="file" id="file" value="上传图片"/>
+    <br/>
+</div>
 <script src="lib/jquery-1.10.2.js"></script>
 <!--<script src="lib/core.min.js"></script>-->
 <script src="lib/underscore.js"></script>
 <script src="lib/core.js"></script>
 <script src="component/advansearch.js"></script>
 <script src="component/texttag.js"></script>
+<script src="secure/upload.js"></script>
+<script src="component/sidebar.js"></script>
+
 <!--高级搜索组件-->
 <script>
     $('#adsearch').AdvanceSearch({
@@ -66,6 +78,24 @@
         });
     })();
 
+</script>
+<script>
+    var up = new $.custom.Upload({
+        method: 'post',
+        url: ''
+    });
+    $('#file').change(function(e){
+        var target  = $(e.currentTarget);
+        up.onSelected(e, function (aUri) {
+            if (aUri && aUri.length) {
+                var p = target.parent();
+                var img = new Image();
+                img.src = aUri[0].uri;
+                img.width = 80;
+                p.append(img);
+            }
+        });
+    });
 </script>
 </body>
 </html>

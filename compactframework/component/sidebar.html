@@ -1,0 +1,224 @@
+<div class="sidebar_right" tabindex="22">
+    <div class="sidebar_item_wrap">
+        <div class="sidebar_item_md">
+            <div class="sidebar_item" data-item="sidebar">
+                <div class="cnt js_concern">
+                    <i class="sidebar_item_icon sidebar_item_cl"></i>
+                </div>
+            </div>
+            <div class="sidebar_item" data-item="sidebar">
+                <div class="cnt js_footstep">
+                    <i class="sidebar_item_icon sidebar_item_hs"></i>
+                </div>
+            </div>
+            <div class="sidebar_item js_kchat" data-item="sidebar">
+                <div class="cnt">
+                    <a href="https://yitb.kf5.com/kchat/5848?from=%E5%9C%A8%E7%BA%BF%E6%94%AF%E6%8C%81" target="_blank">
+                        <i class="sidebar_item_icon sidebar_item_cs"></i>
+
+                        <div class="slide_block">在线咨询</div>
+                    </a>
+                </div>
+            </div>
+            <div class="sidebar_item pdtb12 bg_gray" data-item="sidebar">
+                <div class="cnt js_cart">
+                    <i class="sidebar_item_icon sidebar_item_sc detail_add_end"></i><span >购物车</span><em class="js_cartcount">0</em>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar_item_bot">
+            <div class="sidebar_item" data-item="sidebar">
+                <div class="cnt">
+                    <i class="sidebar_item_icon sidebar_item_qr"></i>
+
+                    <div class="qr_slide">
+                        <p>跨境翼扫一扫</p>
+                        <img src="/imgs/kjy_qr.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="sidebar_item js_gotop" data-item="sidebar">
+                <div class="cnt">
+                    <i class="sidebar_item_icon sidebar_item_gt"></i>
+
+                    <div class="slide_block">返回顶部</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar_item_layer js_concern_body " data-root="layer">
+        <div class="layer_head mycollect">
+            <div class="fl"><i></i>我的关注</div>
+            <div class="fr">
+                <i class="close_icon js_close"></i>
+            </div>
+        </div>
+        <div class="js_concern_box"></div>
+    </div>
+    <div class="sidebar_item_layer js_footstep_body" data-root="layer">
+        <div class="layer_head hs">
+            <div class="fl"><i></i>我的足迹</div>
+            <div class="fr">
+                <i class="close_icon js_close"></i>
+            </div>
+        </div>
+
+        <div class="js_footstep_box"></div>
+    </div>
+    <div class="sidebar_item_layer js_cart_body" data-root="layer">
+        <div class="layer_head cart">
+            <div class="fl"><i></i>购物车</div>
+            <div class="fr">
+                <i class="close_icon js_close"></i>
+            </div>
+        </div>
+        <div class="js_cart_box">
+
+        </div>
+    </div>
+    <script type="text/template" id="js_footstep_tpl">
+        <<
+        if(data.other && data.tody && (data.other.length + data.tody.length) >0){
+        var total = data.other.length + data.tody.length;
+        >>
+        <div class="list_head_all">
+            <span>全部商品（<em><<=total>></em>件）</span>
+            <a href="javascript:void(0);" class="fr js_clear">清空</a>
+        </div>
+        <div style="overflow-y: auto;position: relative;" data-area="list">
+            <<if(data.tody && data.tody.length){>>
+            <div class="hs_list">
+                <div class="hs_top"><span>今天</span></div>
+                <div class="hs_item_wrap">
+                    <<_.each(data.tody, function(item){
+                    var detailurl = getDetailUrl(item.MasterId, item.ProBaseId, item.WarehouseNo);
+                    >>
+                    <div class="hs_item" data-mid="<<=item.MasterId>>" data-id="<<=item.FootID || ''>>" data-pbid="<<=item.ProBaseId>>" data-ckno="<<=item.WarehouseNo || ''>>">
+                        <div class="img_box" title="<<=item.ProductName>>">
+                            <a href="<<=detailurl>>" target="_blank">
+                                <img data-src="<<=item.ImgSmall>>"  data-width="80px" data-height="80px" style="width:auto;height:auto;">
+                            </a>
+                            <div class="delete_btn" data-btn="delfoot"></div>
+                        </div>
+                        <div class="price_box"><em>¥<<=item.CurrentPrice.toFixed(2)>></em></div>
+                    </div>
+                    <<});>>
+                </div>
+            </div>
+            <<}>>
+            <<if(data.other && data.other.length){>>
+            <div class="hs_list">
+                <div class="hs_top"><span>一天前</span></div>
+                <div class="hs_item_wrap">
+                    <<_.each(data.other, function(item){
+                    var detailurl = getDetailUrl(item.MasterId, item.ProBaseId, item.ckno);
+                    >>
+                    <div class="hs_item" data-id="<<=item.MasterId>>" data-pbid="<<=item.ProBaseId>>" data-ckno="<<=item.ckno>>">
+                        <div class="img_box" title="<<=item.ProductName>>">
+                            <a href="<<=detailurl>>" target="_blank">
+                                <img data-src="<<=item.ImgSmall>>"  data-width="80px" data-height="80px" style="width:auto;height:auto;">
+                            </a>
+                            <div class="delete_btn" data-btn="delfoot"></div>
+                        </div>
+                        <div class="price_box"><em>¥<<=item.CurrentPrice.toFixed(2)>></em></div>
+                    </div>
+                    <<});>>
+                </div>
+            </div>
+            <<}>>
+        </div>
+        <!--<div class="formore"><a href="#">查看更多&gt;&gt;</a></div>-->
+        <<}>>
+    </script>
+    <script type="text/template" id="js_cart_tpl">
+        <<if(data && data.length){var total=0.00;>>
+        <div class="list_head_all">
+            <span>共&nbsp;<em><<=data.length>></em>&nbsp;件商品</span>
+            <a href="//order.yitb.com/Order/ViewCart" target="_blank" class="fr">查看全部</a>
+        </div>
+        <div class="cart_list" style="overflow-y: auto;position: relative;" data-area="list">
+            <<_.each(data, function(item,idx){
+            var detailurl = getDetailUrl(item.MasterId, item.Pbid, item.CKNo || '');
+            total += (+item.Price) * (+item.Num);
+            >>
+            <div class="cart_item" data-id="<<=item.Pbid>>" data-ckno="<<=item.CKNo || ''>>" style="<<=((idx+1) === data.length?'border-bottom:none;':'')>>">
+                <div class="boximg"><a href="<<=detailurl>>" target="_blank"><img src="<<=item.Image>>" alt=""/></a>
+                </div>
+                <div class="boxinfo">
+                    <a href="<<=detailurl>>" target="_blank" style="display: inline-block;"><h3>
+                        <<=item.Title>></h3></a>
+                    <span><<=item.CkName>></span><br/>
+                    <span><em>¥<<=item.Price>></em>x<b><<=item.Num>></b></span>
+                </div>
+            </div>
+            <<});>>
+        </div>
+        <div class="cart_bot">
+            <div class="fl"><span>共<em><<=data.length>></em>件商品</span></div>
+            <div class="fr"><em class="price">¥<<=total.toFixed(2)>></em></div>
+        </div>
+        <div class="cartbtn"><a href="//order.yitb.com/Order/ViewCart" target="_blank">去购物车结算</a></div>
+        <<}else{>>
+        <div class="list_null list_cart_null">
+            <i></i>
+            <p>不要让您的购物车空着哦，</p>
+            <p>快去逛逛吧</p>
+        </div>
+        <<}>>
+    </script>
+    <script type="text/template" id="js_concern_tpl">
+        <<if(data && data.length){>>
+        <div class="cl_list" style="overflow-y: auto;position: relative;" data-area="list">
+            <<_.each(data, function(item, idx){
+            var detailurl = getDetailUrl(item.MasterId, item.ProBaseId, item.WarehouseNo);
+            >>
+            <div class="cl_item" data-id="<<=item.MasterId>>" data-pbid="<<=item.ProBaseId>>" data-ckno="<<=item.WarehouseNo || ''>>">
+                <div class="img_box" title="<<=item.ProductName>>">
+                    <a href="<<=detailurl>>" target="_blank">
+                        <img data-src="<<=item.ImgSmall>>" data-width="80px" data-height="80px" style="width:auto;height:auto;">
+                    </a>
+
+                    <div class="layer_bottom"></div>
+                    <div class="joincart" data-btn="addcart">
+                        <button>加入购物车</button>
+                    </div>
+                    <div class="delete_btn" data-btn="delconcern"></div>
+                </div>
+                <div class="price_box"><em>¥<<=item.CurrentPrice.toFixed(2)>></em></div>
+            </div>
+            <<});>>
+        </div>
+        <!--<div class="formore"><a href="/goods/#stock/myshelf" target="_blank">查看更多&gt;&gt;</a></div>-->
+        <!--</div>-->
+        <<}else{>>
+        <div class="list_null list_cl_null">
+            <i></i>
+            <p>你还没有收藏过品牌哦，</p>
+            <p>快去逛逛吧</p>
+        </div>
+        <<}>>
+    </script>
+    <script type="text/template" id="js_login_tpl">
+        <div class="right_bar_login js_login" data-root="layer">
+            <div class="rightbar_inner">
+                <div class="login_tit"><i class="js_close"></i></div>
+                <div class="login_form">
+                    <div class="form_tit">
+                        <h3>登录跨境翼</h3>
+                    </div>
+                    <form class="form_box">
+                        <div class="form_name"><input type="text" name="username" data-col="uname"  autocomplete="on"> </div>
+                    </form>
+                    <div class="form_psw"><input type="password" data-col="pwd"  autocomplete="off"></div>
+                    <div class="form_bot">
+                        <div class="checkbox fl"><label><i></i>记住密码</label></div>
+                        <div class="fr"><a href="/user/#forgetpwd" target="_blank">忘记密码？</a></div>
+                    </div>
+                    <div class="form_btn"><a href="javascript:void(0);" class="login" data-btn="login">登录</a></div>
+                    <div class="form_end"><span class="fr">还没注册？<a
+                            href="/user/#register" target="_blank">去注册</a></span></div>
+                </div>
+            </div>
+        </div>
+    </script>
+</div>
