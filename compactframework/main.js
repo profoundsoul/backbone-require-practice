@@ -51,3 +51,15 @@ $.custom.View({
         });
     }
 });
+
+var BaseView = $.custom.Class({
+    __propertys__:function(){},
+    initialize:function(data){
+        $.extend(this, data);
+        console.log('aaaaaa');
+        console.log(arguments.length);
+        console.log(arguments);
+    }
+});
+
+new BaseView({test:11111});

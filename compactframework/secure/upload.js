@@ -44,14 +44,13 @@
             }, 30);
         };
 
-    var Upload = function(config){
-        $.extend(this, {
-            formData : null,
-            method : config.method ? config.method : 'post',
-            url: config.url
-        });
-    };
-    Upload.prototype = {
+    var Upload = $.custom.Class({
+        __propertys__:function(){
+            this.formData = null;
+        },
+        initialize:function(config){
+            $.extend(this, config);
+        },
         /**
          * 清空file组件value值；兼容IE8-IE10中file组件readonly特性
          * @param e 事件event object or target
@@ -177,17 +176,15 @@
                 }
             }
         }
-    };
-    Upload.prototype.constructor = Upload;
+    });
 
-    //extend jQuery statics method
-    if (typeof $.custom !== 'object') {
-        $.extend({custom: {}});
-    }
-    if (typeof $.custom.RSA !== 'object') {
-        $.extend($.custom, {Upload: function(oConfig) {
-            return new Upload(oConfig);
-        }});
-    }
+    var defaults = {
+        method:'post',
+        url:''
+    };
+
+    $.custom.Register('Upload', function(oConfig) {
+        return new Upload($.extend({}, defaults, oConfig));
+    });
 })(jQuery);
 

@@ -11,6 +11,36 @@
         };
     }
 
+    //extend jQuery statics method
+    if (typeof $.custom !== 'object') {
+        $.extend({custom: {}});
+    }
+    $.custom.Register = function (name, obj) {
+        if (!(name && obj) || !(typeof obj === 'object' || typeof obj === 'function')) {
+            console.warn('the registered name or object is not invalid！')
+            return false;
+        }
+        if ($.custom[name]) {
+            console.warn('the name [' + name + '] has been registered another instance');
+            return false;
+        }
+        $.custom[name] = obj;
+
+        return obj;
+    };
+
+    $.custom.Class = function (obj) {
+        obj = obj || {};
+        obj.__propertys__ = obj.__propertys__ || function () {};
+        obj.initialize = obj.initialize || function () {};
+        var F = function () {
+            this.__propertys__.apply(this, arguments);
+            this.initialize.apply(this, arguments)
+        };
+        F.prototype = obj;
+        F.prototype.constructor = F;
+        return F;
+    };
 
     var util = (function () {
         /**
@@ -263,10 +293,11 @@
             return false;
         };
 
+
         return this;
     }).call({});
 
-    var uiHelper = (function (ulitity){
+    var uiHelper = (function (ulitity) {
         var __dialogNameReg = '^[A-z]\\w{2,16}$';
         var __getViewId = ulitity.generateUniqueId('__view_');
         var __getComponentId = ulitity.generateUniqueId('__component_');
@@ -557,6 +588,7 @@
 
         function Core() {
         }
+
         Core.prototype = (function () {
             this.__el = 'body';
             this.el = 'body';
@@ -582,9 +614,7 @@
         return this;
     }).call({}, util);
 
-    //extend jQuery statics method
-    if (typeof $.custom !== 'object') {
-        $.extend({custom: {}});
-    }
     $.extend($.custom, util, uiHelper);
+
 }(jQuery));
+

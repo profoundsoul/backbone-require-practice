@@ -797,11 +797,5 @@
         return result;
     }
 
-    //extend jQuery statics method
-    if (typeof $.custom !== 'object') {
-        $.extend({custom: {}});
-    }
-    if (typeof $.custom.RSA !== 'object') {
-        $.extend($.custom, {RSA: {rsaEncrypted: rsaEncrypted, rsaEncryp: rsaEncryp}});
-    }
+    $.custom.Register('RSA', {rsaEncrypted: rsaEncrypted, rsaEncryp: rsaEncryp});
 })(jQuery);
