@@ -52,14 +52,51 @@ $.custom.View({
     }
 });
 
-var BaseView = $.custom.Class({
-    __propertys__:function(){},
+var BaseView = new $.custom.Class({
+    __propertys__:function(){
+        this.base = 1;
+    },
     initialize:function(data){
         $.extend(this, data);
-        console.log('aaaaaa');
-        console.log(arguments.length);
-        console.log(arguments);
+        //console.log('aaaaaa');
+        //console.log(arguments.length);
+        //console.log(arguments);
+    },
+    baseTest:function(){
+        console.log('基类调用了！');
+    },
+    getPrivateProperty:function(){
+        console.log(this.base);
+    }
+});
+//
+//new BaseView({test:11111});
+
+var BV2 = $.custom.Class(BaseView, {
+    __propertys__:function(){
+        this.sub = 2;
+    },
+    initialize:function($super, options){
+        $super(options);
+    },
+    getName:function(){
+        console.log('测试！');
+    },
+    getPrivateProperty:function($super){
+        $super();
+        console.log(this.sub);
     }
 });
 
-new BaseView({test:11111});
+//var obj = new BV2({name:'linq'});
+//obj.base = 2;
+//obj.sub = 22;
+//obj.getPrivateProperty();
+//console.log(obj);
+
+var obj2 = new BV2({name:'myname'});
+obj2.base = 3;
+obj2.sub = 33;
+obj2.baseTest();
+obj2.getPrivateProperty();
+console.log(obj2);
