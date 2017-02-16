@@ -6,10 +6,20 @@
     <link rel="stylesheet" href="style/interface.css"/>
     <link rel="stylesheet" href="style/header.css"/>
     <link rel="stylesheet" href="style/orders.css"/>
+    <style>
+        .myanimation{
+            animation: translateY 1s infinite ease-out alternate;
+        }
+        
+        @keyframes translateY {
+            0%   {margin-left:0px;}
+            100% {margin-left: 1000px;}
+        }
+    </style>
 </head>
 <body>
 <div style="margin: 20px;font-size: 18px;">
-    <a href="basepopupdemo.html" target="_blank">Enter--弹窗Demo入口</a><br/>
+    <a href="basepopupdemo.html" target="_blank">Enter--弹 窗Demo入口</a><br/>
     <a href="componentdemo.html" target="_blank">Enter--组件Demo入口</a>
 </div>
 <br/>
@@ -27,7 +37,9 @@
         <i>aaaaaaaaa</i>
     </label>
 </div>
-
+<div style="margin: 20px;">
+    <div style="border:1px solid green;width: 100px;height: 100px;" class="myanimation"></div>
+</div>
 <div style="margin:20px;">
     <a href="javascript:document.body.appendChild(document.createElement('div'))">点我</a>
 </div>

@@ -78,7 +78,7 @@
 
         renderProvince: function (provinceid) {
             var provinceBox = this.$el.find('.js_province_box');
-            this.getProvinceApi(function (data) {
+            this.getProvinceListApi(function (data) {
                 if (data && data.addrs && data.addrs.length) {
                     data.addrs.selprovinceid = provinceid;
                     provinceBox.html(this.provinceTplFn({data: data.addrs}));
@@ -94,7 +94,7 @@
         },
         renderAres: function (cityid, selareaid) {
             var areaBox = this.$el.find('.js_area_box');
-            this.getAreaApi(cityid, function (data) {
+            this.getAreaListApi(cityid, function (data) {
                 data.addrs.selid = selareaid;
                 areaBox.html(this.areaTplFn({data: data.addrs}));
             });
@@ -232,7 +232,7 @@
             //    $.custom.Dialog.Toast("服务调用异常！");
             //}, true, this);
         },
-        getProvinceApi: function (fn) {
+        getProvinceListApi: function (fn) {
             //provincesListModel.param = {};
             //provincesListModel.excute(function (data) {
             //    if (data.flag) {
@@ -260,7 +260,7 @@
             //    $.custom.Dialog.Toast('服务调用异常！');
             //}, false, this);
         },
-        getAreaApi: function (parentId, fn) {
+        getAreaListApi: function (parentId, fn) {
             //areasListModel.param = {};
             //areasListModel.setParam('pid', parentId);
             //areasListModel.excute(function (data) {

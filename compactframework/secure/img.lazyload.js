@@ -29,8 +29,9 @@
             }
 
             this.needWrapper = false;
-            if (this.width || this.height)
+            if (this.width || this.height){
                 this.needWrapper = true;
+            }
             this.imgContainer = {};
 
             //新增lazyload命名空间，防止同一页面中事件不经意地被移除

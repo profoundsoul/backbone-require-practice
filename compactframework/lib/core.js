@@ -103,10 +103,8 @@
 
     $.custom.Class2 = function (obj) {
         obj = obj || {};
-        obj.__propertys__ = obj.__propertys__ || function () {
-        };
-        obj.initialize = obj.initialize || function () {
-        };
+        obj.__propertys__ = obj.__propertys__ || function () {};
+        obj.initialize = obj.initialize || function () {};
         var F = function () {
             this.__propertys__.apply(this, arguments);
             this.initialize.apply(this, arguments)
@@ -372,7 +370,7 @@
     }).call({});
 
     var uiHelper = (function (ulitity) {
-        var __dialogNameReg = '^[A-z]\\w{2,16}$';
+        var __dialogNameReg = '^[A-z]\\w{2,32}$';
         var __getViewId = ulitity.generateUniqueId('__view_');
         var __getComponentId = ulitity.generateUniqueId('__component_');
         var __getMaskId = ulitity.generateUniqueId('__mask_');
