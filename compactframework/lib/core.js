@@ -67,13 +67,24 @@
             var matchArr = /\s*function\s*\(([^\{\)]*?)\)/i.exec(str);
             return matchArr.length > 1 ? matchArr[1].replace(/\s/gi, '').split(',') : [];
         };
+        var findIndex = function(arr, item) {
+            if(arr && arr.length>0){
+                for(var i= 0, len=arr.length; i<len; i++) {
+                    if(arr[i] === item) {
+                        return i;
+                    }
+                }
+            }
+            return -1;
+        };
         var overloadFn = function(fn, basefn){
             var arr = matchFunctionArguments(options[k].toString());
-            if(arr.length >0 && arr[0] === '$super') {
+            var idx = findIndex(arr, '$super');
+            if(idx > -1) {
                 //binding first argument is the initialize of the super class instance
                 return function(){
                     var args = [].slice.call(arguments);
-                    args.splice(0,0, function(basef, _this){
+                    args.splice(idx, 0, function(basef, _this){
                         return function(){
                             basef.apply(_this, arguments);
                         }
@@ -503,14 +514,22 @@
                             return;
                         }
                         this.__mid = __getComponentId();
-                        //业务代码异步执行处理
                         var _this = this;
                         var settings = $.extend(true, {}, defaults, options || {}, attrs);
-                        __checkTemplate(settings, function (str) {
-                            $.extend(instance, settings, {templateStr: str});
-                            var wrapper = $('<div>').attr('data-compid', _this.__mid);
-                            wrapper.html(str);
-                            _this.$el.html(wrapper);
+                        __checkTemplate(settings, function (htmlTpl) {
+                            htmlTpl = $.trim(htmlTpl);
+                            // 处理已有html结构，又没有指定path和str的结构，直接使用$el原有模板即可
+                            if(htmlTpl) {
+                                var wrapperArr = [];
+                                wrapperArr.push('<div data-compid="'+_this.__mid+'">');
+                                wrapperArr.push(htmlTpl);
+                                wrapperArr.push('</div>');
+                                _this.$el.html(wrapperArr.join('\n'));
+                            }else{
+                                //将组件表示放到$el元素中
+                                _this.$el.attr('data-compid', _this.__mid);
+                            }
+                            $.extend(instance, settings, {templateStr: htmlTpl});
                             _this.__propertys__();
                             setTimeout(function () {
                                 _this.__handleBindEvent();

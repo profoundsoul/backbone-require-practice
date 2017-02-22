@@ -1,0 +1,68 @@
+<style>
+    .cfui-num {
+        display: inline-block;
+        padding: 0px 28px;
+        position: relative;
+        border: 1px solid #ccc;
+        line-height: normal;
+    }
+    .cfui-num .cfui-add{
+        display: inline-block;
+        position: absolute;
+        right: 0px;
+        top: 0px;
+    }
+
+    .cfui-add:after{
+        content: '+';
+        display: inline-block;
+        font-size: 28px;
+        width: 28px;
+        height: 28px;
+        color: #fff;
+        background: #eb415d;
+        line-height: 28px;
+        text-align: center;
+        cursor: pointer;
+    }
+    .cfui-num .cfui-minus{
+        display: inline-block;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+    }
+
+    .cfui-minus:after{
+        content: '-';
+        display: inline-block;
+        font-size: 28px;
+        background: #eb415d;
+        color:#fff;
+        width: 28px;
+        height: 28px;
+        line-height: 28px;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .cfui-num .cfui-text{
+        width: 100%;
+        display: inline-block;
+        text-align: center;
+        vertical-align: top;
+        line-height: 28px;
+        height: 28px;
+        border: none;
+    }
+
+    .cfui-num .cfui-num-invaild:after{
+        color: #d9d9d9;
+        background: #f4f4f4;
+        cursor: not-allowed;
+    }
+</style>
+<div class="cfui-num">
+    <i class="cfui-minus"></i>
+    <input type="text" class="cfui-text"/>
+    <i class="cfui-add"></i>
+</div>

@@ -16,7 +16,7 @@
         rsaPath:'../secure/rsa.min.js',
         lazyLoadPath:'../secure/img.lazyload.js',
         events: {
-            'blur .sidebar_right':'hideAllLayer',
+            //'blur .sidebar_right':'hideAllLayer',
             'click ': 'stopClickPropagation',
             'click .js_concern': 'showConcern',
             'click .js_footstep': 'showFootstep',
@@ -42,7 +42,7 @@
             this.updateCartCount();
         },
         addBlurEvent: function () {
-            //$(document).on('click', $.proxy(this.hideAllLayer, this));
+            $(document).on('click', $.proxy(this.hideAllLayer, this));
         },
         stopClickPropagation: function (e) {
             e.stopPropagation();

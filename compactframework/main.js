@@ -76,7 +76,7 @@ var BV2 = $.custom.Class(BaseView, {
     __propertys__:function(){
         this.sub = 2;
     },
-    initialize:function($super, options){
+    initialize:function(options, $super){
         $super(options);
     },
     getName:function(){

@@ -177,7 +177,7 @@
     };
 
     $.custom.Register('ImgLazyload', function (options) {
-        return new ImgLazyload($.extend({}, options, defaults));
+        return new ImgLazyload($.extend({}, defaults, options));
     });
 })(jQuery);
 
