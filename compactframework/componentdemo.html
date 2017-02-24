@@ -139,6 +139,12 @@
         <img src="imgs/small.jpg" data-bigimg="imgs/big.jpg" alt="pic info">
     </div>
 </div>
+<div style="margin:20px;">
+    <div class="js_addcart" style="display: inline-block;min-width: 160px;text-align: center;font-size: 14px;
+    color:#fff;background: #eb415d;border-radius: 3px;line-height: 38px;height: 38px;cursor:pointer;font-family: 'simsun';">
+        加入购物车
+    </div>
+</div>
 <script src="lib/jquery-1.10.2.js"></script>
 <!--<script src="lib/core.min.js"></script>-->
 <script src="lib/underscore.js"></script>
@@ -150,13 +156,14 @@
 <script src="component/textnum.js"></script>
 <script src="component/switchslide.js"></script>
 <script src="plugins/jqzoom.js"></script>
-
+<script src="plugins/jqfly.js"></script>
 <!--高级搜索组件-->
 <script>
     $('#adsearch').AdvanceSearch({
         ids: [1, 2, 9, 10, 3, 5, 4]
     });
 </script>
+<!--标签组件-->
 <script>
     (function () {
         var ORDER_CONFIG_CONSTANT = {
@@ -185,6 +192,7 @@
     })();
 
 </script>
+<!--文件上传-->
 <script>
     var up = new $.custom.Upload({
         method: 'post',
@@ -203,6 +211,7 @@
         });
     });
 </script>
+<!--数字加减组件-->
 <script>
     var aa = $('#js_textnum').TextNum({
         changed: function () {
@@ -215,6 +224,7 @@
         }
     });
 </script>
+<!--左右切换组件-->
 <script>
     $('.js_slide_box').SwitchSlide({});
 </script>
@@ -223,6 +233,34 @@
     $('.js_zoom').jqueryzoom({
         bigImageUrlAttribute: 'data-bigimg'
     });
+</script>
+<!--抛物线插件-->
+<script>
+    $('.js_addcart').click(function (e) {
+        var offset = window.RigthSideBar.getCartDistCoords(true),
+            left = offset.left,
+            top = offset.top,
+            flyer = $('<img class="u-flyer"/>');
+        var mask = $.custom.Mask();
+        flyer.attr('src', 'http://res.yitb.com/upload/master/1627/1477641996289.jpg');
+        flyer.fly({
+            start: {
+                left: e.clientX,
+                top: e.clientY,
+                width: 80,
+                height: 80
+            },
+            end: {
+                left: left,
+                top: top,
+                width: 30,
+                height: 30
+            },
+            onEnd: function () {
+                mask.destory();
+            }
+        });
+    })
 </script>
 </body>
 </html>

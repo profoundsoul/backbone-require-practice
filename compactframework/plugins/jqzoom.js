@@ -22,7 +22,7 @@
             settings = $.extend({}, defaults, options || {}),
             throttleScaleMove = (typeof _ !== 'undefined' && _.throttle) ? _.throttle(scaleMove, 50, {trailing: false}) : scaleMove;
         $el.css('position', 'relative');
-        $el.off('mouseenter').on('mouseenter', function () {
+        $el.mouseenter(function () {
             var leftpos,
                 imageLeft = $el.offset().left,
                 imageTop = $el.offset().top,
@@ -65,8 +65,8 @@
                 $el.css('cursor', 'crosshair');
             }
         });
-        $el.off('mousemove').on('mousemove', throttleScaleMove);
-        $el.off('mouseleave').on('mouseleave', function () {
+        $el.mousemove(throttleScaleMove);
+        $el.mouseleave(function () {
             $el.children("img").attr("alt", noalt);
             if (settings.lens) {
                 $el.find('.' + settings.zoomPupClassName).remove();
