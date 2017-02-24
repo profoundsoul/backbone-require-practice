@@ -21,4 +21,11 @@ gulp.task('secure', function(){
         .pipe(gulp.dest('../secure'));
 });
 
-gulp.task('default', ['core', 'secure']);
+gulp.task('plugins', function(){
+    gulp.src(['../plugins/*.js', '!../plugins/*.min.js'])
+        .pipe(uglify())
+        .pipe(rename({suffix:'.min'}))
+        .pipe(gulp.dest('../plugins'));
+});
+
+gulp.task('default', ['core', 'secure', 'plugins']);
