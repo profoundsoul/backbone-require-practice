@@ -17,7 +17,7 @@
         }
     </style>
 </head>
-<body>
+<body style="overflow: auto;max-height: 1000px;">
 <div style="margin: 20px;font-size: 18px;">
     <a href="basepopupdemo.html" target="_blank">Enter--弹 窗Demo入口</a><br/>
     <a href="componentdemo.html" target="_blank">Enter--组件Demo入口</a>
@@ -45,6 +45,35 @@
 </div>
 <div style="margin:20px;">
     <a href='javascript:(function(e){e.setAttribute("src","http://localhost:8080/target/target-script-min.js#anonymous");document.getElementsByTagName("body")[0].appendChild(e);})(document.createElement("script"));void(0);'>联调测试标签</a>
+</div>
+<div style="margin:10px;">
+    <ul class="js_scroll" style="overflow-y: auto;height: 100px;display: inline-block;">
+        <li>1111111111</li>
+        <li>2222222222222</li>
+        <li>3333333333333</li>
+        <li>4444444444444</li>
+        <li>5555555555555</li>
+        <li>6666666666666</li>
+        <li>7777777777777</li>
+        <li>7777777777777</li>
+        <li>7777777777777</li>
+        <li>7777777777777</li>
+        <li>7777777777777</li>
+        <li>7777777777777</li>
+        <li>7777777777777</li>
+        <li>7777777777777</li>
+        <li>7777777777777</li>
+        <li>7777777777777</li>
+        <li>7777777777777</li>
+        <li>7777777777777</li>
+        <li>7777777777777</li>
+        <li>7777777777777</li>
+    </ul>
+
+    <input type="text" class="js_focus"/>
+</div>
+<div style="min-height: 1000px;">
+
 </div>
 
 <script type="text/template" id="js_frm_tpl">
@@ -96,5 +125,23 @@
 </script>
 <!--页面View基本玩法-->
 <script src="main.js"></script>
+<script>
+    $.custom.View({
+        events:{
+            'scroll .js_scroll':'scrollInto',
+            'focus .js_focus':'focus',
+            'scroll':'scrollBody'
+        },
+        scrollInto:function(){
+            console.log(11111);
+        },
+        focus:function(){
+            console.log('focus！');
+        },
+        scrollBody:function(){
+            console.log('body scrolled');
+        }
+    });
+</script>
 </body>
 </html>

@@ -407,15 +407,13 @@
                     }
 
                     if (evtObj.handle) {
-                        evtObj.eventName = key.match(/\w+/)[0];
+                        evtObj.eventName = key.match(/[\w\.]+/)[0];
                         if (key.length === evtObj.eventName.length) {
                             evtObj.delegate = '';
                             _evtArr.push(evtObj);
                         } else {
                             delegateSelector = $.trim(key.substr(evtObj.eventName.length));
                             try {
-                                //此处主要是为了判定选择器是否有效，如果为无效，抛出异常操作，直接PASS掉
-                                var isExist = delegateTarget.find(delegateSelector).length > 0;
                                 evtObj.delegate = delegateSelector;
                                 _evtArr.push(evtObj);
                             } catch (e) {
@@ -423,9 +421,17 @@
                             }
                         }
                     }
+
+                    //生成isdelegated event type，
+                    //鉴于jquery对于特殊事件scroll等不支持委托事件无法委托处理，需要特殊处理
+                    evtObj.isDelegated = true;
+                    if(evtObj.eventName) {
+                        if(/^scroll|load|error|reset|paste/.test(evtObj.eventName)) {
+                            evtObj.isDelegated = false;
+                        }
+                    }
                 }
             }
-            //清除所有的事件
             delegateTarget.off('.' + this.__mid);
             $.each(_evtArr, function (idx, item) {
                 var argArr = [item.eventName + '.' + _this.__mid];
@@ -435,7 +441,14 @@
                 argArr.push(function () {
                     item.handle.apply(_this, arguments);
                 });
-                delegateTarget.on.apply(delegateTarget, argArr);
+                if(item.isDelegated || !item.delegate){
+                    delegateTarget.on.apply(delegateTarget, argArr);
+                }else{
+                    var target = delegateTarget.find(item.delegate);
+                    if(target.length) {
+                        target.on.call(target, argArr[0], argArr.pop());
+                    }
+                }
             });
         };
         var __checkTemplate = function (attrs, fn, ctx) {
@@ -478,7 +491,6 @@
                     }).call(instance);
                     this.__mid = __getViewId();
                     this.__propertys__();
-                    //业务代码异步执行处理
                     var _this = this;
                     setTimeout(function () {
                         _this.__handleBindEvent();
@@ -681,8 +693,8 @@
         }
 
         Core.prototype = (function () {
-            this.__el = 'body';
-            this.el = 'body';
+            this.__el = document;
+            this.el = document;
             this.events = {};
             this.__handleBindEvent = __handleBindEvent;
             this.__propertys__ = function () {
