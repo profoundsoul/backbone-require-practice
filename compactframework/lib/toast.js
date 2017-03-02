@@ -5,8 +5,8 @@
     var Toast = $.custom.Dialog({
         __propertys__: function () {
             var tplArr = [];
-            tplArr.push('<div class="cui-layer-padding">');
-            tplArr.push('<div class="cui-layer-content"><<=message>></div>');
+            tplArr.push('<div class="cfui_layer_padding">');
+            tplArr.push('<div class="cfui_layer_content"><<=message>></div>');
             tplArr.push('</div>');
 
             this.timeoutid = 0;
@@ -27,7 +27,7 @@
         render: function () {
             var html = this.tplFn(this);
             //兼容css部分前样式
-            this.$el.addClass('cui-toast').html(html);
+            this.$el.html(html);
         },
         setMaskClickHandle: function () {
             var _this = this;
