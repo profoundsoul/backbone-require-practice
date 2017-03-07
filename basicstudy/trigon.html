@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .trigon{
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            position:relative;
+        }
+
+        .trigon:before{
+            content:'';
+            position:absolute;
+            left:0px;
+            top:0px;
+            border:8px solid transparent;
+            border-bottom-color: #005C9C;
+        }
+
+        .trigon:after {
+            content:'';
+            position:absolute;
+            left:0px;
+            top:2px;
+            border:8px solid transparent;
+            border-bottom-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div style="margin-top:50px;margin-left:50px;">
+        <div class="trigon"></div>
+    </div>
+</body>
+</html>

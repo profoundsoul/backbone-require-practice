@@ -52,6 +52,10 @@ a{
     cursor: pointer;
 }
 
+a:hover{
+    color:red!important;
+}
+
 a img {
     border: none;
 }
@@ -72,8 +76,24 @@ button {
     border: none;
 }
 
+body{
+    font-size: 14px;
+    font-family: "Microsoft YaHei",微软雅黑,"Microsoft JhengHei",华文细黑,STHeiti,MingLiu;
+    color: #333;
+}
+
 .w950{
     width: 950px;
+}
+
+.chunk_bg{
+    background: #F7F7F7;
+}
+
+.chunk_bg:after{
+    content:'';
+    display: block;
+    clear:both;
 }
 
 .header{
@@ -130,17 +150,30 @@ button {
 
 .search input[type='text']{
     outline: none;
-    border:none;
+    border: none;
     display: inline-block;
-    line-height: 28px;
-    width: 240px;
+    line-height: 30px;
+    width: 242px;
     display: inline-block;
-    font-size:14px;
+    font-size: 14px;
     font-family: SimSun;
-    color:#868686;
+    color: #868686;
+    padding: 0px;
+    margin: 0px;
 }
 
 .search .btn{
+    display: inline-block;
+    width: 40px;
+    height: 30px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    overflow: hidden;
+
+}
+
+.btn i{
     position: absolute;
     right: 8px;
     top:8px;
@@ -161,7 +194,9 @@ button {
     font-size: 22px;
     font-family: sans-serif, Arial, Verdana, "Trebuchet MS";
 }
-
+.menu .item a{
+    font-weight: bold;
+}
 
 .banner{
     background: url(../images/sidegb.jpg) no-repeat center;
@@ -170,7 +205,6 @@ button {
 }
 
 .follow{
-
 }
 
 .qrcode_box{
@@ -180,16 +214,17 @@ button {
     left: 100px;
     width: 165px;
     height: 203px;
-    outline: #eee outset 1px;
+    outline: #fef7f7 outset 2px;
     background-color: #fff;
     text-align: center;
+    z-index: 1000;
 }
 
 .qrcode_box .title{
     display: inline-block;
-    color:#000;
-    font-size:23px;
-    margin-top:5px;
+    color: #000;
+    font-size: 22px;
+    margin-top: 8px;
     font-weight: bold;
 }
 .qrcode_box img{
@@ -203,7 +238,6 @@ button {
     color:#000;
     line-height: 12px;
     text-align: justify;
-    margin: 0px 3px;
     word-wrap: break-word;
     font-family: 'microsoft yahei', Verdana, Arial, Helvetica, sans-serif;
     word-break: break-all;
@@ -218,16 +252,15 @@ button {
     right: 100px;
     width: 165px;
     height: 203px;
-    outline: #eee outset 1px;
+    outline: #fef7f7 outset 2px;
     background-color: #fff;
     text-align: center;
+    z-index: 1000;
+
 }
 
-
-
-
-.ad_box:before{
-    content: '';
+.ad_box .ad_bg{
+    display: block;
     position: absolute;
     left: 0px;
     top: 0px;
@@ -235,6 +268,689 @@ button {
     height: 100%;
     background: url('../images/adbg.jpg') no-repeat;
 }
+
+.ad_box .title{
+    display: inline-block;
+    margin-top:10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.ad_box .website{
+    font-size: 18px;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.ad_box .desc{
+    font-size: 16px;
+    font-family: "Microsoft YaHei",微软雅黑,"Microsoft JhengHei",华文细黑,STHeiti,MingLiu;
+    color:#b70000;
+    word-break: break-all;
+    display: inline-block;
+    width: 110px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.ad_box .apply {
+    display: inline-block;
+    width: 155px;
+    background: url(../images/applybtn.png) no-repeat;
+    height: 41px;
+}
+
+.ad_box .watchword{
+    height: 55px;
+    display: inline-block;
+    margin-top: 2px;
+    opacity: 0.8;
+}
+
+.gift{
+    margin:0px auto;
+    margin-top:20px;
+    height: 90px;
+    background: url(../images/gift1212.jpg);
+}
+
+.hot_box{
+    overflow: hidden;
+    height: 453px;
+    margin:0px auto;
+    margin-top:20px;
+}
+
+
+.hot_box .tit_box{
+    height: 34px;
+    overflow: hidden;
+}
+
+.hot_box .tit{
+    font-size: 14px;
+    color:#177F82;
+    display: inline-block;
+}
+.hot_box .more{
+    font-size: 12px;
+    color:#528CBC;
+}
+
+.hot_box .hot_lft{
+    display: inline-block;
+    width: 360px;
+
+}
+.hot_lft .pic{
+    float: left;
+    width: 173px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.pic img{
+    width: 171px;
+    display: inline-block;
+}
+
+.pic .remark{
+    font-size: 12px;
+    color:#3377AA;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+.hot_box .hot_mdl {
+    display: inline-block;
+    width: 310px;
+    vertical-align: top;
+}
+
+.hot_mdl .article{
+    list-style: none;
+    margin: 0px 5px;
+    font-size: 12px;
+    word-break: break-all;
+    word-wrap: break-word;
+    text-align:left;
+}
+
+.article li{
+    margin-bottom: 15px;
+}
+
+.article a{
+    color:#3377AA;
+}
+
+.article .detail{
+    overflow: hidden;
+    margin-top:5px;
+}
+
+.detail .author{
+    color: #999;
+}
+
+.detail .dialog{
+    color: #666;
+    margin-top: 4px;
+    line-height: 18px;
+}
+
+.hot_box .hot_rgt {
+    display: inline-block;
+    float: right;
+}
+
+
+.hot_rgt .contact{
+    margin-top:25px;
+    margin-left:5px;
+    list-style: none;
+    word-break: break-all;
+    word-wrap: break-word;
+    color:#727272;
+    font-size:16px;
+    display: block;
+    position: relative;
+    line-height: 28px;
+}
+
+.contact .qq{
+    margin-left:8px;
+}
+
+.contact .cnt{
+    vertical-align: super;
+    display: inline-block;
+    margin-left:5px;
+}
+
+.draught{
+    margin:0px auto;
+    margin-top:10px;
+    min-height: 500px;
+}
+
+.draught .chunk{
+    height: 385px;
+}
+
+.draught .lft {
+    overflow: hidden;
+    width: 315px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.draught .title{
+    font-size: 24px;
+    color:#1c8bd0;
+    margin-left:10px;
+}
+.draught .subtit {
+    color: #1c8bd0;
+    font-size: 16px;
+    font-family: simsun, Arial, Helvetica, sans-serif;
+    display: inline-block;
+    line-height: 16px;
+    margin-top:10px;
+    margin-left:10px;
+}
+
+.draught .content{
+    font-family: simsun, Arial, Helvetica, sans-serif;
+    word-break: break-all;
+    word-wrap: break-word;
+    font-size: 16px;
+    overflow: hidden;
+    margin-left: 5px;
+    margin-top: 10px;
+    color:#232424;
+    font-weight: 400;
+}
+
+.draught .lgt22{
+    line-height: 22px;
+}
+
+.draught .through{
+    color:#3c7b02;
+    font-weight: bold;
+}
+.draught .red{
+    color:red;
+}
+
+.draught .mdl {
+    overflow: hidden;
+    width: 310px;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: -2px;
+}
+.draught .rgt {
+    float:right;
+    overflow: hidden;
+    vertical-align: top;
+    width: 322px;
+}
+
+.draught .docname{
+    margin-top:10px;
+    margin-left:5px;
+    color:#1c8bd0;
+    font-size:16px;
+    line-height: 22px;
+}
+
+.draught .graph{
+    margin-left:20px;
+    margin-top:15px;
+    margin-bottom: 10px;
+}
+
+.graph .row{
+    display: block;
+    overflow: hidden;
+}
+
+.draught .rect{
+    width: 105px;
+    height: 40px;
+    display: inline-block;
+    background: #afc7d1;
+    line-height: 40px;
+    text-align:center;
+    color:#232424;
+    cursor: pointer;
+}
+
+.rect:hover .show_layer{
+    display: inline-block!important;
+}
+.draught .detail_layer{
+    display: none;
+    position:absolute;
+    left:0px;
+    top: 0px;
+    width: 600px;
+    overflow: hidden;
+    z-index:999;
+}
+
+.detail_layer .trogin{
+    display: inline-block;
+    position:relative;
+    width: 16px;
+    height: 16px;
+}
+
+.trogin:before{
+    content: '';
+    position: absolute;
+    top:0px;
+    left: 0px;
+    border: 8px solid transparent;
+    border-bottom-color: #666;
+}
+
+.trogin:after{
+    content: '';
+    position: absolute;
+    top: 1px;
+    left: 0px;
+    border:8px solid transparent;
+    border-bottom-color:#fff;
+}
+
+.detail_layer .layer{
+    border: 1px solid #999;
+    border-radius: 5px;
+    min-height: 50px;
+    background: #fff;
+    margin-top: -15px;
+    word-break: break-all;
+    word-wrap: break-word;
+    font-size:12px;
+    text-align: left;
+    padding-left: 5px;
+    padding-top:5px;
+}
+
+.draught .second{
+    background:#D4DBAA;
+}
+.draught .third {
+    background:#DEC9A8;
+}
+
+.draught .fouth {
+    background:#DABBB2;
+}
+
+.draught .fifth {
+    background:#DCCDE8;
+}
+
+.draught .sixth {
+    background:#DAEDB3;
+}
+
+.draught .seven{
+    background: #E2C2AF;
+}
+
+.draught .arrow_rgt {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+.arrow_rgt:before{
+    display: inline-block;
+    content: '';
+    width: 16px;
+    height: 8px;
+    background: #D7BCB6;
+    vertical-align: top;
+    margin-top: 4px;
+}
+
+.arrow_rgt:after {
+    content: '';
+    display: inline-block;
+    border:8px solid transparent;
+    border-left-color:#D7BCB6;
+}
+
+.draught .arrow_lft{
+    display: inline-block;
+    position:relative;
+    overflow: hidden;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.arrow_lft:before{
+    content: '';
+    display: inline-block;
+    border:8px solid transparent;
+    border-right-color:#D7BCB6;
+}
+
+.arrow_lft:after{
+    display: inline-block;
+    content: '';
+    width: 16px;
+    height: 8px;
+    background: #D7BCB6;
+    vertical-align: top;
+    margin-top: 4px;
+}
+
+.draught .arrow_btm{
+    display: inline-block;
+    position:relative;
+    overflow: hidden;
+    width: 16px;
+    margin-top: 10px;
+}
+
+.arrow_btm:before{
+    display: inline-block;
+    content: '';
+    width: 8px;
+    height: 16px;
+    background: #D7BCB6;
+    vertical-align: top;
+    margin-left: 4px;
+
+}
+
+.arrow_btm:after{
+    content: '';
+    display: inline-block;
+    border:8px solid transparent;
+    border-top-color:#D7BCB6;
+    margin-top:-2px;
+}
+
+.draught .apply{
+    display: inline-block;
+    margin:10px auto 5px auto;
+    width: 145px;
+    height: 33px;
+    line-height: 33px;
+    background: url("../images/applybg.png") no-repeat;
+    text-align: center;
+    font-size:20px;
+    font-family: "Microsoft YaHei",微软雅黑,"Microsoft JhengHei",华文细黑,STHeiti,MingLiu;
+    color:#fff;
+    letter-spacing: 7px;
+    cursor:pointer;
+}
+
+.douban{
+    margin:0px auto;
+    height: 90px;
+    background: url('../images/dbad.jpg') no-repeat;
+    margin-top:19px;
+    overflow: hidden;
+}
+
+.trends{
+    margin:0px auto;
+    height: 650px;
+    overflow: hidden;
+    padding-top:20px;
+}
+
+.trends .region{
+    float: left;
+    width: 338px;
+    padding: 0px;
+    margin: 0px;
+    min-height: 330px;
+    padding-right: 12px;
+}
+
+.region .header{
+    display: inline-block;
+    height: 34px;
+    line-height: 34px;
+    min-width: 114px;
+    border:1px solid #999;
+    border-top-color: #326433;
+    border-top-width: 2px;
+    border-bottom:none;
+    background: #fff;
+    text-align: center;
+    font-size:20px;
+    color:#252525;
+    margin: 0px;
+    padding: 0px;
+    cursor:pointer;
+}
+
+.region .section{
+    margin-top:-1px;
+    border-top:1px solid #999;
+}
+
+.region .headline{
+    height: 100px;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.headline img{
+    width: 122px;
+    height: 91px;
+    display: inline-block;
+}
+
+.headline .intro{
+    margin-top:3px;
+    margin-left:2px;
+    float: right;
+    width: 210px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.intro .tit{
+    display: inline-block;
+    line-height: 20px;
+    font-weight: bold;
+    color:#222;
+}
+
+.intro .dtl{
+    text-indent: 28px;
+    line-height: 25px;
+    color: #999;
+    display: inline-block;
+    font-size: 12px;
+}
+
+.region .list{
+    margin-top:20px;
+    list-style: disc outside;
+    padding: 0px;
+    color:#aaa;
+}
+.region .list li{
+    line-height: 30px;
+    margin-left: 20px;
+    text-indent: -8px;
+}
+.region .list a{
+    color:#222;
+}
+
+.region .list .parag {
+    line-height: 30px;
+    text-align: left;
+    font-weight: bold;
+    color: #222;
+    margin-left: 5px;
+    margin-top: 10px;
+}
+
+.militeryinfo{
+    height: 900px;
+    margin: 0px auto;
+}
+
+.militeryinfo .mi_lft{
+    float:left;
+    width: 315px;
+    margin-top:20px;
+    /*background: #A0DD4E;*/
+    min-height: 400px;
+}
+
+.militeryinfo .mi_rgt {
+    float: right;
+    max-width: 320px;
+    min-width: 315px;
+    margin-top:20px;
+    /*background: #800080;*/
+    min-height: 400px;
+}
+
+.militeryinfo .chunk_tit{
+    color:#d99503;
+    font-size:24px;
+    margin-left: 10px;
+}
+
+.militeryinfo .sub_tit{
+    color:#ff0000;
+    font-size:22px;
+    margin-left: 10px;
+    margin-top:5px;
+}
+
+.militeryinfo .cnt {
+    font-family: sans-serif, Arial, Verdana, "Trebuchet MS";
+    color:#222;
+    padding-left: 5px;
+}
+
+.cnt span{
+    font-size: 12px;
+    text-indent: 44px;
+    display: inline-block;
+    line-height: 20px;
+    color: #444;
+    letter-spacing: 1px;
+}
+
+.cnt .bold{
+    font-weight: bold;font-size: 14px;
+}
+
+.militeryinfo .p_tit{
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 24px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.nav{
+    height: 285px;
+    overflow: hidden;
+    margin:0px auto;
+}
+
+.nav .category{
+    line-height: 36px;
+    list-style: none;
+    overflow: hidden;
+}
+
+.category li{
+    float:left;
+    margin-right: 14px;
+}
+
+.category li .second_cate{
+    font-size: 18px;
+    color:#3c7b02;
+}
+
+.category li a{
+    color:#333;
+    font-size:16px;
+}
+
+.frendship_site{
+    background: #F2F2F2;
+    height: 140px;
+    margin:0px auto;
+    margin-top:32px;
+    overflow: hidden;
+
+}
+
+.frendship_site .row{
+    display: block;
+    padding-left:5px;
+    position:relative;
+}
+
+.frendship_site .tit{
+    position:absolute;
+    left:5px;
+    top:0px;
+    width: 120px;
+    font-weight: bold;
+    text-align:left;
+    vertical-align: top;
+    display: inline-block;
+    line-height: 35px;
+}
+
+.frendship_site .site{
+    display: inline-block;
+    width: 850px;
+    line-height: 35px;
+    list-style: none;
+    margin-left:120px;
+}
+
+.frendship_site .site li{
+    float:left;
+    margin-right:10px;
+}
+
+.frendship_site .site li a{
+    color:#333;
+}
+
+.footer{
+    background:#577f49;
+    height: 134px;
+    text-align: center;
+    line-height: 35px;
+    color:#fff;
+    font-size:16px;
+    margin-top: 35px;
+}
+
+.footer .text{
+    display: inline-block;
+}
+
+
+
+
 
 
 
