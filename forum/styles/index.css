@@ -223,12 +223,12 @@ body{
 .qrcode_box .title{
     display: inline-block;
     color: #000;
-    font-size: 22px;
-    margin-top: 8px;
+    font-size: 20px;
+    margin-top: 6px;
     font-weight: bold;
 }
 .qrcode_box img{
-    width: 126px;
+    width: 134px;
     border:none;
 }
 
