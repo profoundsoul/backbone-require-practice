@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no;"/>
+    <title>Flex布局</title>
+    <style>
+
+        .bubble{
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            /*background: #fff;*/
+            /*border-radius: 5px;*/
+            position: absolute;
+            top: 0px;
+            background: url("/assets/res/images/bubble.png") no-repeat;
+        }
+        .container{
+            display: flex;
+            display: -webkit-flex;
+            height: 100px;
+            background: #ffff00;
+            flex-direction: row-reverse;
+        }
+
+        .first{
+            -webkit-flex:initial;
+            flex:initial;
+            width: 200px;
+            background: #0086b3;
+        }
+
+        .second{
+            -webkit-flex:none;
+            flex:none;
+            width: 300px;
+            background: #0050aa;
+        }
+
+        .f1{
+            -webkit-flex:1;
+            flex: 1;
+            background: #8a8a8a;
+        }
+
+        .f2{
+            -webkit-flex:1;
+            flex:2;
+            background: #0099FF;
+        }
+
+        .list {
+            border: 1px #d7d0d0 solid;
+            border-radius: 6px;
+            overflow: hidden;
+            list-style: none;
+            padding: 0px;
+            margin: 0px;
+            margin-top:40px;
+        }
+        .list li {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            align-items: center;
+            height: 40px;
+            padding-left:10px;
+            padding-right: 10px;
+            /*line-height: 40px;*/
+            border-bottom:1px solid #d7d0d0;
+        }
+
+        .list li:hover{
+            background: yellowgreen;
+            color:#fff;
+        }
+
+        .list li:last-child{
+            border:none;
+        }
+
+        .list li .header{
+            display: inline-block;
+            width: 95px;
+            word-wrap: normal;
+            white-space: nowrap;
+             word-break: normal;
+        }
+
+        .list li .cnt {
+            flex: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            word-wrap: normal;
+            word-break: keep-all;
+            text-align: right;
+        }
+
+        .list li .arrow{
+            display: inline-block;
+            width: 20px;
+            position:relative;
+        }
+
+        .list li .arrow:after{
+            border-top:1px solid #d7d0d0;
+            border-right:1px solid #d7d0d0;
+            display: inline-block;
+            content: '';
+            width: 10px;
+            height: 10px;
+            background: transparent;
+            transform: rotate(45deg);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="first"></div>
+        <div class="second"></div>
+        <div class="f1"></div>
+        <div class="f2"></div>
+    </div>
+    <ul class="list">
+        <li>
+            <span class="header">手动下单</span>
+            <div class="cnt"></div>
+            <i class="arrow"></i>
+        </li>
+        <li>
+            <span class="header">手动下单</span>
+            <div class="cnt">真的需要下单咯！xxxxxxxxxxxxxxxxxxxxxx</div>
+            <i class="arrow"></i>
+        </li>
+        <li>
+            <span class="header">手动下单</span>
+            <div class="cnt"></div>
+            <i class="arrow"></i>
+        </li>
+    </ul>
+</body>
+</html>
