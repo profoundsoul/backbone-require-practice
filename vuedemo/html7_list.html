@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>列表渲染v-for</title>
+</head>
+<body>
+<div id="app">
+    <fieldset>
+        <legend>v-for遍历数组，第一个参数为数组元素，第二个参数为index</legend>
+        <ul v-if="list.length>0">
+            <li v-for="(item, index) in list">{{index}}----{{item}}</li>
+        </ul>
+    </fieldset>
+    <fieldset>
+        <legend>v-for遍历对象，key和value形式；同时支持将in换成of</legend>
+        <ul v-if="obj">
+            <ol v-for="(v,k) of obj">{{k}}-----{{v}}</ol>
+        </ul>
+    </fieldset>
+    <fieldset>
+        <legend>v-for 采用不同的template渲染</legend>
+        <ul v-if="arr.length>0">
+            <template v-for="(item, index) in  arr">
+                <li v-if="item.flag">{{item.msg}}</li>
+                <ol v-else>{{item.msg}}</ol>
+            </template>
+        </ul>
+    </fieldset>
+
+    <fieldset>
+        <legend>v-for 整数迭代</legend>
+        <ul>
+            <li v-for="item in 10">{{item}}</li>
+        </ul>
+    </fieldset>
+</div>
+<script src="lib/vue.js"></script>
+<script>
+    var vm = new  Vue({
+        el:'#app',
+        data:{
+            list:[
+                'one','two', 'three', 'four', 'five', 'six'
+            ],
+            obj:{
+                username:'linq',
+                age:18,
+                address:'china'
+            },
+            arr:[
+                {flag:true, msg:'111111111111111111111'},
+                {flag:false, msg:'ggggggggggggggggggggg'},
+                {flag:true, msg:'9999999999999999999999'},
+            ]
+        }
+    });
+</script>
+</body>
+</html>

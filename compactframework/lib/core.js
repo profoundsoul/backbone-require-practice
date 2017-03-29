@@ -478,7 +478,7 @@
          */
         this.View = function (options) {
             var instance = new Core;
-            $.extend(instance, options || {});
+            $.extend(instance, options || {__compPath:location.href});
             (function () {
                 this.__create = function () {
                     //生成包装对象，如果传入el无效，则使用__el对象进行包装

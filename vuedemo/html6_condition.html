@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Vue条件</title>
+</head>
+<body>
+<div id="app">
+    <div>
+        <span v-if="ok">OK</span>
+        <span v-else>No</span>
+    </div>
+
+    <div>
+        <span v-if="num===1">1</span>
+        <span v-else-if="num===2">2</span>
+        <span v-else-if="num===3">3</span>
+        <span v-else>other</span>
+        <br/>
+        <button @click="add">Add 1</button>
+        <button @click="minus">Minus 1</button>
+    </div>
+
+    <fieldset>
+        <legend>高效利用已有的元素，使用key特性可以进行重新渲染</legend>
+        <!--高效的利用已有的元素，使用key关键字可以重新进行渲染-->
+        <template v-if="isUserName">
+            <div>
+                <label >UserName：</label>
+                <input type="text"/>
+            </div>
+        </template>
+        <template  v-else>
+            <div>
+                <label>Email：</label>
+                <input type="text"/>
+            </div>
+        </template>
+
+        <input type="button" value="Switch No Key" @click="switchArea"/>
+        <br/>
+        <br/>
+        <template v-if="isUserName2">
+            <div>
+                <label >UserName：</label>
+                <input type="text" key="username"/>
+            </div>
+        </template>
+        <template v-else>
+            <div >
+                <label>Email：</label>
+                <input type="text" key="email"/>
+            </div>
+        </template>
+
+        <input type="button" value="Switch By Key" @click="switchArea2"/>
+    </fieldset>
+    <fieldset>
+        <legend>v-show</legend>
+        <section v-show="show">显示我把！</section>
+        <input type="button" value="toggle v-show" @click="toggle"/>
+    </fieldset>
+
+
+</div>
+<script src="lib/vue.js"></script>
+<script>
+    var vm1 = new Vue({
+        el: '#app',
+        data: {
+            ok:true,
+            num:1,
+            isUserName:true,
+            isUserName2:true,
+            show:false,
+        },
+        methods: {
+            add:function(){
+                this.num +=1;
+            },
+            minus:function(){
+                this.num -=1;
+            },
+            switchArea:function(){
+                this.isUserName = !this.isUserName;
+            },
+            switchArea2:function(){
+                this.isUserName2 = !this.isUserName2;
+            },
+            toggle:function(){
+                this.show = !this.show;
+            }
+        }
+    });
+</script>
+</body>
+</html>
