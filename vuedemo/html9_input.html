@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>input控件基本绑定</title>
+</head>
+<body>
+<div id="app">
+    <fieldset>
+        <legend>enter info：{{text}}</legend>
+        <input type="text" v-model="text"/>
+    </fieldset>
+    <fieldset>
+        <legend>enter info：{{textarea}}</legend>
+        <textarea v-model="textarea" cols="30" rows="10"></textarea>
+    </fieldset>
+    <fieldset>
+        <legend>单选</legend>
+        <input type="radio" id="t1" value="One" v-model="single"/>
+        <label for="t1">One</label>
+        <br/>
+        <input type="radio" id="t2" value="Two" v-model="single"/>
+        <label for="t2">Two</label>
+        <br/>
+        <label >Picked: {{single}}</label>
+    </fieldset>
+    <fieldset>
+        <legend>单个复选框</legend>
+        <input type="checkbox" id="cb" v-model="checked"/>
+        <label for="cb">{{checked}}</label>
+    </fieldset>
+    <fieldset>
+        <legend>多个复选框</legend>
+        <input type="checkbox" id="linq" value="Linq" v-model="groups"/>
+        <label for="linq"></label>
+        <input type="checkbox" id="dmoy" value="Dmoy" v-model="groups"/>
+        <label for="dmoy"></label>
+        <input type="checkbox" id="yowd" value="Yowd" v-model="groups"/>
+        <label for="yowd"></label>
+
+        <br/>
+        <label >picked:{{groups}}</label>
+    </fieldset>
+    <fieldset>
+        <legend>下拉框</legend>
+        <select v-model="select">
+            <option value="A">AAAAA</option>
+            <option value="B">BBBBB</option>
+            <option value="C">CCCCC</option>
+        </select>
+        <label>当前选中的值：{{select}}</label>
+    </fieldset>
+    <fieldset>
+        <legend>动态下拉框Select</legend>
+        <template v-if="eshops && eshops.length>0">
+            <select v-model="dselect">
+                <option v-bind:value="item" v-for="item in eshops">{{item}}</option>
+            </select>
+        </template>
+        <label>{{dselect}}</label>
+    </fieldset>
+</div>
+<div id="input">
+    <input type="text" v-model.trim="trim"/><i>{{trim}}</i>
+    <br/>
+    <input type="number" v-model.number="number"/><i>{{number}}</i>
+    <br/>
+    <input type="text" v-model.lazy="lazy"/><i>{{lazy}}</i>
+</div>
+<script src="lib/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            text:'',
+            textarea:'',
+            single:'',
+            checked:false,
+            groups:['Linq', 'Yowd'],
+            select:null,
+            eshops:['taobao', 'jidong', 'youzan', 'alibaba', 'dulishangcheng'],
+            dselect:'jidong'
+        },
+        methods:{
+
+        }
+    });
+</script>
+<script>
+    var vm2= new Vue({
+        el:'#input',
+        data:{
+            trim:'',
+            number:0,
+            lazy:''
+        }
+    });
+</script>
+</body>
+</html>

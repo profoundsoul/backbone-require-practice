@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Vue事件绑定机制</title>
+    <style>
+        input{
+            line-height: 28px;
+            height: 28px;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div @click="tap" style="border:1px solid #808080;width:200px;height:200px;background: yellowgreen;">
+        <div @click.stop="propagation" style="text-align:center;cursor:pointer;width:120px;line-height: 28px;height: 28px;background: #eb415d;color:#fff;">测试</div>
+        <a href="http://www.baidu.com" v-on:click.prevent.stop="prevent">点击链接</a>
+    </div>
+</div>
+
+<div id="key">
+    <label>enter事件：</label><input v-model="enterinput" type="text" @keyup.key.enter="enter"/>
+    <br/>
+    <label>tab事件：</label><input type="text" v-model="tabinput" v-on:keyup.tab="tab"/>
+    <br/>
+    <label>del事件：</label><input type="text" v-model="delinput" v-on:keyup.delete="del"/>
+    <br/>
+    <label>按键组合：Ctrl + Space </label><input type="text" v-model="keycomp" @keyup.ctrl.space="keycomponsize"/>
+</div>
+
+<script src="lib/vue.js"></script>
+<script>
+    /*事件修饰符
+    * (1)v-on:绑定，允许添加修饰符。多个采用点分隔；例如：@click.prevent.stop
+    * (2)常见事件修饰符：prevent、stop、self、once、capture
+    * */
+
+    var vm = new Vue({
+        el:'#app',
+        data:{},
+        methods:{
+            propagation:function(){
+                console.log('propagation！');
+            },
+            tap:function(){
+                console.log('tap！');
+            },
+            prevent:function(){
+                console.log('prevent！');
+            }
+        }
+    });
+</script>
+<script>
+    var vm2 = new Vue({
+        el:'#key',
+        data:{
+            enterinput:'',
+            tabinput:'',
+            delinput:'',
+            keycomp:''
+        },
+        methods:{
+            enter:function(e){
+                alert(this.enterinput);
+            },
+            tab:function(){
+                alert(this.tabinput);
+            },
+            del:function(){
+                alert(this.delinput);
+            },
+            keycomponsize:function(){
+                alert(this.keycomp);
+            }
+        }
+    });
+</script>
+</body>
+</html>
