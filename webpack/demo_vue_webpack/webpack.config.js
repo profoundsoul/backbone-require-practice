@@ -8,17 +8,35 @@ module.exports = {
 	},
 	output:{
 		filename:'[name].js',
+		publicPath:'./',
 		path:Path.join(__dirname, 'dist')
 	},
 	module:{
 		rules:[
 			{
 				test:/\.vue$/,
-				loader:'vue-loader'
+				loader:'vue-loader',
+				options:{
+					loaders:{
+						sass:"style-loader!css-loader!sass-loader"
+					}
+				}
+			},
+			{
+				test:/\.(png|jpe?g|gif)(\?.*)?$/,
+				loader:'url-loader',
+				options:{
+					limits:1024 * 20,
+					name: '[name].[hash:20].[ext]'
+				}
 			},
 			{
 				test:/\.css/,
-				loader:'css-loader'
+				loader:'style-loader!css-loader'
+			},
+			{
+				test:/\.scss/,
+				loader:'style-loader!css-loader!sass-loader'
 			},
 			{
 				test:/\.json/,

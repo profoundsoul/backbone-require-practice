@@ -1,0 +1,124 @@
+* {
+
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font: inherit;
+    vertical-align: baseline;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+}
+
+html,
+body,
+form,
+fieldset,
+p,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    -webkit-text-size-adjust: none
+}
+
+html {
+    font-size: 62.5%
+}
+
+@media screen and (min-width:375px) {
+    html {
+        font-size: 73.24%
+    }
+}
+
+@media screen and (min-width:414px) {
+    html {
+        font-size: 73.24%
+    }
+}
+
+@media screen and (min-width:481px) {
+    html {
+        font-size: 94%
+    }
+}
+
+@media screen and (min-width:561px) {
+    html {
+        font-size: 109%
+    }
+}
+
+@media screen and (min-width:641px) {
+    html {
+        font-size: 125%
+    }
+}
+
+body {
+    margin: 0 auto;
+    min-width: 320px;
+    max-width: 640px;
+    font-family: "Microsoft YaHei", Arial, "Helvetica";
+    background: #f2f2f2;
+    color: #333;
+    font-size: 1.2rem
+}
+
+ol,
+ul,
+li {
+    list-style: none
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+mark {
+    background: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal
+}
+
+blockquote,
+q {
+    quotes: none
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none
+}
+
+strong,
+var,
+em,
+i {
+    font-style: normal;
+    font-weight: normal
+}
+
+a {
+    text-decoration: none;
+    color: #333
+}
+
+img {
+    display: block;
+    width: 100%
+}

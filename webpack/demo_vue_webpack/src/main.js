@@ -6,7 +6,7 @@ import router from './router.js'
 new Vue({
     router,
     render: h => h(App)
-}).$mount('body')
+}).$mount('#app')
 
 
 console.log('main excute and Success！');
