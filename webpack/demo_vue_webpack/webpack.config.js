@@ -8,8 +8,7 @@ module.exports = {
 	},
 	output:{
 		filename:'[name].js',
-		publicPath:'./',
-		path:Path.join(__dirname, 'dist')
+		path:Path.resolve(__dirname, './dist')
 	},
 	module:{
 		rules:[
@@ -19,14 +18,14 @@ module.exports = {
 				options:{
 					loaders:{
 						sass:"style-loader!css-loader!sass-loader"
-					}
+					}    
 				}
 			},
 			{
 				test:/\.(png|jpe?g|gif)(\?.*)?$/,
 				loader:'url-loader',
 				options:{
-					limits:1024 * 20,
+					limit:1024,
 					name: '[name].[hash:20].[ext]'
 				}
 			},
@@ -47,9 +46,8 @@ module.exports = {
 				loader:'babel-loader', 
 				exclude:/node_modules/,
 				options:{
-					presets:['env'],
-					plugins:['transform-runtime'],
-					comments:false
+                    presets:['env'],
+					plugins:['transform-runtime']
 				}
 			}
 		]
@@ -63,7 +61,15 @@ module.exports = {
 			template:'index.html',
 			title:'my vue project'
 		}),
-		new Webpack.HotModuleReplacementPlugin()
+		new Webpack.HotModuleReplacementPlugin(),
+		new Webpack.LoaderOptionsPlugin({
+			options:{
+				babel:{
+					presets:['env'],
+					plugins:['transform-runtime']
+				}
+			}
+		})
 	],
 	devServer:{
 		port:8899,

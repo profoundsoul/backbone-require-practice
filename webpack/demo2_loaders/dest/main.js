@@ -56,12 +56,17 @@
         }, a[0], this)
     }
 
-    Object.defineProperty(e, "__esModule", {value: !0});
+    Object.defineProperty(e, "__esModule", {value: !0}), e.mytest = void 0;
     var o = r(4), i = function (t) {
         return t && t.__esModule ? t : {default: t}
     }(o);
     e.default = n;
-    var a = [n].map(i.default.mark)
+    var a = [n].map(i.default.mark), c = {
+        data: function () {
+            return "111"
+        }, name: "object!"
+    };
+    e.mytest = c
 }, function (t, e, r) {
     "use strict";
     Object.defineProperty(e, "__esModule", {value: !0}), e.add = void 0;
@@ -270,9 +275,9 @@
 
             function l(t, e) {
                 var r = t.iterator[e.method];
-                if (r === g) {
+                if (r === m) {
                     if (e.delegate = null, "throw" === e.method) {
-                        if (t.iterator.return && (e.method = "return", e.arg = g, l(t, e), "throw" === e.method))return k;
+                        if (t.iterator.return && (e.method = "return", e.arg = m, l(t, e), "throw" === e.method))return k;
                         e.method = "throw", e.arg = new TypeError("The iterator does not provide a 'throw' method")
                     }
                     return k
@@ -280,7 +285,7 @@
                 var n = o(r, t.iterator, e.arg);
                 if ("throw" === n.type)return e.method = "throw", e.arg = n.arg, e.delegate = null, k;
                 var i = n.arg;
-                return i ? i.done ? (e[t.resultName] = i.value, e.next = t.nextLoc, "return" !== e.method && (e.method = "next", e.arg = g), e.delegate = null, k) : i : (e.method = "throw", e.arg = new TypeError("iterator result is not an object"), e.delegate = null, k)
+                return i ? i.done ? (e[t.resultName] = i.value, e.next = t.nextLoc, "return" !== e.method && (e.method = "next", e.arg = m), e.delegate = null, k) : i : (e.method = "throw", e.arg = new TypeError("iterator result is not an object"), e.delegate = null, k)
             }
 
             function h(t) {
@@ -299,13 +304,13 @@
 
             function y(t) {
                 if (t) {
-                    var e = t[b];
+                    var e = t[x];
                     if (e)return e.call(t);
                     if ("function" == typeof t.next)return t;
                     if (!isNaN(t.length)) {
                         var r = -1, n = function e() {
                             for (; ++r < t.length;)if (w.call(t, r))return e.value = t[r], e.done = !1, e;
-                            return e.value = g, e.done = !0, e
+                            return e.value = m, e.done = !0, e
                         };
                         return n.next = n
                     }
@@ -314,34 +319,34 @@
             }
 
             function v() {
-                return {value: g, done: !0}
+                return {value: m, done: !0}
             }
 
-            var g, m = Object.prototype, w = m.hasOwnProperty, x = "function" == typeof Symbol ? Symbol : {}, b = x.iterator || "@@iterator", L = x.toStringTag || "@@toStringTag", E = "object" == typeof t, j = e.regeneratorRuntime;
-            if (j)return void(E && (t.exports = j));
-            j = e.regeneratorRuntime = E ? t.exports : {}, j.wrap = n;
+            var m, g = Object.prototype, w = g.hasOwnProperty, b = "function" == typeof Symbol ? Symbol : {}, x = b.iterator || "@@iterator", L = b.toStringTag || "@@toStringTag", j = "object" == typeof t, E = e.regeneratorRuntime;
+            if (E)return void(j && (t.exports = E));
+            E = e.regeneratorRuntime = j ? t.exports : {}, E.wrap = n;
             var _ = "suspendedStart", T = "suspendedYield", O = "executing", P = "completed", k = {}, N = {};
-            N[b] = function () {
+            N[x] = function () {
                 return this
             };
             var R = Object.getPrototypeOf, G = R && R(R(y([])));
-            G && G !== m && w.call(G, b) && (N = G);
+            G && G !== g && w.call(G, x) && (N = G);
             var S = c.prototype = i.prototype = Object.create(N);
-            a.prototype = S.constructor = c, c.constructor = a, c[L] = a.displayName = "GeneratorFunction", j.isGeneratorFunction = function (t) {
+            a.prototype = S.constructor = c, c.constructor = a, c[L] = a.displayName = "GeneratorFunction", E.isGeneratorFunction = function (t) {
                 var e = "function" == typeof t && t.constructor;
                 return !!e && (e === a || "GeneratorFunction" === (e.displayName || e.name))
-            }, j.mark = function (t) {
+            }, E.mark = function (t) {
                 return Object.setPrototypeOf ? Object.setPrototypeOf(t, c) : (t.__proto__ = c, L in t || (t[L] = "GeneratorFunction")), t.prototype = Object.create(S), t
-            }, j.awrap = function (t) {
+            }, E.awrap = function (t) {
                 return {__await: t}
-            }, u(f.prototype), j.AsyncIterator = f, j.async = function (t, e, r, o) {
+            }, u(f.prototype), E.AsyncIterator = f, E.async = function (t, e, r, o) {
                 var i = new f(n(t, e, r, o));
-                return j.isGeneratorFunction(e) ? i : i.next().then(function (t) {
+                return E.isGeneratorFunction(e) ? i : i.next().then(function (t) {
                     return t.done ? t.value : i.next()
                 })
             }, u(S), S[L] = "Generator", S.toString = function () {
                 return "[object Generator]"
-            }, j.keys = function (t) {
+            }, E.keys = function (t) {
                 var e = [];
                 for (var r in t)e.push(r);
                 return e.reverse(), function r() {
@@ -351,9 +356,9 @@
                     }
                     return r.done = !0, r
                 }
-            }, j.values = y, d.prototype = {
+            }, E.values = y, d.prototype = {
                 constructor: d, reset: function (t) {
-                    if (this.prev = 0, this.next = 0, this.sent = this._sent = g, this.done = !1, this.delegate = null, this.method = "next", this.arg = g, this.tryEntries.forEach(p), !t)for (var e in this)"t" === e.charAt(0) && w.call(this, e) && !isNaN(+e.slice(1)) && (this[e] = g)
+                    if (this.prev = 0, this.next = 0, this.sent = this._sent = m, this.done = !1, this.delegate = null, this.method = "next", this.arg = m, this.tryEntries.forEach(p), !t)for (var e in this)"t" === e.charAt(0) && w.call(this, e) && !isNaN(+e.slice(1)) && (this[e] = m)
                 }, stop: function () {
                     this.done = !0;
                     var t = this.tryEntries[0], e = t.completion;
@@ -361,7 +366,7 @@
                     return this.rval
                 }, dispatchException: function (t) {
                     function e(e, n) {
-                        return i.type = "throw", i.arg = t, r.next = e, n && (r.method = "next", r.arg = g), !!n
+                        return i.type = "throw", i.arg = t, r.next = e, n && (r.method = "next", r.arg = m), !!n
                     }
 
                     if (this.done)throw t;
@@ -418,7 +423,7 @@
                         iterator: y(t),
                         resultName: e,
                         nextLoc: r
-                    }, "next" === this.method && (this.arg = g), k
+                    }, "next" === this.method && (this.arg = m), k
                 }
             }
         }("object" == typeof e ? e : "object" == typeof window ? window : "object" == typeof self ? self : this)
