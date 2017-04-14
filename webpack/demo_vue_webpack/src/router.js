@@ -21,6 +21,11 @@ mappingRouters.push({
 	name: 'list', 
 	component: resolve => require(['./views/list.vue'], resolve) 
 });
+mappingRouters.push({ 
+	path: '/exception', 
+	name: 'exception', 
+	component: resolve => require(['./views/exception.vue'], resolve) 
+});
 mappingRouters.push({
 	path:'/login',
 	name:'login',

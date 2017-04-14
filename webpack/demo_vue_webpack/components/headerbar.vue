@@ -13,18 +13,15 @@
 		props:['title'],
 		data(){
 			return {
-				title:'',
+				mytest:'',
 			}
 		},
 		methods:{
-			back(){
-
-			},
 			goHome(){
-				alert('Index!');
+				this.$router.push({path:'/index'})
 			},
 			loginOut(){
-				alert('LoginOut!');
+				this.$router.push({path:'/login'})
 			}
 		}
 	}
@@ -32,10 +29,8 @@
 <style lang="sass" scoped>
 	.box{
 		display: flex;
-		position:fixed;
 		flex-wrap:nowrap;
 		flex-direction:row;
-
 		width: 100%;
 		height: 4rem;
 		background:#0093e0;
@@ -43,8 +38,7 @@
 
 	.home{
 		display:inline-block;
-		width: 35px;
-		height: 35px;
+		width: 2.5rem;
 		align-self: center;
 		    margin-left: 0.5rem;
 		    cursor:pointer;
@@ -57,15 +51,14 @@
 
 		img{
 			width:auto;
-			height: 28px;
+			height: 2rem;
 			display:inline-block;
 		}
 	}
 
 	.loginout{
 		display:inline-block;
-		width: 35px;
-		height: 35px;
+		width:2.5rem;
 		align-self: center;
 		margin-right: 0.5rem;
 		cursor:pointer;

@@ -1,12 +1,13 @@
 <template>
 	<div>
+		<div class="box-bg"></div>
 		<div class="logo">
 			<img src="./assets/img/login.png">
 		</div>
 		<div class="content">
 			<div>
-				<input v-model="username" placeholder="请输入账号" type="text" name="uname"><br>
-				<input v-model="pwd" placeholder="请输入密码" type="password" name="pwd">
+				<input v-model="username" class="needsclick" placeholder="请输入账号" type="text" name="uname"><br>
+				<input v-model="pwd" class="needsclick" placeholder="请输入密码" type="password" name="pwd">
 			</div>
 			<input type="button" v-on:click="login" class="login-btn" value="登录">
 		</div>
@@ -43,7 +44,7 @@
 
 				this.$http.post(this.loginUrl, param).then(function(data){
 						console.log(data);
-						alert('success!!');
+						this.$router.push({path:'/index'});
 				}).catch(function(err){
 					console.log('login error!');
 					console.log(err);
@@ -53,9 +54,14 @@
 		}
 	}
 </script>
+
 <style lang="sass" scoped>
-	body{
+	.box-bg{
 		background: #0093e0;
+		width: 100%;
+		height: 100%;
+		position:fixed;
+		z-index: -1;
 	}
 
 	.logo{

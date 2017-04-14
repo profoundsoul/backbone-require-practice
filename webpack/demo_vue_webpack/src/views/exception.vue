@@ -1,25 +1,21 @@
-<template id="index">
+<template>
 	<div>
 		<div class="header">
 			<headerBar :title="tit"></headerBar>
 			<tabBar :curpage="pagecode"></tabBar>
 		</div>
-		<div  class="main">
-			<div>这是我的主页</div>
-			<p>{{msg}}</p>
+		<div class="main">
+			<p>这是新增异常件</p>
 		</div>
 	</div>
 </template>
-<style lang="sass">
 
-</style>
-<script >
+<script>
 	export default {
 		data(){
 			return {
-				msg:'this is my index pages！',
-				tit:'主页',
-				pagecode:'tcrh'
+				tit:'exception',
+				pagecode:'xzycj'
 			}
 		},
 		components:{
@@ -28,3 +24,7 @@
 		}
 	}
 </script>
+
+<style lang="sass" scoped>
+	
+</style>
