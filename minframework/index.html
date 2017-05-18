@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>zepto + underscore 组合应对弱网</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        ul {
+            margin: 20px 0px;
+            list-style: none;
+        }
+
+        li {
+            padding-left: 15px;
+            line-height: 30px;
+            height: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            border: 1px solid grey;
+            margin-top: 2px;
+        }
+
+        li:hover {
+            background: #333;
+            color: #fff;
+        }
+
+        li button {
+            display: none;
+            float: right;
+            margin-top: 5px;
+        }
+
+        li a {
+            float: right;
+        }
+
+        li:hover button {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+<h1>这是我的zepto小库</h1>
+<ul class="js_list_box"></ul>
+<script type="text/template" id="js_list_tpl">
+    <%_.each(data, function(item){%>
+    <li data-name='<%=item%>'><%=item%>
+        <a class="js_add" href="http://www.baidu.com" target="_blank">新增</a>
+        <button class="js_del">删除</button>
+    </li>
+    <%})%>
+</script>
+<!--<script src="lib/zepto.min.js"></script>-->
+<!--<script src="lib/underscore-min.js"></script>-->
+<script src="lib/ywcore.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
