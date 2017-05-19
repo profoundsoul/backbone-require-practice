@@ -1,7 +1,7 @@
 /* Zepto v1.2.0 - zepto event ajax form ie - zeptojs.com/license */
 (function(global, factory) {
   if (typeof define === 'function' && define.amd)
-    define(function() { return factory(global) })
+    define('zepto', function() { return factory(global) })
   else
     factory(global)
 }(this, function(window) {

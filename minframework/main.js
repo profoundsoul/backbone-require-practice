@@ -24,11 +24,12 @@
      */
     function renderListTpl() {
         var box = $('.js_list_box');
-        var tplFn = _.template($('#js_list_tpl').html());
         var testData = {
             data: ['linq', 'profound', 'soul', 'junk', 'lugd']
         };
-        box.html(tplFn(testData));
+        // var html = template('js_list_tpl', testData);
+        var html = template.render($('#js_list_tpl').html(), testData)
+        box.html(html);
     }
     /**
      * 所有事件绑定入口

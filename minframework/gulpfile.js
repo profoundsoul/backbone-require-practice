@@ -10,7 +10,7 @@ var order = require('gulp-order');
 var libname = 'ywcore.js';
 
 gulp.task('minjs', function(){
-    return gulp.src(['lib/zepto.js', 'lib/underscore.js'])
+    return gulp.src(['lib/zepto.js', 'lib/require.js', 'lib/arttemplate3.1.0.js', '!lib/ywcore.min.js'])
         .pipe(concat(libname, {newLine: ';'}).on('error',err=>console.log(err)))
         .pipe(uglify().on('error',err=>console.log(err)))
         .pipe(rename({suffix:'.min'}).on('error',err=>console.log(err)))

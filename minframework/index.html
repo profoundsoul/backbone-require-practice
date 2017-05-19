@@ -47,7 +47,7 @@
 <body>
 <h1>这是我的zepto小库</h1>
 <ul class="js_list_box"></ul>
-<script type="text/template" id="js_list_tpl">
+<script type="text/template" id="js_list_tpl_underscore">
     <%_.each(data, function(item){%>
     <li data-name='<%=item%>'><%=item%>
         <a class="js_add" href="http://www.baidu.com" target="_blank">新增</a>
@@ -55,8 +55,17 @@
     </li>
     <%})%>
 </script>
+<script type="text/html" id="js_list_tpl">
+    {{each data as item}}
+    <li data-name='{{item}}'>{{item}}
+        <a class="js_add" href="http://www.baidu.com" target="_blank">新增</a>
+        <button class="js_del">删除</button>
+    </li>
+    {{/each}}
+</script>
 <!--<script src="lib/zepto.min.js"></script>-->
-<!--<script src="lib/underscore-min.js"></script>-->
+<!--<script src="lib/require.js"></script>-->
+<!--<script src="lib/arttemplate3.1.0.js"></script>-->
 <script src="lib/ywcore.min.js"></script>
 <script src="main.js"></script>
 </body>
