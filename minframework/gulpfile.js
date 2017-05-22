@@ -24,7 +24,7 @@ gulp.task('minzepto', function(){
         .pipe(concat(zeptoname, {newLine: ';'}).on('error', err=>console.log(err)))
         .pipe(uglify().on('error',err=>console.log(err)))
         .pipe(rename({suffix:'.min'}).on('error',err=>console.log(err)))
-        .pipe(gulp.dest(f=>f.base));
+        .pipe(gulp.dest('dist/'));
 });
 
 gulp.task('minerquire', function(){
@@ -38,7 +38,7 @@ gulp.task('minerquire', function(){
         .pipe(concat(requirename, {newLine: ';'}).on('error', err=>console.log(err)))
         .pipe(uglify().on('error',err=>console.log(err)))
         .pipe(rename({suffix:'.min'}).on('error',err=>console.log(err)))
-        .pipe(gulp.dest('lib/'));
+        .pipe(gulp.dest('dist/'));
 });
 
 
