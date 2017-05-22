@@ -1,0 +1,22 @@
+{
+  "baseUrl": ".",
+  "shim": {
+    "template": {
+      "exports": "template"
+    },
+    "zepto": {
+      "exports": "Zepto"
+    }
+  },
+  "paths": {
+    "Inherit": "lib/core/inherit",
+    "AbstractView": "lib/core/abstractview"
+  },
+  "include": [
+    "Inherit",
+    "AbstractView",
+    "zepto",
+    "template"
+  ],
+  "out": "common.js"
+}
