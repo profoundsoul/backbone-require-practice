@@ -5,7 +5,7 @@ define('Zepto', function(){
     return Zepto;
 });
 (function(){
-    requirejs.config({
+    require.config({
         paths:{
         }
     });

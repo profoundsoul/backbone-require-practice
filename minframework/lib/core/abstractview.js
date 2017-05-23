@@ -1,7 +1,7 @@
 /**
  * Created by lin.qiu on 2017/5/22.
  */
-define('AbstractView', ['Inherit'], function (Inherit) {
+define('AbstractView', ['Inherit', 'Zepto'], function (Inherit, $) {
     var generateUniqueId = function (prefix) {
         var maxIndex = 0;
         return function () {
