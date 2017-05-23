@@ -1,10 +1,10 @@
 /**
  * Created by lin.qiu on 2017/5/22.
  */
-var config = {
+module.exports={
     baseUrl: ".",
     appDir: './lib/core',
-    shim : {
+    shim: {
         template: {
             exports: "template"
         },
@@ -24,5 +24,4 @@ var config = {
     ],
     out: "common.js"
 };
-return config;
 
