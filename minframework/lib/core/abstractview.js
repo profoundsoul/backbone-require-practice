@@ -27,6 +27,18 @@ define('AbstractView', ['Inherit', 'Zepto'], function (Inherit, $) {
         initialize: function () {
             console.log('Excute View Abstract initialize');
         },
+        addEvent: function (type, selector, handle) {
+            this.__addEventToContainer(type, selector, handle);
+        },
+        removeEvent: function (type, selector) {
+            this.__removeEventFromContainer(type, selector);
+        },
+        bindFn: function (fn) {
+            var _self = this;
+            return function () {
+                fn.apply(_self, arguments);
+            }
+        },
         __initGlobal__: function () {
             var $el = $(this.$el || this.__el);
             if ($el.length < 0) {
@@ -51,18 +63,6 @@ define('AbstractView', ['Inherit', 'Zepto'], function (Inherit, $) {
                     eventSelector = $.trim(key.substr(eventType.length));
                     this.__addEventToContainer(eventType, eventSelector, this.events[key]);
                 }
-            }
-        },
-        addEvent: function (type, selector, handle) {
-            this.__addEventToContainer(type, selector, handle);
-        },
-        removeEvent: function (type, selector) {
-            this.__removeEventFromContainer(type, selector);
-        },
-        bindFn: function (fn) {
-            var _self = this;
-            return function () {
-                fn.apply(_self, arguments);
             }
         },
         __addEventToContainer: function (type, selector, handle) {

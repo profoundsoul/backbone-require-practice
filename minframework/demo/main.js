@@ -1,10 +1,28 @@
 /**
  * Created by lin.qiu on 2017/5/22.
  */
-require(['Inherit', 'AbstractView', 'template', 'text!addlist.html'], function (Inherit, AbstractView, template, html) {
+require.config({
+    // shim:{
+    //     select:{
+    //         exports:'$.fn.mySelect'
+    //         // init:function(){
+    //         //     return $.fn.mySelect;
+    //         // }
+    //     }
+    // },
+    paths:{
+        select:'../lib/jquery.search',
+        list:'mylist'
+    }
+});
+
+require(['Inherit', 'AbstractView', 'template', 'text!addlist.html', 'list', 'select'], function (Inherit, AbstractView, template, html, list, se) {
+
+    console.log(se);
     var View = Inherit.Class(AbstractView, {
         el: 'body',
         events: {
+            'click .js_list_box': 'showDetail',
             'click .js_list_box .js_del': 'delRow',
             'click .js_list_box .js_add': 'addItem',
         },
@@ -52,6 +70,8 @@ require(['Inherit', 'AbstractView', 'template', 'text!addlist.html'], function (
         },
         addItem: function (e) {
             e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
             alert('addd');
         },
         /***********************util***************************
