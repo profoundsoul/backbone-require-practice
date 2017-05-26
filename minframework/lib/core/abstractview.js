@@ -1,45 +1,46 @@
 /**
  * Created by lin.qiu on 2017/5/22.
  */
-define('AbstractView', ['Inherit', 'Zepto'], function (Inherit, $) {
-    var generateUniqueId = function (prefix) {
+define('AbstractView', ['Inherit', 'Zepto'], function(Inherit, $) {
+    var generateUniqueId = function(prefix) {
         var maxIndex = 0;
-        return function () {
+        return function() {
             return prefix + (++maxIndex);
         }
     };
-    var getUniqueViewId = (function () {
+    var getUniqueViewId = (function() {
         return generateUniqueId("_view_");
     })();
     var EVENT_SATUS = {
         New: 0,
         Binding: 1,
     };
+    var SPECIAL_EVETN_REG = '^scroll|load|error|reset|paste';
 
     return Inherit.Class({
         __el: 'body',
         events: {},
-        __propertys__: function () {
+        __propertys__: function() {
             this.__initGlobal__();
             setTimeout(this.bindFn(this.__initEvent__), 0)
             console.log('Excute View Abstract __propertys__');
         },
-        initialize: function () {
+        initialize: function() {
             console.log('Excute View Abstract initialize');
         },
-        addEvent: function (type, selector, handle) {
+        addEvent: function(type, selector, handle) {
             this.__addEventToContainer(type, selector, handle);
         },
-        removeEvent: function (type, selector) {
+        removeEvent: function(type, selector) {
             this.__removeEventFromContainer(type, selector);
         },
-        bindFn: function (fn) {
+        bindFn: function(fn) {
             var _self = this;
-            return function () {
+            return function() {
                 fn.apply(_self, arguments);
             }
         },
-        __initGlobal__: function () {
+        __initGlobal__: function() {
             var $el = $(this.$el || this.__el);
             if ($el.length < 0) {
                 $el = $(this.__el)
@@ -53,7 +54,7 @@ define('AbstractView', ['Inherit', 'Zepto'], function (Inherit, $) {
             this.__uid = getUniqueViewId();
             this.__eventContainer = {};
         },
-        __initEvent__: function () {
+        __initEvent__: function() {
             var eventType = '';
             var eventSelector = '';
             var typeReg = new RegExp('[\\w\\.]+', 'i')
@@ -65,20 +66,21 @@ define('AbstractView', ['Inherit', 'Zepto'], function (Inherit, $) {
                 }
             }
         },
-        __addEventToContainer: function (type, selector, handle) {
-            var specialTypeReg = new RegExp('^scroll|load|error|reset|paste', 'i');
-            if (!this.__checkEventArgs__(selector, handle)) {
+        __addEventToContainer: function(type, selector, handle) {
+            if (!this.__checkEventArgs__(type, selector, handle)) {
                 return false;
             }
             if (!this.__eventContainer[type]) {
                 this.__eventContainer[type] = [];
             }
-            var existEvent = this.__eventContainer[type].filter(function (item) {
+            var existEvent = this.__eventContainer[type].filter(function(item) {
                 return item.eventSelector === selector;
             });
             if (existEvent && existEvent.length) {
                 this.__removeEventFromContainer(type, existEvent.eventSelector);
             }
+            
+            var specialTypeReg = new RegExp(SPECIAL_EVETN_REG, 'i');
             this.__eventContainer[type].push({
                 eventSelector: selector,
                 handle: handle,
@@ -88,7 +90,7 @@ define('AbstractView', ['Inherit', 'Zepto'], function (Inherit, $) {
             var length = this.__eventContainer[type].length;
             this.__bindEvent(type, this.__eventContainer[type][length - 1]);
         },
-        __removeEventFromContainer: function (type, selector) {
+        __removeEventFromContainer: function(type, selector) {
             var eventsArr = this.__eventContainer[type];
             for (var i = eventsArr.length; i > -1; i--) {
                 if (!!selector) {
@@ -107,7 +109,7 @@ define('AbstractView', ['Inherit', 'Zepto'], function (Inherit, $) {
                 delete this.__eventContainer[type];
             }
         },
-        __bindEvent: function (type, eventObj) {
+        __bindEvent: function(type, eventObj) {
             var _el = this.$el;
             var eventArr = this.__eventContainer[type];
             if (eventObj.status !== EVENT_SATUS.Binding) {
@@ -128,7 +130,7 @@ define('AbstractView', ['Inherit', 'Zepto'], function (Inherit, $) {
                 }
             }
         },
-        __unBindEvent: function (type, eventObj) {
+        __unBindEvent: function(type, eventObj) {
             var _el = this.$el;
             var eventArr = this.__eventContainer[type];
             if (eventObj.status === EVENT_SATUS.Binding) {
@@ -143,11 +145,15 @@ define('AbstractView', ['Inherit', 'Zepto'], function (Inherit, $) {
             // //从容器中移除当前事件
             // eventsArr.splice(eventsArr.indexOf(eventObj), 1);
         },
-        __checkEventArgs__: function (selector, handle) {
-            var target = this.$el.find(selector);
-            if (!(target && target.length > 0)) {
-                return false;
+        __checkEventArgs__: function(type, selector, handle) {
+            var specialTypeReg = new RegExp(SPECIAL_EVETN_REG, 'i');
+            if (specialTypeReg.test(type)) {
+                var target = this.$el.find(selector);
+                if (!(target && target.length > 0)) {
+                    return false;
+                }
             }
+
             if (typeof handle === 'string') {
                 handle = handle.trim();
                 if (!this[handle] || typeof this[handle] !== 'function') {

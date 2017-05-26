@@ -12,13 +12,13 @@ require.config({
     // },
     paths:{
         select:'../lib/jquery.search',
-        list:'mylist'
+        list:'mylist',
+        myDialog:'/dialog/mydialog',
+        myDialogHtml:'/dialog/mydialog.html'
     }
 });
 
 require(['Inherit', 'AbstractView', 'template', 'text!addlist.html', 'list', 'select'], function (Inherit, AbstractView, template, html, list, se) {
-
-    console.log(se);
     var View = Inherit.Class(AbstractView, {
         el: 'body',
         events: {
@@ -28,11 +28,17 @@ require(['Inherit', 'AbstractView', 'template', 'text!addlist.html', 'list', 'se
         },
         __propertys__: function () {
             this.test = 1111;
+            this.addEvent();
+
+            require(['myDialog'], function(dialog){
+                var d = new dialog();
+                d.show();
+            })
         },
         initialize: function ($super) {
             $super();
-            this.addList();
-            this.renderListTpl();
+            setTimeout(this.bindFn(this.addList), 2000)
+            setTimeout(this.bindFn(this.renderListTpl), 2000)
             console.log(this.test);
             console.log(this.$el);
         },
