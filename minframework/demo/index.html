@@ -3,50 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>zepto + underscore 组合应对弱网</title>
-    <style>
-        * {
-            padding: 0px;
-            margin: 0px;
-        }
-
-        ul {
-            margin: 20px 0px;
-            list-style: none;
-        }
-
-        li {
-            padding-left: 15px;
-            line-height: 30px;
-            height: 30px;
-            font-size: 16px;
-            cursor: pointer;
-            border: 1px solid grey;
-            margin-top: 2px;
-        }
-
-        li:hover {
-            background: #333;
-            color: #fff;
-        }
-
-        li button {
-            display: none;
-            float: right;
-            margin-top: 5px;
-        }
-
-        li a {
-            float: right;
-        }
-
-        li:hover button {
-            display: inline-block;
-        }
-    </style>
+    <link rel="stylesheet" href="css/base.css">
 </head>
 <body>
 <h1>这是我的zepto小库</h1>
 <ul class="js_list_box"></ul>
+<div>
+    <button class="js_dialog">普通对话框</button>
+    <button class="js_dialog_modal">模态对话框</button>
+    <button class="js_dialog_bubble">气泡浮层</button>
+    <button class="js_dialog_confirm">添加按钮</button>
+    <button class="js_dialog_control">控制对话框关闭</button>
+    <button class="js_dialog_define">给对话框左下脚添加复选框</button>
+    <button class="js_dialog_noclose">点按钮不关闭对话框</button>
+    <button class="js_dialog_nobtn">不显示关闭按钮</button>
+    <button class="js_dialog_ab">自定义弹窗</button>
+
+    <!--<button class="js_dialog_iframe">创建 iframe 内容</button>-->
+</div>
 <script type="text/template" id="js_list_tpl_underscore">
     <%_.each(data, function(item){%>
     <li data-name='<%=item%>'><%=item%>
@@ -68,6 +42,7 @@
 <!--<script src="lib/require.js"></script>-->
 <script src="../dist/ywcore.min.js"></script>
 <script src="../dist/ywrequire.min.js"></script>
+<!--<script src="../lib/core/dialog-plus.js"> </script>-->
 <script src="main.js"></script>
 </body>
 </html>

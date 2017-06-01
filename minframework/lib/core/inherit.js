@@ -2,8 +2,7 @@
  * Created by lin.qiu on 2017/5/22.
  */
 define('Inherit', function () {
-    var Base = function () {
-    };
+    var Base = function () {};
     Base.Class = function () {
         if (arguments.length < 1 || arguments.length > 2) {
             throw new Error('input invalid arguments！');

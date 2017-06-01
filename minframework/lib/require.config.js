@@ -6,7 +6,6 @@ define('Zepto', function(){
 });
 (function(){
     require.config({
-        paths:{
-        }
+        paths:{}
     });
 })();

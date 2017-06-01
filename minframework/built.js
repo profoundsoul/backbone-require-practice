@@ -1,1 +1,0 @@
-define("template",[],function(){return template}),function(){require.config({shim:{template:{exports:"template"},zepto:{exports:"Zepto"}},paths:{Inherit:"inherit",AbstractView:"abstractview.js"}})}(),define("entry",function(){});

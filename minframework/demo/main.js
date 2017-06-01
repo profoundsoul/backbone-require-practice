@@ -11,13 +11,14 @@ require.config({
     //     }
     // },
     paths:{
-        select:'../lib/jquery.search',
+        select:'jquery.search',
         list:'mylist',
-        myDialog:'/dialog/mydialog',
-        myDialogHtml:'/dialog/mydialog.html'
+        myDialog:'dialog/mydialog',
+        myDialogHtml:'dialog/mydialog.html',
+        TestDialog:'dialog/testdialog',
+        TestDialogHtml:'dialog/testdialog.html',
     }
 });
-
 require(['Inherit', 'AbstractView', 'template', 'text!addlist.html', 'list', 'select'], function (Inherit, AbstractView, template, html, list, se) {
     var View = Inherit.Class(AbstractView, {
         el: 'body',
@@ -25,15 +26,21 @@ require(['Inherit', 'AbstractView', 'template', 'text!addlist.html', 'list', 'se
             'click .js_list_box': 'showDetail',
             'click .js_list_box .js_del': 'delRow',
             'click .js_list_box .js_add': 'addItem',
+            'click .js_dialog':'showDialog',
+            'click .js_dialog_modal':'showModal',
+            'click .js_dialog_bubble':'showBubble',
+            'click .js_dialog_confirm':'showConfirm',
+            'click .js_dialog_control':'showControl',
+            'click .js_dialog_define':'showDefine',
+            'click .js_dialog_noclose':'showNoClose',
+            'click .js_dialog_nobtn':'showNoBtn',
+            'click .js_dialog_iframe':'showIframe',
+            'click .js_dialog_ab': 'showTest'
         },
         __propertys__: function () {
             this.test = 1111;
             this.addEvent();
 
-            require(['myDialog'], function(dialog){
-                var d = new dialog();
-                d.show();
-            })
         },
         initialize: function ($super) {
             $super();
@@ -80,6 +87,109 @@ require(['Inherit', 'AbstractView', 'template', 'text!addlist.html', 'list', 'se
             e.stopImmediatePropagation();
             alert('addd');
         },
+        showDialog:function(e) {
+            require(['myDialog'], function(myDialog){
+                var dialogView = new myDialog();
+            });
+        },
+        showModal:function(e){
+            require(['DialogPlus'], function(Dialog){
+                var d = Dialog({
+                    title: 'message',
+                    content: '<input autofocus />'
+                });
+                d.showModal();
+            });
+        },
+        showBubble:function(e){
+            require(['DialogPlus'], function(Dialog){
+                var d = Dialog({
+                    content: 'Hello World!',
+                    quickClose: true// 点击空白处快速关闭
+                });
+                d.show(e.currentTarget);
+            });
+        },
+        showConfirm:function(e){
+            require(['DialogPlus'], function(Dialog){
+                var d = Dialog({
+                    title: '提示',
+                    content: '按钮回调函数返回 false 则不许关闭',
+                    okValue: '确定',
+                    ok: function () {
+                        this.title('提交中…');
+                        return false;
+                    },
+                    cancelValue: '取消',
+                    cancel: function () {}
+                });
+                d.show();
+            });
+        },
+        showControl:function(e){
+            require(['DialogPlus'], function(Dialog){
+                var d = Dialog({
+                    content: '对话框将在两秒内关闭'
+                });
+                d.show();
+                setTimeout(function () {
+                    d.close().remove();
+                }, 2000);
+            });
+        },
+        showDefine:function(e){
+            require(['DialogPlus'], function(Dialog){
+                var d = Dialog({
+                    title: '欢迎',
+                    content: '欢迎使用 artDialog 对话框组件！',
+                    ok: function () {},
+                    statusbar: '<label><input type="checkbox">不再提醒</label>'
+                });
+                d.show();
+            });
+        },
+        showNoClose:function(e){
+            require(['DialogPlus'], function(Dialog){
+                var d = Dialog({
+                    title: '欢迎',
+                    content: '欢迎使用 artDialog 对话框组件！',
+                    ok: function () {
+                        var that = this;
+                        this.title('正在提交..');
+                        setTimeout(function () {
+                            that.close().remove();
+                        }, 2000);
+                        return false;
+                    },
+                    cancel: function () {
+                        alert('不许关闭');
+                        return false;
+                    }
+                });
+                d.show();
+            });
+        },
+        showNoBtn:function(e){
+            require(['DialogPlus'], function(Dialog){
+                var d = Dialog({
+                    title: '欢迎',
+                    content: '欢迎使用 artDialog 对话框组件！',
+                    cancel: false,
+                    ok: function () {}
+                });
+                d.show();
+            });
+        },
+        showIframe:function(e){
+        },
+        showTest:function(e) {
+            require(['TestDialog'], function(TestDialog){
+                var v = new TestDialog({});
+                v.show();
+            })
+        },
+
+
         /***********************util***************************
          * 此处放功能函数或其它所有的函数
          * 所有调用后台API的函数抽取出来，以Api后缀进行命名
