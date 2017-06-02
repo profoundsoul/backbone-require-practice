@@ -17,7 +17,6 @@ define('AbstractDialog', ['Base', 'Zepto', 'UIBase', 'DialogPlus'], function (Ba
              * 唯一的表示ID
              * 主要用于与View相关的唯一标识，如事件委托
              */
-
             this.__uid = getUniqueDialogId();
             options = options || {};
             if (this.title) {

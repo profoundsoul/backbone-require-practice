@@ -29,13 +29,17 @@ require(['Inherit', 'AbstractView', 'template', 'text!addlist.html', 'list', 'se
             'click .js_dialog':'showDialog',
             'click .js_dialog_modal':'showModal',
             'click .js_dialog_bubble':'showBubble',
-            'click .js_dialog_confirm':'showConfirm',
+            'click .js_dialog_confirm':'showConfirm2',
             'click .js_dialog_control':'showControl',
             'click .js_dialog_define':'showDefine',
             'click .js_dialog_noclose':'showNoClose',
             'click .js_dialog_nobtn':'showNoBtn',
             'click .js_dialog_iframe':'showIframe',
-            'click .js_dialog_ab': 'showTest'
+            'click .js_dialog_ab': 'showTest',
+            'click .js_confirm': 'confirm',
+            'click .js_toast':'toast',
+            'click .js_showloading': 'sloading',
+            'click .js_hideloading': 'hloading',
         },
         __propertys__: function () {
             this.test = 1111;
@@ -107,10 +111,10 @@ require(['Inherit', 'AbstractView', 'template', 'text!addlist.html', 'list', 'se
                     content: 'Hello World!',
                     quickClose: true// 点击空白处快速关闭
                 });
-                d.show(e.currentTarget);
+                d.showModal(e.currentTarget);
             });
         },
-        showConfirm:function(e){
+        showConfirm2:function(e){
             require(['DialogPlus'], function(Dialog){
                 var d = Dialog({
                     title: '提示',
@@ -123,7 +127,7 @@ require(['Inherit', 'AbstractView', 'template', 'text!addlist.html', 'list', 'se
                     cancelValue: '取消',
                     cancel: function () {}
                 });
-                d.show();
+                d.showModal();
             });
         },
         showControl:function(e){
@@ -131,7 +135,7 @@ require(['Inherit', 'AbstractView', 'template', 'text!addlist.html', 'list', 'se
                 var d = Dialog({
                     content: '对话框将在两秒内关闭'
                 });
-                d.show();
+                d.showModal();
                 setTimeout(function () {
                     d.close().remove();
                 }, 2000);
@@ -145,7 +149,7 @@ require(['Inherit', 'AbstractView', 'template', 'text!addlist.html', 'list', 'se
                     ok: function () {},
                     statusbar: '<label><input type="checkbox">不再提醒</label>'
                 });
-                d.show();
+                d.showModal();
             });
         },
         showNoClose:function(e){
@@ -166,7 +170,7 @@ require(['Inherit', 'AbstractView', 'template', 'text!addlist.html', 'list', 'se
                         return false;
                     }
                 });
-                d.show();
+                d.showModal();
             });
         },
         showNoBtn:function(e){
@@ -177,7 +181,7 @@ require(['Inherit', 'AbstractView', 'template', 'text!addlist.html', 'list', 'se
                     cancel: false,
                     ok: function () {}
                 });
-                d.show();
+                d.showModal();
             });
         },
         showIframe:function(e){
@@ -188,6 +192,24 @@ require(['Inherit', 'AbstractView', 'template', 'text!addlist.html', 'list', 'se
                 v.show();
             })
         },
+        confirm:function(){
+            this.showConfirm('tips？',function(){
+                console.log(this.el);
+            });
+        },
+        toast:function(){
+            this.showToast('服务调用异常！', function(){
+                //
+                console.log('callback toast excute!!');
+            },200);
+        },
+        sloading:function(clickToHide){
+            this.showLoading();
+        },
+        hloading:function(){
+            this.hideLoading();
+        },
+
 
 
         /***********************util***************************

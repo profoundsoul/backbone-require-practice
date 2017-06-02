@@ -1,7 +1,7 @@
 /**
  * Created by lin.qiu on 2017/6/1.
  */
-define('UIBase', ['Base', 'Zepto'], function (Base, $) {
+define('UIBase', ['Base', 'UIToast', 'Zepto'], function (Base, UIToast, $) {
     var EVENT_SATUS = {
         New: 0,
         Binding: 1,
@@ -13,22 +13,8 @@ define('UIBase', ['Base', 'Zepto'], function (Base, $) {
             this.$el;
             this.__uid;
             this.__eventContainer = {};
-            console.log('Excute View Abstract __propertys__');
         },
         initialize: function () {
-            console.log('Excute View Abstract initialize');
-        },
-        addEvent: function (type, selector, handle) {
-            this.__addEventToContainer(type, selector, handle);
-        },
-        removeEvent: function (type, selector) {
-            this.__removeEventFromContainer(type, selector);
-        },
-        bindFn: function (fn) {
-            var _self = this;
-            return function () {
-                fn.apply(_self, arguments);
-            }
         },
         __addEventToContainer: function (type, selector, handle) {
             if (!this.__checkEventArgs__(type, selector, handle)) {
@@ -140,5 +126,16 @@ define('UIBase', ['Base', 'Zepto'], function (Base, $) {
                 }
             }
         },
+        addEvent: function (type, selector, handle) {
+            this.__addEventToContainer(type, selector, handle);
+        },
+        removeEvent: function (type, selector) {
+            this.__removeEventFromContainer(type, selector);
+        },
+        bindFn: Base.bindFn,
+        showConfirm: UIToast.showConfirm,
+        showToast: UIToast.showToast,
+        showLoading: UIToast.showLoading,
+        hideLoading: UIToast.hideLoading,
     });
 });

@@ -23,7 +23,7 @@ gulp.task('minzepto', function(){
 });
 
 gulp.task('minerquire', function(){
-    return gulp.src(['lib/require.js', 'lib/require.text.js', 'lib/require.config.js', 'lib/core/*.js', '!lib/ywrequire.min.js'])
+    return gulp.src(['lib/require.js', 'lib/require.text.js', 'lib/require.config.js', 'lib/core/**/*.js', '!lib/ywrequire.min.js'])
         // .pipe(order([
         //     'lib/require.js',
         //     'lib/require.text.js',
@@ -42,6 +42,6 @@ gulp.task('default', ['minzepto', 'minerquire']);
 
 gulp.task('watch', ['default'], function(){
    return watch(['lib/**/*.js'], function(){
-       gulp.start(['default']);
+       gulp.start(['minerquire']);
    })
 });

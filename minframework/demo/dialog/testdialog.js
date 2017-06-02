@@ -5,7 +5,8 @@ define(['Zepto', 'Base', 'AbstractDialog', 'text!TestDialogHtml'], function($, B
     var View = new Base.Class(AbstractDialog, {
         title: 'Abstract 弹窗',
         events:{
-            'click ul li':'detail'
+            'click ul li':'detail',
+            'click .js_loading':'loading'
         },
         __propertys__:function(options){
         },
@@ -17,7 +18,13 @@ define(['Zepto', 'Base', 'AbstractDialog', 'text!TestDialogHtml'], function($, B
             this.dialog.showModal();
         },
         detail:function(e) {
-            alert('弹出alert了！');
+            // alert('弹出alert了！');
+            this.showConfirm('aaaa', function(){
+                console.log(this.title);
+            });
+        },
+        loading:function(){
+            this.showLoading();
         }
     });
     return View;
