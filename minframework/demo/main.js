@@ -193,7 +193,7 @@ require(['Inherit', 'AbstractView', 'template', 'text!addlist.html', 'list', 'se
             })
         },
         confirm:function(){
-            this.showConfirm('tips？',function(){
+            this.showConfirm('tipsxxxxxx？',function(){
                 console.log(this.el);
             });
         },

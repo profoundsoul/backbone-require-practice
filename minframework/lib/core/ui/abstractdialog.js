@@ -7,6 +7,7 @@ define('AbstractDialog', ['Base', 'Zepto', 'UIBase', 'DialogPlus'], function (Ba
     })();
     var Base = new Base.Class(UIBase, {
         __propertys__: function (options) {
+            this.setting;
             this.__initGlobal__(options);
             setTimeout(this.bindFn(this.__initEvent__), 0)
         },
@@ -22,7 +23,7 @@ define('AbstractDialog', ['Base', 'Zepto', 'UIBase', 'DialogPlus'], function (Ba
             if (this.title) {
                 options.title = this.title;
             }
-            this.dialog = DialogPlus(options);
+            this.dialog = DialogPlus($.extend({}, this.setting || {}, options || {}));
             this.$el = this.dialog._$('content');
         }
     });
