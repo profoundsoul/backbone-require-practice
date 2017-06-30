@@ -6,6 +6,7 @@ define('Zepto', function(){
 });
 (function(){
     require.config({
+        urlArgs: 'v20170629',
         paths:{}
     });
 })();

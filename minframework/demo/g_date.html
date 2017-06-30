@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全局使用laydate控件</title>
+    <link rel="stylesheet" href="../dist/plugins/laydate/need/laydate.css">
+    <link rel="stylesheet" href="../dist/plugins/laydate/skins/default/laydate.css">
+</head>
+<body>
+<input type="text" id="js_date2" class="js_date2">
+<input type="text" id="js_date3" class="js_date3">
+
+<script src="../dist/plugins/laydate/laydate.js"></script>
+<script type="text/javascript">
+    laydate({
+        elem: '#js_date2',
+        istime: true,
+        format:   'YYYY-MM-DD hh:mm:ss', // 分隔符可以任意定义，该例子表示只显示年月
+        choose:   function(datas){
+            console.log(datas);
+        }
+    });
+    </script>
+</body>
+</html>

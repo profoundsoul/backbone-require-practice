@@ -4,6 +4,9 @@
 define(['Zepto', 'Base', 'AbstractDialog', 'text!TestDialogHtml'], function($, Base, AbstractDialog, html){
     var View = new Base.Class(AbstractDialog, {
         title: 'Abstract 弹窗',
+        setting:{
+            
+        },
         events:{
             'click ul li':'detail',
             'click .js_loading':'loading'

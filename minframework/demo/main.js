@@ -17,8 +17,13 @@ require.config({
         myDialogHtml:'dialog/mydialog.html',
         TestDialog:'dialog/testdialog',
         TestDialogHtml:'dialog/testdialog.html',
+        LayDate:'../dist/plugins/laydate/laydate',
+        myTestCss: 'css/base'
     }
 });
+require(['css!myTestCss'], function(){
+    console.log('excute! css');
+})
 require(['Inherit', 'AbstractView', 'template', 'text!addlist.html', 'list', 'select'], function (Inherit, AbstractView, template, html, list, se) {
     var View = Inherit.Class(AbstractView, {
         el: 'body',
@@ -40,6 +45,7 @@ require(['Inherit', 'AbstractView', 'template', 'text!addlist.html', 'list', 'se
             'click .js_toast':'toast',
             'click .js_showloading': 'sloading',
             'click .js_hideloading': 'hloading',
+            'click .js_date3':'showDate'
         },
         __propertys__: function () {
             this.test = 1111;
@@ -52,6 +58,10 @@ require(['Inherit', 'AbstractView', 'template', 'text!addlist.html', 'list', 'se
             setTimeout(this.bindFn(this.renderListTpl), 2000)
             console.log(this.test);
             console.log(this.$el);
+
+            //加载日期
+            // js_date
+            this.initDate();
         },
         /**
          * 统一约定，使用underscore的template模板，尽量杜绝字符串拼接
@@ -71,6 +81,8 @@ require(['Inherit', 'AbstractView', 'template', 'text!addlist.html', 'list', 'se
             console.log(result);
             document.body.appendChild($(result)[0]);
         },
+        initDate:function() {},
+
         showDetail: function (e) {
             var target = $(e.currentTarget);
             alert('click!!!' + target.html());
@@ -201,13 +213,29 @@ require(['Inherit', 'AbstractView', 'template', 'text!addlist.html', 'list', 'se
             this.showToast('服务调用异常！', function(){
                 //
                 console.log('callback toast excute!!');
-            },200);
+            },2 );
+
+            
         },
         sloading:function(clickToHide){
             this.showLoading();
         },
         hloading:function(){
             this.hideLoading();
+        },
+        showDate:function(e){
+            var target = e.currentTarget;console.log(111111);
+            require(['LayDate'], function(laydate){
+                laydate({
+                    skin:'default',
+                    eventArg:e,
+                    istime: true,
+                    format:   'YYYY-MM-DD hh:mm:ss', // 分隔符可以任意定义，该例子表示只显示年月
+                    choose:   function(datas){
+                        console.log(datas);
+                    }
+                });
+            })
         },
 
 
@@ -233,3 +261,21 @@ require(['Inherit', 'AbstractView', 'template', 'text!addlist.html', 'list', 'se
     });
     new View();
 });
+
+// laydate({
+//     elem: '#js_date',
+//     istime: true,
+//     format:   'YYYY-MM-DD hh:mm:ss', // 分隔符可以任意定义，该例子表示只显示年月
+//     choose:   function(datas){
+//         console.log(datas);
+//     }
+// });
+
+// laydate({
+//     elem: '#js_date2',
+//     istime: true,
+//     format:   'YYYY-MM-DD hh:mm:ss', // 分隔符可以任意定义，该例子表示只显示年月
+//     choose:   function(datas){
+//         console.log(datas);
+//     }
+// });
