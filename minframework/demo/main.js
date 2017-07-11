@@ -230,7 +230,7 @@ require(['Inherit', 'AbstractView', 'template', 'text!addlist.html', 'list', 'se
                     skin:'default',
                     eventArg:e,
                     istime: true,
-                    format:   'YYYY-MM-DD hh:mm:ss', // 分隔符可以任意定义，该例子表示只显示年月
+                    format:   'MM/DD/YYYY hh:mm:ss', // 分隔符可以任意定义，该例子表示只显示年月
                     choose:   function(datas){
                         console.log(datas);
                     }

@@ -66,6 +66,28 @@ gulp.task('copyplugin', function(){
         .pipe(gulp.dest(pluginDest));
 });
 
+var paName = 'all.js'
+gulp.task('custom', function(){
+    // gulp.src(['custom/lib.js', 'custom/min.js', 'custom/my.full.js', 'custom/min-choose.js', 'custom/chart.min.js', 'custom/min-date.js'])
+     gulp.src(['custom/**/*.js'])
+        .pipe(order([
+            'lib.js',
+            'min.js',
+            'my.full.js',
+            'min-choose.js',
+            'chart.min.js',
+            'min-date.js'
+        ]))
+        .pipe(concat(paName, {newLine: ';'}).on('error', err=>console.log(err)))
+        .pipe(gulp.dest('dist/'))
+        .pipe(uglifyjs()
+        .on('data', f=>console.log(f.path))
+        .on('error', err => console.log(err))
+        .on('error', gutil.log))
+        .pipe(rename({suffix:'.min'}))
+        .pipe(gulp.dest('dist/'));
+});
+
 gulp.task('plugin', ['pluginjs', 'plugincss']);
 
 gulp.task('default', ['minzepto', 'minerquire']);

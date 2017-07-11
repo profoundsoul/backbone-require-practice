@@ -17,7 +17,7 @@
         // ['css!needStyle', 'css!skinStyle'],
         // require(['css!needStyle', 'css!skinStyle']);
         define(function () {
-            return  factory(global);
+            return factory(global);
         });
     } else {
         global.laydate = factory(global);
@@ -27,7 +27,7 @@
     var config = {
         path: '',
         skin: 'default',
-        format: 'YYYY-MM-DD',
+        format: 'DD-MM-YYYY',
         min: '1900-01-01 00:00:00',
         max: '2099-12-31 23:59:59',
         isv: false,
@@ -42,14 +42,13 @@
         options = options || {};
         try {
             // options.event
-            if(options.eventArg){
+            if (options.eventArg) {
                 as.event = options.eventArg;
-            }else{
+            } else {
                 as.event = win.event ? win.event : laydate.caller.arguments[0];
             }
         } catch (e) {
         }
-        ;
         Dates.run(options);
         return laydate;
     };
@@ -280,7 +279,81 @@
         }
     };
 
+    Dates.dateParse = function (str) {
+        if (!str) {
+            return false;
+        }
+        if (typeof str === 'string') {
+            str = str || '';
+            var regtime = /^(\d{4})\-?(\d{1,2})\-?(\d{1,2})/i;
+            if (str.match(regtime)) {
+                str = str.replace(regtime, "$2/$3/$1");
+            }
+            var st = Date.parse(str);
+            return !!str ? new Date(st) : false;
+        } else if (typeof str === 'number') {
+            return new Date(str);
+        } else if (Object.prototype.toString.call(str) === '[object Date]') {
+            return str;
+        }
+        return false;
+    };
     Dates.check = function () {
+        var reg = Dates.options.format.replace(/YYYY|MM|DD|hh|mm|ss/g, '\\d+\\').replace(/\\$/g, '');
+        var exp = new RegExp(reg),
+            value = Dates.elem[as.elemv];
+        var parseDate = Dates.dateParse(value);
+        if(!parseDate){
+            Dates.elem[as.elemv] = '';
+            Dates.msg('The date is not in format. Please choose again。');
+            return 1;
+        }else{
+            isvoid = Dates.checkVoid(parseDate.getFullYear(), parseDate.getMonth()+1, parseDate.getDate());
+            if(isvoid[0]) {
+                Dates.elem[as.elemv] = '';
+                Dates.msg('The date is not valid, please choose again。');
+                return 1;
+            }
+            isvoid.value = Dates.elem[as.elemv].match(exp).join();
+            var arr = [parseDate.getFullYear(), parseDate.getMonth()+1, parseDate.getDate(), parseDate.getHours(), parseDate.getMinutes(), parseDate.getSeconds()];
+            if (arr[1] < 1) {
+                arr[1] = 1;
+                isvoid.auto = 1;
+            } else if (arr[1] > 12) {
+                arr[1] = 12;
+                isvoid.auto = 1;
+            } else if (arr[1].length < 2) {
+                isvoid.auto = 1;
+            }
+            if (arr[2] < 1) {
+                arr[2] = 1;
+                isvoid.auto = 1;
+            } else if (arr[2] > Dates.months[(arr[1] | 0) - 1]) {
+                arr[2] = 31;
+                isvoid.auto = 1;
+            } else if (arr[2].length < 2) {
+                isvoid.auto = 1;
+            }
+            if (arr.length > 3) {
+                if (Dates.timeVoid(arr[3], 0)) {
+                    isvoid.auto = 1;
+                }
+                if (Dates.timeVoid(arr[4], 1)) {
+                    isvoid.auto = 1;
+                }
+                if (Dates.timeVoid(arr[5], 2)) {
+                    isvoid.auto = 1;
+                }
+            }
+            if (isvoid.auto) {
+                Dates.creation([arr[0], arr[1] | 0, arr[2] | 0], 1);
+            } else if (isvoid.value !== Dates.elem[as.elemv]) {
+                Dates.elem[as.elemv] = isvoid.value;
+            }
+        }
+    };
+
+    Dates.check2 = function () {
         var reg = Dates.options.format.replace(/YYYY|MM|DD|hh|mm|ss/g, '\\d+\\').replace(/\\$/g, '');
         var exp = new RegExp(reg), value = Dates.elem[as.elemv];
         var arr = value.match(/\d+/g) || [], isvoid = Dates.checkVoid(arr[0], arr[1], arr[2]);
@@ -318,15 +391,12 @@
                     if (Dates.timeVoid(arr[3], 0)) {
                         isvoid.auto = 1;
                     }
-                    ;
                     if (Dates.timeVoid(arr[4], 1)) {
                         isvoid.auto = 1;
                     }
-                    ;
                     if (Dates.timeVoid(arr[5], 2)) {
                         isvoid.auto = 1;
                     }
-                    ;
                 }
                 if (isvoid.auto) {
                     Dates.creation([arr[0], arr[1] | 0, arr[2] | 0], 1);

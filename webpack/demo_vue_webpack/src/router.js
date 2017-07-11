@@ -16,6 +16,8 @@ mappingRouters.push({
 	name: 'index', 
 	component: resolve => require(['./views/index.vue'], resolve) 
 });
+
+
 mappingRouters.push({ 
 	path: '/list', 
 	name: 'list', 
