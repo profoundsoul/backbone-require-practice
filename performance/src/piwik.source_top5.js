@@ -7496,10 +7496,11 @@ if (typeof window.Piwik === 'object' && typeof window.Piwik.PerformanceTrace !==
                         //成功获取
                         coords.latitude = data.coords.latitude;
                         coords.longitude = data.coords.longitude;
+                        param.action_state = 'page_performance';
 
                         console.log('经纬度信息：', coords);
+                        defaultAsyncTracker.trackRequest(_.param(coords), null, 'log');
                     }
-                    defaultAsyncTracker.trackRequest(_.param(coords), null, 'log');
                 });
             }
         };
