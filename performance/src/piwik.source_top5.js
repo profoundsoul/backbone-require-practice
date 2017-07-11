@@ -7430,7 +7430,7 @@ if (typeof piwik_log !== 'function') {
 /*
  * user customize performance data
  * */
-if (window.Piwik && typeof window.Piwik.PerformanceTrace !== 'object') {
+if (typeof window.Piwik === 'object' && typeof window.Piwik.PerformanceTrace !== 'object') {
     Piwik.PerformanceTrace = (function () {
         var COLLECT_RESOURCE_COUNT = 5;
         var _ = this;
