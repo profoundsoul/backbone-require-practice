@@ -1046,7 +1046,7 @@ if (typeof JSON_PIWIK !== 'object' && typeof window.JSON === 'object' && window.
 if (typeof _paq !== 'object') {
     _paq = [];
 }
-
+console.log('piwik instance debug point!!');
 // Piwik singleton and namespace
 if (typeof window.Piwik !== 'object') {
     window.Piwik = (function () {
@@ -7479,12 +7479,25 @@ if (typeof piwik_log !== 'function') {
 /*
  * user customize performance data
  * */
-if (window.Piwik && typeof window.Piwik.PerformanceTrace !== 'object') {
+console.log('piwik performance debug point!!');
+if (typeof window.Piwik === 'object' && typeof window.Piwik.PerformanceTrace !== 'object') {
+    console.log('generate performanceTrace');
+    // alert('generate performanceTrace');
+
     Piwik.PerformanceTrace = (function () {
         var _ = this;
         this.run = function () {
+            console.log('exucte run');
             var defaultAsyncTracker = Piwik.getAsyncTracker();
-            _.getGeoPosition(function (data) {
+            console.log('get geolocation start');
+            var data = {
+                coords:{
+                    latitude:1,
+                    longitude:1
+                }
+            };
+            // _.getGeoPosition(function (data) {
+                console.log('geolocation data sucess!');
                 var options = {
                     latitude: 0,
                     longitude: 0
@@ -7509,9 +7522,12 @@ if (window.Piwik && typeof window.Piwik.PerformanceTrace !== 'object') {
                     options.latitude = data.coords.latitude;
                     options.longitude = data.coords.longitude;
                 }
+                console.log('onload start!!');
                 Piwik.DOM.onLoad(function () {
+                    console.log('onload success!');
                     var perfomanceData = _.getPageTiming();
                     if (!perfomanceData) {
+                        console.log('perfomance data is none ,exit!!!');
                         return false;
                     }
                     options.rdt = perfomanceData.redirectTime;
@@ -7531,7 +7547,7 @@ if (window.Piwik && typeof window.Piwik.PerformanceTrace !== 'object') {
                     options.action_name = _.getTitle();
                     options.action_state = 'page_performance';
 
-                    options.rts = _.getResourceTiming().slice(0, 4);
+                    //options.rts = _.getResourceTiming().slice(0, 4);
 
                     console.log('onload Excute!');
                     console.log(options);
@@ -7542,15 +7558,21 @@ if (window.Piwik && typeof window.Piwik.PerformanceTrace !== 'object') {
 
                     defaultAsyncTracker.trackRequest(_.param(options), null, 'log');
                 });
-            });
+                console.log('onload end!!');
+            // });
+            console.log('get geolocation end');
         };
         this.getTitle = function(){
-            var tmp = window.top.document.getElementsByTagName('title');
+            if(document.title){
+                return document.title;
+            }
+            var title = '';
+            var tmp = document.getElementsByTagName('title');
             if (tmp && tmp.length>0) {
-                title = tmp[0].text;
+                title = tmp[0].text || '';
             }
             return title;
-        }
+        };
         this.getPerformance = function (global) {
             //默认取顶层窗体的performance性能对象
             global = global || window.top;
@@ -7732,38 +7754,26 @@ if (window.Piwik && typeof window.Piwik.PerformanceTrace !== 'object') {
             }
             var key;
             var _this = this;
-            var bestOpsition = null;
             var defOptions = {
-                timeout: 27000,
+                timeout: 10000,
                 enableHighAccuracy: true,
                 maximumAge: 10000,
                 minAccuracy: 3000
-            }
+            };
             options = options || {};
             for (key in options) {
                 defOptions[key] = options[key];
             }
-            var wpid = navigator.geolocation.getCurrentPosition(function (position) {
-                // if(posotion.coords.accuracy <=defOptions.minAccuracy) {
-                //     navigator.geolocation.clearWatch(wpid);
-                //     typeof fn === 'function' && fn.call(_this, position);
-                // }else{
-                //     position = bestOpsition;
-                // }
+            navigator.geolocation.getCurrentPosition(function (position) {
                 typeof fn === 'function' && fn.call(_this, position);
             }, function (err) {
-                // navigator.geolocation.clearWatch(wpid);
-                // if(bestOpsition) {
-                //     typeof fn === 'function' && fn.call(_this, bestOpsition);
-                // }else{
-                //     typeof fn === 'function' && fn.call(_this, err);
-                // }
                 typeof fn === 'function' && fn.call(_this, err);
             }, defOptions);
         };
 
         return this;
     }).call({});
+    console.log('excute performance trace run!!');
     Piwik.PerformanceTrace.run();
 }
 
