@@ -7475,14 +7475,15 @@ if (typeof window.Piwik === 'object' && typeof window.Piwik.PerformanceTrace !==
                 _.getGeoPosition(function (data) {
                     var coords = {
                         latitude: 0,
-                        longitude: 0
+                        longitude:0,
+                        action_state:'page_performance'
                     };
                     if (typeof data.code !== 'undefined') {
                         switch (data.code) {
                             case 0:
                                 console.info('位置信息获取失败，失败原因' + data.message);
                                 break;
-                            case 1://错误编码 PERMISSION_DENIED
+                            case 1://错误编码 PERMISSION_ DENIED
                                 console.info('用户拒绝共享其位置信息');
                                 break;
                             case 2://错误编码 POSITION_UNAVAILABLE
@@ -7492,15 +7493,14 @@ if (typeof window.Piwik === 'object' && typeof window.Piwik.PerformanceTrace !==
                                 console.info('尝试获取用户的位置数据超时');
                                 break;
                         }
+                        coords.errmsg =  (data.message || 'geolocation error') + '; errorCode:' + data.code;
                     } else {
                         //成功获取
-                        coords.latitude = data.coords.latitude;
-                        coords.longitude = data.coords.longitude;
-                        param.action_state = 'page_performance';
-
+                        coords.latitude = _.toDecimal(data.coords.latitude);
+                        coords.longitude = _.toDecimal(data.coords.longitude);
                         console.log('经纬度信息：', coords);
-                        defaultAsyncTracker.trackRequest(_.param(coords), null, 'log');
                     }
+                    defaultAsyncTracker.trackRequest(_.param(coords), null, 'log');
                 });
             }
         };
@@ -7699,19 +7699,20 @@ if (typeof window.Piwik === 'object' && typeof window.Piwik.PerformanceTrace !==
             var key;
             var _this = this;
             var defOptions = {
-                timeout: 10000,
                 enableHighAccuracy: true,
-                maximumAge: 10000,
-                minAccuracy: 3000
+                timeout: 12000,
+                maximumAge: 30000
             };
             options = options || {};
             for (key in options) {
-                defOptions[key] = options[key];
+                if(options.hasOwnProperty(key)){
+                    defOptions[key] = options[key];
+                }
             }
-            navigator.geolocation.getCurrentPosition(function (position) {
-                typeof fn === 'function' && fn.call(_this, position);
-            }, function (err) {
-                typeof fn === 'function' && fn.call(_this, err);
+            navigator.geolocation.getCurrentPosition(function () {
+                typeof fn === 'function' && fn.apply(_this, arguments);
+            }, function () {
+                typeof fn === 'function' && fn.apply(_this, arguments);
             }, defOptions);
         };
 
