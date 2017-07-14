@@ -1,0 +1,14 @@
+{
+	"title":"gulp compress css/js/image",
+	"jsroot":[
+	],
+	"cssroot":[
+	],
+	"imageroot":[
+		"./imagebackup222"
+	],
+	"imagebackuproot":"./imagebackup/",
+	"backupjs":"false",
+	"backupcss":"false",
+	"backupimage":"true"
+}
