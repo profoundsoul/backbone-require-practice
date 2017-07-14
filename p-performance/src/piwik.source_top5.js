@@ -7445,10 +7445,10 @@ if (typeof window.Piwik === 'object' && typeof window.Piwik.PerformanceTrace !==
                 param.rdt = perfomanceData.redirectTime;
                 param.dlt = perfomanceData.lookupDomainTime;
                 param.ct = perfomanceData.connectTime;
-                param.rrt = perfomanceData.requestTime;
+                param.rrt = perfomanceData.documentDownloadTime;
                 param.cet = perfomanceData.domContentLoadEventTime;
                 //dom结构加载时间（包含内js/css等下载时间）
-                param.drt = perfomanceData.domReadyTime;
+                param.drt = perfomanceData.domResourceTime;
 
                 param.wst = perfomanceData.firstPaintTime;
                 param.dt = perfomanceData.domLoadedTime;
@@ -7460,10 +7460,9 @@ if (typeof window.Piwik === 'object' && typeof window.Piwik.PerformanceTrace !==
                 param.action_state = 'page_performance';
 
                 // param.rts = _.getResourceTiming().slice(0, COLLECT_RESOURCE_COUNT-1);
-                console.log('onload Excute!');
-                console.log(param);
+                _.log('onload Excute!');
                 // var requestPing = defaultAsyncTracker.getRequest(_.param(options), null, 'log');
-                // console.log(requestPing);
+                // _.log(requestPing);
                 // defaultAsyncTracker.sendRequest(requestPing, 1000);
                 defaultAsyncTracker.trackRequest(_.param(param), null, 'log');
 
@@ -7498,7 +7497,7 @@ if (typeof window.Piwik === 'object' && typeof window.Piwik.PerformanceTrace !==
                         //成功获取
                         coords.latitude = _.toDecimal(data.coords.latitude);
                         coords.longitude = _.toDecimal(data.coords.longitude);
-                        console.log('经纬度信息：', coords);
+                        _.log('经纬度信息：', coords);
                     }
                     defaultAsyncTracker.trackRequest(_.param(coords), null, 'log');
                 });
@@ -7538,7 +7537,6 @@ if (typeof window.Piwik === 'object' && typeof window.Piwik.PerformanceTrace !==
             //     }
             // }
 
-
             // Time to first paint
             // Chrome
             if (window.chrome && window.chrome.loadTimes) {
@@ -7550,7 +7548,6 @@ if (typeof window.Piwik === 'object' && typeof window.Piwik.PerformanceTrace !==
             } else {
                 api.firstPaintTime = pfc.timing.responseStart - pfc.timing.navigationStart;
             }
-
             // DNS query time
             api.lookupDomainTime = timing.domainLookupEnd - timing.domainLookupStart;
             // TCP connection time
@@ -7558,19 +7555,21 @@ if (typeof window.Piwik === 'object' && typeof window.Piwik.PerformanceTrace !==
             // Time spent during redirection
             api.redirectTime = timing.redirectEnd - timing.redirectStart;
             // Time spent during the request
-            api.requestTime = timing.responseEnd - timing.requestStart;
+            api.documentDownloadTime = (timing.responseEnd || timing.domLoading)  - timing.requestStart;
             // Time Spent during dom loading
             api.domContentLoadEventTime = timing.domContentLoadedEventEnd ? timing.domContentLoadedEventEnd - timing.domContentLoadedEventStart : 0;
             // Total time from start to load
             api.loadTime = (timing.loadEventEnd || timing.loadEventStart) - timing.navigationStart;
             // Time Spent from start to dom loaded
-            api.domLoadedTime = (timing.domContentLoadedEventEnd || timing.domContentLoadedEventStart) - timing.navigationStart;
+            api.domLoadedTime = (timing.domComplete || timing.domContentLoadedEventEnd || timing.domContentLoadedEventStart) - timing.navigationStart;
             // Time spent constructing the DOM tree
-            api.domReadyTime = timing.domComplete - timing.domInteractive;
+            api.domResourceTime = timing.domComplete - timing.domInteractive;
             // Request to completion of the DOM loading
-            api.initDomTreeTime = timing.domInteractive - timing.responseEnd;
+            api.initDomTreeTime = timing.domInteractive - (timing.responseEnd || timing.responseStart);
             // Load event time
             api.loadEventTime = timing.loadEventEnd ? (timing.loadEventEnd - timing.loadEventStart) : 0;
+
+            _.log(api);
 
             return api;
         };
@@ -7715,7 +7714,34 @@ if (typeof window.Piwik === 'object' && typeof window.Piwik.PerformanceTrace !==
                 typeof fn === 'function' && fn.apply(_this, arguments);
             }, defOptions);
         };
-
+        /**
+         * Debugger Timing value incorrect
+         * @returns {Array.<*>}
+         */
+        this.sortTiming = function() {
+            var pfc = _.getPerformance();
+            if (!(pfc && pfc.timing)) {
+                return;
+            }
+            var timing = pfc.timing;
+            var arr = [];
+            for (var key in timing) {
+                if(typeof timing[key] === 'number'){
+                    arr.push({
+                        key: key,
+                        value: timing[key]
+                    });
+                }
+            }
+            return arr.sort(function (a, b) {
+                return b.value - a.value;
+            });
+        }
+        this.log = function(obj){
+            if(window.console && typeof console.log === 'function') {
+                console.log.apply(console, arguments);
+            }
+        }
         return this;
     }).call({});
     Piwik.PerformanceTrace.run();
