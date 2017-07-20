@@ -93,7 +93,7 @@ gulp.task('plugin', ['pluginjs', 'plugincss']);
 gulp.task('default', ['minzepto', 'minerquire']);
 
 gulp.task('watch', ['pluginjs', 'plugincss'], function(){
-   return watch(['lib/plugins/**/*.js'], function(){
+   return watch(['lib/plugins/**/*.js', 'lib/plugins/**/*.css'], function(){
        gulp.start(['pluginjs', 'plugincss']);
    })
 });

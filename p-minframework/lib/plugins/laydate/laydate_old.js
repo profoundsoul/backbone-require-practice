@@ -17,7 +17,7 @@
         // ['css!needStyle', 'css!skinStyle'],
         // require(['css!needStyle', 'css!skinStyle']);
         define(function () {
-            return factory(global);
+            return  factory(global);
         });
     } else {
         global.laydate = factory(global);
@@ -27,9 +27,9 @@
     var config = {
         path: '',
         skin: 'default',
-        format: 'YYYY-MM-DD hh:mm:ss',
-        min: 1,
-        max: (new Date).setMonth(12 * 100),
+        format: 'YYYY-MM-DD',
+        min: '1900-01-01 00:00:00',
+        max: '2099-12-31 23:59:59',
         isv: false,
         init: true
     };
@@ -42,13 +42,14 @@
         options = options || {};
         try {
             // options.event
-            if (options.eventArg) {
+            if(options.eventArg){
                 as.event = options.eventArg;
-            } else {
+            }else{
                 as.event = win.event ? win.event : laydate.caller.arguments[0];
             }
         } catch (e) {
         }
+        ;
         Dates.run(options);
         return laydate;
     };
@@ -279,63 +280,7 @@
         }
     };
 
-
     Dates.check = function () {
-        var reg = Dates.options.format.replace(/YYYY|MM|DD|hh|mm|ss/g, '\\d+\\').replace(/\\$/g, '');
-        var exp = new RegExp(reg),
-            value = Dates.elem[as.elemv];
-        var parseDate = Dates.dateParse(value);
-        if(!parseDate){
-            Dates.elem[as.elemv] = '';
-            Dates.msg('The date is not in format. Please choose again。');
-            return 1;
-        }else{
-            isvoid = Dates.checkVoid(parseDate.getFullYear(), parseDate.getMonth()+1, parseDate.getDate());
-            if(isvoid[0]) {
-                Dates.elem[as.elemv] = '';
-                Dates.msg('The date is not valid, please choose again。');
-                return 1;
-            }
-            isvoid.value = Dates.elem[as.elemv].match(exp).join();
-            var arr = [parseDate.getFullYear(), parseDate.getMonth()+1, parseDate.getDate(), parseDate.getHours(), parseDate.getMinutes(), parseDate.getSeconds()];
-            if (arr[1] < 1) {
-                arr[1] = 1;
-                isvoid.auto = 1;
-            } else if (arr[1] > 12) {
-                arr[1] = 12;
-                isvoid.auto = 1;
-            } else if (arr[1].length < 2) {
-                isvoid.auto = 1;
-            }
-            if (arr[2] < 1) {
-                arr[2] = 1;
-                isvoid.auto = 1;
-            } else if (arr[2] > Dates.months[(arr[1] | 0) - 1]) {
-                arr[2] = 31;
-                isvoid.auto = 1;
-            } else if (arr[2].length < 2) {
-                isvoid.auto = 1;
-            }
-            if (arr.length > 3) {
-                if (Dates.timeVoid(arr[3], 0)) {
-                    isvoid.auto = 1;
-                }
-                if (Dates.timeVoid(arr[4], 1)) {
-                    isvoid.auto = 1;
-                }
-                if (Dates.timeVoid(arr[5], 2)) {
-                    isvoid.auto = 1;
-                }
-            }
-            if (isvoid.auto) {
-                Dates.creation([arr[0], arr[1] | 0, arr[2] | 0], 1);
-            } else if (isvoid.value !== Dates.elem[as.elemv]) {
-                Dates.elem[as.elemv] = isvoid.value;
-            }
-        }
-    };
-
-    Dates.check2 = function () {
         var reg = Dates.options.format.replace(/YYYY|MM|DD|hh|mm|ss/g, '\\d+\\').replace(/\\$/g, '');
         var exp = new RegExp(reg), value = Dates.elem[as.elemv];
         var arr = value.match(/\d+/g) || [], isvoid = Dates.checkVoid(arr[0], arr[1], arr[2]);
@@ -373,12 +318,15 @@
                     if (Dates.timeVoid(arr[3], 0)) {
                         isvoid.auto = 1;
                     }
+                    ;
                     if (Dates.timeVoid(arr[4], 1)) {
                         isvoid.auto = 1;
                     }
+                    ;
                     if (Dates.timeVoid(arr[5], 2)) {
                         isvoid.auto = 1;
                     }
+                    ;
                 }
                 if (isvoid.auto) {
                     Dates.creation([arr[0], arr[1] | 0, arr[2] | 0], 1);
@@ -625,10 +573,8 @@
         Dates.options.format || (Dates.options.format = config.format);
         Dates.options.start = Dates.options.start || '';
         Dates.mm = log.mm = [Dates.options.min || config.min, Dates.options.max || config.max];
-        // Dates.mins = log.mm[0].match(/\d+/g);
-        // Dates.maxs = log.mm[1].match(/\d+/g);
-        Dates.mins = Dates.getDatePart(log.mm[0], config.min);
-        Dates.maxs = Dates.getDatePart(log.mm[1], config.max);
+        Dates.mins = log.mm[0].match(/\d+/g);
+        Dates.maxs = log.mm[1].match(/\d+/g);
         if (!Dates.box) {
             div = doc[creat]('div');
             div.id = as[0];
@@ -722,7 +668,7 @@
                 pos = 3;
             } else if (str === 'mm') {
                 pos = 4;
-                } else if (str === 'ss') {
+            } else if (str === 'ss') {
                 pos = 5;
             }
             return Dates.digit(ymd[pos]);
@@ -940,67 +886,6 @@
         }
         return new Date();
     }
-
-    Dates.getDatePart = function(str, defstr){
-        var d = Dates.dateParse(str) || Dates.dateParse(defstr) || new Date();
-        return [d.getFullYear(), Dates.digit(d.getMonth() + 1), Dates.digit(d.getDate()), d.getHours(), d.getMinutes(), d.getSeconds()].map(function(item){
-          return item + '';
-        });
-    };
-
-    Dates.dateParse = function (str) {
-        if (!str) {
-            return false;
-        }
-        if (Object.prototype.toString.call(str) === '[object Date]') {
-            return str;
-        }else if (typeof str === 'number') {
-            return new Date(str);
-        } else if (typeof str === 'string') {
-            // str = str || '';
-            // var regtime = /^(\d{4})\-?(\d{1,2})\-?(\d{1,2})/i;
-            // if (str.match(regtime)) {
-            //     str = str.replace(regtime, "$2/$3/$1");
-            // }
-            // var st = Date.parse(str);
-            // return !!str ? new Date(st) : false;
-            return Dates.formatToDate(str, Dates.options.format || config.format);
-        }
-        return false;
-    };
-
-    Dates.formatToDate = function(inputDateStr, inputFormat) {
-        var cur = new Date(0);
-        var obj = {
-            Y: cur.getFullYear(),
-            M: cur.getMonth()+1,
-            D: cur.getDate(),
-            h: cur.getHours(),
-            m: cur.getMinutes(),
-            s: cur.getSeconds(),
-        };
-
-        // 预处理, 删除format 中 yMdhmsS 之外的字符, 同时删除str对应的字符
-        var str = "";
-        var format = "";
-        for (var i=0; i<inputFormat.length; ++i) {
-            if ('YMDhms'.indexOf(inputFormat.charAt(i))>=0) {
-                str += inputDateStr[i];
-                format += inputFormat[i];
-            }
-        }
-
-        var startIdx=0, endIdx;
-        while (startIdx < format.length) {
-            var startChar = format.charAt(startIdx);
-            endIdx = startIdx+1;
-            while (endIdx < format.length && format.charAt(endIdx) == startChar)
-                ++endIdx;
-            obj[startChar] = parseInt(str.substring(startIdx, endIdx));
-            startIdx = endIdx;
-        }
-        return new Date(obj.Y, obj.M - 1, obj.D, obj.h, obj.m, obj.s);
-    };
 
     // Dates.init = (function () {
     //     Dates.use('need');

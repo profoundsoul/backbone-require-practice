@@ -27,9 +27,9 @@
     var config = {
         path: '',
         skin: 'default',
-        format: 'DD-MM-YYYY',
-        min: '1900-01-01 00:00:00',
-        max: '2099-12-31 23:59:59',
+        format: 'YYYY-MM-DD hh:mm:ss',
+        min: 1,
+        max: (new Date).setMonth(12 * 100),
         isv: false,
         init: true
     };
@@ -279,25 +279,7 @@
         }
     };
 
-    Dates.dateParse = function (str) {
-        if (!str) {
-            return false;
-        }
-        if (typeof str === 'string') {
-            str = str || '';
-            var regtime = /^(\d{4})\-?(\d{1,2})\-?(\d{1,2})/i;
-            if (str.match(regtime)) {
-                str = str.replace(regtime, "$2/$3/$1");
-            }
-            var st = Date.parse(str);
-            return !!str ? new Date(st) : false;
-        } else if (typeof str === 'number') {
-            return new Date(str);
-        } else if (Object.prototype.toString.call(str) === '[object Date]') {
-            return str;
-        }
-        return false;
-    };
+
     Dates.check = function () {
         var reg = Dates.options.format.replace(/YYYY|MM|DD|hh|mm|ss/g, '\\d+\\').replace(/\\$/g, '');
         var exp = new RegExp(reg),
@@ -409,7 +391,7 @@
 
     Dates.months = [31, null, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     Dates.viewDate = function (Y, M, D) {
-        var S = Dates.query, log = {}, De = new Date();
+        var S = Dates.query, log = {}, De = Dates.getSystemInputDate();
         Y < (Dates.mins[0] | 0) && (Y = (Dates.mins[0] | 0));
         Y > (Dates.maxs[0] | 0) && (Y = (Dates.maxs[0] | 0));
 
@@ -561,7 +543,7 @@
     };
 
     Dates.initDate = function (format) {
-        var S = Dates.query, log = {}, De = new Date();
+        var S = Dates.query, log = {}, De = Dates.getSystemInputDate();
         var ymd = Dates.elem[as.elemv].match(/\d+/g) || [];
         var elemIndexMap = Dates.getEachElementIndex(format);
         Dates.elemIndexMap = elemIndexMap;
@@ -643,8 +625,10 @@
         Dates.options.format || (Dates.options.format = config.format);
         Dates.options.start = Dates.options.start || '';
         Dates.mm = log.mm = [Dates.options.min || config.min, Dates.options.max || config.max];
-        Dates.mins = log.mm[0].match(/\d+/g);
-        Dates.maxs = log.mm[1].match(/\d+/g);
+        // Dates.mins = log.mm[0].match(/\d+/g);
+        // Dates.maxs = log.mm[1].match(/\d+/g);
+        Dates.mins = Dates.getDatePart(log.mm[0], config.min);
+        Dates.maxs = Dates.getDatePart(log.mm[1], config.max);
         if (!Dates.box) {
             div = doc[creat]('div');
             div.id = as[0];
@@ -738,7 +722,7 @@
                 pos = 3;
             } else if (str === 'mm') {
                 pos = 4;
-            } else if (str === 'ss') {
+                } else if (str === 'ss') {
                 pos = 5;
             }
             return Dates.digit(ymd[pos]);
@@ -855,13 +839,13 @@
 
         as.otoday = S('#laydate_today');
         Dates.on(as.otoday, 'click', function () {
-            var now = new Date();
+            var now = Dates.getSystemInputDate();
             // 2016-09-23 18:20:54 修复选中今天choose方法得不到数据
             // Dates.creation([now.getFullYear(), now.getMonth() + 1, now.getDate()]);
 
             // 2016-09-26 10:49:25 修复选中今天 如果YYYY-MM-DD hh:mm:ss格式，获取当前的时分秒
             var hms = Dates.hmsin;
-            var date = new Date();
+            var date = Dates.getSystemInputDate();
             hms[0].value = date.getHours();
             hms[1].value = date.getMinutes();
             hms[2].value = date.getSeconds();
@@ -945,6 +929,79 @@
         });
     };
 
+    Dates.getSystemInputDate = function(){
+        var timeZones = document.getElementById('timeZones');
+        if(timeZones){
+            var timeStr = timeZones.value;
+            var serverNow = new Date(timeStr);
+            if(!isNaN(serverNow)) {
+                return serverNow;
+            }
+        }
+        return new Date();
+    }
+
+    Dates.getDatePart = function(str, defstr){
+        var d = Dates.dateParse(str) || Dates.dateParse(defstr) || new Date();
+        return [d.getFullYear(), Dates.digit(d.getMonth() + 1), Dates.digit(d.getDate()), d.getHours(), d.getMinutes(), d.getSeconds()].map(function(item){
+          return item + '';
+        });
+    };
+
+    Dates.dateParse = function (str) {
+        if (!str) {
+            return false;
+        }
+        if (Object.prototype.toString.call(str) === '[object Date]') {
+            return str;
+        }else if (typeof str === 'number') {
+            return new Date(str);
+        } else if (typeof str === 'string') {
+            // str = str || '';
+            // var regtime = /^(\d{4})\-?(\d{1,2})\-?(\d{1,2})/i;
+            // if (str.match(regtime)) {
+            //     str = str.replace(regtime, "$2/$3/$1");
+            // }
+            // var st = Date.parse(str);
+            // return !!str ? new Date(st) : false;
+            return Dates.formatToDate(str, Dates.options.format || config.format);
+        }
+        return false;
+    };
+
+    Dates.formatToDate = function(inputDateStr, inputFormat) {
+        var cur = new Date(0);
+        var obj = {
+            Y: cur.getFullYear(),
+            M: cur.getMonth()+1,
+            D: cur.getDate(),
+            h: cur.getHours(),
+            m: cur.getMinutes(),
+            s: cur.getSeconds(),
+        };
+
+        // 预处理, 删除format 中 yMdhmsS 之外的字符, 同时删除str对应的字符
+        var str = "";
+        var format = "";
+        for (var i=0; i<inputFormat.length; ++i) {
+            if ('YMDhms'.indexOf(inputFormat.charAt(i))>=0) {
+                str += inputDateStr[i];
+                format += inputFormat[i];
+            }
+        }
+
+        var startIdx=0, endIdx;
+        while (startIdx < format.length) {
+            var startChar = format.charAt(startIdx);
+            endIdx = startIdx+1;
+            while (endIdx < format.length && format.charAt(endIdx) == startChar)
+                ++endIdx;
+            obj[startChar] = parseInt(str.substring(startIdx, endIdx));
+            startIdx = endIdx;
+        }
+        return new Date(obj.Y, obj.M - 1, obj.D, obj.h, obj.m, obj.s);
+    };
+
     // Dates.init = (function () {
     //     Dates.use('need');
     //     Dates.use(as[4] + config.skin, as[3]);
@@ -965,8 +1022,8 @@
 
     laydate.now = function (timestamp, format) {
         var De = new Date((timestamp | 0) ? function (tamp) {
-            return tamp < 86400000 ? (+new Date + tamp * 86400000) : tamp;
-        }(parseInt(timestamp)) : +new Date);
+            return tamp < 86400000 ? (+Dates.getSystemInputDate() + tamp * 86400000) : tamp;
+        }(parseInt(timestamp)) : +Dates.getSystemInputDate());
         return Dates.parse(
             [De.getFullYear(), De.getMonth() + 1, De.getDate()],
             [De.getHours(), De.getMinutes(), De.getSeconds()],

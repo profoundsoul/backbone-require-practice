@@ -54,7 +54,7 @@ define('UIToast', ['DialogPlus', 'Base', 'Zepto'], function (Dialog, Base, $) {
                         clearTimeout(timeoutid);
                         timeoutid = null;
                     }
-                    callback.apply(context);
+                    fn.apply(context);
                 }
             })(typeof callback ==='function' ? callback: defaults.onclose);
             var toast = Dialog(options);

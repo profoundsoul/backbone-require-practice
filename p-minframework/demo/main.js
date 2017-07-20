@@ -45,7 +45,8 @@ require(['Inherit', 'AbstractView', 'template', 'text!addlist.html', 'list', 'se
             'click .js_toast':'toast',
             'click .js_showloading': 'sloading',
             'click .js_hideloading': 'hloading',
-            'click .js_date3':'showDate'
+            'click .js_date3':'showDate',
+            'click .js_date4':'showDate4'
         },
         __propertys__: function () {
             this.test = 1111;
@@ -224,14 +225,30 @@ require(['Inherit', 'AbstractView', 'template', 'text!addlist.html', 'list', 'se
             this.hideLoading();
         },
         showDate:function(e){
-            var target = e.currentTarget;console.log(111111);
+            var target = e.currentTarget;
             require(['LayDate'], function(laydate){
                 laydate({
                     skin:'default',
                     eventArg:e,
                     istime: true,
-                    format:   'MM/DD/YYYY hh:mm:ss', // 分隔符可以任意定义，该例子表示只显示年月
-                    choose:   function(datas){
+                    max: $('.js_date4').val() ? $('.js_date4').val():null,
+                    format:'DD/MM/YYYY hh:mm:ss', // 分隔符可以任意定义，该例子表示只显示年月
+                    choose:function(datas){
+                        console.log(datas);
+                    }
+                });
+            })
+        },
+        showDate4: function(e) {
+            var target = e.currentTarget;
+            require(['LayDate'], function(laydate){
+                laydate({
+                    skin:'default',
+                    eventArg:e,
+                    istime: true,
+                    min:$('.js_date3').val(),
+                    format:'DD/MM/YYYY hh:mm:ss', // 分隔符可以任意定义，该例子表示只显示年月
+                    choose:function(datas){
                         console.log(datas);
                     }
                 });

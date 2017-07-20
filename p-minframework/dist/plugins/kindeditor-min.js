@@ -1,3 +1,3565 @@
-!function(A,o){function Y(e){return!!e&&"[object Array]"===Object.prototype.toString.call(e)}function bb(e){return!!e&&"[object Function]"===Object.prototype.toString.call(e)}function N(e,t){for(var n=0,i=t.length;n<i;n++)if(e===t[n])return n;return-1}function m(e,t){if(Y(e))for(var n=0,i=e.length;n<i&&!1!==t.call(e[n],n,e[n]);n++);else for(n in e)if(e.hasOwnProperty(n)&&!1===t.call(e[n],n,e[n]))break}function B(e){return e.replace(/(?:^[ \t\n\r]+)|(?:[ \t\n\r]+$)/g,"")}function ua(e,t,n){return n=n===o?",":n,(n+t+n).indexOf(n+e+n)>=0}function s(e,t){return t=t||"px",e&&/^\d+$/.test(e)?e+t:e}function t(e){var t;return e&&(t=/(\d+)/.exec(e))?parseInt(t[1],10):0}function C(e){return e.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}function fa(e){return e.replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/&quot;/g,'"').replace(/&amp;/g,"&")}function ga(e){var t=e.split("-"),e="";return m(t,function(t,n){e+=t>0?n.charAt(0).toUpperCase()+n.substr(1):n}),e}function va(e){function t(e){return e=parseInt(e,10).toString(16).toUpperCase(),e.length>1?e:"0"+e}return e.replace(/rgb\s*\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)/gi,function(e,n,i,r){return"#"+t(n)+t(i)+t(r)})}function u(e,t){var n,t=t===o?",":t,i={},r=Y(e)?e:e.split(t);return m(r,function(e,t){if(n=/^(\d+)\.\.(\d+)$/.exec(t))for(var r=parseInt(n[1],10);r<=parseInt(n[2],10);r++)i[r.toString()]=!0;else i[t]=!0}),i}function Fa(e,t){return Array.prototype.slice.call(e,t||0)}function j(e,t){return e===o?t:e}function E(e,t,n){n||(n=t,t=null);var i;if(t){var r=function(){};r.prototype=t.prototype,i=new r,m(n,function(e,t){i[e]=t})}else i=n;i.constructor=e,e.prototype=i,e.parent=t?t.prototype:null}function cb(a){var b;if((b=/\{[\s\S]*\}|\[[\s\S]*\]/.exec(a))&&(a=b[0]),b=/[\u0000\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,b.lastIndex=0,b.test(a)&&(a=a.replace(b,function(e){return"\\u"+("0000"+e.charCodeAt(0).toString(16)).slice(-4)})),/^[\],:{}\s]*$/.test(a.replace(/\\(?:["\\\/bfnrt]|u[0-9a-fA-F]{4})/g,"@").replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g,"]").replace(/(?:^|:|,)(?:\s*\[)+/g,"")))return eval("("+a+")");throw"JSON parse error"}function Pb(e,t,n){e.addEventListener?e.addEventListener(t,n,db):e.attachEvent&&e.attachEvent("on"+t,n)}function wa(e,t,n){e.removeEventListener?e.removeEventListener(t,n,db):e.detachEvent&&e.detachEvent("on"+t,n)}function eb(e,t){this.init(e,t)}function fb(e){try{delete e[Z]}catch(t){e.removeAttribute&&e.removeAttribute(Z)}}function $(e,t,n){if(t.indexOf(",")>=0)m(t.split(","),function(){$(e,this,n)});else{var i=e[Z]||null;i||(e[Z]=++gb,i=gb),v[i]===o&&(v[i]={});var r=v[i][t];r&&r.length>0?wa(e,t,r[0]):(v[i][t]=[],v[i].el=e),r=v[i][t],0===r.length&&(r[0]=function(t){var n=t?new eb(e,t):o;m(r,function(t,i){t>0&&i&&i.call(e,n)})}),N(n,r)<0&&r.push(n),Pb(e,t,r[0])}}function ha(e,t,n){if(t&&t.indexOf(",")>=0)m(t.split(","),function(){ha(e,this,n)});else{var i=e[Z]||null;if(i)if(t===o)i in v&&(m(v[i],function(t,n){"el"!=t&&n.length>0&&wa(e,t,n[0])}),delete v[i],fb(e));else if(v[i]){var r=v[i][t];if(r&&r.length>0){n===o?(wa(e,t,r[0]),delete v[i][t]):(m(r,function(e,t){e>0&&t===n&&r.splice(e,1)}),1==r.length&&(wa(e,t,r[0]),delete v[i][t]));var a=0;m(v[i],function(){a++}),a<2&&(delete v[i],fb(e))}}}}function hb(e,t){if(t.indexOf(",")>=0)m(t.split(","),function(){hb(e,this)});else{var n=e[Z]||null;if(n){var i=v[n][t];v[n]&&i&&i.length>0&&i[0]()}}}function Ga(e,t,n){t=/^\d{2,}$/.test(t)?t:t.toUpperCase().charCodeAt(0),$(e,"keydown",function(i){i.ctrlKey&&i.which==t&&!i.shiftKey&&!i.altKey&&(n.call(e),i.stop())})}function aa(e){for(var t,n={},i=/\s*([\w\-]+)\s*:([^;]*)(;|$)/g;t=i.exec(e);){var r=B(t[1].toLowerCase());t=B(va(t[2])),n[r]=t}return n}function H(e){for(var t,n={},i=/\s+(?:([\w\-:]+)|(?:([\w\-:]+)=([^\s"'<>]+))|(?:([\w\-:"]+)="([^"]*)")|(?:([\w\-:"]+)='([^']*)'))(?=(?:\s|\/|>)+)/g;t=i.exec(e);){n[(t[1]||t[2]||t[4]||t[6]).toLowerCase()]=(t[2]?t[3]:t[4]?t[5]:t[7])||""}return n}function Qb(e,t){return e=/\s+class\s*=/.test(e)?e.replace(/(\s+class=["']?)([^"']*)(["']?[\s>])/,function(e,n,i,r){return(" "+i+" ").indexOf(" "+t+" ")<0?""===i?n+t+r:n+i+" "+t+r:e}):e.substr(0,e.length-1)+' class="'+t+'">'}function Rb(e){var t="";return m(aa(e),function(e,n){t+=e+":"+n+";"}),t}function ia(e,t,n,i){function r(e){for(var e=e.split("/"),t=[],n=0,i=e.length;n<i;n++){var r=e[n];".."==r?t.length>0&&t.pop():""!==r&&"."!=r&&t.push(r)}return"/"+t.join("/")}function a(t,n){if(e.substr(0,t.length)===t){for(var r=[],o=0;o<n;o++)r.push("..");return o=".",r.length>0&&(o+="/"+r.join("/")),"/"==i&&(o+="/"),o+e.substr(t.length)}if(l=/^(.*)\//.exec(t))return a(l[1],++n)}if(t=j(t,"").toLowerCase(),"data:"!=e.substr(0,5)&&(e=e.replace(/([^:])\/\//g,"$1/")),N(t,["absolute","relative","domain"])<0)return e;if(n=n||location.protocol+"//"+location.host,i===o)var s=location.pathname.match(/^(\/.*)\//),i=s?s[1]:"";var l;if(l=/^(\w+:\/\/[^\/]*)/.exec(e)){if(l[1]!==n)return e}else if(/^\w+:/.test(e))return e;return/^\//.test(e)?e=n+r(e.substr(1)):/^\w+:\/\//.test(e)||(e=n+r(i+"/"+e)),"relative"===t?e=a(n+i,0).substr(2):"absolute"===t&&e.substr(0,n.length)===n&&(e=e.substr(n.length)),e}function S(e,t,n,i,r){var n=n||"",i=j(i,!1),r=j(r,"\t"),o="xx-small,x-small,small,medium,large,x-large,xx-large".split(","),e=e.replace(/(<(?:pre|pre\s[^>]*)>)([\s\S]*?)(<\/pre>)/gi,function(e,t,n,i){return t+n.replace(/<(?:br|br\s[^>]*)>/gi,"\n")+i}),e=e.replace(/<(?:br|br\s[^>]*)\s*\/?>\s*<\/p>/gi,"</p>"),e=e.replace(/(<(?:p|p\s[^>]*)>)\s*(<\/p>)/gi,"$1<br />$2"),e=e.replace(/\u200B/g,""),e=e.replace(/\u00A9/g,"&copy;"),a={};t&&(m(t,function(e,t){for(var n=e.split(","),i=0,r=n.length;i<r;i++)a[n[i]]=u(t)}),a.script||(e=e.replace(/(<(?:script|script\s[^>]*)>)([\s\S]*?)(<\/script>)/gi,"")),a.style||(e=e.replace(/(<(?:style|style\s[^>]*)>)([\s\S]*?)(<\/style>)/gi,"")));var s=[],e=e.replace(/([ \t\n\r]*)<(\/)?([\w\-:]+)((?:\s+|(?:\s+[\w\-:]+)|(?:\s+[\w\-:]+=[^\s"'<>]+)|(?:\s+[\w\-:"]+="[^"]*")|(?:\s+[\w\-:"]+='[^']*'))*)(\/)?>([ \t\n\r]*)/g,function(e,l,c,d,u,f,h){var l=l||"",c=c||"",p=d.toLowerCase(),g=u||"",d=f?" "+f:"",h=h||"";if(t&&!a[p])return"";if(""===d&&ib[p]&&(d=" /"),jb[p]&&(l&&(l=" "),h&&(h=" ")),Ha[p]&&(c?h="\n":l="\n"),i&&"br"==p&&(h="\n"),kb[p]&&!Ha[p])if(i){for(c&&s.length>0&&s[s.length-1]===p?s.pop():s.push(p),h=l="\n",u=0,f=c?s.length:s.length-1;u<f;u++)l+=r,c||(h+=r);d?s.pop():c||(h+=r)}else l=h="";if(""!==g){var b=H(e);if("font"===p){var v={},y="";m(b,function(e,t){"color"===e&&(v.color=t,delete b[e]),"size"===e&&(v["font-size"]=o[parseInt(t,10)-1]||"",delete b[e]),"face"===e&&(v["font-family"]=t,delete b[e]),"style"===e&&(y=t)}),y&&!/;$/.test(y)&&(y+=";"),m(v,function(e,t){""!==t&&(/\s/.test(t)&&(t="'"+t+"'"),y+=e+":"+t+";")}),b.style=y}m(b,function(e,i){if(Sb[e]&&(b[e]=e),N(e,["src","href"])>=0&&(b[e]=ia(i,n)),(t&&"style"!==e&&!a[p]["*"]&&!a[p][e]||"body"===p&&"contenteditable"===e||/^kindeditor_\d+$/.test(e))&&delete b[e],"style"===e&&""!==i){var r=aa(i);m(r,function(e){t&&!a[p].style&&!a[p]["."+e]&&delete r[e]});var o="";m(r,function(e,t){o+=e+":"+t+";"}),b.style=o}}),g="",m(b,function(e,t){"style"===e&&""===t||(t=t.replace(/"/g,"&quot;"),g+=" "+e+'="'+t+'"')})}return"font"===p&&(p="span"),l+"<"+c+p+g+d+">"+h}),e=e.replace(/(<(?:pre|pre\s[^>]*)>)([\s\S]*?)(<\/pre>)/gi,function(e,t,n,i){return t+n.replace(/\n/g,'<span id="__kindeditor_pre_newline__">\n')+i}),e=e.replace(/\n\s*\n/g,"\n"),e=e.replace(/<span id="__kindeditor_pre_newline__">\n/g,"\n");return B(e)}function lb(e,t){return e=e.replace(/<meta[\s\S]*?>/gi,"").replace(/<![\s\S]*?>/gi,"").replace(/<style[^>]*>[\s\S]*?<\/style>/gi,"").replace(/<script[^>]*>[\s\S]*?<\/script>/gi,"").replace(/<w:[^>]+>[\s\S]*?<\/w:[^>]+>/gi,"").replace(/<o:[^>]+>[\s\S]*?<\/o:[^>]+>/gi,"").replace(/<xml>[\s\S]*?<\/xml>/gi,"").replace(/<(?:table|td)[^>]*>/gi,function(e){return e.replace(/border-bottom:([#\w\s]+)/gi,"border:$1")}),S(e,t)}function mb(e){return/\.(rm|rmvb)(\?|$)/i.test(e)?"audio/x-pn-realaudio-plugin":/\.(swf|flv)(\?|$)/i.test(e)?"application/x-shockwave-flash":"video/x-ms-asf-plugin"}function nb(e){return H(unescape(e))}function Ia(e){var t="<embed ";return m(e,function(e,n){t+=e+'="'+n+'" '}),t+="/>"}function ob(e,t){var n=t.width,i=t.height,r=t.type||mb(t.src),o=Ia(t),a="";return n>0&&(a+="width:"+n+"px;"),i>0&&(a+="height:"+i+"px;"),n=/realaudio/i.test(r)?"ke-rm":/flash/i.test(r)?"ke-flash":"ke-media",n='<img class="'+n+'" src="'+e+'" ',""!==a&&(n+='style="'+a+'" '),n+='data-ke-tag="'+escape(o)+'" alt="" />'}function xa(e,t){if(9==e.nodeType&&9!=t.nodeType)return!0;for(;t=t.parentNode;)if(t==e)return!0;return!1}function ya(e,t){var t=t.toLowerCase(),n=null;if(Tb||"script"==e.nodeName.toLowerCase())try{n=e.getAttribute(t,2)}catch(i){n=e.getAttribute(t,1)}else{var i=e.ownerDocument.createElement("div");i.appendChild(e.cloneNode(!1)),i=H(fa(i.innerHTML)),t in i&&(n=i[t])}return"style"===t&&null!==n&&(n=Rb(n)),n}function za(e,t){function n(e){return"string"!=typeof e?e:e.replace(/([^\w\-])/g,"\\$1")}function i(e,t){return"*"===e||e.toLowerCase()===n(t.toLowerCase())}function r(e,t,n){var r=[];return(e=(n.ownerDocument||n).getElementById(e.replace(/\\/g,"")))&&i(t,e.nodeName)&&xa(n,e)&&r.push(e),r}function o(e,t,n){var r,o,a,s=n.ownerDocument||n,l=[];if(n.getElementsByClassName)for(s=n.getElementsByClassName(e.replace(/\\/g,"")),r=0,o=s.length;r<o;r++)a=s[r],i(t,a.nodeName)&&l.push(a);else if(s.querySelectorAll)for(s=s.querySelectorAll(("#document"!==n.nodeName?n.nodeName+" ":"")+t+"."+e),r=0,o=s.length;r<o;r++)a=s[r],xa(n,a)&&l.push(a);else for(s=n.getElementsByTagName(t),e=" "+e+" ",r=0,o=s.length;r<o;r++)a=s[r],1==a.nodeType&&(t=a.className)&&(" "+t+" ").indexOf(e)>-1&&l.push(a);return l}function a(e,t,i,r){for(var o=[],i=r.getElementsByTagName(i),a=0,s=i.length;a<s;a++)r=i[a],1==r.nodeType&&(null===t?null!==ya(r,e)&&o.push(r):t===n(ya(r,e))&&o.push(r));return o}function s(e,t){var n,s=[],l=(n=/^((?:\\.|[^.#\s\[<>])+)/.exec(e))?n[1]:"*";if(n=/#((?:[\w\-]|\\.)+)$/.exec(e))s=r(n[1],l,t);else if(n=/\.((?:[\w\-]|\\.)+)$/.exec(e))s=o(n[1],l,t);else if(n=/\[((?:[\w\-]|\\.)+)\]/.exec(e))s=a(n[1].toLowerCase(),null,l,t);else if(n=/\[((?:[\w\-]|\\.)+)\s*=\s*['"]?((?:\\.|[^'"]+)+)['"]?\]/.exec(e)){if(s=n[1].toLowerCase(),n=n[2],"id"===s)l=r(n,l,t);else if("class"===s)l=o(n,l,t);else if("name"===s){s=[],n=(t.ownerDocument||t).getElementsByName(n.replace(/\\/g,""));for(var c,d=0,u=n.length;d<u;d++)c=n[d],i(l,c.nodeName)&&xa(t,c)&&c.getAttributeNode("name")&&s.push(c);l=s}else l=a(s,n,l,t);s=l}else for(l=t.getElementsByTagName(l),c=0,d=l.length;c<d;c++)n=l[c],1==n.nodeType&&s.push(n);return s}var l=e.split(",");if(l.length>1){var c=[];return m(l,function(){m(za(this,t),function(){N(this,c)<0&&c.push(this)})}),c}for(var d,t=t||document,l=[],u=/((?:\\.|[^\s>])+|[\s>])/g;d=u.exec(e);)" "!==d[1]&&l.push(d[1]);if(d=[],1==l.length)return s(l[0],t);var f,h,p,g,b,v,y,k,C,w,u=!1;for(v=0,lenth=l.length;v<lenth;v++)if(">"===(f=l[v]))u=!0;else{if(v>0){for(h=[],y=0,C=d.length;y<C;y++)for(g=d[y],p=s(f,g),k=0,w=p.length;k<w;k++)b=p[k],u?g===b.parentNode&&h.push(b):h.push(b);d=h}else d=s(f,t);if(0===d.length)return[]}return d}function T(e){return e?e.ownerDocument||e.document||e:document}function U(e){return e?(e=T(e),e.parentWindow||e.defaultView):A}function Ub(e,t){if(1==e.nodeType){var n=T(e);try{e.innerHTML='<img id="__kindeditor_temp_tag__" width="0" height="0" style="display:none;" />'+t;var i=n.getElementById("__kindeditor_temp_tag__");i.parentNode.removeChild(i)}catch(i){f(e).empty(),f("@"+t,n).each(function(){e.appendChild(this)})}}}function Ja(e,t,n){l&&z<8&&"class"==t.toLowerCase()&&(t="className"),e.setAttribute(t,""+n)}function Ka(e){return e&&e.nodeName?e.nodeName.toLowerCase():""}function Vb(e,t){var n=U(e),i=ga(t),r="";return n.getComputedStyle?(n=n.getComputedStyle(e,null),r=n[i]||n.getPropertyValue(t)||e.style[i]):e.currentStyle&&(r=e.currentStyle[i]||e.style[i]),r}function G(e){return e=e||document,O?e.body:e.documentElement}function ba(e){var t,e=e||document;return l||La?(t=G(e).scrollLeft,e=G(e).scrollTop):(t=U(e).scrollX,e=U(e).scrollY),{x:t,y:e}}function D(e){this.init(e)}function pb(e){return e.collapsed=e.startContainer===e.endContainer&&e.startOffset===e.endOffset,e}function Ma(e,t,n){function i(i,r,o){var s,l=i.nodeValue.length;if(t&&(s=i.cloneNode(!0),s=r>0?s.splitText(r):s,o<l&&s.splitText(o-r)),n){var c=i;r>0&&(c=i.splitText(r),e.setStart(i,r)),o<l&&(i=c.splitText(o-r),e.setEnd(i,0)),a.push(c)}return s}function r(f,h){for(var p,m=f.firstChild;m;){if(p=new L(o).selectNode(m),l=p.compareBoundaryPoints(ja,e),l>=0&&c<=0&&(c=p.compareBoundaryPoints(ka,e)),c>=0&&d<=0&&(d=p.compareBoundaryPoints(ca,e)),d>=0&&u<=0&&(u=p.compareBoundaryPoints(la,e)),u>=0)return!1;if(p=m.nextSibling,l>0)if(1==m.nodeType)if(c>=0&&d<=0)t&&h.appendChild(m.cloneNode(!0)),n&&a.push(m);else{var g;if(t&&(g=m.cloneNode(!1),h.appendChild(g)),!1===r(m,g))return!1}else if(3==m.nodeType&&(m=m==s.startContainer?i(m,s.startOffset,m.nodeValue.length):m==s.endContainer?i(m,0,s.endOffset):i(m,0,m.nodeValue.length),t))try{h.appendChild(m)}catch(e){}m=p}}var o=e.doc,a=[],s=e.cloneRange().down(),l=-1,c=-1,d=-1,u=-1,f=e.commonAncestor(),h=o.createDocumentFragment();if(3==f.nodeType)return f=i(f,e.startOffset,e.endOffset),t&&h.appendChild(f),function(){n&&e.up().collapse(!0);for(var t=0,i=a.length;t<i;t++){var r=a[t];r.parentNode&&r.parentNode.removeChild(r)}}(),t?h:e;r(f,h),n&&e.up().collapse(!0);for(var f=0,p=a.length;f<p;f++){var m=a[f];m.parentNode&&m.parentNode.removeChild(m)}return t?h:e}function ma(e,t){for(var n=t;n;){var i=f(n);if("marquee"==i.name||"select"==i.name)return;n=n.parentNode}try{e.moveToElementText(t)}catch(e){}}function qb(e,t){var n=e.parentElement().ownerDocument,i=e.duplicate();i.collapse(t);var r=i.parentElement(),o=r.childNodes;if(0===o.length)return{node:r.parentNode,offset:f(r).index()};var a=n,s=0,l=-1,c=e.duplicate();ma(c,r);for(var d=0,u=o.length;d<u;d++){var h=o[d],l=c.compareEndPoints("StartToStart",i);if(0===l)return{node:h.parentNode,offset:d};if(1==h.nodeType){var p,m=e.duplicate(),g=f(h),b=h;g.isControl()&&(p=n.createElement("span"),g.after(p),b=p,s+=g.text().replace(/\r\n|\n|\r/g,"").length),ma(m,b),c.setEndPoint("StartToEnd",m),l>0?s+=m.text.replace(/\r\n|\n|\r/g,"").length:s=0,p&&f(p).remove()}else 3==h.nodeType&&(c.moveStart("character",h.nodeValue.length),s+=h.nodeValue.length);l<0&&(a=h)}if(l<0&&1==a.nodeType)return{node:r,offset:f(r.lastChild).index()+1};if(l>0)for(;a.nextSibling&&1==a.nodeType;)a=a.nextSibling;if(c=e.duplicate(),ma(c,r),c.setEndPoint("StartToEnd",i),s-=c.text.replace(/\r\n|\n|\r/g,"").length,l>0&&3==a.nodeType)for(n=a.previousSibling;n&&3==n.nodeType;)s-=n.nodeValue.length,n=n.previousSibling;return{node:a,offset:s}}function rb(e,t){var n=e.ownerDocument||e,i=n.body.createTextRange();if(n==e)return i.collapse(!0),i;if(1==e.nodeType&&e.childNodes.length>0){var r,o=e.childNodes;if(0===t?(r=o[0],o=!0):(r=o[t-1],o=!1),!r)return i;if("head"===f(r).name)return 1===t&&(o=!0),2===t&&(o=!1),i.collapse(o),i;if(1==r.nodeType){var a,s=f(r);return s.isControl()&&(a=n.createElement("span"),o?s.before(a):s.after(a),r=a),ma(i,r),i.collapse(o),a&&f(a).remove(),i}e=r,t=o?0:r.nodeValue.length}return n=n.createElement("span"),f(e).before(n),ma(i,n),i.moveStart("character",t),f(n).remove(),i}function sb(e){function t(e){"tr"==f(e.node).name&&(e.node=e.node.cells[e.offset],e.offset=0)}var n;if(l){if(e.item)return n=T(e.item(0)),n=new L(n),n.selectNode(e.item(0)),n;n=e.parentElement().ownerDocument;var i=qb(e,!0),e=qb(e,!1);return t(i),t(e),n=new L(n),n.setStart(i.node,i.offset),n.setEnd(e.node,e.offset),n}return i=e.startContainer,n=i.ownerDocument||i,n=new L(n),n.setStart(i,e.startOffset),n.setEnd(e.endContainer,e.endOffset),n}function L(e){this.init(e)}function Na(e){return e.nodeName?new L(e):e.constructor===L?e:sb(e)}function P(e,t,n){try{e.execCommand(t,!1,n)}catch(e){}}function tb(e,t){var n="";try{n=e.queryCommandValue(t)}catch(e){}return"string"!=typeof n&&(n=""),n}function Oa(e){var t=U(e);return e.selection||t.getSelection()}function ub(e){var t,n,i={};return m(e,function(e,r){t=e.split(",");for(var o=0,a=t.length;o<a;o++)n=t[o],i[n]=r}),i}function Pa(e,t){return vb(e,t,"*")||vb(e,t)}function vb(e,t,n){if(n=n||e.name,1!==e.type)return!1;if(t=ub(t),!t[n])return!1;for(var n=t[n].split(","),t=0,i=n.length;t<i;t++){var r=n[t];if("*"===r)return!0;var o=/^(\.?)([^=]+)(?:=([^=]*))?$/.exec(r),a=o[1]?"css":"attr",r=o[2],o=o[3]||"";if(""===o&&""!==e[a](r))return!0;if(""!==o&&e[a](r)===o)return!0}return!1}function Qa(e,t){1==e.type&&(wb(e,t,"*"),wb(e,t))}function wb(e,t,n){if(n=n||e.name,1===e.type&&(t=ub(t),t[n])){for(var n=t[n].split(","),t=!1,i=0,r=n.length;i<r;i++){var o=n[i];if("*"===o){t=!0;break}var a=/^(\.?)([^=]+)(?:=([^=]*))?$/.exec(o),o=a[2];a[1]?(o=ga(o),e[0].style[o]&&(e[0].style[o]="")):e.removeAttr(o)}t&&e.remove(!0)}}function Ra(e){for(;e.first();)e=e.first();return e}function da(e){return 1==e.type&&!e.isSingle()&&""===e.html().replace(/<[^>]+>/g,"")}function Wb(e,t,n){m(t,function(t,n){"style"!==t&&e.attr(t,n)}),m(n,function(t,n){e.css(t,n)})}function na(e){this.init(e)}function xb(e){return e.nodeName&&(e=T(e),e=Na(e).selectNodeContents(e.body).collapse(!1)),new na(e)}function Sa(e){var n=e.moveEl,i=e.moveFn,r=e.clickEl||n,a=e.beforeDrag,s=[document];(e.iframeFix===o||e.iframeFix)&&f("iframe").each(function(){if(!/^https?:\/\//.test(ia(this.src||"","absolute"))){var e;try{e=Ta(this)}catch(e){}if(e){var t=f(this).pos();f(e).data("pos-x",t.x),f(e).data("pos-y",t.y),s.push(e)}}}),r.mousedown(function(e){function o(e){e.preventDefault();var t=f(T(e.target)),n=Q((t.data("pos-x")||0)+e.pageX-g),e=Q((t.data("pos-y")||0)+e.pageY-b);i.call(r,u,h,p,m,n,e)}function l(e){e.preventDefault()}function c(e){e.preventDefault(),f(s).unbind("mousemove",o).unbind("mouseup",c).unbind("selectstart",l),d.releaseCapture&&d.releaseCapture()}e.stopPropagation();var d=r.get(),u=t(n.css("left")),h=t(n.css("top")),p=n.width(),m=n.height(),g=e.pageX,b=e.pageY;a&&a(),f(s).mousemove(o).mouseup(c).bind("selectstart",l),d.setCapture&&d.setCapture()})}function R(e){this.init(e)}function Ua(e){return new R(e)}function Ta(e){return e=f(e)[0],e.contentDocument||e.contentWindow.document}function Xb(e,t,n,i){var r=[""===Va?"<html>":'<html dir="'+Va+'">','<head><meta charset="utf-8" /><title></title>',"<style>","html {margin:0;padding:0;}","body {margin:0;padding:5px;}",'body, td {font:12px/1.5 "sans serif",tahoma,verdana,helvetica;}',"body, p, div {word-wrap: break-word;}","p {margin:5px 0;}","table {border-collapse:collapse;}","img {border:0;}","noscript {display:none;}","table.ke-zeroborder td {border:1px dotted #AAA;}","img.ke-flash {","\tborder:1px solid #AAA;","\tbackground-image:url("+e+"common/flash.gif);","\tbackground-position:center center;","\tbackground-repeat:no-repeat;","\twidth:100px;","\theight:100px;","}","img.ke-rm {","\tborder:1px solid #AAA;","\tbackground-image:url("+e+"common/rm.gif);","\tbackground-position:center center;","\tbackground-repeat:no-repeat;","\twidth:100px;","\theight:100px;","}","img.ke-media {","\tborder:1px solid #AAA;","\tbackground-image:url("+e+"common/media.gif);","\tbackground-position:center center;","\tbackground-repeat:no-repeat;","\twidth:100px;","\theight:100px;","}","img.ke-anchor {","\tborder:1px dashed #666;","\twidth:16px;","\theight:16px;","}",".ke-script, .ke-noscript, .ke-display-none {","\tdisplay:none;","\tfont-size:0;","\twidth:0;","\theight:0;","}",".ke-pagebreak {","\tborder:1px dotted #AAA;","\tfont-size:0;","\theight:2px;","}","</style>"];return Y(n)||(n=[n]),m(n,function(e,t){t&&r.push('<link href="'+t+'" rel="stylesheet" />')}),i&&r.push("<style>"+i+"</style>"),r.push("</head><body "+(t?'class="'+t+'"':"")+"></body></html>"),r.join("\n")}function oa(e,t){if(e.hasVal()){if(t===o){var n=e.val();return n=n.replace(/(<(?:p|p\s[^>]*)>) *(<\/p>)/gi,"")}return e.val(t)}return e.html(t)}function pa(e){this.init(e)}function yb(e){return new pa(e)}function zb(e,t){var n=this.get(e);n&&!n.hasClass("ke-disabled")&&t(n)}function Aa(e){this.init(e)}function Ab(e){return new Aa(e)}function qa(e){this.init(e)}function Wa(e){return new qa(e)}function ra(e){this.init(e)}function Bb(e){return new ra(e)}function Xa(e){this.init(e)}function sa(e){this.init(e)}function Cb(e){return new sa(e)}function Ya(e,t){var n=document.getElementsByTagName("head")[0]||(O?document.body:document.documentElement),i=document.createElement("script");n.appendChild(i),i.src=e,i.charset="utf-8",i.onload=i.onreadystatechange=function(){this.readyState&&"loaded"!==this.readyState||(t&&t(),i.onload=i.onreadystatechange=null,n.removeChild(i))}}function Db(e){var t=e.indexOf("?");return t>0?e.substr(0,t):e}function Za(e){for(var t=document.getElementsByTagName("head")[0]||(O?document.body:document.documentElement),n=document.createElement("link"),i=Db(ia(e,"absolute")),r=f('link[rel="stylesheet"]',t),o=0,a=r.length;o<a;o++)if(Db(ia(r[o].href,"absolute"))===i)return;t.appendChild(n),n.href=e,n.rel="stylesheet"}function Eb(e,t){return e===o?V:t?void(V[e]=t):V[e]}function Fb(e){var t,n="core";return(t=/^(\w+)\.(\w+)$/.exec(e))&&(n=t[1],e=t[2]),{ns:n,key:e}}function Gb(e,t){if(t=t===o?f.options.langType:t,"string"==typeof e){if(!M[t])return"no language";var n=e.length-1;return"."===e.substr(n)?M[t][e.substr(0,n)]:(n=Fb(e),M[t][n.ns][n.key])}m(e,function(e,n){var i=Fb(e);M[t]||(M[t]={}),M[t][i.ns]||(M[t][i.ns]={}),M[t][i.ns][i.key]=n})}function Ba(e,t){if(!e.collapsed){var e=e.cloneRange().up(),n=e.startContainer,i=e.startOffset;if((W||e.isControl())&&(n=f(n.childNodes[i]))&&"img"==n.name&&t(n))return n}}function Yb(){var e=this;f(e.edit.doc).contextmenu(function(n){if(e.menu&&e.hideMenu(),e.useContextmenu){if(0!==e._contextmenus.length){var i=0,r=[];for(m(e._contextmenus,function(){"-"==this.title?r.push(this):this.cond&&this.cond()&&(r.push(this),this.width&&this.width>i)&&(i=this.width)});r.length>0&&"-"==r[0].title;)r.shift();for(;r.length>0&&"-"==r[r.length-1].title;)r.pop();var o=null;if(m(r,function(e){"-"==this.title&&"-"==o.title&&delete r[e],o=this}),r.length>0){n.preventDefault();var a=f(e.edit.iframe).pos(),s=Wa({x:a.x+n.clientX,y:a.y+n.clientY,width:i,css:{visibility:"hidden"},shadowMode:e.shadowMode});m(r,function(){this.title&&s.addItem(this)});var a=G(s.doc),l=s.div.height();n.clientY+l>=a.clientHeight-100&&s.pos(s.x,t(s.y)-l),s.div.css("visibility","visible"),e.menu=s}}}else n.preventDefault()})}function Zb(){function e(e){for(e=f(e.commonAncestor());e&&(1!=e.type||e.isStyle());)e=e.parent();return e.name}var t=this,n=t.edit.doc,i=t.newlineTag;if(!(l&&"br"!==i||ea&&z<3&&"p"!==i||La&&z<9)){var r=u("h1,h2,h3,h4,h5,h6,pre,li"),o=u("p,h1,h2,h3,h4,h5,h6,pre,li,blockquote");f(n).keydown(function(a){if(!(13!=a.which||a.shiftKey||a.ctrlKey||a.altKey)){t.cmd.selection();var s=e(t.cmd.range);"marquee"==s||"select"==s||("br"!==i||r[s]?o[s]||P(n,"formatblock","<p>"):(a.preventDefault(),t.insertHtml("<br />"+(l&&z<9?"":"​"))))}}),f(n).keyup(function(r){if(!(13!=r.which||r.shiftKey||r.ctrlKey||r.altKey)&&"br"!=i)if(ea){var r=t.cmd.commonAncestor("p"),a=t.cmd.commonAncestor("a");a&&""==a.text()&&(a.remove(!0),t.cmd.range.selectNodeContents(r[0]).collapse(!0),t.cmd.select())}else if(t.cmd.selection(),!("marquee"==(r=e(t.cmd.range))||"select"==r)&&(o[r]||P(n,"formatblock","<p>"),r=t.cmd.commonAncestor("div"))){for(var a=f("<p></p>"),s=r[0].firstChild;s;){var l=s.nextSibling;a.append(s),s=l}r.before(a),r.remove(),t.cmd.range.selectNodeContents(a[0]),t.cmd.select()}})}}function $b(){var e=this,t=e.edit.doc;f(t).keydown(function(n){if(9==n.which)if(n.preventDefault(),e.afterTab)e.afterTab.call(e,n);else{var n=e.cmd,i=n.range;i.shrink(),i.collapsed&&1==i.startContainer.nodeType&&(i.insertNode(f("@&nbsp;",t)[0]),n.select()),e.insertHtml("&nbsp;&nbsp;&nbsp;&nbsp;")}})}function ac(){var e=this;f(e.edit.textarea[0],e.edit.win).focus(function(t){e.afterFocus&&e.afterFocus.call(e,t)}).blur(function(t){e.afterBlur&&e.afterBlur.call(e,t)})}function X(e){return B(e.replace(/<span [^>]*id="?__kindeditor_bookmark_\w+_\d+__"?[^>]*><\/span>/gi,""))}function $a(e){return e.replace(/<div[^>]+class="?__kindeditor_paste__"?[^>]*>[\s\S]*?<\/div>/gi,"")}function Hb(e,t){if(0===e.length)e.push(t);else{var n=e[e.length-1];X(t.html)!==X(n.html)&&e.push(t)}}function Ib(e,t){var n,i,r=this.edit,o=r.doc.body;if(0===e.length)return this;r.designMode?(n=this.cmd.range,i=n.createBookmark(!0),i.html=o.innerHTML):i={html:o.innerHTML},Hb(t,i);var a=e.pop();return X(i.html)===X(a.html)&&e.length>0&&(a=e.pop()),r.designMode?(r.html(a.html),a.start&&(n.moveToBookmark(a),this.select())):f(o).html(X(a.html)),this}function ta(e){function t(e,t){ta.prototype[e]===o&&(n[e]=t),n.options[e]=t}var n=this;n.options={},m(e,function(n){t(n,e[n])}),m(f.options,function(e,i){n[e]===o&&t(e,i)});var i=f(n.srcElement||"<textarea/>");n.width||(n.width=i[0].style.width||i.width()),n.height||(n.height=i[0].style.height||i.height()),t("width",j(n.width,n.minWidth)),t("height",j(n.height,n.minHeight)),t("width",s(n.width)),t("height",s(n.height)),bc&&(!cc||z<534)&&(n.designMode=!1),n.srcElement=i,n.initContent="",n.plugin={},n.isCreated=!1,n.isLoading=!1,n._handlers={},n._contextmenus=[],n._undoStack=[],n._redoStack=[],n._calledPlugins={},n._firstAddBookmark=!0,n.menu=n.contextmenu=null,n.dialogs=[]}function Jb(e,t){function n(e){return m(V,function(t,n){n.call(e,KindEditor)}),e.create()}if(t=t||{},t.basePath=j(t.basePath,f.basePath),t.themesPath=j(t.themesPath,t.basePath+"themes/"),t.langPath=j(t.langPath,t.basePath+"lang/"),t.pluginsPath=j(t.pluginsPath,t.basePath+"plugins/"),j(t.loadStyleMode,f.options.loadStyleMode)){var i=j(t.themeType,f.options.themeType);Za(t.themesPath+"default/default.css"),Za(t.themesPath+i+"/"+i+".css")}if((i=f(e))&&0!==i.length){if(i.length>1)return i.each(function(){Jb(this,t)}),_instances[0];t.srcElement=i[0];var r=new ta(t);return _instances.push(r),M[r.langType]?n(r):(Ya(r.langPath+r.langType+".js?ver="+encodeURIComponent(f.DEBUG?Ca:Da),function(){n(r)}),r)}}function Kb(e,t){f(e).each(function(e,n){f.each(_instances,function(e,i){if(i&&i.srcElement[0]==n)return t.call(i,e,i),!1})})}if(!A.KindEditor){A.console||(A.console={}),console.log||(console.log=function(){});var Da="4.1.7 (2014-04-21)",q=navigator.userAgent.toLowerCase(),l=q.indexOf("msie")>-1&&-1==q.indexOf("opera"),ea=q.indexOf("gecko")>-1&&-1==q.indexOf("khtml"),W=q.indexOf("applewebkit")>-1,La=q.indexOf("opera")>-1,bc=q.indexOf("mobile")>-1,cc=/ipad|iphone|ipod/.test(q),O="CSS1Compat"!=document.compatMode,z=(q=/(?:msie|firefox|webkit|opera)[\/:\s](\d+)/.exec(q))?q[1]:"0",Ca=(new Date).getTime(),Q=Math.round,f={DEBUG:!1,VERSION:Da,IE:l,GECKO:ea,WEBKIT:W,OPERA:La,V:z,TIME:Ca,each:m,isArray:Y,isFunction:bb,inArray:N,inString:ua,trim:B,addUnit:s,removeUnit:t,escape:C,unescape:fa,toCamel:ga,toHex:va,toMap:u,toArray:Fa,undef:j,invalidUrl:function(e){return!e||/[<>"]/.test(e)},addParam:function(e,t){return e.indexOf("?")>=0?e+"&"+t:e+"?"+t},extend:E,json:cb},jb=u("a,abbr,acronym,b,basefont,bdo,big,br,button,cite,code,del,dfn,em,font,i,img,input,ins,kbd,label,map,q,s,samp,select,small,span,strike,strong,sub,sup,textarea,tt,u,var"),kb=u("address,applet,blockquote,body,center,dd,dir,div,dl,dt,fieldset,form,frameset,h1,h2,h3,h4,h5,h6,head,hr,html,iframe,ins,isindex,li,map,menu,meta,noframes,noscript,object,ol,p,pre,script,style,table,tbody,td,tfoot,th,thead,title,tr,ul"),ib=u("area,base,basefont,br,col,frame,hr,img,input,isindex,link,meta,param,embed"),Lb=u("b,basefont,big,del,em,font,i,s,small,span,strike,strong,sub,sup,u"),dc=u("img,table,input,textarea,button"),Ha=u("pre,style,script"),Ea=u("html,head,body,td,tr,table,ol,ul,li");u("colgroup,dd,dt,li,options,p,td,tfoot,th,thead,tr");var Sb=u("checked,compact,declare,defer,disabled,ismap,multiple,nohref,noresize,noshade,nowrap,readonly,selected"),Mb=u("input,button,textarea,select");f.basePath=function(){for(var e,t=document.getElementsByTagName("script"),n=0,i=t.length;n<i;n++)if(e=t[n].src||"",/kindeditor[\w\-\.]*\.js/.test(e))return e.substring(0,e.lastIndexOf("/")+1);return""}(),f.options={designMode:!0,fullscreenMode:!1,filterMode:!0,wellFormatMode:!0,shadowMode:!0,loadStyleMode:!0,basePath:f.basePath,themesPath:f.basePath+"themes/",langPath:f.basePath+"lang/",pluginsPath:f.basePath+"plugins/",themeType:"default",langType:"zh_CN",urlType:"",newlineTag:"p",resizeType:2,syncType:"form",pasteType:2,dialogAlignType:"page",useContextmenu:!0,fullscreenShortcut:!1,bodyClass:"ke-content",indentChar:"\t",cssPath:"",cssData:"",minWidth:650,minHeight:100,minChangeSize:50,zIndex:811213,items:["source","|","undo","redo","|","preview","print","template","code","cut","copy","paste","plainpaste","wordpaste","|","justifyleft","justifycenter","justifyright","justifyfull","insertorderedlist","insertunorderedlist","indent","outdent","subscript","superscript","clearhtml","quickformat","selectall","|","fullscreen","/","formatblock","fontname","fontsize","|","forecolor","hilitecolor","bold","italic","underline","strikethrough","lineheight","removeformat","|","image","multiimage","flash","media","insertfile","table","hr","emoticons","baidumap","pagebreak","anchor","link","unlink","|","about"],noDisableItems:["source","fullscreen"],colorTable:[["#E53333","#E56600","#FF9900","#64451D","#DFC5A4","#FFE500"],["#009900","#006600","#99BB00","#B8D100","#60D978","#00D5FF"],["#337FE5","#003399","#4C33E5","#9933E5","#CC33E5","#EE33EE"],["#FFFFFF","#CCCCCC","#999999","#666666","#333333","#000000"]],fontSizeTable:["9px","10px","12px","14px","16px","18px","24px","32px"],htmlTags:{font:["id","class","color","size","face",".background-color"],span:["id","class",".color",".background-color",".font-size",".font-family",".background",".font-weight",".font-style",".text-decoration",".vertical-align",".line-height",".margin-left"],div:["id","class","align",".border",".margin",".padding",".text-align",".color",".background-color",".font-size",".font-family",".font-weight",".background",".font-style",".text-decoration",".vertical-align",".margin-left"],table:["id","class","border","cellspacing","cellpadding","width","height","align","bordercolor",".padding",".margin",".border","bgcolor",".text-align",".color",".background-color",".font-size",".font-family",".font-weight",".font-style",".text-decoration",".background",".width",".height",".border-collapse"],"td,th":["id","class","align","valign","width","height","colspan","rowspan","bgcolor",".text-align",".color",".background-color",".font-size",".font-family",".font-weight",".font-style",".text-decoration",".vertical-align",".background",".border"],a:["id","class","href","target","name"],embed:["id","class","src","width","height","type","loop","autostart","quality",".width",".height","align","allowscriptaccess"],img:["id","class","src","width","height","border","alt","title","align",".width",".height",".border"],"p,ol,ul,li,blockquote,h1,h2,h3,h4,h5,h6":["id","class","align",".text-align",".color",".background-color",".font-size",".font-family",".background",".font-weight",".font-style",".text-decoration",".vertical-align",".text-indent",".margin-left"],pre:["id","class"],hr:["id","class",".page-break-after"],"br,tbody,tr,strong,b,sub,sup,em,i,u,strike,s,del":["id","class"],iframe:["id","class","src","frameborder","width","height",".width",".height"]},layout:'<div class="container"><div class="toolbar"></div><div class="edit"></div><div class="statusbar"></div></div>'};var db=!1,Nb=u("8,9,13,32,46,48..57,59,61,65..90,106,109..111,188,190..192,219..222"),q=u("33..40"),ab={};m(Nb,function(e,t){ab[e]=t}),m(q,function(e,t){ab[e]=t})
-;var ec="altKey,attrChange,attrName,bubbles,button,cancelable,charCode,clientX,clientY,ctrlKey,currentTarget,data,detail,eventPhase,fromElement,handler,keyCode,metaKey,newValue,offsetX,offsetY,originalTarget,pageX,pageY,prevValue,relatedNode,relatedTarget,screenX,screenY,shiftKey,srcElement,target,toElement,view,wheelDelta,which".split(",");E(eb,{init:function(e,t){var n=this,i=e.ownerDocument||e.document||e;if(n.event=t,m(ec,function(e,i){n[i]=t[i]}),n.target||(n.target=n.srcElement||i),3===n.target.nodeType&&(n.target=n.target.parentNode),!n.relatedTarget&&n.fromElement&&(n.relatedTarget=n.fromElement===n.target?n.toElement:n.fromElement),null==n.pageX&&null!=n.clientX){var r=i.documentElement,i=i.body;n.pageX=n.clientX+(r&&r.scrollLeft||i&&i.scrollLeft||0)-(r&&r.clientLeft||i&&i.clientLeft||0),n.pageY=n.clientY+(r&&r.scrollTop||i&&i.scrollTop||0)-(r&&r.clientTop||i&&i.clientTop||0)}switch(!n.which&&(n.charCode||0===n.charCode?n.charCode:n.keyCode)&&(n.which=n.charCode||n.keyCode),!n.metaKey&&n.ctrlKey&&(n.metaKey=n.ctrlKey),n.which||n.button===o||(n.which=1&n.button?1:2&n.button?3:4&n.button?2:0),n.which){case 186:n.which=59;break;case 187:case 107:case 43:n.which=61;break;case 189:case 45:n.which=109;break;case 42:n.which=106;break;case 47:n.which=111;break;case 78:n.which=110}n.which>=96&&n.which<=105&&(n.which-=48)},preventDefault:function(){var e=this.event;e.preventDefault&&e.preventDefault(),e.returnValue=!1},stopPropagation:function(){var e=this.event;e.stopPropagation&&e.stopPropagation(),e.cancelBubble=!0},stop:function(){this.preventDefault(),this.stopPropagation()}});var Z="kindeditor_"+Ca,gb=0,v={};l&&A.attachEvent("onunload",function(){m(v,function(e,t){t.el&&ha(t.el)})}),f.ctrl=Ga,f.ready=function(e){function t(){r||(r=!0,e(KindEditor))}function n(){if(!r){try{document.documentElement.doScroll("left")}catch(e){return void setTimeout(n,100)}t()}}function i(){"complete"===document.readyState&&t()}var r=!1;if(document.addEventListener)$(document,"DOMContentLoaded",t);else if(document.attachEvent){$(document,"readystatechange",i);var o=!1;try{o=null==A.frameElement}catch(e){}document.documentElement.doScroll&&o&&n()}$(A,"load",t)},f.formatUrl=ia,f.formatHtml=S,f.getCssList=aa,f.getAttrList=H,f.mediaType=mb,f.mediaAttrs=nb,f.mediaEmbed=Ia,f.mediaImg=ob,f.clearMsWord=lb,f.tmpl=function(e,t){var n=new Function("obj","var p=[],print=function(){p.push.apply(p,arguments);};with(obj){p.push('"+e.replace(/[\r\t\n]/g," ").split("<%").join("\t").replace(/((^|%>)[^\t]*)'/g,"$1\r").replace(/\t=(.*?)%>/g,"',$1,'").split("\t").join("');").split("%>").join("p.push('").split("\r").join("\\'")+"');}return p.join('');");return t?n(t):n},q=document.createElement("div"),q.setAttribute("className","t");var Tb="t"!==q.className;f.query=function(e,t){var n=za(e,t);return n.length>0?n[0]:null},f.queryAll=za,E(D,{init:function(e){for(var e=Y(e)?e:[e],t=0,n=0,i=e.length;n<i;n++)e[n]&&(this[n]=e[n].constructor===D?e[n][0]:e[n],t++);this.length=t,this.doc=T(this[0]),this.name=Ka(this[0]),this.type=this.length>0?this[0].nodeType:null,this.win=U(this[0])},each:function(e){for(var t=0;t<this.length&&!1!==e.call(this[t],t,this[t]);t++);return this},bind:function(e,t){return this.each(function(){$(this,e,t)}),this},unbind:function(e,t){return this.each(function(){ha(this,e,t)}),this},fire:function(e){return this.length<1?this:(hb(this[0],e),this)},hasAttr:function(e){return!(this.length<1)&&!!ya(this[0],e)},attr:function(e,t){var n=this;return e===o?H(n.outer()):"object"==typeof e?(m(e,function(e,t){n.attr(e,t)}),n):t===o?(t=n.length<1?null:ya(n[0],e),null===t?"":t):(n.each(function(){Ja(this,e,t)}),n)},removeAttr:function(e){return this.each(function(){var t=e;l&&z<8&&"class"==t.toLowerCase()&&(t="className"),Ja(this,t,""),this.removeAttribute(t)}),this},get:function(e){return this.length<1?null:this[e||0]},eq:function(e){return this.length<1?null:this[e]?new D(this[e]):null},hasClass:function(e){return!(this.length<1)&&ua(e,this[0].className," ")},addClass:function(e){return this.each(function(){ua(e,this.className," ")||(this.className=B(this.className+" "+e))}),this},removeClass:function(e){return this.each(function(){ua(e,this.className," ")&&(this.className=B(this.className.replace(RegExp("(^|\\s)"+e+"(\\s|$)")," ")))}),this},html:function(e){return e===o?this.length<1||1!=this.type?"":S(this[0].innerHTML):(this.each(function(){Ub(this,e)}),this)},text:function(){return this.length<1?"":l?this[0].innerText:this[0].textContent},hasVal:function(){return!(this.length<1)&&!!Mb[Ka(this[0])]},val:function(e){return e===o?this.length<1?"":this.hasVal()?this[0].value:this.attr("value"):(this.each(function(){Mb[Ka(this)]?this.value=e:Ja(this,"value",e)}),this)},css:function(e,t){var n=this;return e===o?aa(n.attr("style")):"object"==typeof e?(m(e,function(e,t){n.css(e,t)}),n):t===o?n.length<1?"":n[0].style[ga(e)]||Vb(n[0],e)||"":(n.each(function(){this.style[ga(e)]=t}),n)},width:function(e){return e===o?this.length<1?0:this[0].offsetWidth:this.css("width",s(e))},height:function(e){return e===o?this.length<1?0:this[0].offsetHeight:this.css("height",s(e))},opacity:function(e){return this.each(function(){this.style.opacity===o?this.style.filter=1==e?"":"alpha(opacity="+100*e+")":this.style.opacity=1==e?"":e}),this},data:function(e,t){return e="kindeditor_data_"+e,t===o?this.length<1?null:this[0][e]:(this.each(function(){this[e]=t}),this)},pos:function(){var e=this[0],t=0,n=0;if(e)if(e.getBoundingClientRect)e=e.getBoundingClientRect(),n=ba(this.doc),t=e.left+n.x,n=e.top+n.y;else for(;e;)t+=e.offsetLeft,n+=e.offsetTop,e=e.offsetParent;return{x:Q(t),y:Q(n)}},clone:function(e){return new D(this.length<1?[]:this[0].cloneNode(e))},append:function(e){return this.each(function(){this.appendChild&&this.appendChild(f(e)[0])}),this},appendTo:function(e){return this.each(function(){f(e)[0].appendChild(this)}),this},before:function(e){return this.each(function(){this.parentNode.insertBefore(f(e)[0],this)}),this},after:function(e){return this.each(function(){this.nextSibling?this.parentNode.insertBefore(f(e)[0],this.nextSibling):this.parentNode.appendChild(f(e)[0])}),this},replaceWith:function(e){var t=[];return this.each(function(n,i){ha(i);var r=f(e)[0];i.parentNode.replaceChild(r,i),t.push(r)}),f(t)},empty:function(){return this.each(function(e,t){for(var n=t.firstChild;n&&t.parentNode;){var i=n.nextSibling;n.parentNode.removeChild(n),n=i}}),this},remove:function(e){var t=this;return t.each(function(n,i){if(i.parentNode){if(ha(i),e)for(var r=i.firstChild;r;){var o=r.nextSibling;i.parentNode.insertBefore(r,i),r=o}i.parentNode.removeChild(i),delete t[n]}}),t.length=0,t},show:function(e){return e===o&&(e=this._originDisplay||""),"none"!=this.css("display")?this:this.css("display",e)},hide:function(){return this.length<1?this:(this._originDisplay=this[0].style.display,this.css("display","none"))},outer:function(){if(this.length<1)return"";var e=this.doc.createElement("div");return e.appendChild(this[0].cloneNode(!0)),S(e.innerHTML)},isSingle:function(){return!!ib[this.name]},isInline:function(){return!!jb[this.name]},isBlock:function(){return!!kb[this.name]},isStyle:function(){return!!Lb[this.name]},isControl:function(){return!!dc[this.name]},contains:function(e){return!(this.length<1)&&xa(this[0],f(e)[0])},parent:function(){if(this.length<1)return null;var e=this[0].parentNode;return e?new D(e):null},children:function(){if(this.length<1)return new D([]);for(var e=[],t=this[0].firstChild;t;)(3!=t.nodeType||""!==B(t.nodeValue))&&e.push(t),t=t.nextSibling;return new D(e)},first:function(){var e=this.children();return e.length>0?e.eq(0):null},last:function(){var e=this.children();return e.length>0?e.eq(e.length-1):null},index:function(){if(this.length<1)return-1;for(var e=-1,t=this[0];t;)e++,t=t.previousSibling;return e},prev:function(){if(this.length<1)return null;var e=this[0].previousSibling;return e?new D(e):null},next:function(){if(this.length<1)return null;var e=this[0].nextSibling;return e?new D(e):null},scan:function(e,t){function n(i){for(i=t?i.firstChild:i.lastChild;i;){var r=t?i.nextSibling:i.previousSibling;if(!1===e(i))return!1;if(!1===n(i))return!1;i=r}}if(!(this.length<1))return t=t===o||t,n(this[0]),this}}),m("blur,focus,focusin,focusout,load,resize,scroll,unload,click,dblclick,mousedown,mouseup,mousemove,mouseover,mouseout,mouseenter,mouseleave,change,select,submit,keydown,keypress,keyup,error,contextmenu".split(","),function(e,t){D.prototype[t]=function(e){return e?this.bind(t,e):this.fire(t)}}),q=f,f=function(e,t){function n(e){return e[0]||(e=[]),new D(e)}if(e!==o&&null!==e){if("string"==typeof e){t&&(t=f(t)[0]);var i=e.length;if("@"===e.charAt(0)&&(e=e.substr(1)),e.length!==i||/<.+>/.test(e)){var i=(t?t.ownerDocument||t:document).createElement("div"),r=[];i.innerHTML='<img id="__kindeditor_temp_tag__" width="0" height="0" style="display:none;" />'+e;for(var a=0,s=i.childNodes.length;a<s;a++){var l=i.childNodes[a];"__kindeditor_temp_tag__"!=l.id&&r.push(l)}return n(r)}return n(za(e,t))}return e&&e.constructor===D?e:(e.toArray&&(e=e.toArray()),n(Y(e)?e:Fa(arguments)))}},m(q,function(e,t){f[e]=t}),f.NodeClass=D,A.KindEditor=f;var ka=0,ja=1,ca=2,la=3,Ob=0;E(L,{init:function(e){this.startContainer=e,this.startOffset=0,this.endContainer=e,this.endOffset=0,this.collapsed=!0,this.doc=e},commonAncestor:function(){function e(e){for(var t=[];e;)t.push(e),e=e.parentNode;return t}for(var t,n,i=e(this.startContainer),r=e(this.endContainer),o=0,a=i.length,s=r.length;++o&&(t=i[a-o],n=r[s-o],t&&n&&t===n););return i[a-o+1]},setStart:function(e,t){var n=this.doc;return this.startContainer=e,this.startOffset=t,this.endContainer===n&&(this.endContainer=e,this.endOffset=t),pb(this)},setEnd:function(e,t){var n=this.doc;return this.endContainer=e,this.endOffset=t,this.startContainer===n&&(this.startContainer=e,this.startOffset=t),pb(this)},setStartBefore:function(e){return this.setStart(e.parentNode||this.doc,f(e).index())},setStartAfter:function(e){return this.setStart(e.parentNode||this.doc,f(e).index()+1)},setEndBefore:function(e){return this.setEnd(e.parentNode||this.doc,f(e).index())},setEndAfter:function(e){return this.setEnd(e.parentNode||this.doc,f(e).index()+1)},selectNode:function(e){return this.setStartBefore(e).setEndAfter(e)},selectNodeContents:function(e){var t=f(e);return 3==t.type||t.isSingle()?this.selectNode(e):(t=t.children(),t.length>0?this.setStartBefore(t[0]).setEndAfter(t[t.length-1]):this.setStart(e,0).setEnd(e,0))},collapse:function(e){return e?this.setEnd(this.startContainer,this.startOffset):this.setStart(this.endContainer,this.endOffset)},compareBoundaryPoints:function(e,t){var n=this.get(),i=t.get();if(!l)return n.compareBoundaryPoints(e,i);var r={};if(r[ka]="StartToStart",r[ja]="EndToStart",r[ca]="EndToEnd",r[la]="StartToEnd",0!==(n=n.compareEndPoints(r[e],i)))return n;var o,a,s,c;if(e!==ka&&e!==la||(o=this.startContainer,s=this.startOffset),e!==ja&&e!==ca||(o=this.endContainer,s=this.endOffset),e!==ka&&e!==ja||(a=t.startContainer,c=t.startOffset),e!==ca&&e!==la||(a=t.endContainer,c=t.endOffset),o===a)return o=s-c,o>0?1:o<0?-1:0;for(n=a;n&&n.parentNode!==o;)n=n.parentNode;if(n)return f(n).index()>=s?-1:1;for(n=o;n&&n.parentNode!==a;)n=n.parentNode;return n?f(n).index()>=c?1:-1:(n=f(a).next())&&n.contains(o)?1:(n=f(o).next())&&n.contains(a)?-1:void 0},cloneRange:function(){return new L(this.doc).setStart(this.startContainer,this.startOffset).setEnd(this.endContainer,this.endOffset)},toString:function(){var e=this.get();return(l?e.text:e.toString()).replace(/\r\n|\n|\r/g,"")},cloneContents:function(){return Ma(this,!0,!1)},deleteContents:function(){return Ma(this,!1,!0)},extractContents:function(){return Ma(this,!0,!0)},insertNode:function(e){var t,n,i,r=this.startContainer,o=this.startOffset,a=this.endContainer,s=this.endOffset,l=1;return"#document-fragment"===e.nodeName.toLowerCase()&&(t=e.firstChild,n=e.lastChild,l=e.childNodes.length),1==r.nodeType?(i=r.childNodes[o])?(r.insertBefore(e,i),r===a&&(s+=l)):r.appendChild(e):3==r.nodeType&&(0===o?(r.parentNode.insertBefore(e,r),r.parentNode===a&&(s+=l)):o>=r.nodeValue.length?r.nextSibling?r.parentNode.insertBefore(e,r.nextSibling):r.parentNode.appendChild(e):(i=o>0?r.splitText(o):r,r.parentNode.insertBefore(e,i),r===a&&(a=i,s-=o))),t?this.setStartBefore(t).setEndAfter(n):this.selectNode(e),this.compareBoundaryPoints(ca,this.cloneRange().setEnd(a,s))>=1?this:this.setEnd(a,s)},surroundContents:function(e){return e.appendChild(this.extractContents()),this.insertNode(e).selectNode(e)},isControl:function(){var e=this.startContainer,t=this.startOffset,n=this.endContainer,i=this.endOffset;return 1==e.nodeType&&e===n&&t+1===i&&f(e.childNodes[t]).isControl()},get:function(e){var t=this.doc;if(!l){t=t.createRange();try{t.setStart(this.startContainer,this.startOffset),t.setEnd(this.endContainer,this.endOffset)}catch(e){}return t}return e&&this.isControl()?(t=t.body.createControlRange(),t.addElement(this.startContainer.childNodes[this.startOffset]),t):(e=this.cloneRange().down(),t=t.body.createTextRange(),t.setEndPoint("StartToStart",rb(e.startContainer,e.startOffset)),t.setEndPoint("EndToStart",rb(e.endContainer,e.endOffset)),t)},html:function(){return f(this.cloneContents()).outer()},down:function(){function e(e,n,i){if(1==e.nodeType&&(e=f(e).children(),0!==e.length)){var r,o,a,s;n>0&&(r=e.eq(n-1)),n<e.length&&(o=e.eq(n)),r&&3==r.type&&(a=r[0],s=a.nodeValue.length),o&&3==o.type&&(a=o[0],s=0),a&&(i?t.setStart(a,s):t.setEnd(a,s))}}var t=this;return e(t.startContainer,t.startOffset,!0),e(t.endContainer,t.endOffset,!1),t},up:function(){function e(e,n,i){3==e.nodeType&&(0===n?i?t.setStartBefore(e):t.setEndBefore(e):n==e.nodeValue.length&&(i?t.setStartAfter(e):t.setEndAfter(e)))}var t=this;return e(t.startContainer,t.startOffset,!0),e(t.endContainer,t.endOffset,!1),t},enlarge:function(e){function t(t,i,r){if(t=f(t),!(3==t.type||Ea[t.name]||!e&&t.isBlock()))if(0===i){for(;!t.prev()&&((i=t.parent())&&!Ea[i.name]&&(e||!i.isBlock()));)t=i;r?n.setStartBefore(t[0]):n.setEndBefore(t[0])}else if(i==t.children().length){for(;!t.next()&&((i=t.parent())&&!Ea[i.name]&&(e||!i.isBlock()));)t=i;r?n.setStartAfter(t[0]):n.setEndAfter(t[0])}}var n=this;return n.up(),t(n.startContainer,n.startOffset,!0),t(n.endContainer,n.endOffset,!1),n},shrink:function(){for(var e,t=this.collapsed;1==this.startContainer.nodeType&&(e=this.startContainer.childNodes[this.startOffset])&&1==e.nodeType&&!f(e).isSingle();)this.setStart(e,0);if(t)return this.collapse(t);for(;1==this.endContainer.nodeType&&this.endOffset>0&&(e=this.endContainer.childNodes[this.endOffset-1])&&1==e.nodeType&&!f(e).isSingle();)this.setEnd(e,e.childNodes.length);return this},createBookmark:function(e){var t,n=f('<span style="display:none;"></span>',this.doc)[0];return n.id="__kindeditor_bookmark_start_"+Ob+++"__",this.collapsed||(t=n.cloneNode(!0),t.id="__kindeditor_bookmark_end_"+Ob+++"__"),t&&this.cloneRange().collapse(!1).insertNode(t).setEndBefore(t),this.insertNode(n).setStartAfter(n),{start:e?"#"+n.id:n,end:t?e?"#"+t.id:t:null}},moveToBookmark:function(e){var t=this.doc,n=f(e.start,t),e=e.end?f(e.end,t):null;return!n||n.length<1?this:(this.setStartBefore(n[0]),n.remove(),e&&e.length>0?(this.setEndBefore(e[0]),e.remove()):this.collapse(!0),this)},dump:function(){console.log("--------------------"),console.log(3==this.startContainer.nodeType?this.startContainer.nodeValue:this.startContainer,this.startOffset),console.log(3==this.endContainer.nodeType?this.endContainer.nodeValue:this.endContainer,this.endOffset)}}),f.RangeClass=L,f.range=Na,f.START_TO_START=ka,f.START_TO_END=ja,f.END_TO_END=ca,f.END_TO_START=la,E(na,{init:function(e){var t=e.doc;this.doc=t,this.win=U(t),this.sel=Oa(t),this.range=e},selection:function(e){var t,n=this.doc;t=Oa(n);var i;try{i=t.rangeCount>0?t.getRangeAt(0):t.createRange()}catch(e){}return t=!l||i&&(i.item||i.parentElement().ownerDocument===n)?i:null,this.sel=Oa(n),t?(this.range=Na(t),"html"==f(this.range.startContainer).name&&this.range.selectNodeContents(n.body).collapse(!1),this):(e&&this.range.selectNodeContents(n.body).collapse(!1),this)},select:function(e){var t,e=j(e,!0),n=this.sel,i=this.range.cloneRange().shrink(),r=i.startContainer,o=i.startOffset,a=T(r),s=this.win,c=!1;if(e&&1==r.nodeType&&i.collapsed){if(l){n=f("<span>&nbsp;</span>",a),i.insertNode(n[0]),t=a.body.createTextRange();try{t.moveToElementText(n[0])}catch(e){}return t.collapse(!1),t.select(),n.remove(),s.focus(),this}W&&(e=r.childNodes,f(r).isInline()||o>0&&f(e[o-1]).isInline()||e[o]&&f(e[o]).isInline())&&(i.insertNode(a.createTextNode("​")),c=!0)}if(l)try{t=i.get(!0),t.select()}catch(e){}else c&&i.collapse(!1),t=i.get(!0),n.removeAllRanges(),n.addRange(t),a!==document&&(i=f(t.endContainer).pos(),s.scrollTo(i.x,i.y));return s.focus(),this},wrap:function(e){var t,n=this.range;if(t=f(e,this.doc),n.collapsed)return n.shrink(),n.insertNode(t[0]).selectNodeContents(t[0]),this;if(t.isBlock()){for(var i=e=t.clone(!0);i.first();)i=i.first();return i.append(n.extractContents()),n.insertNode(e[0]).selectNode(e[0]),this}n.enlarge();var r=n.createBookmark(),e=n.commonAncestor(),o=!1;return f(e).scan(function(e){if(o||e!=r.start){if(o){if(e==r.end)return!1;var n,i=f(e);e:{for(n=i;n&&"body"!=n.name;){if(Ha[n.name]||"div"==n.name&&n.hasClass("ke-script")){n=!0;break e}n=n.parent()}n=!1}if(!n&&3==i.type&&B(e.nodeValue).length>0){for(var a;(a=i.parent())&&a.isStyle()&&1==a.children().length;)i=a;if(a=t,a=a.clone(!0),3==i.type)Ra(a).append(i.clone(!1)),i.replaceWith(a);else{for(var s,e=i;(s=i.first())&&1==s.children().length;)i=s;for(s=i.first(),i=i.doc.createDocumentFragment();s;)i.appendChild(s[0]),s=s.next();s=e.clone(!0),n=Ra(s);for(var l=s,c=!1;a;){for(;l;)l.name===a.name&&(Wb(l,a.attr(),a.css()),c=!0),l=l.first();c||n.append(a.clone(!1)),c=!1,a=a.first()}a=s,i.firstChild&&Ra(a).append(i),e.replaceWith(a)}}}}else o=!0}),n.moveToBookmark(r),this},split:function(e,t){for(var n,i=this.range,r=i.doc,o=i.cloneRange().collapse(e),a=o.startContainer,s=o.startOffset,l=3==a.nodeType?a.parentNode:a,c=!1;l&&l.parentNode;){if(n=f(l),t){if(!n.isStyle())break;if(!Pa(n,t))break}else if(Ea[n.name])break;c=!0,l=l.parentNode}return c&&(r=r.createElement("span"),i.cloneRange().collapse(!e).insertNode(r),e?o.setStartBefore(l.firstChild).setEnd(a,s):o.setStart(a,s).setEndAfter(l.lastChild),a=o.extractContents(),s=a.firstChild,c=a.lastChild,e?(o.insertNode(a),i.setStartAfter(c).setEndBefore(r)):(l.appendChild(a),i.setStartBefore(r).setEndBefore(s)),o=r.parentNode,o==i.endContainer&&(l=f(r).prev(),a=f(r).next(),l&&a&&3==l.type&&3==a.type?i.setEnd(l[0],l[0].nodeValue.length):e||i.setEnd(i.endContainer,i.endOffset-1)),o.removeChild(r)),this},remove:function(e){var t=this.doc,n=this.range;if(n.enlarge(),0===n.startOffset){for(var i,r=f(n.startContainer);(i=r.parent())&&i.isStyle()&&1==i.children().length;)r=i;n.setStart(r[0],0),r=f(n.startContainer),r.isBlock()&&Qa(r,e),(r=r.parent())&&r.isBlock()&&Qa(r,e)}if(n.collapsed)return this.split(!0,e),t=n.startContainer,r=n.startOffset,r>0&&(i=f(t.childNodes[r-1]))&&da(i)&&(i.remove(),n.setStart(t,r-1)),(r=f(t.childNodes[r]))&&da(r)&&r.remove(),da(t)&&(n.startBefore(t),t.remove()),n.collapse(!0),this;this.split(!0,e),this.split(!1,e);var o=t.createElement("span"),a=t.createElement("span");n.cloneRange().collapse(!1).insertNode(a),n.cloneRange().collapse(!0).insertNode(o);var s=[],l=!1;f(n.commonAncestor()).scan(function(e){if(l||e!=o){if(e==a)return!1;l&&s.push(e)}else l=!0}),f(o).remove(),f(a).remove(),t=n.startContainer,r=n.startOffset,i=n.endContainer;var c=n.endOffset;if(r>0){var d=f(t.childNodes[r-1]);d&&da(d)&&(d.remove(),n.setStart(t,r-1),t==i&&n.setEnd(i,c-1)),(r=f(t.childNodes[r]))&&da(r)&&(r.remove(),t==i&&n.setEnd(i,c-1))}return(t=f(i.childNodes[n.endOffset]))&&da(t)&&t.remove(),t=n.createBookmark(!0),m(s,function(t,n){Qa(f(n),e)}),n.moveToBookmark(t),this},commonNode:function(e){function t(t){for(var n=t;t;){if(Pa(f(t),e))return f(t);t=t.parentNode}for(;n&&(n=n.lastChild);)if(Pa(f(n),e))return f(n);return null}var n=this.range,i=n.endContainer,n=n.endOffset,r=3==i.nodeType||0===n?i:i.childNodes[n-1],o=t(r);return o||((1==r.nodeType||3==i.nodeType&&0===n)&&(i=f(r).prev())?t(i):null)},commonAncestor:function(e){function t(t){for(;t;){if(1==t.nodeType&&t.tagName.toLowerCase()===e)return t;t=t.parentNode}return null}var n=this.range,i=n.startContainer,r=n.startOffset,o=n.endContainer,n=n.endOffset,o=3==o.nodeType||0===n?o:o.childNodes[n-1],i=t(3==i.nodeType||0===r?i:i.childNodes[r-1]),r=t(o);return i&&r&&i===r?f(i):null},state:function(e){var t=this.doc,n=!1;try{n=t.queryCommandState(e)}catch(e){}return n},val:function(e){var t=this.doc,e=e.toLowerCase(),n="";return"fontfamily"===e||"fontname"===e?(n=tb(t,"fontname"),n=n.replace(/['"]/g,""),n.toLowerCase()):"formatblock"===e?(n=tb(t,e),""===n&&(e=this.commonNode({"h1,h2,h3,h4,h5,h6,p,div,pre,address":"*"}))&&(n=e.name),"Normal"===n&&(n="p"),n.toLowerCase()):"fontsize"===e?((e=this.commonNode({"*":".font-size"}))&&(n=e.css("font-size")),n.toLowerCase()):"forecolor"===e?((e=this.commonNode({"*":".color"}))&&(n=e.css("color")),n=va(n),""===n&&(n="default"),n.toLowerCase()):"hilitecolor"===e?((e=this.commonNode({"*":".background-color"}))&&(n=e.css("background-color")),n=va(n),""===n&&(n="default"),n.toLowerCase()):n},toggle:function(e,t){return this.commonNode(t)?this.remove(t):this.wrap(e),this.select()},bold:function(){return this.toggle("<strong></strong>",{span:".font-weight=bold",strong:"*",b:"*"})},italic:function(){return this.toggle("<em></em>",{span:".font-style=italic",em:"*",i:"*"})},underline:function(){return this.toggle("<u></u>",{span:".text-decoration=underline",u:"*"})},strikethrough:function(){return this.toggle("<s></s>",{span:".text-decoration=line-through",s:"*"})},forecolor:function(e){return this.toggle('<span style="color:'+e+';"></span>',{span:".color="+e,font:"color"})},hilitecolor:function(e){return this.toggle('<span style="background-color:'+e+';"></span>',{span:".background-color="+e})},fontsize:function(e){return this.toggle('<span style="font-size:'+e+';"></span>',{span:".font-size="+e,font:"size"})},fontname:function(e){return this.fontfamily(e)},fontfamily:function(e){return this.toggle('<span style="font-family:'+e+';"></span>',{span:".font-family="+e,font:"face"})},removeformat:function(){var e={"*":".font-weight,.font-style,.text-decoration,.color,.background-color,.font-size,.font-family,.text-indent"};return m(Lb,function(t){e[t]="*"}),this.remove(e),this.select()},inserthtml:function(e,t){function n(e,t){var n=e.doc,r=n.createDocumentFragment();f("@"+t,n).each(function(){r.appendChild(this)}),e.deleteContents(),e.insertNode(r),e.collapse(!1),i.select(!1)}var i=this,r=i.range;if(""===e)return i;if(l&&t){try{!function(e,t){var t='<img id="__kindeditor_temp_tag__" width="0" height="0" style="display:none;" />'+t,n=e.get();n.item?n.item(0).outerHTML=t:n.pasteHTML(t);var r=e.doc.getElementById("__kindeditor_temp_tag__");r.parentNode.removeChild(r),n=sb(n),e.setEnd(n.endContainer,n.endOffset),e.collapse(!1),i.select(!1)}(r,e)}catch(t){n(r,e)}return i}return n(r,e),i},hr:function(){return this.inserthtml("<hr />")},print:function(){return this.win.print(),this},insertimage:function(e,t,n,i,r,o){return t=j(t,""),j(r,0),e='<img src="'+C(e)+'" data-ke-src="'+C(e)+'" ',n&&(e+='width="'+C(n)+'" '),i&&(e+='height="'+C(i)+'" '),t&&(e+='title="'+C(t)+'" '),o&&(e+='align="'+C(o)+'" '),e+='alt="'+C(t)+'" ',e+="/>",this.inserthtml(e)},createlink:function(e,t){var n=this.doc,i=this.range;this.select();var r=this.commonNode({a:"*"});if(r&&!i.isControl()&&(i.selectNode(r.get()),this.select()),r='<a href="'+C(e)+'" data-ke-src="'+C(e)+'" ',t&&(r+=' target="'+C(t)+'"'),i.collapsed)return r+=">"+C(e)+"</a>",this.inserthtml(r);if(i.isControl()){var o=f(i.startContainer.childNodes[i.startOffset]);return r+="></a>",o.after(f(r,n)),o.next().append(o),i.selectNode(o[0]),this.select()}return P(n,"createlink","__kindeditor_temp_url__"),f('a[href="__kindeditor_temp_url__"]',n).each(function(){f(this).attr("href",e).attr("data-ke-src",e),t?f(this).attr("target",t):f(this).removeAttr("target")}),this},unlink:function(){var e=this.doc,t=this.range;if(this.select(),t.collapsed){var n=this.commonNode({a:"*"});n&&(t.selectNode(n.get()),this.select()),P(e,"unlink",null),W&&"img"===f(t.startContainer).name&&(e=f(t.startContainer).parent(),"a"===e.name&&e.remove(!0))}else P(e,"unlink",null);return this}}),m("formatblock,selectall,justifyleft,justifycenter,justifyright,justifyfull,insertorderedlist,insertunorderedlist,indent,outdent,subscript,superscript".split(","),function(e,t){na.prototype[t]=function(e){return this.select(),P(this.doc,t,e),(!l||N(t,"formatblock,selectall,insertorderedlist,insertunorderedlist".split(","))>=0)&&this.selection(),this}}),m("cut,copy,paste".split(","),function(e,t){na.prototype[t]=function(){if(!this.doc.queryCommandSupported(t))throw"not supported";return this.select(),P(this.doc,t,null),this}}),f.CmdClass=na,f.cmd=xb,E(R,{init:function(e){var n=this;if(n.name=e.name||"",n.doc=e.doc||document,n.win=U(n.doc),n.x=s(e.x),n.y=s(e.y),n.z=e.z,n.width=s(e.width),n.height=s(e.height),n.div=f('<div style="display:block;"></div>'),n.options=e,n._alignEl=e.alignEl,n.width&&n.div.css("width",n.width),n.height&&n.div.css("height",n.height),n.z&&n.div.css({position:"absolute",left:n.x,top:n.y,"z-index":n.z}),n.z&&(n.x===o||n.y===o)&&n.autoPos(n.width,n.height),e.cls&&n.div.addClass(e.cls),e.shadowMode&&n.div.addClass("ke-shadow"),e.css&&n.div.css(e.css),e.src?f(e.src).replaceWith(n.div):f(n.doc.body).append(n.div),e.html&&n.div.html(e.html),e.autoScroll)if(l&&z<7||O){var i=ba();f(n.win).bind("scroll",function(){var e=ba(),r=e.x-i.x,e=e.y-i.y;n.pos(t(n.x)+r,t(n.y)+e,!1)})}else n.div.css("position","fixed")},pos:function(e,t,n){return n=j(n,!0),null!==e&&(e=e<0?0:s(e),this.div.css("left",e),n)&&(this.x=e),null!==t&&(t=t<0?0:s(t),this.div.css("top",t),n)&&(this.y=t),this},autoPos:function(e,n){var i=t(e)||0,r=t(n)||0,o=ba();if(this._alignEl){var a=f(this._alignEl),s=a.pos(),i=Q(a[0].clientWidth/2-i/2),r=Q(a[0].clientHeight/2-r/2);x=i<0?s.x:s.x+i,y=r<0?s.y:s.y+r}else s=G(this.doc),x=Q(o.x+(s.clientWidth-i)/2),y=Q(o.y+(s.clientHeight-r)/2);return l&&z<7||O||(x-=o.x,y-=o.y),this.pos(x,y)},remove:function(){var e=this;return(l&&z<7||O)&&f(e.win).unbind("scroll"),e.div.remove(),m(e,function(t){e[t]=null}),this},show:function(){return this.div.show(),this},hide:function(){return this.div.hide(),this},draggable:function(e){var t=this,e=e||{};return e.moveEl=t.div,e.moveFn=function(e,n,i,r,o,a){(e+=o)<0&&(e=0),(n+=a)<0&&(n=0),t.pos(e,n)},Sa(e),t}}),f.WidgetClass=R,f.widget=Ua;var Va="";(q=document.getElementsByTagName("html"))&&(Va=q[0].dir),E(pa,R,{init:function(e){function t(){var t=Ta(n.iframe);t.open(),s&&(t.domain=document.domain),t.write(Xb(i,r,o,a)),t.close(),n.win=n.iframe[0].contentWindow,n.doc=t;var c=xb(t);n.afterChange(function(){c.selection()}),W&&f(t).click(function(e){"img"===f(e.target).name&&(c.selection(!0),c.range.selectNode(e.target),c.select())}),l&&(n._mousedownHandler=function(){var e=c.range.cloneRange();e.shrink(),e.isControl()&&n.blur()},f(document).mousedown(n._mousedownHandler),f(t).keydown(function(e){if(8==e.which){c.selection();var t=c.range;t.isControl()&&(t.collapse(!0),f(t.startContainer.childNodes[t.startOffset]).remove(),e.preventDefault())}})),n.cmd=c,n.html(oa(n.srcElement)),l?(t.body.disabled=!0,t.body.contentEditable=!0,t.body.removeAttribute("disabled")):t.designMode="on",e.afterCreate&&e.afterCreate.call(n)}var n=this;pa.parent.init.call(n,e),n.srcElement=f(e.srcElement),n.div.addClass("ke-edit"),n.designMode=j(e.designMode,!0),n.beforeGetHtml=e.beforeGetHtml,n.beforeSetHtml=e.beforeSetHtml,n.afterSetHtml=e.afterSetHtml;var i=j(e.themesPath,""),r=e.bodyClass,o=e.cssPath,a=e.cssData,s=location.host.replace(/:\d+/,"")!==document.domain,c="document.open();"+(s?'document.domain="'+document.domain+'";':"")+"document.close();",c=l?' src="javascript:void(function(){'+encodeURIComponent(c)+'}())"':"";n.iframe=f('<iframe class="ke-edit-iframe" hidefocus="true" frameborder="0"'+c+"></iframe>").css("width","100%"),n.textarea=f('<textarea class="ke-edit-textarea" hidefocus="true"></textarea>').css("width","100%"),n.width&&n.setWidth(n.width),n.height&&n.setHeight(n.height),n.designMode?n.textarea.hide():n.iframe.hide(),s&&n.iframe.bind("load",function(){n.iframe.unbind("load"),l?t():setTimeout(t,0)}),n.div.append(n.iframe),n.div.append(n.textarea),n.srcElement.hide(),!s&&t()},setWidth:function(e){return this.div.css("width",s(e)),this},setHeight:function(e){return e=s(e),this.div.css("height",e),this.iframe.css("height",e),(l&&z<8||O)&&(e=s(t(e)-2)),this.textarea.css("height",e),this},remove:function(){var e=this.doc;f(e.body).unbind(),f(e).unbind(),f(this.win).unbind(),this._mousedownHandler&&f(document).unbind("mousedown",this._mousedownHandler),oa(this.srcElement,this.html()),this.srcElement.show(),e.write(""),this.iframe.unbind(),this.textarea.unbind(),pa.parent.remove.call(this)},html:function(e,t){var n=this.doc;return this.designMode?(n=n.body,e===o?(e=t?"<!doctype html><html>"+n.parentNode.innerHTML+"</html>":n.innerHTML,this.beforeGetHtml&&(e=this.beforeGetHtml(e)),ea&&"<br />"==e&&(e=""),e):(this.beforeSetHtml&&(e=this.beforeSetHtml(e)),l&&z>=9&&(e=e.replace(/(<.*?checked=")checked(".*>)/gi,"$1$2")),f(n).html(e),this.afterSetHtml&&this.afterSetHtml(),this)):e===o?this.textarea.val():(this.textarea.val(e),this)},design:function(e){return(e===o?!this.designMode:e)?this.designMode||(e=this.html(),this.designMode=!0,this.html(e),this.textarea.hide(),this.iframe.show()):this.designMode&&(e=this.html(),this.designMode=!1,this.html(e),this.iframe.hide(),this.textarea.show()),this.focus()},focus:function(){return this.designMode?this.win.focus():this.textarea[0].focus(),this},blur:function(){if(l){var e=f('<input type="text" style="float:left;width:0;height:0;padding:0;margin:0;border:0;" value="" />',this.div);this.div.append(e),e[0].focus(),e.remove()}else this.designMode?this.win.blur():this.textarea[0].blur();return this},afterChange:function(e){function t(t){setTimeout(function(){e(t)},1)}var n=this.doc,i=n.body;return f(n).keyup(function(t){!t.ctrlKey&&!t.altKey&&ab[t.which]&&e(t)}),f(n).mouseup(e).contextmenu(e),f(this.win).blur(e),f(i).bind("paste",t),f(i).bind("cut",t),this}}),f.EditClass=pa,f.edit=yb,f.iframeDoc=Ta,E(Aa,R,{init:function(e){function t(e){return e=f(e),e.hasClass("ke-outline")?e:e.hasClass("ke-toolbar-icon")?e.parent():void 0}function n(e,n){var i=t(e.target);!i||i.hasClass("ke-disabled")||i.hasClass("ke-selected")||i[n]("ke-on")}var i=this;Aa.parent.init.call(i,e),i.disableMode=j(e.disableMode,!1),i.noDisableItemMap=u(j(e.noDisableItems,[])),i._itemMap={},i.div.addClass("ke-toolbar").bind("contextmenu,mousedown,mousemove",function(e){e.preventDefault()}).attr("unselectable","on"),i.div.mouseover(function(e){n(e,"addClass")}).mouseout(function(e){n(e,"removeClass")}).click(function(e){var n=t(e.target);n&&!n.hasClass("ke-disabled")&&i.options.click.call(this,e,n.attr("data-name"))})},get:function(e){return this._itemMap[e]?this._itemMap[e]:this._itemMap[e]=f("span.ke-icon-"+e,this.div).parent()},select:function(e){return zb.call(this,e,function(e){e.addClass("ke-selected")}),self},unselect:function(e){return zb.call(this,e,function(e){e.removeClass("ke-selected").removeClass("ke-on")}),self},enable:function(e){return(e=e.get?e:this.get(e))&&(e.removeClass("ke-disabled"),e.opacity(1)),this},disable:function(e){return(e=e.get?e:this.get(e))&&(e.removeClass("ke-selected").addClass("ke-disabled"),e.opacity(.5)),this},disableAll:function(e,t){var n=this,i=n.noDisableItemMap;return t&&(i=u(t)),(e===o?!n.disableMode:e)?(f("span.ke-outline",n.div).each(function(){var e=f(this),t=e[0].getAttribute("data-name",2);i[t]||n.disable(e)}),n.disableMode=!0):(f("span.ke-outline",n.div).each(function(){
-var e=f(this),t=e[0].getAttribute("data-name",2);i[t]||n.enable(e)}),n.disableMode=!1),n}}),f.ToolbarClass=Aa,f.toolbar=Ab,E(qa,R,{init:function(e){e.z=e.z||811213,qa.parent.init.call(this,e),this.centerLineMode=j(e.centerLineMode,!0),this.div.addClass("ke-menu").bind("click,mousedown",function(e){e.stopPropagation()}).attr("unselectable","on")},addItem:function(e){if("-"!==e.title){var t=f('<div class="ke-menu-item" unselectable="on"></div>'),n=f('<div class="ke-inline-block ke-menu-item-left"></div>'),i=f('<div class="ke-inline-block ke-menu-item-right"></div>'),r=s(e.height),o=j(e.iconClass,"");this.div.append(t),r&&(t.css("height",r),i.css("line-height",r));var a;return this.centerLineMode&&(a=f('<div class="ke-inline-block ke-menu-item-center"></div>'),r&&a.css("height",r)),t.mouseover(function(){f(this).addClass("ke-menu-item-on"),a&&a.addClass("ke-menu-item-center-on")}).mouseout(function(){f(this).removeClass("ke-menu-item-on"),a&&a.removeClass("ke-menu-item-center-on")}).click(function(t){e.click.call(f(this)),t.stopPropagation()}).append(n),a&&t.append(a),t.append(i),e.checked&&(o="ke-icon-checked"),""!==o&&n.html('<span class="ke-inline-block ke-toolbar-icon ke-toolbar-icon-url '+o+'"></span>'),i.html(e.title),this}this.div.append(f('<div class="ke-menu-separator"></div>'))},remove:function(){return this.options.beforeRemove&&this.options.beforeRemove.call(this),f(".ke-menu-item",this.div[0]).unbind(),qa.parent.remove.call(this),this}}),f.MenuClass=qa,f.menu=Wa,E(ra,R,{init:function(e){e.z=e.z||811213,ra.parent.init.call(this,e);var t=e.colors||[["#E53333","#E56600","#FF9900","#64451D","#DFC5A4","#FFE500"],["#009900","#006600","#99BB00","#B8D100","#60D978","#00D5FF"],["#337FE5","#003399","#4C33E5","#9933E5","#CC33E5","#EE33EE"],["#FFFFFF","#CCCCCC","#999999","#666666","#333333","#000000"]];this.selectedColor=(e.selectedColor||"").toLowerCase(),this._cells=[],this.div.addClass("ke-colorpicker").bind("click,mousedown",function(e){e.stopPropagation()}).attr("unselectable","on"),e=this.doc.createElement("table"),this.div.append(e),e.className="ke-colorpicker-table",e.cellPadding=0,e.cellSpacing=0,e.border=0;var n=e.insertRow(0),i=n.insertCell(0);i.colSpan=t[0].length,this._addAttr(i,"","ke-colorpicker-cell-top");for(var r=0;r<t.length;r++)for(var n=e.insertRow(r+1),o=0;o<t[r].length;o++)i=n.insertCell(o),this._addAttr(i,t[r][o],"ke-colorpicker-cell")},_addAttr:function(e,t,n){var i=this,e=f(e).addClass(n);i.selectedColor===t.toLowerCase()&&e.addClass("ke-colorpicker-cell-selected"),e.attr("title",t||i.options.noColor),e.mouseover(function(){f(this).addClass("ke-colorpicker-cell-on")}),e.mouseout(function(){f(this).removeClass("ke-colorpicker-cell-on")}),e.click(function(e){e.stop(),i.options.click.call(f(this),t)}),t?e.append(f('<div class="ke-colorpicker-cell-color" unselectable="on"></div>').css("background-color",t)):e.html(i.options.noColor),f(e).attr("unselectable","on"),i._cells.push(e)},remove:function(){return m(this._cells,function(){this.unbind()}),ra.parent.remove.call(this),this}}),f.ColorPickerClass=ra,f.colorpicker=Bb,E(Xa,{init:function(e){var t=f(e.button),n=e.fieldName||"file",i=e.url||"",r=t.val(),o=e.extraParams||{},a=t[0].className||"",s=e.target||"kindeditor_upload_iframe_"+(new Date).getTime();e.afterError=e.afterError||function(e){alert(e)};var l,c=[];for(l in o)c.push('<input type="hidden" name="'+l+'" value="'+o[l]+'" />');n=['<div class="ke-inline-block '+a+'">',e.target?"":'<iframe name="'+s+'" style="display:none;"></iframe>',e.form?'<div class="ke-upload-area">':'<form class="ke-upload-area ke-form" method="post" enctype="multipart/form-data" target="'+s+'" action="'+i+'">','<span class="ke-button-common">',c.join(""),'<input type="button" class="ke-button-common ke-button" value="'+r+'" />',"</span>",'<input type="file" class="ke-upload-file" name="'+n+'" tabindex="-1" />',e.form?"</div>":"</form>","</div>"].join(""),n=f(n,t.doc),t.hide(),t.before(n),this.div=n,this.button=t,this.iframe=e.target?f('iframe[name="'+s+'"]'):f("iframe",n),this.form=e.form?f(e.form):f("form",n),t=e.width||f(".ke-button-common",n).width(),this.fileBox=f(".ke-upload-file",n).width(t),this.options=e},submit:function(){var e=this,t=e.iframe;return t.bind("load",function(){t.unbind();var n=document.createElement("form");e.fileBox.before(n),f(n).append(e.fileBox),n.reset(),f(n).remove(!0);var i,n=f.iframeDoc(t),r=n.getElementsByTagName("pre")[0],o="",o=r?r.innerHTML:n.body.innerHTML,o=fa(o);t[0].src="javascript:false";try{i=f.json(o)}catch(t){e.options.afterError.call(e,"<!doctype html><html>"+n.body.parentNode.innerHTML+"</html>")}i&&e.options.afterUpload.call(e,i)}),e.form[0].submit(),e},remove:function(){return this.fileBox&&this.fileBox.unbind(),this.iframe.remove(),this.div.remove(),this.button.show(),this}}),f.UploadButtonClass=Xa,f.uploadbutton=function(e){return new Xa(e)},E(sa,R,{init:function(e){var n=j(e.shadowMode,!0);e.z=e.z||811213,e.shadowMode=!1,e.autoScroll=j(e.autoScroll,!0),sa.parent.init.call(this,e);var i=e.title,r=f(e.body,this.doc),o=e.previewBtn,a=e.yesBtn,s=e.noBtn,c=e.closeBtn,d=j(e.showMask,!0);this.div.addClass("ke-dialog").bind("click,mousedown",function(e){e.stopPropagation()});var u=f('<div class="ke-dialog-content"></div>').appendTo(this.div);l&&z<7?this.iframeMask=f('<iframe src="about:blank" class="ke-dialog-shadow"></iframe>').appendTo(this.div):n&&f('<div class="ke-dialog-shadow"></div>').appendTo(this.div),n=f('<div class="ke-dialog-header"></div>'),u.append(n),n.html(i),this.closeIcon=f('<span class="ke-dialog-icon-close" title="'+c.name+'"></span>').click(c.click),n.append(this.closeIcon),this.draggable({clickEl:n,beforeDrag:e.beforeDrag}),e=f('<div class="ke-dialog-body"></div>'),u.append(e),e.append(r);var h=f('<div class="ke-dialog-footer"></div>');(o||a||s)&&u.append(h),m([{btn:o,name:"preview"},{btn:a,name:"yes"},{btn:s,name:"no"}],function(){if(this.btn){var e=this.btn,e=e||{},t=e.name||"",n=f('<span class="ke-button-common ke-button-outer" title="'+t+'"></span>'),t=f('<input class="ke-button-common ke-button" type="button" value="'+t+'" />');e.click&&t.click(e.click),n.append(t),n.addClass("ke-dialog-"+this.name),h.append(n)}}),this.height&&e.height(t(this.height)-n.height()-h.height()),this.div.width(this.div.width()),this.div.height(this.div.height()),this.mask=null,d&&(r=G(this.doc),this.mask=Ua({x:0,y:0,z:this.z-1,cls:"ke-dialog-mask",width:Math.max(r.scrollWidth,r.clientWidth),height:Math.max(r.scrollHeight,r.clientHeight)})),this.autoPos(this.div.width(),this.div.height()),this.footerDiv=h,this.bodyDiv=e,this.headerDiv=n,this.isLoading=!1},setMaskIndex:function(e){this.mask.div.css("z-index",e)},showLoading:function(e){var e=j(e,""),t=this.bodyDiv;return this.loading=f('<div class="ke-dialog-loading"><div class="ke-inline-block ke-dialog-loading-content" style="margin-top:'+Math.round(t.height()/3)+'px;">'+e+"</div></div>").width(t.width()).height(t.height()).css("top",this.headerDiv.height()+"px"),t.css("visibility","hidden").after(this.loading),this.isLoading=!0,this},hideLoading:function(){return this.loading&&this.loading.remove(),this.bodyDiv.css("visibility","visible"),this.isLoading=!1,this},remove:function(){return this.options.beforeRemove&&this.options.beforeRemove.call(this),this.mask&&this.mask.remove(),this.iframeMask&&this.iframeMask.remove(),this.closeIcon.unbind(),f("input",this.div).unbind(),f("button",this.div).unbind(),this.footerDiv.unbind(),this.bodyDiv.unbind(),this.headerDiv.unbind(),f("iframe",this.div).each(function(){f(this).remove()}),sa.parent.remove.call(this),this}}),f.DialogClass=sa,f.dialog=Cb,f.tabs=function(e){var t=Ua(e),n=t.remove,i=e.afterSelect,e=t.div,r=[];e.addClass("ke-tabs").bind("contextmenu,mousedown,mousemove",function(e){e.preventDefault()});var o=f('<ul class="ke-tabs-ul ke-clearfix"></ul>');return e.append(o),t.add=function(e){var t=f('<li class="ke-tabs-li">'+e.title+"</li>");t.data("tab",e),r.push(t),o.append(t)},t.selectedIndex=0,t.select=function(e){t.selectedIndex=e,m(r,function(n,i){i.unbind(),n===e?(i.addClass("ke-tabs-li-selected"),f(i.data("tab").panel).show("")):(i.removeClass("ke-tabs-li-selected").removeClass("ke-tabs-li-on").mouseover(function(){f(this).addClass("ke-tabs-li-on")}).mouseout(function(){f(this).removeClass("ke-tabs-li-on")}).click(function(){t.select(n)}),f(i.data("tab").panel).hide())}),i&&i.call(t,e)},t.remove=function(){m(r,function(){this.remove()}),o.remove(),n.call(t)},t},f.loadScript=Ya,f.loadStyle=Za,f.ajax=function(e,t,n,i,r){var n=n||"GET",r=r||"json",o=A.XMLHttpRequest?new A.XMLHttpRequest:new ActiveXObject("Microsoft.XMLHTTP");if(o.open(n,e,!0),o.onreadystatechange=function(){if(4==o.readyState&&200==o.status&&t){var e=B(o.responseText);"json"==r&&(e=cb(e)),t(e)}},"POST"==n){var a=[];m(i,function(e,t){a.push(encodeURIComponent(e)+"="+encodeURIComponent(t))});try{o.setRequestHeader("Content-Type","application/x-www-form-urlencoded")}catch(e){}o.send(a.join("&"))}else o.send(null)};var V={},M={};ta.prototype={lang:function(e){return Gb(e,this.langType)},loadPlugin:function(e,t){var n=this;return V[e]?n._calledPlugins[e]?(t&&t.call(n),n):(V[e].call(n,KindEditor),t&&t.call(n),n._calledPlugins[e]=!0,n):n.isLoading?n:(n.isLoading=!0,Ya(n.pluginsPath+e+"/"+e+".js?ver="+encodeURIComponent(f.DEBUG?Ca:Da),function(){n.isLoading=!1,V[e]&&n.loadPlugin(e,t)}),n)},handler:function(e,t){var n=this;return n._handlers[e]||(n._handlers[e]=[]),bb(t)?(n._handlers[e].push(t),n):(m(n._handlers[e],function(){t=this.call(n,t)}),t)},clickToolbar:function(e,t){var n=this,i="clickToolbar"+e;return t===o?n._handlers[i]?n.handler(i):(n.loadPlugin(e,function(){n.handler(i)}),n):n.handler(i,t)},updateState:function(){var e=this;return m("justifyleft,justifycenter,justifyright,justifyfull,insertorderedlist,insertunorderedlist,subscript,superscript,bold,italic,underline,strikethrough".split(","),function(t,n){e.cmd.state(n)?e.toolbar.select(n):e.toolbar.unselect(n)}),e},addContextmenu:function(e){return this._contextmenus.push(e),this},afterCreate:function(e){return this.handler("afterCreate",e)},beforeRemove:function(e){return this.handler("beforeRemove",e)},beforeGetHtml:function(e){return this.handler("beforeGetHtml",e)},beforeSetHtml:function(e){return this.handler("beforeSetHtml",e)},afterSetHtml:function(e){return this.handler("afterSetHtml",e)},create:function(){function e(){0===u.height()?setTimeout(e,100):n.resize(r,o,!1)}var n=this,i=n.fullscreenMode;if(n.isCreated)return n;if(n.srcElement.data("kindeditor"))return n;n.srcElement.data("kindeditor","true"),G().style.overflow=i?"hidden":"";var r=i?G().clientWidth+"px":n.width,o=i?G().clientHeight+"px":n.height;(l&&z<8||O)&&(o=s(t(o)+2));var a=n.container=f(n.layout);i?f(document.body).append(a):n.srcElement.before(a);var c=f(".toolbar",a),d=f(".edit",a),u=n.statusbar=f(".statusbar",a);a.removeClass("container").addClass("ke-container ke-container-"+n.themeType).css("width",r),i?(a.css({position:"absolute",left:0,top:0,"z-index":811211}),ea||(n._scrollPos=ba()),A.scrollTo(0,0),f(document.body).css({height:"1px",overflow:"hidden"}),f(document.body.parentNode).css("overflow","hidden"),n._fullscreenExecuted=!0):(n._fullscreenExecuted&&(f(document.body).css({height:"",overflow:""}),f(document.body.parentNode).css("overflow","")),n._scrollPos&&A.scrollTo(n._scrollPos.x,n._scrollPos.y));var h=[];f.each(n.items,function(e,t){"|"==t?h.push('<span class="ke-inline-block ke-separator"></span>'):"/"==t?h.push('<div class="ke-hr"></div>'):(h.push('<span class="ke-outline" data-name="'+t+'" title="'+n.lang(t)+'" unselectable="on">'),h.push('<span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-'+t+'" unselectable="on"></span></span>'))});var c=n.toolbar=Ab({src:c,html:h.join(""),noDisableItems:n.noDisableItems,click:function(e,t){if(e.stop(),n.menu){var i=n.menu.name;if(n.hideMenu(),i===t)return}n.clickToolbar(t)}}),p=t(o)-c.div.height(),m=n.edit=yb({height:p>0&&t(o)>n.minHeight?p:n.minHeight,src:d,srcElement:n.srcElement,designMode:n.designMode,themesPath:n.themesPath,bodyClass:n.bodyClass,cssPath:n.cssPath,cssData:n.cssData,beforeGetHtml:function(e){return e=n.beforeGetHtml(e),S(e,n.filterMode?n.htmlTags:null,n.urlType,n.wellFormatMode,n.indentChar)},beforeSetHtml:function(e){return e=S(e,n.filterMode?n.htmlTags:null,"",!1),n.beforeSetHtml(e)},afterSetHtml:function(){n.edit=m=this,n.afterSetHtml()},afterCreate:function(){n.edit=m=this,n.cmd=m.cmd,n._docMousedownFn=function(){n.menu&&n.hideMenu()},f(m.doc,document).mousedown(n._docMousedownFn),Yb.call(n),Zb.call(n),$b.call(n),ac.call(n),m.afterChange(function(){m.designMode&&(n.updateState(),n.addBookmark(),n.options.afterChange&&n.options.afterChange.call(n))}),m.textarea.keyup(function(e){!e.ctrlKey&&!e.altKey&&Nb[e.which]&&n.options.afterChange&&n.options.afterChange.call(n)}),n.readonlyMode&&n.readonly(),n.isCreated=!0,""===n.initContent&&(n.initContent=n.html()),n.afterCreate(),n.options.afterCreate&&n.options.afterCreate.call(n)}});return u.removeClass("statusbar").addClass("ke-statusbar").append('<span class="ke-inline-block ke-statusbar-center-icon"></span>').append('<span class="ke-inline-block ke-statusbar-right-icon"></span>'),n._fullscreenResizeHandler&&(f(A).unbind("resize",n._fullscreenResizeHandler),n._fullscreenResizeHandler=null),e(),i?(n._fullscreenResizeHandler=function(){n.isCreated&&n.resize(G().clientWidth,G().clientHeight,!1)},f(A).bind("resize",n._fullscreenResizeHandler),c.select("fullscreen"),u.first().css("visibility","hidden"),u.last().css("visibility","hidden")):(ea&&f(A).bind("scroll",function(){n._scrollPos=ba()}),n.resizeType>0?Sa({moveEl:a,clickEl:u,moveFn:function(e,t,i,r,o,a){r+=a,n.resize(null,r)}}):u.first().css("visibility","hidden"),2===n.resizeType?Sa({moveEl:a,clickEl:u.last(),moveFn:function(e,t,i,r,o,a){i+=o,r+=a,n.resize(i,r)}}):u.last().css("visibility","hidden")),n},remove:function(){var e=this;return e.isCreated?(e.beforeRemove(),e.srcElement.data("kindeditor",""),e.menu&&e.hideMenu(),m(e.dialogs,function(){e.hideDialog()}),f(document).unbind("mousedown",e._docMousedownFn),e.toolbar.remove(),e.edit.remove(),e.statusbar.last().unbind(),e.statusbar.unbind(),e.container.remove(),e.container=e.toolbar=e.edit=e.menu=null,e.dialogs=[],e.isCreated=!1,e):e},resize:function(e,n,i){return i=j(i,!0),e&&(/%/.test(e)||(e=t(e),e=e<this.minWidth?this.minWidth:e),this.container.css("width",s(e)),i)&&(this.width=s(e)),n&&(n=t(n),editHeight=t(n)-this.toolbar.div.height()-this.statusbar.height(),editHeight=editHeight<this.minHeight?this.minHeight:editHeight,this.edit.setHeight(editHeight),i)&&(this.height=s(n)),this},select:function(){return this.isCreated&&this.cmd.select(),this},html:function(e){return e===o?this.isCreated?this.edit.html():oa(this.srcElement):(this.isCreated?this.edit.html(e):oa(this.srcElement,e),this.isCreated&&this.cmd.selection(),this)},fullHtml:function(){return this.isCreated?this.edit.html(o,!0):""},text:function(e){return e===o?B(this.html().replace(/<(?!img|embed).*?>/gi,"").replace(/&nbsp;/gi," ")):this.html(C(e))},isEmpty:function(){return""===B(this.text().replace(/\r\n|\n|\r/,""))},isDirty:function(){return B(this.initContent.replace(/\r\n|\n|\r|t/g,""))!==B(this.html().replace(/\r\n|\n|\r|t/g,""))},selectedHtml:function(){return this.isCreated?this.cmd.range.html():""},count:function(e){return e=(e||"html").toLowerCase(),"html"===e?X($a(this.html())).length:"text"===e?this.text().replace(/<(?:img|embed).*?>/gi,"K").replace(/\r\n|\n|\r/g,"").length:0},exec:function(e){var e=e.toLowerCase(),t=this.cmd,n=N(e,"selectall,copy,paste,print".split(","))<0;return n&&this.addBookmark(!1),t[e].apply(t,Fa(arguments,1)),n&&(this.updateState(),this.addBookmark(!1),this.options.afterChange&&this.options.afterChange.call(this)),this},insertHtml:function(e,t){return this.isCreated?(e=this.beforeSetHtml(e),this.exec("inserthtml",e,t),this):this},appendHtml:function(e){return this.html(this.html()+e),this.isCreated&&(e=this.cmd,e.range.selectNodeContents(e.doc.body).collapse(!1),e.select()),this},sync:function(){return oa(this.srcElement,this.html()),this},focus:function(){return this.isCreated?this.edit.focus():this.srcElement[0].focus(),this},blur:function(){return this.isCreated?this.edit.blur():this.srcElement[0].blur(),this},addBookmark:function(e){var e=j(e,!0),t=this.edit,n=t.doc.body,i=$a(n.innerHTML);return e&&this._undoStack.length>0&&Math.abs(i.length-X(this._undoStack[this._undoStack.length-1].html).length)<this.minChangeSize?this:(t.designMode&&!this._firstAddBookmark?(t=this.cmd.range,e=t.createBookmark(!0),e.html=$a(n.innerHTML),t.moveToBookmark(e)):e={html:i},this._firstAddBookmark=!1,Hb(this._undoStack,e),this)},undo:function(){return Ib.call(this,this._undoStack,this._redoStack)},redo:function(){return Ib.call(this,this._redoStack,this._undoStack)},fullscreen:function(e){return this.fullscreenMode=e===o?!this.fullscreenMode:e,this.remove().create()},readonly:function(e){var e=j(e,!0),t=this,n=t.edit,i=n.doc;t.designMode?t.toolbar.disableAll(e,[]):m(t.noDisableItems,function(){t.toolbar[e?"disable":"enable"](this)}),l?i.body.contentEditable=!e:i.designMode=e?"off":"on",n.textarea[0].disabled=e},createMenu:function(e){var t=this.toolbar.get(e.name),n=t.pos();return e.x=n.x,e.y=n.y+t.height(),e.z=this.options.zIndex,e.shadowMode=j(e.shadowMode,this.shadowMode),e.selectedColor!==o?(e.cls="ke-colorpicker-"+this.themeType,e.noColor=this.lang("noColor"),this.menu=Bb(e)):(e.cls="ke-menu-"+this.themeType,e.centerLineMode=!1,this.menu=Wa(e)),this.menu},hideMenu:function(){return this.menu.remove(),this.menu=null,this},hideContextmenu:function(){return this.contextmenu.remove(),this.contextmenu=null,this},createDialog:function(e){var t=this;if(e.z=t.options.zIndex,e.shadowMode=j(e.shadowMode,t.shadowMode),e.closeBtn=j(e.closeBtn,{name:t.lang("close"),click:function(){t.hideDialog(),l&&t.cmd&&t.cmd.select()}}),e.noBtn=j(e.noBtn,{name:t.lang(e.yesBtn?"no":"close"),click:function(){t.hideDialog(),l&&t.cmd&&t.cmd.select()}}),"page"!=t.dialogAlignType&&(e.alignEl=t.container),e.cls="ke-dialog-"+t.themeType,t.dialogs.length>0){var n=t.dialogs[t.dialogs.length-1];t.dialogs[0].setMaskIndex(n.z+2),e.z=n.z+3,e.showMask=!1}return e=Cb(e),t.dialogs.push(e),e},hideDialog:function(){return this.dialogs.length>0&&this.dialogs.pop().remove(),this.dialogs.length>0&&this.dialogs[0].setMaskIndex(this.dialogs[this.dialogs.length-1].z-1),this},errorDialog:function(e){var t=this.createDialog({width:750,title:this.lang("uploadError"),body:'<div style="padding:10px 20px;"><iframe frameborder="0" style="width:708px;height:400px;"></iframe></div>'}),t=f("iframe",t.div),n=f.iframeDoc(t);return n.open(),n.write(e),n.close(),f(n.body).css("background-color","#FFF"),t[0].contentWindow.focus(),this}},_instances=[],f.remove=function(e){Kb(e,function(e){this.remove(),_instances.splice(e,1)})},f.sync=function(e){Kb(e,function(){this.sync()})},l&&z<7&&P(document,"BackgroundImageCache",!0),f.EditorClass=ta,f.editor=function(e){return new ta(e)},f.create=Jb,f.instances=_instances,f.plugin=Eb,f.lang=Gb,Eb("core",function(e){var n=this,i={undo:"Z",redo:"Y",bold:"B",italic:"I",underline:"U",print:"P",selectall:"A"};if(n.afterSetHtml(function(){n.options.afterChange&&n.options.afterChange.call(n)}),n.afterCreate(function(){if("form"==n.syncType){for(var t=e(n.srcElement),i=!1;t=t.parent();)if("form"==t.name){i=!0;break}if(i){t.bind("submit",function(){n.sync(),e(A).bind("unload",function(){n.edit.textarea.remove()})});var r=e('[type="reset"]',t);r.click(function(){n.html(n.initContent),n.cmd.selection()}),n.beforeRemove(function(){t.unbind(),r.unbind()})}}}),n.clickToolbar("source",function(){n.edit.designMode?(n.toolbar.disableAll(!0),n.edit.design(!1),n.toolbar.select("source")):(n.toolbar.disableAll(!1),n.edit.design(!0),n.toolbar.unselect("source"),n.cmd.selection()),n.designMode=n.edit.designMode}),n.afterCreate(function(){n.designMode||n.toolbar.disableAll(!0).select("source")}),n.clickToolbar("fullscreen",function(){n.fullscreen()}),n.fullscreenShortcut){var r=!1;n.afterCreate(function(){if(e(n.edit.doc,n.edit.textarea).keyup(function(e){27==e.which&&setTimeout(function(){n.fullscreen()},0)}),r){if(l&&!n.designMode)return;n.focus()}r||(r=!0)})}m("undo,redo".split(","),function(e,t){i[t]&&n.afterCreate(function(){Ga(this.edit.doc,i[t],function(){n.clickToolbar(t)})}),n.clickToolbar(t,function(){n[t]()})}),n.clickToolbar("formatblock",function(){var e=n.lang("formatblock.formatBlock"),t={h1:28,h2:24,h3:18,H4:14,p:12},i=n.cmd.val("formatblock"),r=n.createMenu({name:"formatblock",width:"en"==n.langType?200:150});m(e,function(e,o){var a="font-size:"+t[e]+"px;";"h"===e.charAt(0)&&(a+="font-weight:bold;"),r.addItem({title:'<span style="'+a+'" unselectable="on">'+o+"</span>",height:t[e]+12,checked:i===e||i===o,click:function(){n.select().exec("formatblock","<"+e+">").hideMenu()}})})}),n.clickToolbar("fontname",function(){var e=n.cmd.val("fontname"),t=n.createMenu({name:"fontname",width:150});m(n.lang("fontname.fontName"),function(i,r){t.addItem({title:'<span style="font-family: '+i+';" unselectable="on">'+r+"</span>",checked:e===i.toLowerCase()||e===r.toLowerCase(),click:function(){n.exec("fontname",i).hideMenu()}})})}),n.clickToolbar("fontsize",function(){var e=n.cmd.val("fontsize"),i=n.createMenu({name:"fontsize",width:150});m(n.fontSizeTable,function(r,o){i.addItem({title:'<span style="font-size:'+o+';" unselectable="on">'+o+"</span>",height:t(o)+12,checked:e===o,click:function(){n.exec("fontsize",o).hideMenu()}})})}),m("forecolor,hilitecolor".split(","),function(e,t){n.clickToolbar(t,function(){n.createMenu({name:t,selectedColor:n.cmd.val(t)||"default",colors:n.colorTable,click:function(e){n.exec(t,e).hideMenu()}})})}),m("cut,copy,paste".split(","),function(e,t){n.clickToolbar(t,function(){n.focus();try{n.exec(t,null)}catch(e){alert(n.lang(t+"Error"))}})}),n.clickToolbar("about",function(){var e='<div style="margin:20px;"><div>KindEditor '+Da+'</div><div>Copyright &copy; <a href="http://www.kindsoft.net/" target="_blank">kindsoft.net</a> All rights reserved.</div></div>';n.createDialog({name:"about",width:350,title:n.lang("about"),body:e})}),n.plugin.getSelectedLink=function(){return n.cmd.commonAncestor("a")},n.plugin.getSelectedImage=function(){return Ba(n.edit.cmd.range,function(e){return!/^ke-\w+$/i.test(e[0].className)})},n.plugin.getSelectedFlash=function(){return Ba(n.edit.cmd.range,function(e){return"ke-flash"==e[0].className})},n.plugin.getSelectedMedia=function(){return Ba(n.edit.cmd.range,function(e){return"ke-media"==e[0].className||"ke-rm"==e[0].className})},n.plugin.getSelectedAnchor=function(){return Ba(n.edit.cmd.range,function(e){return"ke-anchor"==e[0].className})},m("link,image,flash,media,anchor".split(","),function(e,t){var i=t.charAt(0).toUpperCase()+t.substr(1);m("edit,delete".split(","),function(e,r){n.addContextmenu({title:n.lang(r+i),click:function(){n.loadPlugin(t,function(){n.plugin[t][r](),n.hideMenu()})},cond:n.plugin["getSelected"+i],width:150,iconClass:"edit"==r?"ke-icon-"+t:o})}),n.addContextmenu({title:"-"})}),n.plugin.getSelectedTable=function(){return n.cmd.commonAncestor("table")},n.plugin.getSelectedRow=function(){return n.cmd.commonAncestor("tr")},n.plugin.getSelectedCell=function(){return n.cmd.commonAncestor("td")},m("prop,cellprop,colinsertleft,colinsertright,rowinsertabove,rowinsertbelow,rowmerge,colmerge,rowsplit,colsplit,coldelete,rowdelete,insert,delete".split(","),function(e,t){var i=N(t,["prop","delete"])<0?n.plugin.getSelectedCell:n.plugin.getSelectedTable;n.addContextmenu({title:n.lang("table"+t),click:function(){n.loadPlugin("table",function(){n.plugin.table[t](),n.hideMenu()})},cond:i,width:170,iconClass:"ke-icon-table"+t})}),n.addContextmenu({title:"-"}),m("selectall,justifyleft,justifycenter,justifyright,justifyfull,insertorderedlist,insertunorderedlist,indent,outdent,subscript,superscript,hr,print,bold,italic,underline,strikethrough,removeformat,unlink".split(","),function(e,t){i[t]&&n.afterCreate(function(){Ga(this.edit.doc,i[t],function(){n.cmd.selection(),n.clickToolbar(t)})}),n.clickToolbar(t,function(){n.focus().exec(t,null)})}),n.afterCreate(function(){function t(){i.range.moveToBookmark(r),i.select(),W&&(e("div."+s,o).each(function(){e(this).after("<br />").remove(!0)}),e("span.Apple-style-span",o).remove(!0),e("span.Apple-tab-span",o).remove(!0),e("span[style]",o).each(function(){"nowrap"==e(this).css("white-space")&&e(this).remove(!0)}),e("meta",o).remove());var t=o[0].innerHTML;o.remove(),""!==t&&(W&&(t=t.replace(/(<br>)\1/gi,"$1")),2===n.pasteType&&(t=t.replace(/(<(?:p|p\s[^>]*)>) *(<\/p>)/gi,""),/schemas-microsoft-com|worddocument|mso-\w+/i.test(t)?t=lb(t,n.filterMode?n.htmlTags:e.options.htmlTags):(t=S(t,n.filterMode?n.htmlTags:null),t=n.beforeSetHtml(t))),1===n.pasteType&&(t=t.replace(/&nbsp;/gi," "),t=t.replace(/\n\s*\n/g,"\n"),t=t.replace(/<br[^>]*>/gi,"\n"),t=t.replace(/<\/p><p[^>]*>/gi,"\n"),t=t.replace(/<[^>]+>/g,""),t=t.replace(/ {2}/g," &nbsp;"),"p"==n.newlineTag?/\n/.test(t)&&(t=t.replace(/^/,"<p>").replace(/$/,"<br /></p>").replace(/\n/g,"<br /></p><p>")):t=t.replace(/\n/g,"<br />$&")),n.insertHtml(t,!0))}var i,r,o,a=n.edit.doc,s="__kindeditor_paste__",c=!1;e(a.body).bind("paste",function(d){if(0===n.pasteType)d.stop();else if(!c){if(c=!0,e("div."+s,a).remove(),i=n.cmd.selection(),r=i.range.createBookmark(),o=e('<div class="'+s+'"></div>',a).css({position:"absolute",width:"1px",height:"1px",overflow:"hidden",left:"-1981px",top:e(r.start).pos().y+"px","white-space":"nowrap"}),e(a.body).append(o),l){var u=i.range.get(!0);u.moveToElementText(o[0]),u.select(),u.execCommand("paste"),d.preventDefault()}else i.range.selectNodeContents(o[0]),i.select();setTimeout(function(){t(),c=!1},0)}})}),n.beforeGetHtml(function(e){return l&&z<=8&&(e=e.replace(/<div\s+[^>]*data-ke-input-tag="([^"]*)"[^>]*>([\s\S]*?)<\/div>/gi,function(e,t){return unescape(t)}),e=e.replace(/(<input)((?:\s+[^>]*)?>)/gi,function(e,t,n){return/\s+type="[^"]+"/i.test(e)?e:t+' type="text"'+n})),e.replace(/(<(?:noscript|noscript\s[^>]*)>)([\s\S]*?)(<\/noscript>)/gi,function(e,t,n,i){return t+fa(n).replace(/\s+/g," ")+i}).replace(/<img[^>]*class="?ke-(flash|rm|media)"?[^>]*>/gi,function(e){var e=H(e),n=aa(e.style||""),i=nb(e["data-ke-tag"]);return i.width=j(e.width,t(j(n.width,""))),i.height=j(e.height,t(j(n.height,""))),Ia(i)}).replace(/<img[^>]*class="?ke-anchor"?[^>]*>/gi,function(e){return e=H(e),'<a name="'+unescape(e["data-ke-name"])+'"></a>'}).replace(/<div\s+[^>]*data-ke-script-attr="([^"]*)"[^>]*>([\s\S]*?)<\/div>/gi,function(e,t,n){return"<script"+unescape(t)+">"+unescape(n)+"<\/script>"}).replace(/<div\s+[^>]*data-ke-noscript-attr="([^"]*)"[^>]*>([\s\S]*?)<\/div>/gi,function(e,t,n){return"<noscript"+unescape(t)+">"+unescape(n)+"</noscript>"}).replace(/(<[^>]*)data-ke-src="([^"]*)"([^>]*>)/gi,function(e,t,n){return e=e.replace(/(\s+(?:href|src)=")[^"]*(")/i,function(e,t,i){return t+fa(n)+i}),e=e.replace(/\s+data-ke-src="[^"]*"/i,"")}).replace(/(<[^>]+\s)data-ke-(on\w+="[^"]*"[^>]*>)/gi,function(e,t,n){return t+n})}),n.beforeSetHtml(function(e){return l&&z<=8&&(e=e.replace(/<input[^>]*>|<(select|button)[^>]*>[\s\S]*?<\/\1>/gi,function(e){return"none"==aa(H(e).style||"").display?'<div class="ke-display-none" data-ke-input-tag="'+escape(e)+'"></div>':e})),e.replace(/<embed[^>]*type="([^"]+)"[^>]*>(?:<\/embed>)?/gi,function(e){return e=H(e),e.src=j(e.src,""),e.width=j(e.width,0),e.height=j(e.height,0),ob(n.themesPath+"common/blank.gif",e)}).replace(/<a[^>]*name="([^"]+)"[^>]*>(?:<\/a>)?/gi,function(e){var t=H(e);return t.href!==o?e:'<img class="ke-anchor" src="'+n.themesPath+'common/anchor.gif" data-ke-name="'+escape(t.name)+'" />'}).replace(/<script([^>]*)>([\s\S]*?)<\/script>/gi,function(e,t,n){return'<div class="ke-script" data-ke-script-attr="'+escape(t)+'">'+escape(n)+"</div>"}).replace(/<noscript([^>]*)>([\s\S]*?)<\/noscript>/gi,function(e,t,n){return'<div class="ke-noscript" data-ke-noscript-attr="'+escape(t)+'">'+escape(n)+"</div>"}).replace(/(<[^>]*)(href|src)="([^"]*)"([^>]*>)/gi,function(e,t,n,i,r){return e.match(/\sdata-ke-src="[^"]*"/i)?e:e=t+n+'="'+i+'" data-ke-src="'+C(i)+'"'+r}).replace(/(<[^>]+\s)(on\w+="[^"]*"[^>]*>)/gi,function(e,t,n){return t+"data-ke-"+n}).replace(/<table[^>]*\s+border="0"[^>]*>/gi,function(e){return e.indexOf("ke-zeroborder")>=0?e:Qb(e,"ke-zeroborder")})})})}}(window);
+/* KindEditor 4.1.7 (2014-04-21), Copyright (C) kindsoft.net, Licence: http://www.kindsoft.net/license.php */
+(function (A, o) {
+    function Y(a) {
+        if (!a)return !1;
+        return Object.prototype.toString.call(a) === "[object Array]"
+    }
+
+    function bb(a) {
+        if (!a)return !1;
+        return Object.prototype.toString.call(a) === "[object Function]"
+    }
+
+    function N(a, b) {
+        for (var c = 0, d = b.length; c < d; c++)if (a === b[c])return c;
+        return -1
+    }
+
+    function m(a, b) {
+        if (Y(a))for (var c = 0, d = a.length; c < d; c++) {
+            if (b.call(a[c], c, a[c]) === !1)break
+        } else for (c in a)if (a.hasOwnProperty(c) && b.call(a[c], c, a[c]) === !1)break
+    }
+
+    function B(a) {
+        return a.replace(/(?:^[ \t\n\r]+)|(?:[ \t\n\r]+$)/g,
+            "")
+    }
+
+    function ua(a, b, c) {
+        c = c === o ? "," : c;
+        return (c + b + c).indexOf(c + a + c) >= 0
+    }
+
+    function s(a, b) {
+        b = b || "px";
+        return a && /^\d+$/.test(a) ? a + b : a
+    }
+
+    function t(a) {
+        var b;
+        return a && (b = /(\d+)/.exec(a)) ? parseInt(b[1], 10) : 0
+    }
+
+    function C(a) {
+        return a.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;")
+    }
+
+    function fa(a) {
+        return a.replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&amp;/g, "&")
+    }
+
+    function ga(a) {
+        var b = a.split("-"), a = "";
+        m(b, function (b, d) {
+            a += b > 0 ? d.charAt(0).toUpperCase() +
+                d.substr(1) : d
+        });
+        return a
+    }
+
+    function va(a) {
+        function b(a) {
+            a = parseInt(a, 10).toString(16).toUpperCase();
+            return a.length > 1 ? a : "0" + a
+        }
+
+        return a.replace(/rgb\s*\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)/ig, function (a, d, e, g) {
+            return "#" + b(d) + b(e) + b(g)
+        })
+    }
+
+    function u(a, b) {
+        var b = b === o ? "," : b, c = {}, d = Y(a) ? a : a.split(b), e;
+        m(d, function (a, b) {
+            if (e = /^(\d+)\.\.(\d+)$/.exec(b))for (var d = parseInt(e[1], 10); d <= parseInt(e[2], 10); d++)c[d.toString()] = !0; else c[b] = !0
+        });
+        return c
+    }
+
+    function Fa(a, b) {
+        return Array.prototype.slice.call(a, b || 0)
+    }
+
+    function j(a, b) {
+        return a === o ? b : a
+    }
+
+    function E(a, b, c) {
+        c || (c = b, b = null);
+        var d;
+        if (b) {
+            var e = function () {
+            };
+            e.prototype = b.prototype;
+            d = new e;
+            m(c, function (a, b) {
+                d[a] = b
+            })
+        } else d = c;
+        d.constructor = a;
+        a.prototype = d;
+        a.parent = b ? b.prototype : null
+    }
+
+    function cb(a) {
+        var b;
+        if (b = /\{[\s\S]*\}|\[[\s\S]*\]/.exec(a)) a = b[0];
+        b = /[\u0000\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g;
+        b.lastIndex = 0;
+        b.test(a) && (a = a.replace(b, function (a) {
+            return "\\u" + ("0000" + a.charCodeAt(0).toString(16)).slice(-4)
+        }));
+        if (/^[\],:{}\s]*$/.test(a.replace(/\\(?:["\\\/bfnrt]|u[0-9a-fA-F]{4})/g, "@").replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, "]").replace(/(?:^|:|,)(?:\s*\[)+/g, "")))return eval("(" + a + ")");
+        throw"JSON parse error";
+    }
+
+    function Pb(a, b, c) {
+        a.addEventListener ? a.addEventListener(b, c, db) : a.attachEvent && a.attachEvent("on" + b, c)
+    }
+
+    function wa(a, b, c) {
+        a.removeEventListener ? a.removeEventListener(b, c, db) : a.detachEvent && a.detachEvent("on" + b, c)
+    }
+
+    function eb(a, b) {
+        this.init(a, b)
+    }
+
+    function fb(a) {
+        try {
+            delete a[Z]
+        } catch (b) {
+            a.removeAttribute &&
+            a.removeAttribute(Z)
+        }
+    }
+
+    function $(a, b, c) {
+        if (b.indexOf(",") >= 0) m(b.split(","), function () {
+            $(a, this, c)
+        }); else {
+            var d = a[Z] || null;
+            d || (a[Z] = ++gb, d = gb);
+            v[d] === o && (v[d] = {});
+            var e = v[d][b];
+            e && e.length > 0 ? wa(a, b, e[0]) : (v[d][b] = [], v[d].el = a);
+            e = v[d][b];
+            e.length === 0 && (e[0] = function (b) {
+                var c = b ? new eb(a, b) : o;
+                m(e, function (b, d) {
+                    b > 0 && d && d.call(a, c)
+                })
+            });
+            N(c, e) < 0 && e.push(c);
+            Pb(a, b, e[0])
+        }
+    }
+
+    function ha(a, b, c) {
+        if (b && b.indexOf(",") >= 0) m(b.split(","), function () {
+            ha(a, this, c)
+        }); else {
+            var d = a[Z] || null;
+            if (d)if (b === o) d in v && (m(v[d],
+                function (b, c) {
+                    b != "el" && c.length > 0 && wa(a, b, c[0])
+                }), delete v[d], fb(a)); else if (v[d]) {
+                var e = v[d][b];
+                if (e && e.length > 0) {
+                    c === o ? (wa(a, b, e[0]), delete v[d][b]) : (m(e, function (a, b) {
+                            a > 0 && b === c && e.splice(a, 1)
+                        }), e.length == 1 && (wa(a, b, e[0]), delete v[d][b]));
+                    var g = 0;
+                    m(v[d], function () {
+                        g++
+                    });
+                    g < 2 && (delete v[d], fb(a))
+                }
+            }
+        }
+    }
+
+    function hb(a, b) {
+        if (b.indexOf(",") >= 0) m(b.split(","), function () {
+            hb(a, this)
+        }); else {
+            var c = a[Z] || null;
+            if (c) {
+                var d = v[c][b];
+                if (v[c] && d && d.length > 0) d[0]()
+            }
+        }
+    }
+
+    function Ga(a, b, c) {
+        b = /^\d{2,}$/.test(b) ? b : b.toUpperCase().charCodeAt(0);
+        $(a, "keydown", function (d) {
+            d.ctrlKey && d.which == b && !d.shiftKey && !d.altKey && (c.call(a), d.stop())
+        })
+    }
+
+    function aa(a) {
+        for (var b = {}, c = /\s*([\w\-]+)\s*:([^;]*)(;|$)/g, d; d = c.exec(a);) {
+            var e = B(d[1].toLowerCase());
+            d = B(va(d[2]));
+            b[e] = d
+        }
+        return b
+    }
+
+    function H(a) {
+        for (var b = {}, c = /\s+(?:([\w\-:]+)|(?:([\w\-:]+)=([^\s"'<>]+))|(?:([\w\-:"]+)="([^"]*)")|(?:([\w\-:"]+)='([^']*)'))(?=(?:\s|\/|>)+)/g, d; d = c.exec(a);) {
+            var e = (d[1] || d[2] || d[4] || d[6]).toLowerCase();
+            b[e] = (d[2] ? d[3] : d[4] ? d[5] : d[7]) || ""
+        }
+        return b
+    }
+
+    function Qb(a, b) {
+        return a =
+            /\s+class\s*=/.test(a) ? a.replace(/(\s+class=["']?)([^"']*)(["']?[\s>])/, function (a, d, e, g) {
+                    return (" " + e + " ").indexOf(" " + b + " ") < 0 ? e === "" ? d + b + g : d + e + " " + b + g : a
+                }) : a.substr(0, a.length - 1) + ' class="' + b + '">'
+    }
+
+    function Rb(a) {
+        var b = "";
+        m(aa(a), function (a, d) {
+            b += a + ":" + d + ";"
+        });
+        return b
+    }
+
+    function ia(a, b, c, d) {
+        function e(a) {
+            for (var a = a.split("/"), b = [], c = 0, d = a.length; c < d; c++) {
+                var e = a[c];
+                e == ".." ? b.length > 0 && b.pop() : e !== "" && e != "." && b.push(e)
+            }
+            return "/" + b.join("/")
+        }
+
+        function g(b, c) {
+            if (a.substr(0, b.length) === b) {
+                for (var e = [],
+                         h = 0; h < c; h++)e.push("..");
+                h = ".";
+                e.length > 0 && (h += "/" + e.join("/"));
+                d == "/" && (h += "/");
+                return h + a.substr(b.length)
+            } else if (f = /^(.*)\//.exec(b))return g(f[1], ++c)
+        }
+
+        b = j(b, "").toLowerCase();
+        a.substr(0, 5) != "data:" && (a = a.replace(/([^:])\/\//g, "$1/"));
+        if (N(b, ["absolute", "relative", "domain"]) < 0)return a;
+        c = c || location.protocol + "//" + location.host;
+        if (d === o)var h = location.pathname.match(/^(\/.*)\//), d = h ? h[1] : "";
+        var f;
+        if (f = /^(\w+:\/\/[^\/]*)/.exec(a)) {
+            if (f[1] !== c)return a
+        } else if (/^\w+:/.test(a))return a;
+        /^\//.test(a) ?
+            a = c + e(a.substr(1)) : /^\w+:\/\//.test(a) || (a = c + e(d + "/" + a));
+        b === "relative" ? a = g(c + d, 0).substr(2) : b === "absolute" && a.substr(0, c.length) === c && (a = a.substr(c.length));
+        return a
+    }
+
+    function S(a, b, c, d, e) {
+        var c = c || "", d = j(d, !1), e = j(e, "\t"), g = "xx-small,x-small,small,medium,large,x-large,xx-large".split(","), a = a.replace(/(<(?:pre|pre\s[^>]*)>)([\s\S]*?)(<\/pre>)/ig, function (a, b, c, d) {
+            return b + c.replace(/<(?:br|br\s[^>]*)>/ig, "\n") + d
+        }), a = a.replace(/<(?:br|br\s[^>]*)\s*\/?>\s*<\/p>/ig, "</p>"), a = a.replace(/(<(?:p|p\s[^>]*)>)\s*(<\/p>)/ig,
+            "$1<br />$2"), a = a.replace(/\u200B/g, ""), a = a.replace(/\u00A9/g, "&copy;"), h = {};
+        b && (m(b, function (a, b) {
+            for (var c = a.split(","), d = 0, e = c.length; d < e; d++)h[c[d]] = u(b)
+        }), h.script || (a = a.replace(/(<(?:script|script\s[^>]*)>)([\s\S]*?)(<\/script>)/ig, "")), h.style || (a = a.replace(/(<(?:style|style\s[^>]*)>)([\s\S]*?)(<\/style>)/ig, "")));
+        var f = [], a = a.replace(/([ \t\n\r]*)<(\/)?([\w\-:]+)((?:\s+|(?:\s+[\w\-:]+)|(?:\s+[\w\-:]+=[^\s"'<>]+)|(?:\s+[\w\-:"]+="[^"]*")|(?:\s+[\w\-:"]+='[^']*'))*)(\/)?>([ \t\n\r]*)/g, function (a,
+                                                                                                                                                                                                      n, r, p, I, o, j) {
+            var n = n || "", r = r || "", l = p.toLowerCase(), J = I || "", p = o ? " " + o : "", j = j || "";
+            if (b && !h[l])return "";
+            p === "" && ib[l] && (p = " /");
+            jb[l] && (n && (n = " "), j && (j = " "));
+            Ha[l] && (r ? j = "\n" : n = "\n");
+            d && l == "br" && (j = "\n");
+            if (kb[l] && !Ha[l])if (d) {
+                r && f.length > 0 && f[f.length - 1] === l ? f.pop() : f.push(l);
+                j = n = "\n";
+                I = 0;
+                for (o = r ? f.length : f.length - 1; I < o; I++)n += e, r || (j += e);
+                p ? f.pop() : r || (j += e)
+            } else n = j = "";
+            if (J !== "") {
+                var w = H(a);
+                if (l === "font") {
+                    var K = {}, F = "";
+                    m(w, function (a, b) {
+                        if (a === "color") K.color = b, delete w[a];
+                        a === "size" && (K["font-size"] =
+                            g[parseInt(b, 10) - 1] || "", delete w[a]);
+                        a === "face" && (K["font-family"] = b, delete w[a]);
+                        a === "style" && (F = b)
+                    });
+                    F && !/;$/.test(F) && (F += ";");
+                    m(K, function (a, b) {
+                        b !== "" && (/\s/.test(b) && (b = "'" + b + "'"), F += a + ":" + b + ";")
+                    });
+                    w.style = F
+                }
+                m(w, function (a, d) {
+                    Sb[a] && (w[a] = a);
+                    N(a, ["src", "href"]) >= 0 && (w[a] = ia(d, c));
+                    (b && a !== "style" && !h[l]["*"] && !h[l][a] || l === "body" && a === "contenteditable" || /^kindeditor_\d+$/.test(a)) && delete w[a];
+                    if (a === "style" && d !== "") {
+                        var e = aa(d);
+                        m(e, function (a) {
+                            b && !h[l].style && !h[l]["." + a] && delete e[a]
+                        });
+                        var g =
+                            "";
+                        m(e, function (a, b) {
+                            g += a + ":" + b + ";"
+                        });
+                        w.style = g
+                    }
+                });
+                J = "";
+                m(w, function (a, b) {
+                    a === "style" && b === "" || (b = b.replace(/"/g, "&quot;"), J += " " + a + '="' + b + '"')
+                })
+            }
+            l === "font" && (l = "span");
+            return n + "<" + r + l + J + p + ">" + j
+        }), a = a.replace(/(<(?:pre|pre\s[^>]*)>)([\s\S]*?)(<\/pre>)/ig, function (a, b, c, d) {
+            return b + c.replace(/\n/g, '<span id="__kindeditor_pre_newline__">\n') + d
+        }), a = a.replace(/\n\s*\n/g, "\n"), a = a.replace(/<span id="__kindeditor_pre_newline__">\n/g, "\n");
+        return B(a)
+    }
+
+    function lb(a, b) {
+        a = a.replace(/<meta[\s\S]*?>/ig, "").replace(/<![\s\S]*?>/ig,
+            "").replace(/<style[^>]*>[\s\S]*?<\/style>/ig, "").replace(/<script[^>]*>[\s\S]*?<\/script>/ig, "").replace(/<w:[^>]+>[\s\S]*?<\/w:[^>]+>/ig, "").replace(/<o:[^>]+>[\s\S]*?<\/o:[^>]+>/ig, "").replace(/<xml>[\s\S]*?<\/xml>/ig, "").replace(/<(?:table|td)[^>]*>/ig, function (a) {
+            return a.replace(/border-bottom:([#\w\s]+)/ig, "border:$1")
+        });
+        return S(a, b)
+    }
+
+    function mb(a) {
+        if (/\.(rm|rmvb)(\?|$)/i.test(a))return "audio/x-pn-realaudio-plugin";
+        if (/\.(swf|flv)(\?|$)/i.test(a))return "application/x-shockwave-flash";
+        return "video/x-ms-asf-plugin"
+    }
+
+    function nb(a) {
+        return H(unescape(a))
+    }
+
+    function Ia(a) {
+        var b = "<embed ";
+        m(a, function (a, d) {
+            b += a + '="' + d + '" '
+        });
+        b += "/>";
+        return b
+    }
+
+    function ob(a, b) {
+        var c = b.width, d = b.height, e = b.type || mb(b.src), g = Ia(b), h = "";
+        c > 0 && (h += "width:" + c + "px;");
+        d > 0 && (h += "height:" + d + "px;");
+        c = /realaudio/i.test(e) ? "ke-rm" : /flash/i.test(e) ? "ke-flash" : "ke-media";
+        c = '<img class="' + c + '" src="' + a + '" ';
+        h !== "" && (c += 'style="' + h + '" ');
+        c += 'data-ke-tag="' + escape(g) + '" alt="" />';
+        return c
+    }
+
+    function xa(a, b) {
+        if (a.nodeType == 9 && b.nodeType != 9)return !0;
+        for (; b =
+                   b.parentNode;)if (b == a)return !0;
+        return !1
+    }
+
+    function ya(a, b) {
+        var b = b.toLowerCase(), c = null;
+        if (!Tb && a.nodeName.toLowerCase() != "script") {
+            var d = a.ownerDocument.createElement("div");
+            d.appendChild(a.cloneNode(!1));
+            d = H(fa(d.innerHTML));
+            b in d && (c = d[b])
+        } else try {
+            c = a.getAttribute(b, 2)
+        } catch (e) {
+            c = a.getAttribute(b, 1)
+        }
+        b === "style" && c !== null && (c = Rb(c));
+        return c
+    }
+
+    function za(a, b) {
+        function c(a) {
+            if (typeof a != "string")return a;
+            return a.replace(/([^\w\-])/g, "\\$1")
+        }
+
+        function d(a, b) {
+            return a === "*" || a.toLowerCase() === c(b.toLowerCase())
+        }
+
+        function e(a, b, c) {
+            var e = [];
+            (a = (c.ownerDocument || c).getElementById(a.replace(/\\/g, ""))) && d(b, a.nodeName) && xa(c, a) && e.push(a);
+            return e
+        }
+
+        function g(a, b, c) {
+            var e = c.ownerDocument || c, g = [], h, f, i;
+            if (c.getElementsByClassName) {
+                e = c.getElementsByClassName(a.replace(/\\/g, ""));
+                h = 0;
+                for (f = e.length; h < f; h++)i = e[h], d(b, i.nodeName) && g.push(i)
+            } else if (e.querySelectorAll) {
+                e = e.querySelectorAll((c.nodeName !== "#document" ? c.nodeName + " " : "") + b + "." + a);
+                h = 0;
+                for (f = e.length; h < f; h++)i = e[h], xa(c, i) && g.push(i)
+            } else {
+                e = c.getElementsByTagName(b);
+                a = " " + a + " ";
+                h = 0;
+                for (f = e.length; h < f; h++)if (i = e[h], i.nodeType == 1) (b = i.className) && (" " + b + " ").indexOf(a) > -1 && g.push(i)
+            }
+            return g
+        }
+
+        function h(a, b, d, e) {
+            for (var g = [], d = e.getElementsByTagName(d), h = 0, f = d.length; h < f; h++)e = d[h], e.nodeType == 1 && (b === null ? ya(e, a) !== null && g.push(e) : b === c(ya(e, a)) && g.push(e));
+            return g
+        }
+
+        function f(a, b) {
+            var c = [], i, k = (i = /^((?:\\.|[^.#\s\[<>])+)/.exec(a)) ? i[1] : "*";
+            if (i = /#((?:[\w\-]|\\.)+)$/.exec(a)) c = e(i[1], k, b); else if (i = /\.((?:[\w\-]|\\.)+)$/.exec(a)) c = g(i[1], k, b); else if (i = /\[((?:[\w\-]|\\.)+)\]/.exec(a)) c =
+                h(i[1].toLowerCase(), null, k, b); else if (i = /\[((?:[\w\-]|\\.)+)\s*=\s*['"]?((?:\\.|[^'"]+)+)['"]?\]/.exec(a)) {
+                c = i[1].toLowerCase();
+                i = i[2];
+                if (c === "id") k = e(i, k, b); else if (c === "class") k = g(i, k, b); else if (c === "name") {
+                    c = [];
+                    i = (b.ownerDocument || b).getElementsByName(i.replace(/\\/g, ""));
+                    for (var n, p = 0, r = i.length; p < r; p++)n = i[p], d(k, n.nodeName) && xa(b, n) && n.getAttributeNode("name") && c.push(n);
+                    k = c
+                } else k = h(c, i, k, b);
+                c = k
+            } else {
+                k = b.getElementsByTagName(k);
+                n = 0;
+                for (p = k.length; n < p; n++)i = k[n], i.nodeType == 1 && c.push(i)
+            }
+            return c
+        }
+
+        var k = a.split(",");
+        if (k.length > 1) {
+            var n = [];
+            m(k, function () {
+                m(za(this, b), function () {
+                    N(this, n) < 0 && n.push(this)
+                })
+            });
+            return n
+        }
+        for (var b = b || document, k = [], r, p = /((?:\\.|[^\s>])+|[\s>])/g; r = p.exec(a);)r[1] !== " " && k.push(r[1]);
+        r = [];
+        if (k.length == 1)return f(k[0], b);
+        var p = !1, I, l, j, o, J, w, K, F, q, s;
+        w = 0;
+        for (lenth = k.length; w < lenth; w++)if (I = k[w], I === ">") p = !0; else {
+            if (w > 0) {
+                l = [];
+                K = 0;
+                for (q = r.length; K < q; K++) {
+                    o = r[K];
+                    j = f(I, o);
+                    F = 0;
+                    for (s = j.length; F < s; F++)J = j[F], p ? o === J.parentNode && l.push(J) : l.push(J)
+                }
+                r = l
+            } else r = f(I, b);
+            if (r.length ===
+                0)return []
+        }
+        return r
+    }
+
+    function T(a) {
+        if (!a)return document;
+        return a.ownerDocument || a.document || a
+    }
+
+    function U(a) {
+        if (!a)return A;
+        a = T(a);
+        return a.parentWindow || a.defaultView
+    }
+
+    function Ub(a, b) {
+        if (a.nodeType == 1) {
+            var c = T(a);
+            try {
+                a.innerHTML = '<img id="__kindeditor_temp_tag__" width="0" height="0" style="display:none;" />' + b;
+                var d = c.getElementById("__kindeditor_temp_tag__");
+                d.parentNode.removeChild(d)
+            } catch (e) {
+                f(a).empty(), f("@" + b, c).each(function () {
+                    a.appendChild(this)
+                })
+            }
+        }
+    }
+
+    function Ja(a, b, c) {
+        l && z < 8 && b.toLowerCase() ==
+        "class" && (b = "className");
+        a.setAttribute(b, "" + c)
+    }
+
+    function Ka(a) {
+        if (!a || !a.nodeName)return "";
+        return a.nodeName.toLowerCase()
+    }
+
+    function Vb(a, b) {
+        var c = U(a), d = ga(b), e = "";
+        c.getComputedStyle ? (c = c.getComputedStyle(a, null), e = c[d] || c.getPropertyValue(b) || a.style[d]): a.currentStyle
+    &&
+        (e = a.currentStyle[d] || a.style[d]);
+        return e
+    }
+
+    function G(a) {
+        a = a || document;
+        return O ? a.body : a.documentElement
+    }
+
+    function ba(a) {
+        var a = a || document, b;
+        l || La ? (b = G(a).scrollLeft, a = G(a).scrollTop) : (b = U(a).scrollX, a = U(a).scrollY);
+        return {x: b, y: a}
+    }
+
+    function D(a) {
+        this.init(a)
+    }
+
+    function pb(a) {
+        a.collapsed = a.startContainer === a.endContainer && a.startOffset === a.endOffset;
+        return a
+    }
+
+    function Ma(a, b, c) {
+        function d(d, e, g) {
+            var h = d.nodeValue.length, k;
+            b && (k = d.cloneNode(!0), k = e > 0 ? k.splitText(e) : k, g < h && k.splitText(g - e));
+            if (c) {
+                var n = d;
+                e > 0 && (n = d.splitText(e), a.setStart(d, e));
+                g < h && (d = n.splitText(g - e), a.setEnd(d, 0));
+                f.push(n)
+            }
+            return k
+        }
+
+        function e() {
+            c && a.up().collapse(!0);
+            for (var b = 0, d = f.length; b < d; b++) {
+                var e = f[b];
+                e.parentNode && e.parentNode.removeChild(e)
+            }
+        }
+
+        function g(e,
+                   l) {
+            for (var j = e.firstChild, o; j;) {
+                o = (new L(h)).selectNode(j);
+                n = o.compareBoundaryPoints(ja, a);
+                n >= 0 && r <= 0 && (r = o.compareBoundaryPoints(ka, a));
+                r >= 0 && p <= 0 && (p = o.compareBoundaryPoints(ca, a));
+                p >= 0 && m <= 0 && (m = o.compareBoundaryPoints(la, a));
+                if (m >= 0)return !1;
+                o = j.nextSibling;
+                if (n > 0)if (j.nodeType == 1)if (r >= 0 && p <= 0) b && l.appendChild(j.cloneNode(!0)), c && f.push(j); else {
+                    var q;
+                    b && (q = j.cloneNode(!1), l.appendChild(q));
+                    if (g(j, q) === !1)return !1
+                } else if (j.nodeType == 3 && (j = j == k.startContainer ? d(j, k.startOffset, j.nodeValue.length) :
+                        j == k.endContainer ? d(j, 0, k.endOffset) : d(j, 0, j.nodeValue.length), b))try {
+                    l.appendChild(j)
+                } catch (s) {
+                }
+                j = o
+            }
+        }
+
+        var h = a.doc, f = [], k = a.cloneRange().down(), n = -1, r = -1, p = -1, m = -1, l = a.commonAncestor(), j = h.createDocumentFragment();
+        if (l.nodeType == 3)return l = d(l, a.startOffset, a.endOffset), b && j.appendChild(l), e(), b ? j : a;
+        g(l, j);
+        c && a.up().collapse(!0);
+        for (var l = 0, o = f.length; l < o; l++) {
+            var q = f[l];
+            q.parentNode && q.parentNode.removeChild(q)
+        }
+        return b ? j : a
+    }
+
+    function ma(a, b) {
+        for (var c = b; c;) {
+            var d = f(c);
+            if (d.name == "marquee" || d.name ==
+                "select")return;
+            c = c.parentNode
+        }
+        try {
+            a.moveToElementText(b)
+        } catch (e) {
+        }
+    }
+
+    function qb(a, b) {
+        var c = a.parentElement().ownerDocument, d = a.duplicate();
+        d.collapse(b);
+        var e = d.parentElement(), g = e.childNodes;
+        if (g.length === 0)return {node: e.parentNode, offset: f(e).index()};
+        var h = c, i = 0, k = -1, n = a.duplicate();
+        ma(n, e);
+        for (var r = 0, p = g.length; r < p; r++) {
+            var j = g[r], k = n.compareEndPoints("StartToStart", d);
+            if (k === 0)return {node: j.parentNode, offset: r};
+            if (j.nodeType == 1) {
+                var l = a.duplicate(), m, o = f(j), q = j;
+                o.isControl() && (m = c.createElement("span"),
+                    o.after(m), q = m, i += o.text().replace(/\r\n|\n|\r/g, "").length);
+                ma(l, q);
+                n.setEndPoint("StartToEnd", l);
+                k > 0 ? i += l.text.replace(/\r\n|\n|\r/g, "").length : i = 0;
+                m && f(m).remove()
+            } else j.nodeType == 3 && (n.moveStart("character", j.nodeValue.length), i += j.nodeValue.length);
+            k < 0 && (h = j)
+        }
+        if (k < 0 && h.nodeType == 1)return {node: e, offset: f(e.lastChild).index() + 1};
+        if (k > 0)for (; h.nextSibling && h.nodeType == 1;)h = h.nextSibling;
+        n = a.duplicate();
+        ma(n, e);
+        n.setEndPoint("StartToEnd", d);
+        i -= n.text.replace(/\r\n|\n|\r/g, "").length;
+        if (k > 0 && h.nodeType ==
+            3)for (c = h.previousSibling; c && c.nodeType == 3;)i -= c.nodeValue.length, c = c.previousSibling;
+        return {node: h, offset: i}
+    }
+
+    function rb(a, b) {
+        var c = a.ownerDocument || a, d = c.body.createTextRange();
+        if (c == a)return d.collapse(!0), d;
+        if (a.nodeType == 1 && a.childNodes.length > 0) {
+            var e = a.childNodes, g;
+            b === 0 ? (g = e[0], e = !0) : (g = e[b - 1], e = !1);
+            if (!g)return d;
+            if (f(g).name === "head")return b === 1 && (e = !0), b === 2 && (e = !1), d.collapse(e), d;
+            if (g.nodeType == 1) {
+                var h = f(g), i;
+                h.isControl() && (i = c.createElement("span"), e ? h.before(i) : h.after(i), g = i);
+                ma(d,
+                    g);
+                d.collapse(e);
+                i && f(i).remove();
+                return d
+            }
+            a = g;
+            b = e ? 0 : g.nodeValue.length
+        }
+        c = c.createElement("span");
+        f(a).before(c);
+        ma(d, c);
+        d.moveStart("character", b);
+        f(c).remove();
+        return d
+    }
+
+    function sb(a) {
+        function b(a) {
+            if (f(a.node).name == "tr") a.node = a.node.cells[a.offset], a.offset = 0
+        }
+
+        var c;
+        if (l) {
+            if (a.item)return c = T(a.item(0)), c = new L(c), c.selectNode(a.item(0)), c;
+            c = a.parentElement().ownerDocument;
+            var d = qb(a, !0), a = qb(a, !1);
+            b(d);
+            b(a);
+            c = new L(c);
+            c.setStart(d.node, d.offset);
+            c.setEnd(a.node, a.offset);
+            return c
+        }
+        d = a.startContainer;
+        c = d.ownerDocument || d;
+        c = new L(c);
+        c.setStart(d, a.startOffset);
+        c.setEnd(a.endContainer, a.endOffset);
+        return c
+    }
+
+    function L(a) {
+        this.init(a)
+    }
+
+    function Na(a) {
+        if (!a.nodeName)return a.constructor === L ? a : sb(a);
+        return new L(a)
+    }
+
+    function P(a, b, c) {
+        try {
+            a.execCommand(b, !1, c)
+        } catch (d) {
+        }
+    }
+
+    function tb(a, b) {
+        var c = "";
+        try {
+            c = a.queryCommandValue(b)
+        } catch (d) {
+        }
+        typeof c !== "string" && (c = "");
+        return c
+    }
+
+    function Oa(a) {
+        var b = U(a);
+        return a.selection || b.getSelection()
+    }
+
+    function ub(a) {
+        var b = {}, c, d;
+        m(a, function (a, g) {
+            c = a.split(",");
+            for (var h =
+                0, f = c.length; h < f; h++)d = c[h], b[d] = g
+        });
+        return b
+    }
+
+    function Pa(a, b) {
+        return vb(a, b, "*") || vb(a, b)
+    }
+
+    function vb(a, b, c) {
+        c = c || a.name;
+        if (a.type !== 1)return !1;
+        b = ub(b);
+        if (!b[c])return !1;
+        for (var c = b[c].split(","), b = 0, d = c.length; b < d; b++) {
+            var e = c[b];
+            if (e === "*")return !0;
+            var g = /^(\.?)([^=]+)(?:=([^=]*))?$/.exec(e), h = g[1] ? "css" : "attr", e = g[2], g = g[3] || "";
+            if (g === "" && a[h](e) !== "")return !0;
+            if (g !== "" && a[h](e) === g)return !0
+        }
+        return !1
+    }
+
+    function Qa(a, b) {
+        a.type == 1 && (wb(a, b, "*"), wb(a, b))
+    }
+
+    function wb(a, b, c) {
+        c = c || a.name;
+        if (a.type ===
+            1 && (b = ub(b), b[c])) {
+            for (var c = b[c].split(","), b = !1, d = 0, e = c.length; d < e; d++) {
+                var g = c[d];
+                if (g === "*") {
+                    b = !0;
+                    break
+                }
+                var h = /^(\.?)([^=]+)(?:=([^=]*))?$/.exec(g), g = h[2];
+                h[1] ? (g = ga(g), a[0].style[g] && (a[0].style[g] = "")) : a.removeAttr(g)
+            }
+            b && a.remove(!0)
+        }
+    }
+
+    function Ra(a) {
+        for (; a.first();)a = a.first();
+        return a
+    }
+
+    function da(a) {
+        if (a.type != 1 || a.isSingle())return !1;
+        return a.html().replace(/<[^>]+>/g, "") === ""
+    }
+
+    function Wb(a, b, c) {
+        m(b, function (b, c) {
+            b !== "style" && a.attr(b, c)
+        });
+        m(c, function (b, c) {
+            a.css(b, c)
+        })
+    }
+
+    function na(a) {
+        this.init(a)
+    }
+
+    function xb(a) {
+        a.nodeName && (a = T(a), a = Na(a).selectNodeContents(a.body).collapse(!1));
+        return new na(a)
+    }
+
+    function Sa(a) {
+        var b = a.moveEl, c = a.moveFn, d = a.clickEl || b, e = a.beforeDrag, g = [document];
+        (a.iframeFix === o || a.iframeFix) && f("iframe").each(function () {
+            if (!/^https?:\/\//.test(ia(this.src || "", "absolute"))) {
+                var a;
+                try {
+                    a = Ta(this)
+                } catch (b) {
+                }
+                if (a) {
+                    var c = f(this).pos();
+                    f(a).data("pos-x", c.x);
+                    f(a).data("pos-y", c.y);
+                    g.push(a)
+                }
+            }
+        });
+        d.mousedown(function (a) {
+            function i(a) {
+                a.preventDefault();
+                var b = f(T(a.target)), e = Q((b.data("pos-x") ||
+                    0) + a.pageX - q), a = Q((b.data("pos-y") || 0) + a.pageY - s);
+                c.call(d, p, l, m, o, e, a)
+            }
+
+            function k(a) {
+                a.preventDefault()
+            }
+
+            function n(a) {
+                a.preventDefault();
+                f(g).unbind("mousemove", i).unbind("mouseup", n).unbind("selectstart", k);
+                j.releaseCapture && j.releaseCapture()
+            }
+
+            a.stopPropagation();
+            var j = d.get(), p = t(b.css("left")), l = t(b.css("top")), m = b.width(), o = b.height(), q = a.pageX, s = a.pageY;
+            e && e();
+            f(g).mousemove(i).mouseup(n).bind("selectstart", k);
+            j.setCapture && j.setCapture()
+        })
+    }
+
+    function R(a) {
+        this.init(a)
+    }
+
+    function Ua(a) {
+        return new R(a)
+    }
+
+    function Ta(a) {
+        a = f(a)[0];
+        return a.contentDocument || a.contentWindow.document
+    }
+
+    function Xb(a, b, c, d) {
+        var e = [Va === "" ? "<html>" : '<html dir="' + Va + '">', '<head><meta charset="utf-8" /><title></title>', "<style>", "html {margin:0;padding:0;}", "body {margin:0;padding:5px;}", 'body, td {font:12px/1.5 "sans serif",tahoma,verdana,helvetica;}', "body, p, div {word-wrap: break-word;}", "p {margin:5px 0;}", "table {border-collapse:collapse;}", "img {border:0;}", "noscript {display:none;}", "table.ke-zeroborder td {border:1px dotted #AAA;}",
+            "img.ke-flash {", "\tborder:1px solid #AAA;", "\tbackground-image:url(" + a + "common/flash.gif);", "\tbackground-position:center center;", "\tbackground-repeat:no-repeat;", "\twidth:100px;", "\theight:100px;", "}", "img.ke-rm {", "\tborder:1px solid #AAA;", "\tbackground-image:url(" + a + "common/rm.gif);", "\tbackground-position:center center;", "\tbackground-repeat:no-repeat;", "\twidth:100px;", "\theight:100px;", "}", "img.ke-media {", "\tborder:1px solid #AAA;", "\tbackground-image:url(" + a + "common/media.gif);", "\tbackground-position:center center;",
+            "\tbackground-repeat:no-repeat;", "\twidth:100px;", "\theight:100px;", "}", "img.ke-anchor {", "\tborder:1px dashed #666;", "\twidth:16px;", "\theight:16px;", "}", ".ke-script, .ke-noscript, .ke-display-none {", "\tdisplay:none;", "\tfont-size:0;", "\twidth:0;", "\theight:0;", "}", ".ke-pagebreak {", "\tborder:1px dotted #AAA;", "\tfont-size:0;", "\theight:2px;", "}", "</style>"];
+        Y(c) || (c = [c]);
+        m(c, function (a, b) {
+            b && e.push('<link href="' + b + '" rel="stylesheet" />')
+        });
+        d && e.push("<style>" + d + "</style>");
+        e.push("</head><body " +
+            (b ? 'class="' + b + '"' : "") + "></body></html>");
+        return e.join("\n")
+    }
+
+    function oa(a, b) {
+        if (a.hasVal()) {
+            if (b === o) {
+                var c = a.val();
+                return c = c.replace(/(<(?:p|p\s[^>]*)>) *(<\/p>)/ig, "")
+            }
+            return a.val(b)
+        }
+        return a.html(b)
+    }
+
+    function pa(a) {
+        this.init(a)
+    }
+
+    function yb(a) {
+        return new pa(a)
+    }
+
+    function zb(a, b) {
+        var c = this.get(a);
+        c && !c.hasClass("ke-disabled") && b(c)
+    }
+
+    function Aa(a) {
+        this.init(a)
+    }
+
+    function Ab(a) {
+        return new Aa(a)
+    }
+
+    function qa(a) {
+        this.init(a)
+    }
+
+    function Wa(a) {
+        return new qa(a)
+    }
+
+    function ra(a) {
+        this.init(a)
+    }
+
+    function Bb(a) {
+        return new ra(a)
+    }
+
+    function Xa(a) {
+        this.init(a)
+    }
+
+    function sa(a) {
+        this.init(a)
+    }
+
+    function Cb(a) {
+        return new sa(a)
+    }
+
+    function Ya(a, b) {
+        var c = document.getElementsByTagName("head")[0] || (O ? document.body : document.documentElement), d = document.createElement("script");
+        c.appendChild(d);
+        d.src = a;
+        d.charset = "utf-8";
+        d.onload = d.onreadystatechange = function () {
+            if (!this.readyState || this.readyState === "loaded") b && b(), d.onload = d.onreadystatechange = null, c.removeChild(d)
+        }
+    }
+
+    function Db(a) {
+        var b = a.indexOf("?");
+        return b > 0 ? a.substr(0, b) : a
+    }
+
+    function Za(a) {
+        for (var b =
+            document.getElementsByTagName("head")[0] || (O ? document.body : document.documentElement), c = document.createElement("link"), d = Db(ia(a, "absolute")), e = f('link[rel="stylesheet"]', b), g = 0, h = e.length; g < h; g++)if (Db(ia(e[g].href, "absolute")) === d)return;
+        b.appendChild(c);
+        c.href = a;
+        c.rel = "stylesheet"
+    }
+
+    function Eb(a, b) {
+        if (a === o)return V;
+        if (!b)return V[a];
+        V[a] = b
+    }
+
+    function Fb(a) {
+        var b, c = "core";
+        if (b = /^(\w+)\.(\w+)$/.exec(a)) c = b[1], a = b[2];
+        return {ns: c, key: a}
+    }
+
+    function Gb(a, b) {
+        b = b === o ? f.options.langType : b;
+        if (typeof a === "string") {
+            if (!M[b])return "no language";
+            var c = a.length - 1;
+            if (a.substr(c) === ".")return M[b][a.substr(0, c)];
+            c = Fb(a);
+            return M[b][c.ns][c.key]
+        }
+        m(a, function (a, c) {
+            var g = Fb(a);
+            M[b] || (M[b] = {});
+            M[b][g.ns] || (M[b][g.ns] = {});
+            M[b][g.ns][g.key] = c
+        })
+    }
+
+    function Ba(a, b) {
+        if (!a.collapsed) {
+            var a = a.cloneRange().up(), c = a.startContainer, d = a.startOffset;
+            if (W || a.isControl())if ((c = f(c.childNodes[d])) && c.name == "img" && b(c))return c
+        }
+    }
+
+    function Yb() {
+        var a = this;
+        f(a.edit.doc).contextmenu(function (b) {
+            a.menu && a.hideMenu();
+            if (a.useContextmenu) {
+                if (a._contextmenus.length !== 0) {
+                    var c =
+                        0, d = [];
+                    for (m(a._contextmenus, function () {
+                        if (this.title == "-") d.push(this); else if (this.cond && this.cond() && (d.push(this), this.width && this.width > c)) c = this.width
+                    }); d.length > 0 && d[0].title == "-";)d.shift();
+                    for (; d.length > 0 && d[d.length - 1].title == "-";)d.pop();
+                    var e = null;
+                    m(d, function (a) {
+                        this.title == "-" && e.title == "-" && delete d[a];
+                        e = this
+                    });
+                    if (d.length > 0) {
+                        b.preventDefault();
+                        var g = f(a.edit.iframe).pos(), h = Wa({
+                            x: g.x + b.clientX,
+                            y: g.y + b.clientY,
+                            width: c,
+                            css: {visibility: "hidden"},
+                            shadowMode: a.shadowMode
+                        });
+                        m(d, function () {
+                            this.title &&
+                            h.addItem(this)
+                        });
+                        var g = G(h.doc), i = h.div.height();
+                        b.clientY + i >= g.clientHeight - 100 && h.pos(h.x, t(h.y) - i);
+                        h.div.css("visibility", "visible");
+                        a.menu = h
+                    }
+                }
+            } else b.preventDefault()
+        })
+    }
+
+    function Zb() {
+        function a(a) {
+            for (a = f(a.commonAncestor()); a;) {
+                if (a.type == 1 && !a.isStyle())break;
+                a = a.parent()
+            }
+            return a.name
+        }
+
+        var b = this, c = b.edit.doc, d = b.newlineTag;
+        if (!(l && d !== "br") && (!ea || !(z < 3 && d !== "p")) && !(La && z < 9)) {
+            var e = u("h1,h2,h3,h4,h5,h6,pre,li"), g = u("p,h1,h2,h3,h4,h5,h6,pre,li,blockquote");
+            f(c).keydown(function (f) {
+                if (!(f.which !=
+                    13 || f.shiftKey || f.ctrlKey || f.altKey)) {
+                    b.cmd.selection();
+                    var i = a(b.cmd.range);
+                    i == "marquee" || i == "select" || (d === "br" && !e[i] ? (f.preventDefault(), b.insertHtml("<br />" + (l && z < 9 ? "" : "\u200b"))) : g[i] || P(c, "formatblock", "<p>"))
+                }
+            });
+            f(c).keyup(function (e) {
+                if (!(e.which != 13 || e.shiftKey || e.ctrlKey || e.altKey) && d != "br")if (ea) {
+                    var e = b.cmd.commonAncestor("p"), i = b.cmd.commonAncestor("a");
+                    i && i.text() == "" && (i.remove(!0), b.cmd.range.selectNodeContents(e[0]).collapse(!0), b.cmd.select())
+                } else if (b.cmd.selection(), e = a(b.cmd.range),
+                        !(e == "marquee" || e == "select"))if (g[e] || P(c, "formatblock", "<p>"), e = b.cmd.commonAncestor("div")) {
+                    for (var i = f("<p></p>"), k = e[0].firstChild; k;) {
+                        var n = k.nextSibling;
+                        i.append(k);
+                        k = n
+                    }
+                    e.before(i);
+                    e.remove();
+                    b.cmd.range.selectNodeContents(i[0]);
+                    b.cmd.select()
+                }
+            })
+        }
+    }
+
+    function $b() {
+        var a = this, b = a.edit.doc;
+        f(b).keydown(function (c) {
+            if (c.which == 9)if (c.preventDefault(), a.afterTab) a.afterTab.call(a, c); else {
+                var c = a.cmd, d = c.range;
+                d.shrink();
+                d.collapsed && d.startContainer.nodeType == 1 && (d.insertNode(f("@&nbsp;", b)[0]), c.select());
+                a.insertHtml("&nbsp;&nbsp;&nbsp;&nbsp;")
+            }
+        })
+    }
+
+    function ac() {
+        var a = this;
+        f(a.edit.textarea[0], a.edit.win).focus(function (b) {
+            a.afterFocus && a.afterFocus.call(a, b)
+        }).blur(function (b) {
+            a.afterBlur && a.afterBlur.call(a, b)
+        })
+    }
+
+    function X(a) {
+        return B(a.replace(/<span [^>]*id="?__kindeditor_bookmark_\w+_\d+__"?[^>]*><\/span>/ig, ""))
+    }
+
+    function $a(a) {
+        return a.replace(/<div[^>]+class="?__kindeditor_paste__"?[^>]*>[\s\S]*?<\/div>/ig, "")
+    }
+
+    function Hb(a, b) {
+        if (a.length === 0) a.push(b); else {
+            var c = a[a.length - 1];
+            X(b.html) !== X(c.html) &&
+            a.push(b)
+        }
+    }
+
+    function Ib(a, b) {
+        var c = this.edit, d = c.doc.body, e, g;
+        if (a.length === 0)return this;
+        c.designMode ? (e = this.cmd.range, g = e.createBookmark(!0), g.html = d.innerHTML) : g = {html: d.innerHTML};
+        Hb(b, g);
+        var h = a.pop();
+        X(g.html) === X(h.html) && a.length > 0 && (h = a.pop());
+        c.designMode ? (c.html(h.html), h.start && (e.moveToBookmark(h), this.select())) : f(d).html(X(h.html));
+        return this
+    }
+
+    function ta(a) {
+        function b(a, b) {
+            ta.prototype[a] === o && (c[a] = b);
+            c.options[a] = b
+        }
+
+        var c = this;
+        c.options = {};
+        m(a, function (c) {
+            b(c, a[c])
+        });
+        m(f.options,
+            function (a, d) {
+                c[a] === o && b(a, d)
+            });
+        var d = f(c.srcElement || "<textarea/>");
+        if (!c.width) c.width = d[0].style.width || d.width();
+        if (!c.height) c.height = d[0].style.height || d.height();
+        b("width", j(c.width, c.minWidth));
+        b("height", j(c.height, c.minHeight));
+        b("width", s(c.width));
+        b("height", s(c.height));
+        if (bc && (!cc || z < 534)) c.designMode = !1;
+        c.srcElement = d;
+        c.initContent = "";
+        c.plugin = {};
+        c.isCreated = !1;
+        c.isLoading = !1;
+        c._handlers = {};
+        c._contextmenus = [];
+        c._undoStack = [];
+        c._redoStack = [];
+        c._calledPlugins = {};
+        c._firstAddBookmark = !0;
+        c.menu = c.contextmenu = null;
+        c.dialogs = []
+    }
+
+    function Jb(a, b) {
+        function c(a) {
+            m(V, function (b, c) {
+                c.call(a, KindEditor)
+            });
+            return a.create()
+        }
+
+        b = b || {};
+        b.basePath = j(b.basePath, f.basePath);
+        b.themesPath = j(b.themesPath, b.basePath + "themes/");
+        b.langPath = j(b.langPath, b.basePath + "lang/");
+        b.pluginsPath = j(b.pluginsPath, b.basePath + "plugins/");
+        if (j(b.loadStyleMode, f.options.loadStyleMode)) {
+            var d = j(b.themeType, f.options.themeType);
+            Za(b.themesPath + "default/default.css");
+            Za(b.themesPath + d + "/" + d + ".css")
+        }
+        if ((d = f(a)) && d.length !==
+            0) {
+            if (d.length > 1)return d.each(function () {
+                Jb(this, b)
+            }), _instances[0];
+            b.srcElement = d[0];
+            var e = new ta(b);
+            _instances.push(e);
+            if (M[e.langType])return c(e);
+            Ya(e.langPath + e.langType + ".js?ver=" + encodeURIComponent(f.DEBUG ? Ca : Da), function () {
+                c(e)
+            });
+            return e
+        }
+    }
+
+    function Kb(a, b) {
+        f(a).each(function (a, d) {
+            f.each(_instances, function (a, c) {
+                if (c && c.srcElement[0] == d)return b.call(c, a, c), !1
+            })
+        })
+    }
+
+    if (!A.KindEditor) {
+        if (!A.console) A.console = {};
+        if (!console.log) console.log = function () {
+        };
+        var Da = "4.1.7 (2014-04-21)", q = navigator.userAgent.toLowerCase(),
+            l = q.indexOf("msie") > -1 && q.indexOf("opera") == -1, ea = q.indexOf("gecko") > -1 && q.indexOf("khtml") == -1, W = q.indexOf("applewebkit") > -1, La = q.indexOf("opera") > -1, bc = q.indexOf("mobile") > -1, cc = /ipad|iphone|ipod/.test(q), O = document.compatMode != "CSS1Compat", z = (q = /(?:msie|firefox|webkit|opera)[\/:\s](\d+)/.exec(q)) ? q[1] : "0", Ca = (new Date).getTime(), Q = Math.round, f = {
+                DEBUG: !1,
+                VERSION: Da,
+                IE: l,
+                GECKO: ea,
+                WEBKIT: W,
+                OPERA: La,
+                V: z,
+                TIME: Ca,
+                each: m,
+                isArray: Y,
+                isFunction: bb,
+                inArray: N,
+                inString: ua,
+                trim: B,
+                addUnit: s,
+                removeUnit: t,
+                escape: C,
+                unescape: fa,
+                toCamel: ga,
+                toHex: va,
+                toMap: u,
+                toArray: Fa,
+                undef: j,
+                invalidUrl: function (a) {
+                    return !a || /[<>"]/.test(a)
+                },
+                addParam: function (a, b) {
+                    return a.indexOf("?") >= 0 ? a + "&" + b : a + "?" + b
+                },
+                extend: E,
+                json: cb
+            }, jb = u("a,abbr,acronym,b,basefont,bdo,big,br,button,cite,code,del,dfn,em,font,i,img,input,ins,kbd,label,map,q,s,samp,select,small,span,strike,strong,sub,sup,textarea,tt,u,var"), kb = u("address,applet,blockquote,body,center,dd,dir,div,dl,dt,fieldset,form,frameset,h1,h2,h3,h4,h5,h6,head,hr,html,iframe,ins,isindex,li,map,menu,meta,noframes,noscript,object,ol,p,pre,script,style,table,tbody,td,tfoot,th,thead,title,tr,ul"),
+            ib = u("area,base,basefont,br,col,frame,hr,img,input,isindex,link,meta,param,embed"), Lb = u("b,basefont,big,del,em,font,i,s,small,span,strike,strong,sub,sup,u"), dc = u("img,table,input,textarea,button"), Ha = u("pre,style,script"), Ea = u("html,head,body,td,tr,table,ol,ul,li");
+        u("colgroup,dd,dt,li,options,p,td,tfoot,th,thead,tr");
+        var Sb = u("checked,compact,declare,defer,disabled,ismap,multiple,nohref,noresize,noshade,nowrap,readonly,selected"), Mb = u("input,button,textarea,select");
+        f.basePath = function () {
+            for (var a =
+                document.getElementsByTagName("script"), b, c = 0, d = a.length; c < d; c++)if (b = a[c].src || "", /kindeditor[\w\-\.]*\.js/.test(b))return b.substring(0, b.lastIndexOf("/") + 1);
+            return ""
+        }();
+        f.options = {
+            designMode: !0,
+            fullscreenMode: !1,
+            filterMode: !0,
+            wellFormatMode: !0,
+            shadowMode: !0,
+            loadStyleMode: !0,
+            basePath: f.basePath,
+            themesPath: f.basePath + "themes/",
+            langPath: f.basePath + "lang/",
+            pluginsPath: f.basePath + "plugins/",
+            themeType: "default",
+            langType: "zh_CN",
+            urlType: "",
+            newlineTag: "p",
+            resizeType: 2,
+            syncType: "form",
+            pasteType: 2,
+            dialogAlignType: "page",
+            useContextmenu: !0,
+            fullscreenShortcut: !1,
+            bodyClass: "ke-content",
+            indentChar: "\t",
+            cssPath: "",
+            cssData: "",
+            minWidth: 650,
+            minHeight: 100,
+            minChangeSize: 50,
+            zIndex: 811213,
+            items: ["source", "|", "undo", "redo", "|", "preview", "print", "template", "code", "cut", "copy", "paste", "plainpaste", "wordpaste", "|", "justifyleft", "justifycenter", "justifyright", "justifyfull", "insertorderedlist", "insertunorderedlist", "indent", "outdent", "subscript", "superscript", "clearhtml", "quickformat", "selectall", "|", "fullscreen", "/", "formatblock",
+                "fontname", "fontsize", "|", "forecolor", "hilitecolor", "bold", "italic", "underline", "strikethrough", "lineheight", "removeformat", "|", "image", "multiimage", "flash", "media", "insertfile", "table", "hr", "emoticons", "baidumap", "pagebreak", "anchor", "link", "unlink", "|", "about"],
+            noDisableItems: ["source", "fullscreen"],
+            colorTable: [["#E53333", "#E56600", "#FF9900", "#64451D", "#DFC5A4", "#FFE500"], ["#009900", "#006600", "#99BB00", "#B8D100", "#60D978", "#00D5FF"], ["#337FE5", "#003399", "#4C33E5", "#9933E5", "#CC33E5", "#EE33EE"],
+                ["#FFFFFF", "#CCCCCC", "#999999", "#666666", "#333333", "#000000"]],
+            fontSizeTable: ["9px", "10px", "12px", "14px", "16px", "18px", "24px", "32px"],
+            htmlTags: {
+                font: ["id", "class", "color", "size", "face", ".background-color"],
+                span: ["id", "class", ".color", ".background-color", ".font-size", ".font-family", ".background", ".font-weight", ".font-style", ".text-decoration", ".vertical-align", ".line-height", ".margin-left"],
+                div: ["id", "class", "align", ".border", ".margin", ".padding", ".text-align", ".color", ".background-color", ".font-size", ".font-family",
+                    ".font-weight", ".background", ".font-style", ".text-decoration", ".vertical-align", ".margin-left"],
+                table: ["id", "class", "border", "cellspacing", "cellpadding", "width", "height", "align", "bordercolor", ".padding", ".margin", ".border", "bgcolor", ".text-align", ".color", ".background-color", ".font-size", ".font-family", ".font-weight", ".font-style", ".text-decoration", ".background", ".width", ".height", ".border-collapse"],
+                "td,th": ["id", "class", "align", "valign", "width", "height", "colspan", "rowspan", "bgcolor", ".text-align",
+                    ".color", ".background-color", ".font-size", ".font-family", ".font-weight", ".font-style", ".text-decoration", ".vertical-align", ".background", ".border"],
+                a: ["id", "class", "href", "target", "name"],
+                embed: ["id", "class", "src", "width", "height", "type", "loop", "autostart", "quality", ".width", ".height", "align", "allowscriptaccess"],
+                img: ["id", "class", "src", "width", "height", "border", "alt", "title", "align", ".width", ".height", ".border"],
+                "p,ol,ul,li,blockquote,h1,h2,h3,h4,h5,h6": ["id", "class", "align", ".text-align", ".color",
+                    ".background-color", ".font-size", ".font-family", ".background", ".font-weight", ".font-style", ".text-decoration", ".vertical-align", ".text-indent", ".margin-left"],
+                pre: ["id", "class"],
+                hr: ["id", "class", ".page-break-after"],
+                "br,tbody,tr,strong,b,sub,sup,em,i,u,strike,s,del": ["id", "class"],
+                iframe: ["id", "class", "src", "frameborder", "width", "height", ".width", ".height"]
+            },
+            layout: '<div class="container"><div class="toolbar"></div><div class="edit"></div><div class="statusbar"></div></div>'
+        };
+        var db = !1, Nb = u("8,9,13,32,46,48..57,59,61,65..90,106,109..111,188,190..192,219..222"),
+            q = u("33..40"), ab = {};
+        m(Nb, function (a, b) {
+            ab[a] = b
+        });
+        m(q, function (a, b) {
+            ab[a] = b
+        });
+        var ec = "altKey,attrChange,attrName,bubbles,button,cancelable,charCode,clientX,clientY,ctrlKey,currentTarget,data,detail,eventPhase,fromElement,handler,keyCode,metaKey,newValue,offsetX,offsetY,originalTarget,pageX,pageY,prevValue,relatedNode,relatedTarget,screenX,screenY,shiftKey,srcElement,target,toElement,view,wheelDelta,which".split(",");
+        E(eb, {
+            init: function (a, b) {
+                var c = this, d = a.ownerDocument || a.document || a;
+                c.event = b;
+                m(ec,
+                    function (a, d) {
+                        c[d] = b[d]
+                    });
+                if (!c.target) c.target = c.srcElement || d;
+                if (c.target.nodeType === 3) c.target = c.target.parentNode;
+                if (!c.relatedTarget && c.fromElement) c.relatedTarget = c.fromElement === c.target ? c.toElement : c.fromElement;
+                if (c.pageX == null && c.clientX != null) {
+                    var e = d.documentElement, d = d.body;
+                    c.pageX = c.clientX + (e && e.scrollLeft || d && d.scrollLeft || 0) - (e && e.clientLeft || d && d.clientLeft || 0);
+                    c.pageY = c.clientY + (e && e.scrollTop || d && d.scrollTop || 0) - (e && e.clientTop || d && d.clientTop || 0)
+                }
+                if (!c.which && (c.charCode || c.charCode ===
+                    0 ? c.charCode : c.keyCode)) c.which = c.charCode || c.keyCode;
+                if (!c.metaKey && c.ctrlKey) c.metaKey = c.ctrlKey;
+                if (!c.which && c.button !== o) c.which = c.button & 1 ? 1 : c.button & 2 ? 3 : c.button & 4 ? 2 : 0;
+                switch (c.which) {
+                    case 186:
+                        c.which = 59;
+                        break;
+                    case 187:
+                    case 107:
+                    case 43:
+                        c.which = 61;
+                        break;
+                    case 189:
+                    case 45:
+                        c.which = 109;
+                        break;
+                    case 42:
+                        c.which = 106;
+                        break;
+                    case 47:
+                        c.which = 111;
+                        break;
+                    case 78:
+                        c.which = 110
+                }
+                c.which >= 96 && c.which <= 105 && (c.which -= 48)
+            }, preventDefault: function () {
+                var a = this.event;
+                a.preventDefault && a.preventDefault();
+                a.returnValue = !1
+            }, stopPropagation: function () {
+                var a = this.event;
+                a.stopPropagation && a.stopPropagation();
+                a.cancelBubble = !0
+            }, stop: function () {
+                this.preventDefault();
+                this.stopPropagation()
+            }
+        });
+        var Z = "kindeditor_" + Ca, gb = 0, v = {};
+        l && A.attachEvent("onunload", function () {
+            m(v, function (a, b) {
+                b.el && ha(b.el)
+            })
+        });
+        f.ctrl = Ga;
+        f.ready = function (a) {
+            function b() {
+                e || (e = !0, a(KindEditor))
+            }
+
+            function c() {
+                if (!e) {
+                    try {
+                        document.documentElement.doScroll("left")
+                    } catch (a) {
+                        setTimeout(c, 100);
+                        return
+                    }
+                    b()
+                }
+            }
+
+            function d() {
+                document.readyState === "complete" && b()
+            }
+
+            var e = !1;
+            if (document.addEventListener) $(document, "DOMContentLoaded", b); else if (document.attachEvent) {
+                $(document, "readystatechange", d);
+                var g = !1;
+                try {
+                    g = A.frameElement == null
+                } catch (f) {
+                }
+                document.documentElement.doScroll && g && c()
+            }
+            $(A, "load", b)
+        };
+        f.formatUrl = ia;
+        f.formatHtml = S;
+        f.getCssList = aa;
+        f.getAttrList = H;
+        f.mediaType = mb;
+        f.mediaAttrs = nb;
+        f.mediaEmbed = Ia;
+        f.mediaImg = ob;
+        f.clearMsWord = lb;
+        f.tmpl = function (a, b) {
+            var c = new Function("obj", "var p=[],print=function(){p.push.apply(p,arguments);};with(obj){p.push('" + a.replace(/[\r\t\n]/g,
+                    " ").split("<%").join("\t").replace(/((^|%>)[^\t]*)'/g, "$1\r").replace(/\t=(.*?)%>/g, "',$1,'").split("\t").join("');").split("%>").join("p.push('").split("\r").join("\\'") + "');}return p.join('');");
+            return b ? c(b) : c
+        };
+        q = document.createElement("div");
+        q.setAttribute("className", "t");
+        var Tb = q.className !== "t";
+        f.query = function (a, b) {
+            var c = za(a, b);
+            return c.length > 0 ? c[0] : null
+        };
+        f.queryAll = za;
+        E(D, {
+            init: function (a) {
+                for (var a = Y(a) ? a : [a], b = 0, c = 0, d = a.length; c < d; c++)a[c] && (this[c] = a[c].constructor === D ? a[c][0] : a[c],
+                    b++);
+                this.length = b;
+                this.doc = T(this[0]);
+                this.name = Ka(this[0]);
+                this.type = this.length > 0 ? this[0].nodeType : null;
+                this.win = U(this[0])
+            }, each: function (a) {
+                for (var b = 0; b < this.length; b++)if (a.call(this[b], b, this[b]) === !1)break;
+                return this
+            }, bind: function (a, b) {
+                this.each(function () {
+                    $(this, a, b)
+                });
+                return this
+            }, unbind: function (a, b) {
+                this.each(function () {
+                    ha(this, a, b)
+                });
+                return this
+            }, fire: function (a) {
+                if (this.length < 1)return this;
+                hb(this[0], a);
+                return this
+            }, hasAttr: function (a) {
+                if (this.length < 1)return !1;
+                return !!ya(this[0],
+                    a)
+            }, attr: function (a, b) {
+                var c = this;
+                if (a === o)return H(c.outer());
+                if (typeof a === "object")return m(a, function (a, b) {
+                    c.attr(a, b)
+                }), c;
+                if (b === o)return b = c.length < 1 ? null : ya(c[0], a), b === null ? "" : b;
+                c.each(function () {
+                    Ja(this, a, b)
+                });
+                return c
+            }, removeAttr: function (a) {
+                this.each(function () {
+                    var b = a;
+                    l && z < 8 && b.toLowerCase() == "class" && (b = "className");
+                    Ja(this, b, "");
+                    this.removeAttribute(b)
+                });
+                return this
+            }, get: function (a) {
+                if (this.length < 1)return null;
+                return this[a || 0]
+            }, eq: function (a) {
+                if (this.length < 1)return null;
+                return this[a] ?
+                    new D(this[a]) : null
+            }, hasClass: function (a) {
+                if (this.length < 1)return !1;
+                return ua(a, this[0].className, " ")
+            }, addClass: function (a) {
+                this.each(function () {
+                    if (!ua(a, this.className, " ")) this.className = B(this.className + " " + a)
+                });
+                return this
+            }, removeClass: function (a) {
+                this.each(function () {
+                    if (ua(a, this.className, " ")) this.className = B(this.className.replace(RegExp("(^|\\s)" + a + "(\\s|$)"), " "))
+                });
+                return this
+            }, html: function (a) {
+                if (a === o) {
+                    if (this.length < 1 || this.type != 1)return "";
+                    return S(this[0].innerHTML)
+                }
+                this.each(function () {
+                    Ub(this,
+                        a)
+                });
+                return this
+            }, text: function () {
+                if (this.length < 1)return "";
+                return l ? this[0].innerText : this[0].textContent
+            }, hasVal: function () {
+                if (this.length < 1)return !1;
+                return !!Mb[Ka(this[0])]
+            }, val: function (a) {
+                if (a === o) {
+                    if (this.length < 1)return "";
+                    return this.hasVal() ? this[0].value : this.attr("value")
+                } else return this.each(function () {
+                    Mb[Ka(this)] ? this.value = a : Ja(this, "value", a)
+                }), this
+            }, css: function (a, b) {
+                var c = this;
+                if (a === o)return aa(c.attr("style"));
+                if (typeof a === "object")return m(a, function (a, b) {
+                    c.css(a, b)
+                }), c;
+                if (b ===
+                    o) {
+                    if (c.length < 1)return "";
+                    return c[0].style[ga(a)] || Vb(c[0], a) || ""
+                }
+                c.each(function () {
+                    this.style[ga(a)] = b
+                });
+                return c
+            }, width: function (a) {
+                if (a === o) {
+                    if (this.length < 1)return 0;
+                    return this[0].offsetWidth
+                }
+                return this.css("width", s(a))
+            }, height: function (a) {
+                if (a === o) {
+                    if (this.length < 1)return 0;
+                    return this[0].offsetHeight
+                }
+                return this.css("height", s(a))
+            }, opacity: function (a) {
+                this.each(function () {
+                    this.style.opacity === o ? this.style.filter = a == 1 ? "" : "alpha(opacity=" + a * 100 + ")" : this.style.opacity = a == 1 ? "" : a
+                });
+                return this
+            },
+            data: function (a, b) {
+                a = "kindeditor_data_" + a;
+                if (b === o) {
+                    if (this.length < 1)return null;
+                    return this[0][a]
+                }
+                this.each(function () {
+                    this[a] = b
+                });
+                return this
+            }, pos: function () {
+                var a = this[0], b = 0, c = 0;
+                if (a)if (a.getBoundingClientRect) a = a.getBoundingClientRect(), c = ba(this.doc), b = a.left + c.x, c = a.top + c.y; else for (; a;)b += a.offsetLeft, c += a.offsetTop, a = a.offsetParent;
+                return {x: Q(b), y: Q(c)}
+            }, clone: function (a) {
+                if (this.length < 1)return new D([]);
+                return new D(this[0].cloneNode(a))
+            }, append: function (a) {
+                this.each(function () {
+                    this.appendChild &&
+                    this.appendChild(f(a)[0])
+                });
+                return this
+            }, appendTo: function (a) {
+                this.each(function () {
+                    f(a)[0].appendChild(this)
+                });
+                return this
+            }, before: function (a) {
+                this.each(function () {
+                    this.parentNode.insertBefore(f(a)[0], this)
+                });
+                return this
+            }, after: function (a) {
+                this.each(function () {
+                    this.nextSibling ? this.parentNode.insertBefore(f(a)[0], this.nextSibling) : this.parentNode.appendChild(f(a)[0])
+                });
+                return this
+            }, replaceWith: function (a) {
+                var b = [];
+                this.each(function (c, d) {
+                    ha(d);
+                    var e = f(a)[0];
+                    d.parentNode.replaceChild(e, d);
+                    b.push(e)
+                });
+                return f(b)
+            }, empty: function () {
+                this.each(function (a, b) {
+                    for (var c = b.firstChild; c;) {
+                        if (!b.parentNode)break;
+                        var d = c.nextSibling;
+                        c.parentNode.removeChild(c);
+                        c = d
+                    }
+                });
+                return this
+            }, remove: function (a) {
+                var b = this;
+                b.each(function (c, d) {
+                    if (d.parentNode) {
+                        ha(d);
+                        if (a)for (var e = d.firstChild; e;) {
+                            var g = e.nextSibling;
+                            d.parentNode.insertBefore(e, d);
+                            e = g
+                        }
+                        d.parentNode.removeChild(d);
+                        delete b[c]
+                    }
+                });
+                b.length = 0;
+                return b
+            }, show: function (a) {
+                a === o && (a = this._originDisplay || "");
+                if (this.css("display") != "none")return this;
+                return this.css("display",
+                    a)
+            }, hide: function () {
+                if (this.length < 1)return this;
+                this._originDisplay = this[0].style.display;
+                return this.css("display", "none")
+            }, outer: function () {
+                if (this.length < 1)return "";
+                var a = this.doc.createElement("div");
+                a.appendChild(this[0].cloneNode(!0));
+                return S(a.innerHTML)
+            }, isSingle: function () {
+                return !!ib[this.name]
+            }, isInline: function () {
+                return !!jb[this.name]
+            }, isBlock: function () {
+                return !!kb[this.name]
+            }, isStyle: function () {
+                return !!Lb[this.name]
+            }, isControl: function () {
+                return !!dc[this.name]
+            }, contains: function (a) {
+                if (this.length <
+                    1)return !1;
+                return xa(this[0], f(a)[0])
+            }, parent: function () {
+                if (this.length < 1)return null;
+                var a = this[0].parentNode;
+                return a ? new D(a) : null
+            }, children: function () {
+                if (this.length < 1)return new D([]);
+                for (var a = [], b = this[0].firstChild; b;)(b.nodeType != 3 || B(b.nodeValue) !== "") && a.push(b), b = b.nextSibling;
+                return new D(a)
+            }, first: function () {
+                var a = this.children();
+                return a.length > 0 ? a.eq(0) : null
+            }, last: function () {
+                var a = this.children();
+                return a.length > 0 ? a.eq(a.length - 1) : null
+            }, index: function () {
+                if (this.length < 1)return -1;
+                for (var a =
+                    -1, b = this[0]; b;)a++, b = b.previousSibling;
+                return a
+            }, prev: function () {
+                if (this.length < 1)return null;
+                var a = this[0].previousSibling;
+                return a ? new D(a) : null
+            }, next: function () {
+                if (this.length < 1)return null;
+                var a = this[0].nextSibling;
+                return a ? new D(a) : null
+            }, scan: function (a, b) {
+                function c(d) {
+                    for (d = b ? d.firstChild : d.lastChild; d;) {
+                        var e = b ? d.nextSibling : d.previousSibling;
+                        if (a(d) === !1)return !1;
+                        if (c(d) === !1)return !1;
+                        d = e
+                    }
+                }
+
+                if (!(this.length < 1))return b = b === o ? !0 : b, c(this[0]), this
+            }
+        });
+        m("blur,focus,focusin,focusout,load,resize,scroll,unload,click,dblclick,mousedown,mouseup,mousemove,mouseover,mouseout,mouseenter,mouseleave,change,select,submit,keydown,keypress,keyup,error,contextmenu".split(","),
+            function (a, b) {
+                D.prototype[b] = function (a) {
+                    return a ? this.bind(b, a) : this.fire(b)
+                }
+            });
+        q = f;
+        f = function (a, b) {
+            function c(a) {
+                a[0] || (a = []);
+                return new D(a)
+            }
+
+            if (!(a === o || a === null)) {
+                if (typeof a === "string") {
+                    b && (b = f(b)[0]);
+                    var d = a.length;
+                    a.charAt(0) === "@" && (a = a.substr(1));
+                    if (a.length !== d || /<.+>/.test(a)) {
+                        var d = (b ? b.ownerDocument || b : document).createElement("div"), e = [];
+                        d.innerHTML = '<img id="__kindeditor_temp_tag__" width="0" height="0" style="display:none;" />' + a;
+                        for (var g = 0, h = d.childNodes.length; g < h; g++) {
+                            var i = d.childNodes[g];
+                            i.id != "__kindeditor_temp_tag__" && e.push(i)
+                        }
+                        return c(e)
+                    }
+                    return c(za(a, b))
+                }
+                if (a && a.constructor === D)return a;
+                a.toArray && (a = a.toArray());
+                if (Y(a))return c(a);
+                return c(Fa(arguments))
+            }
+        };
+        m(q, function (a, b) {
+            f[a] = b
+        });
+        f.NodeClass = D;
+        A.KindEditor = f;
+        var ka = 0, ja = 1, ca = 2, la = 3, Ob = 0;
+        E(L, {
+            init: function (a) {
+                this.startContainer = a;
+                this.startOffset = 0;
+                this.endContainer = a;
+                this.endOffset = 0;
+                this.collapsed = !0;
+                this.doc = a
+            }, commonAncestor: function () {
+                function a(a) {
+                    for (var b = []; a;)b.push(a), a = a.parentNode;
+                    return b
+                }
+
+                for (var b = a(this.startContainer),
+                         c = a(this.endContainer), d = 0, e = b.length, g = c.length, f, i; ++d;)if (f = b[e - d], i = c[g - d], !f || !i || f !== i)break;
+                return b[e - d + 1]
+            }, setStart: function (a, b) {
+                var c = this.doc;
+                this.startContainer = a;
+                this.startOffset = b;
+                if (this.endContainer === c) this.endContainer = a, this.endOffset = b;
+                return pb(this)
+            }, setEnd: function (a, b) {
+                var c = this.doc;
+                this.endContainer = a;
+                this.endOffset = b;
+                if (this.startContainer === c) this.startContainer = a, this.startOffset = b;
+                return pb(this)
+            }, setStartBefore: function (a) {
+                return this.setStart(a.parentNode || this.doc,
+                    f(a).index())
+            }, setStartAfter: function (a) {
+                return this.setStart(a.parentNode || this.doc, f(a).index() + 1)
+            }, setEndBefore: function (a) {
+                return this.setEnd(a.parentNode || this.doc, f(a).index())
+            }, setEndAfter: function (a) {
+                return this.setEnd(a.parentNode || this.doc, f(a).index() + 1)
+            }, selectNode: function (a) {
+                return this.setStartBefore(a).setEndAfter(a)
+            }, selectNodeContents: function (a) {
+                var b = f(a);
+                if (b.type == 3 || b.isSingle())return this.selectNode(a);
+                b = b.children();
+                if (b.length > 0)return this.setStartBefore(b[0]).setEndAfter(b[b.length -
+                1]);
+                return this.setStart(a, 0).setEnd(a, 0)
+            }, collapse: function (a) {
+                if (a)return this.setEnd(this.startContainer, this.startOffset);
+                return this.setStart(this.endContainer, this.endOffset)
+            }, compareBoundaryPoints: function (a, b) {
+                var c = this.get(), d = b.get();
+                if (l) {
+                    var e = {};
+                    e[ka] = "StartToStart";
+                    e[ja] = "EndToStart";
+                    e[ca] = "EndToEnd";
+                    e[la] = "StartToEnd";
+                    c = c.compareEndPoints(e[a], d);
+                    if (c !== 0)return c;
+                    var g, h, i, k;
+                    if (a === ka || a === la) g = this.startContainer, i = this.startOffset;
+                    if (a === ja || a === ca) g = this.endContainer, i = this.endOffset;
+                    if (a === ka || a === ja) h = b.startContainer, k = b.startOffset;
+                    if (a === ca || a === la) h = b.endContainer, k = b.endOffset;
+                    if (g === h)return g = i - k, g > 0 ? 1 : g < 0 ? -1 : 0;
+                    for (c = h; c && c.parentNode !== g;)c = c.parentNode;
+                    if (c)return f(c).index() >= i ? -1 : 1;
+                    for (c = g; c && c.parentNode !== h;)c = c.parentNode;
+                    if (c)return f(c).index() >= k ? 1 : -1;
+                    if ((c = f(h).next()) && c.contains(g))return 1;
+                    if ((c = f(g).next()) && c.contains(h))return -1
+                } else return c.compareBoundaryPoints(a, d)
+            }, cloneRange: function () {
+                return (new L(this.doc)).setStart(this.startContainer, this.startOffset).setEnd(this.endContainer,
+                    this.endOffset)
+            }, toString: function () {
+                var a = this.get();
+                return (l ? a.text : a.toString()).replace(/\r\n|\n|\r/g, "")
+            }, cloneContents: function () {
+                return Ma(this, !0, !1)
+            }, deleteContents: function () {
+                return Ma(this, !1, !0)
+            }, extractContents: function () {
+                return Ma(this, !0, !0)
+            }, insertNode: function (a) {
+                var b = this.startContainer, c = this.startOffset, d = this.endContainer, e = this.endOffset, g, f, i, k = 1;
+                if (a.nodeName.toLowerCase() === "#document-fragment") g = a.firstChild, f = a.lastChild, k = a.childNodes.length;
+                b.nodeType == 1 ? (i = b.childNodes[c]) ?
+                        (b.insertBefore(a, i), b === d && (e += k)) : b.appendChild(a) : b.nodeType == 3 && (c === 0 ? (b.parentNode.insertBefore(a, b), b.parentNode === d && (e += k)) : c >= b.nodeValue.length ? b.nextSibling ? b.parentNode.insertBefore(a, b.nextSibling) : b.parentNode.appendChild(a) : (i = c > 0 ? b.splitText(c) : b, b.parentNode.insertBefore(a, i), b === d && (d = i, e -= c)));
+                g ? this.setStartBefore(g).setEndAfter(f) : this.selectNode(a);
+                if (this.compareBoundaryPoints(ca, this.cloneRange().setEnd(d, e)) >= 1)return this;
+                return this.setEnd(d, e)
+            }, surroundContents: function (a) {
+                a.appendChild(this.extractContents());
+                return this.insertNode(a).selectNode(a)
+            }, isControl: function () {
+                var a = this.startContainer, b = this.startOffset, c = this.endContainer, d = this.endOffset;
+                return a.nodeType == 1 && a === c && b + 1 === d && f(a.childNodes[b]).isControl()
+            }, get: function (a) {
+                var b = this.doc;
+                if (!l) {
+                    b = b.createRange();
+                    try {
+                        b.setStart(this.startContainer, this.startOffset), b.setEnd(this.endContainer, this.endOffset)
+                    } catch (c) {
+                    }
+                    return b
+                }
+                if (a && this.isControl())return b = b.body.createControlRange(), b.addElement(this.startContainer.childNodes[this.startOffset]),
+                    b;
+                a = this.cloneRange().down();
+                b = b.body.createTextRange();
+                b.setEndPoint("StartToStart", rb(a.startContainer, a.startOffset));
+                b.setEndPoint("EndToStart", rb(a.endContainer, a.endOffset));
+                return b
+            }, html: function () {
+                return f(this.cloneContents()).outer()
+            }, down: function () {
+                function a(a, d, e) {
+                    if (a.nodeType == 1 && (a = f(a).children(), a.length !== 0)) {
+                        var g, h, i, k;
+                        d > 0 && (g = a.eq(d - 1));
+                        d < a.length && (h = a.eq(d));
+                        if (g && g.type == 3) i = g[0], k = i.nodeValue.length;
+                        h && h.type == 3 && (i = h[0], k = 0);
+                        i && (e ? b.setStart(i, k) : b.setEnd(i, k))
+                    }
+                }
+
+                var b =
+                    this;
+                a(b.startContainer, b.startOffset, !0);
+                a(b.endContainer, b.endOffset, !1);
+                return b
+            }, up: function () {
+                function a(a, d, e) {
+                    a.nodeType == 3 && (d === 0 ? e ? b.setStartBefore(a) : b.setEndBefore(a) : d == a.nodeValue.length && (e ? b.setStartAfter(a) : b.setEndAfter(a)))
+                }
+
+                var b = this;
+                a(b.startContainer, b.startOffset, !0);
+                a(b.endContainer, b.endOffset, !1);
+                return b
+            }, enlarge: function (a) {
+                function b(b, e, g) {
+                    b = f(b);
+                    if (!(b.type == 3 || Ea[b.name] || !a && b.isBlock()))if (e === 0) {
+                        for (; !b.prev();) {
+                            e = b.parent();
+                            if (!e || Ea[e.name] || !a && e.isBlock())break;
+                            b = e
+                        }
+                        g ? c.setStartBefore(b[0]) : c.setEndBefore(b[0])
+                    } else if (e == b.children().length) {
+                        for (; !b.next();) {
+                            e = b.parent();
+                            if (!e || Ea[e.name] || !a && e.isBlock())break;
+                            b = e
+                        }
+                        g ? c.setStartAfter(b[0]) : c.setEndAfter(b[0])
+                    }
+                }
+
+                var c = this;
+                c.up();
+                b(c.startContainer, c.startOffset, !0);
+                b(c.endContainer, c.endOffset, !1);
+                return c
+            }, shrink: function () {
+                for (var a, b = this.collapsed; this.startContainer.nodeType == 1 && (a = this.startContainer.childNodes[this.startOffset]) && a.nodeType == 1 && !f(a).isSingle();)this.setStart(a, 0);
+                if (b)return this.collapse(b);
+                for (; this.endContainer.nodeType == 1 && this.endOffset > 0 && (a = this.endContainer.childNodes[this.endOffset - 1]) && a.nodeType == 1 && !f(a).isSingle();)this.setEnd(a, a.childNodes.length);
+                return this
+            }, createBookmark: function (a) {
+                var b, c = f('<span style="display:none;"></span>', this.doc)[0];
+                c.id = "__kindeditor_bookmark_start_" + Ob++ + "__";
+                if (!this.collapsed) b = c.cloneNode(!0), b.id = "__kindeditor_bookmark_end_" + Ob++ + "__";
+                b && this.cloneRange().collapse(!1).insertNode(b).setEndBefore(b);
+                this.insertNode(c).setStartAfter(c);
+                return {start: a ? "#" + c.id : c, end: b ? a ? "#" + b.id : b : null}
+            }, moveToBookmark: function (a) {
+                var b = this.doc, c = f(a.start, b), a = a.end ? f(a.end, b) : null;
+                if (!c || c.length < 1)return this;
+                this.setStartBefore(c[0]);
+                c.remove();
+                a && a.length > 0 ? (this.setEndBefore(a[0]), a.remove()) : this.collapse(!0);
+                return this
+            }, dump: function () {
+                console.log("--------------------");
+                console.log(this.startContainer.nodeType == 3 ? this.startContainer.nodeValue : this.startContainer, this.startOffset);
+                console.log(this.endContainer.nodeType == 3 ? this.endContainer.nodeValue :
+                    this.endContainer, this.endOffset)
+            }
+        });
+        f.RangeClass = L;
+        f.range = Na;
+        f.START_TO_START = ka;
+        f.START_TO_END = ja;
+        f.END_TO_END = ca;
+        f.END_TO_START = la;
+        E(na, {
+            init: function (a) {
+                var b = a.doc;
+                this.doc = b;
+                this.win = U(b);
+                this.sel = Oa(b);
+                this.range = a
+            }, selection: function (a) {
+                var b = this.doc, c;
+                c = Oa(b);
+                var d;
+                try {
+                    d = c.rangeCount > 0 ? c.getRangeAt(0) : c.createRange()
+                } catch (e) {
+                }
+                c = l && (!d || !d.item && d.parentElement().ownerDocument !== b) ? null : d;
+                this.sel = Oa(b);
+                if (c)return this.range = Na(c), f(this.range.startContainer).name == "html" && this.range.selectNodeContents(b.body).collapse(!1),
+                    this;
+                a && this.range.selectNodeContents(b.body).collapse(!1);
+                return this
+            }, select: function (a) {
+                var a = j(a, !0), b = this.sel, c = this.range.cloneRange().shrink(), d = c.startContainer, e = c.startOffset, g = T(d), h = this.win, i, k = !1;
+                if (a && d.nodeType == 1 && c.collapsed) {
+                    if (l) {
+                        b = f("<span>&nbsp;</span>", g);
+                        c.insertNode(b[0]);
+                        i = g.body.createTextRange();
+                        try {
+                            i.moveToElementText(b[0])
+                        } catch (n) {
+                        }
+                        i.collapse(!1);
+                        i.select();
+                        b.remove();
+                        h.focus();
+                        return this
+                    }
+                    if (W && (a = d.childNodes, f(d).isInline() || e > 0 && f(a[e - 1]).isInline() || a[e] && f(a[e]).isInline())) c.insertNode(g.createTextNode("\u200b")),
+                        k = !0
+                }
+                if (l)try {
+                    i = c.get(!0), i.select()
+                } catch (r) {
+                } else k && c.collapse(!1), i = c.get(!0), b.removeAllRanges(), b.addRange(i), g !== document && (c = f(i.endContainer).pos(), h.scrollTo(c.x, c.y));
+                h.focus();
+                return this
+            }, wrap: function (a) {
+                var b = this.range, c;
+                c = f(a, this.doc);
+                if (b.collapsed)return b.shrink(), b.insertNode(c[0]).selectNodeContents(c[0]), this;
+                if (c.isBlock()) {
+                    for (var d = a = c.clone(!0); d.first();)d = d.first();
+                    d.append(b.extractContents());
+                    b.insertNode(a[0]).selectNode(a[0]);
+                    return this
+                }
+                b.enlarge();
+                var e = b.createBookmark(),
+                    a = b.commonAncestor(), g = !1;
+                f(a).scan(function (a) {
+                    if (!g && a == e.start) g = !0; else if (g) {
+                        if (a == e.end)return !1;
+                        var b = f(a), d;
+                        a:{
+                            for (d = b; d && d.name != "body";) {
+                                if (Ha[d.name] || d.name == "div" && d.hasClass("ke-script")) {
+                                    d = !0;
+                                    break a
+                                }
+                                d = d.parent()
+                            }
+                            d = !1
+                        }
+                        if (!d && b.type == 3 && B(a.nodeValue).length > 0) {
+                            for (var n; (n = b.parent()) && n.isStyle() && n.children().length == 1;)b = n;
+                            n = c;
+                            n = n.clone(!0);
+                            if (b.type == 3) Ra(n).append(b.clone(!1)), b.replaceWith(n); else {
+                                for (var a = b, j; (j = b.first()) && j.children().length == 1;)b = j;
+                                j = b.first();
+                                for (b = b.doc.createDocumentFragment(); j;)b.appendChild(j[0]),
+                                    j = j.next();
+                                j = a.clone(!0);
+                                d = Ra(j);
+                                for (var p = j, l = !1; n;) {
+                                    for (; p;)p.name === n.name && (Wb(p, n.attr(), n.css()), l = !0), p = p.first();
+                                    l || d.append(n.clone(!1));
+                                    l = !1;
+                                    n = n.first()
+                                }
+                                n = j;
+                                b.firstChild && Ra(n).append(b);
+                                a.replaceWith(n)
+                            }
+                        }
+                    }
+                });
+                b.moveToBookmark(e);
+                return this
+            }, split: function (a, b) {
+                for (var c = this.range, d = c.doc, e = c.cloneRange().collapse(a), g = e.startContainer, h = e.startOffset, i = g.nodeType == 3 ? g.parentNode : g, k = !1, n; i && i.parentNode;) {
+                    n = f(i);
+                    if (b) {
+                        if (!n.isStyle())break;
+                        if (!Pa(n, b))break
+                    } else if (Ea[n.name])break;
+                    k = !0;
+                    i = i.parentNode
+                }
+                if (k) d = d.createElement("span"), c.cloneRange().collapse(!a).insertNode(d), a ? e.setStartBefore(i.firstChild).setEnd(g, h) : e.setStart(g, h).setEndAfter(i.lastChild), g = e.extractContents(), h = g.firstChild, k = g.lastChild, a ? (e.insertNode(g), c.setStartAfter(k).setEndBefore(d)) : (i.appendChild(g), c.setStartBefore(d).setEndBefore(h)), e = d.parentNode, e == c.endContainer && (i = f(d).prev(), g = f(d).next(), i && g && i.type == 3 && g.type == 3 ? c.setEnd(i[0], i[0].nodeValue.length) : a || c.setEnd(c.endContainer, c.endOffset -
+                        1)), e.removeChild(d);
+                return this
+            }, remove: function (a) {
+                var b = this.doc, c = this.range;
+                c.enlarge();
+                if (c.startOffset === 0) {
+                    for (var d = f(c.startContainer), e; (e = d.parent()) && e.isStyle() && e.children().length == 1;)d = e;
+                    c.setStart(d[0], 0);
+                    d = f(c.startContainer);
+                    d.isBlock() && Qa(d, a);
+                    (d = d.parent()) && d.isBlock() && Qa(d, a)
+                }
+                if (c.collapsed) {
+                    this.split(!0, a);
+                    b = c.startContainer;
+                    d = c.startOffset;
+                    if (d > 0 && (e = f(b.childNodes[d - 1])) && da(e)) e.remove(), c.setStart(b, d - 1);
+                    (d = f(b.childNodes[d])) && da(d) && d.remove();
+                    da(b) && (c.startBefore(b),
+                        b.remove());
+                    c.collapse(!0);
+                    return this
+                }
+                this.split(!0, a);
+                this.split(!1, a);
+                var g = b.createElement("span"), h = b.createElement("span");
+                c.cloneRange().collapse(!1).insertNode(h);
+                c.cloneRange().collapse(!0).insertNode(g);
+                var i = [], k = !1;
+                f(c.commonAncestor()).scan(function (a) {
+                    if (!k && a == g) k = !0; else {
+                        if (a == h)return !1;
+                        k && i.push(a)
+                    }
+                });
+                f(g).remove();
+                f(h).remove();
+                b = c.startContainer;
+                d = c.startOffset;
+                e = c.endContainer;
+                var n = c.endOffset;
+                if (d > 0) {
+                    var j = f(b.childNodes[d - 1]);
+                    j && da(j) && (j.remove(), c.setStart(b, d - 1), b == e && c.setEnd(e,
+                        n - 1));
+                    if ((d = f(b.childNodes[d])) && da(d)) d.remove(), b == e && c.setEnd(e, n - 1)
+                }
+                (b = f(e.childNodes[c.endOffset])) && da(b) && b.remove();
+                b = c.createBookmark(!0);
+                m(i, function (b, c) {
+                    Qa(f(c), a)
+                });
+                c.moveToBookmark(b);
+                return this
+            }, commonNode: function (a) {
+                function b(b) {
+                    for (var c = b; b;) {
+                        if (Pa(f(b), a))return f(b);
+                        b = b.parentNode
+                    }
+                    for (; c && (c = c.lastChild);)if (Pa(f(c), a))return f(c);
+                    return null
+                }
+
+                var c = this.range, d = c.endContainer, c = c.endOffset, e = d.nodeType == 3 || c === 0 ? d : d.childNodes[c - 1], g = b(e);
+                if (g)return g;
+                if (e.nodeType == 1 || d.nodeType ==
+                    3 && c === 0)if (d = f(e).prev())return b(d);
+                return null
+            }, commonAncestor: function (a) {
+                function b(b) {
+                    for (; b;) {
+                        if (b.nodeType == 1 && b.tagName.toLowerCase() === a)return b;
+                        b = b.parentNode
+                    }
+                    return null
+                }
+
+                var c = this.range, d = c.startContainer, e = c.startOffset, g = c.endContainer, c = c.endOffset, g = g.nodeType == 3 || c === 0 ? g : g.childNodes[c - 1], d = b(d.nodeType == 3 || e === 0 ? d : d.childNodes[e - 1]), e = b(g);
+                if (d && e && d === e)return f(d);
+                return null
+            }, state: function (a) {
+                var b = this.doc, c = !1;
+                try {
+                    c = b.queryCommandState(a)
+                } catch (d) {
+                }
+                return c
+            }, val: function (a) {
+                var b =
+                    this.doc, a = a.toLowerCase(), c = "";
+                if (a === "fontfamily" || a === "fontname")return c = tb(b, "fontname"), c = c.replace(/['"]/g, ""), c.toLowerCase();
+                if (a === "formatblock") {
+                    c = tb(b, a);
+                    if (c === "" && (a = this.commonNode({"h1,h2,h3,h4,h5,h6,p,div,pre,address": "*"}))) c = a.name;
+                    c === "Normal" && (c = "p");
+                    return c.toLowerCase()
+                }
+                if (a === "fontsize")return (a = this.commonNode({"*": ".font-size"})) && (c = a.css("font-size")), c.toLowerCase();
+                if (a === "forecolor")return (a = this.commonNode({"*": ".color"})) && (c = a.css("color")), c = va(c), c === "" && (c = "default"),
+                    c.toLowerCase();
+                if (a === "hilitecolor")return (a = this.commonNode({"*": ".background-color"})) && (c = a.css("background-color")), c = va(c), c === "" && (c = "default"), c.toLowerCase();
+                return c
+            }, toggle: function (a, b) {
+                this.commonNode(b) ? this.remove(b) : this.wrap(a);
+                return this.select()
+            }, bold: function () {
+                return this.toggle("<strong></strong>", {span: ".font-weight=bold", strong: "*", b: "*"})
+            }, italic: function () {
+                return this.toggle("<em></em>", {span: ".font-style=italic", em: "*", i: "*"})
+            }, underline: function () {
+                return this.toggle("<u></u>",
+                    {span: ".text-decoration=underline", u: "*"})
+            }, strikethrough: function () {
+                return this.toggle("<s></s>", {span: ".text-decoration=line-through", s: "*"})
+            }, forecolor: function (a) {
+                return this.toggle('<span style="color:' + a + ';"></span>', {span: ".color=" + a, font: "color"})
+            }, hilitecolor: function (a) {
+                return this.toggle('<span style="background-color:' + a + ';"></span>', {span: ".background-color=" + a})
+            }, fontsize: function (a) {
+                return this.toggle('<span style="font-size:' + a + ';"></span>', {
+                    span: ".font-size=" + a,
+                    font: "size"
+                })
+            }, fontname: function (a) {
+                return this.fontfamily(a)
+            },
+            fontfamily: function (a) {
+                return this.toggle('<span style="font-family:' + a + ';"></span>', {
+                    span: ".font-family=" + a,
+                    font: "face"
+                })
+            }, removeformat: function () {
+                var a = {"*": ".font-weight,.font-style,.text-decoration,.color,.background-color,.font-size,.font-family,.text-indent"};
+                m(Lb, function (b) {
+                    a[b] = "*"
+                });
+                this.remove(a);
+                return this.select()
+            }, inserthtml: function (a, b) {
+                function c(a, b) {
+                    var b = '<img id="__kindeditor_temp_tag__" width="0" height="0" style="display:none;" />' + b, c = a.get();
+                    c.item ? c.item(0).outerHTML = b :
+                        c.pasteHTML(b);
+                    var d = a.doc.getElementById("__kindeditor_temp_tag__");
+                    d.parentNode.removeChild(d);
+                    c = sb(c);
+                    a.setEnd(c.endContainer, c.endOffset);
+                    a.collapse(!1);
+                    e.select(!1)
+                }
+
+                function d(a, b) {
+                    var c = a.doc, d = c.createDocumentFragment();
+                    f("@" + b, c).each(function () {
+                        d.appendChild(this)
+                    });
+                    a.deleteContents();
+                    a.insertNode(d);
+                    a.collapse(!1);
+                    e.select(!1)
+                }
+
+                var e = this, g = e.range;
+                if (a === "")return e;
+                if (l && b) {
+                    try {
+                        c(g, a)
+                    } catch (h) {
+                        d(g, a)
+                    }
+                    return e
+                }
+                d(g, a);
+                return e
+            }, hr: function () {
+                return this.inserthtml("<hr />")
+            }, print: function () {
+                this.win.print();
+                return this
+            }, insertimage: function (a, b, c, d, e, g) {
+                b = j(b, "");
+                j(e, 0);
+                a = '<img src="' + C(a) + '" data-ke-src="' + C(a) + '" ';
+                c && (a += 'width="' + C(c) + '" ');
+                d && (a += 'height="' + C(d) + '" ');
+                b && (a += 'title="' + C(b) + '" ');
+                g && (a += 'align="' + C(g) + '" ');
+                a += 'alt="' + C(b) + '" ';
+                a += "/>";
+                return this.inserthtml(a)
+            }, createlink: function (a, b) {
+                var c = this.doc, d = this.range;
+                this.select();
+                var e = this.commonNode({a: "*"});
+                e && !d.isControl() && (d.selectNode(e.get()), this.select());
+                e = '<a href="' + C(a) + '" data-ke-src="' + C(a) + '" ';
+                b && (e += ' target="' +
+                    C(b) + '"');
+                if (d.collapsed)return e += ">" + C(a) + "</a>", this.inserthtml(e);
+                if (d.isControl()) {
+                    var g = f(d.startContainer.childNodes[d.startOffset]);
+                    e += "></a>";
+                    g.after(f(e, c));
+                    g.next().append(g);
+                    d.selectNode(g[0]);
+                    return this.select()
+                }
+                P(c, "createlink", "__kindeditor_temp_url__");
+                f('a[href="__kindeditor_temp_url__"]', c).each(function () {
+                    f(this).attr("href", a).attr("data-ke-src", a);
+                    b ? f(this).attr("target", b) : f(this).removeAttr("target")
+                });
+                return this
+            }, unlink: function () {
+                var a = this.doc, b = this.range;
+                this.select();
+                if (b.collapsed) {
+                    var c = this.commonNode({a: "*"});
+                    c && (b.selectNode(c.get()), this.select());
+                    P(a, "unlink", null);
+                    W && f(b.startContainer).name === "img" && (a = f(b.startContainer).parent(), a.name === "a" && a.remove(!0))
+                } else P(a, "unlink", null);
+                return this
+            }
+        });
+        m("formatblock,selectall,justifyleft,justifycenter,justifyright,justifyfull,insertorderedlist,insertunorderedlist,indent,outdent,subscript,superscript".split(","), function (a, b) {
+            na.prototype[b] = function (a) {
+                this.select();
+                P(this.doc, b, a);
+                (!l || N(b, "formatblock,selectall,insertorderedlist,insertunorderedlist".split(",")) >=
+                0) && this.selection();
+                return this
+            }
+        });
+        m("cut,copy,paste".split(","), function (a, b) {
+            na.prototype[b] = function () {
+                if (!this.doc.queryCommandSupported(b))throw"not supported";
+                this.select();
+                P(this.doc, b, null);
+                return this
+            }
+        });
+        f.CmdClass = na;
+        f.cmd = xb;
+        E(R, {
+            init: function (a) {
+                var b = this;
+                b.name = a.name || "";
+                b.doc = a.doc || document;
+                b.win = U(b.doc);
+                b.x = s(a.x);
+                b.y = s(a.y);
+                b.z = a.z;
+                b.width = s(a.width);
+                b.height = s(a.height);
+                b.div = f('<div style="display:block;"></div>');
+                b.options = a;
+                b._alignEl = a.alignEl;
+                b.width && b.div.css("width",
+                    b.width);
+                b.height && b.div.css("height", b.height);
+                b.z && b.div.css({position: "absolute", left: b.x, top: b.y, "z-index": b.z});
+                b.z && (b.x === o || b.y === o) && b.autoPos(b.width, b.height);
+                a.cls && b.div.addClass(a.cls);
+                a.shadowMode && b.div.addClass("ke-shadow");
+                a.css && b.div.css(a.css);
+                a.src ? f(a.src).replaceWith(b.div) : f(b.doc.body).append(b.div);
+                a.html && b.div.html(a.html);
+                if (a.autoScroll)if (l && z < 7 || O) {
+                    var c = ba();
+                    f(b.win).bind("scroll", function () {
+                        var a = ba(), e = a.x - c.x, a = a.y - c.y;
+                        b.pos(t(b.x) + e, t(b.y) + a, !1)
+                    })
+                } else b.div.css("position",
+                    "fixed")
+            }, pos: function (a, b, c) {
+                c = j(c, !0);
+                if (a !== null && (a = a < 0 ? 0 : s(a), this.div.css("left", a), c)) this.x = a;
+                if (b !== null && (b = b < 0 ? 0 : s(b), this.div.css("top", b), c)) this.y = b;
+                return this
+            }, autoPos: function (a, b) {
+                var c = t(a) || 0, d = t(b) || 0, e = ba();
+                if (this._alignEl) {
+                    var g = f(this._alignEl), h = g.pos(), c = Q(g[0].clientWidth / 2 - c / 2), d = Q(g[0].clientHeight / 2 - d / 2);
+                    x = c < 0 ? h.x : h.x + c;
+                    y = d < 0 ? h.y : h.y + d
+                } else h = G(this.doc), x = Q(e.x + (h.clientWidth - c) / 2), y = Q(e.y + (h.clientHeight - d) / 2);
+                l && z < 7 || O || (x -= e.x, y -= e.y);
+                return this.pos(x, y)
+            }, remove: function () {
+                var a =
+                    this;
+                (l && z < 7 || O) && f(a.win).unbind("scroll");
+                a.div.remove();
+                m(a, function (b) {
+                    a[b] = null
+                });
+                return this
+            }, show: function () {
+                this.div.show();
+                return this
+            }, hide: function () {
+                this.div.hide();
+                return this
+            }, draggable: function (a) {
+                var b = this, a = a || {};
+                a.moveEl = b.div;
+                a.moveFn = function (a, d, e, g, f, i) {
+                    if ((a += f) < 0) a = 0;
+                    if ((d += i) < 0) d = 0;
+                    b.pos(a, d)
+                };
+                Sa(a);
+                return b
+            }
+        });
+        f.WidgetClass = R;
+        f.widget = Ua;
+        var Va = "";
+        if (q = document.getElementsByTagName("html")) Va = q[0].dir;
+        E(pa, R, {
+            init: function (a) {
+                function b() {
+                    var b = Ta(c.iframe);
+                    b.open();
+                    if (i) b.domain =
+                        document.domain;
+                    b.write(Xb(d, e, g, h));
+                    b.close();
+                    c.win = c.iframe[0].contentWindow;
+                    c.doc = b;
+                    var k = xb(b);
+                    c.afterChange(function () {
+                        k.selection()
+                    });
+                    W && f(b).click(function (a) {
+                        f(a.target).name === "img" && (k.selection(!0), k.range.selectNode(a.target), k.select())
+                    });
+                    if (l) c._mousedownHandler = function () {
+                        var a = k.range.cloneRange();
+                        a.shrink();
+                        a.isControl() && c.blur()
+                    }, f(document).mousedown(c._mousedownHandler), f(b).keydown(function (a) {
+                        if (a.which == 8) {
+                            k.selection();
+                            var b = k.range;
+                            b.isControl() && (b.collapse(!0), f(b.startContainer.childNodes[b.startOffset]).remove(),
+                                a.preventDefault())
+                        }
+                    });
+                    c.cmd = k;
+                    c.html(oa(c.srcElement));
+                    l ? (b.body.disabled = !0, b.body.contentEditable = !0, b.body.removeAttribute("disabled")) : b.designMode = "on";
+                    a.afterCreate && a.afterCreate.call(c)
+                }
+
+                var c = this;
+                pa.parent.init.call(c, a);
+                c.srcElement = f(a.srcElement);
+                c.div.addClass("ke-edit");
+                c.designMode = j(a.designMode, !0);
+                c.beforeGetHtml = a.beforeGetHtml;
+                c.beforeSetHtml = a.beforeSetHtml;
+                c.afterSetHtml = a.afterSetHtml;
+                var d = j(a.themesPath, ""), e = a.bodyClass, g = a.cssPath, h = a.cssData, i = location.host.replace(/:\d+/,
+                        "") !== document.domain, k = "document.open();" + (i ? 'document.domain="' + document.domain + '";' : "") + "document.close();", k = l ? ' src="javascript:void(function(){' + encodeURIComponent(k) + '}())"' : "";
+                c.iframe = f('<iframe class="ke-edit-iframe" hidefocus="true" frameborder="0"' + k + "></iframe>").css("width", "100%");
+                c.textarea = f('<textarea class="ke-edit-textarea" hidefocus="true"></textarea>').css("width", "100%");
+                c.width && c.setWidth(c.width);
+                c.height && c.setHeight(c.height);
+                c.designMode ? c.textarea.hide() : c.iframe.hide();
+                i && c.iframe.bind("load", function () {
+                    c.iframe.unbind("load");
+                    l ? b() : setTimeout(b, 0)
+                });
+                c.div.append(c.iframe);
+                c.div.append(c.textarea);
+                c.srcElement.hide();
+                !i && b()
+            }, setWidth: function (a) {
+                this.div.css("width", s(a));
+                return this
+            }, setHeight: function (a) {
+                a = s(a);
+                this.div.css("height", a);
+                this.iframe.css("height", a);
+                if (l && z < 8 || O) a = s(t(a) - 2);
+                this.textarea.css("height", a);
+                return this
+            }, remove: function () {
+                var a = this.doc;
+                f(a.body).unbind();
+                f(a).unbind();
+                f(this.win).unbind();
+                this._mousedownHandler && f(document).unbind("mousedown",
+                    this._mousedownHandler);
+                oa(this.srcElement, this.html());
+                this.srcElement.show();
+                a.write("");
+                this.iframe.unbind();
+                this.textarea.unbind();
+                pa.parent.remove.call(this)
+            }, html: function (a, b) {
+                var c = this.doc;
+                if (this.designMode) {
+                    c = c.body;
+                    if (a === o)return a = b ? "<!doctype html><html>" + c.parentNode.innerHTML + "</html>" : c.innerHTML, this.beforeGetHtml && (a = this.beforeGetHtml(a)), ea && a == "<br />" && (a = ""), a;
+                    this.beforeSetHtml && (a = this.beforeSetHtml(a));
+                    l && z >= 9 && (a = a.replace(/(<.*?checked=")checked(".*>)/ig, "$1$2"));
+                    f(c).html(a);
+                    this.afterSetHtml && this.afterSetHtml();
+                    return this
+                }
+                if (a === o)return this.textarea.val();
+                this.textarea.val(a);
+                return this
+            }, design: function (a) {
+                if (a === o ? !this.designMode : a) {
+                    if (!this.designMode) a = this.html(), this.designMode = !0, this.html(a), this.textarea.hide(), this.iframe.show()
+                } else if (this.designMode) a = this.html(), this.designMode = !1, this.html(a), this.iframe.hide(), this.textarea.show();
+                return this.focus()
+            }, focus: function () {
+                this.designMode ? this.win.focus() : this.textarea[0].focus();
+                return this
+            }, blur: function () {
+                if (l) {
+                    var a =
+                        f('<input type="text" style="float:left;width:0;height:0;padding:0;margin:0;border:0;" value="" />', this.div);
+                    this.div.append(a);
+                    a[0].focus();
+                    a.remove()
+                } else this.designMode ? this.win.blur() : this.textarea[0].blur();
+                return this
+            }, afterChange: function (a) {
+                function b(b) {
+                    setTimeout(function () {
+                        a(b)
+                    }, 1)
+                }
+
+                var c = this.doc, d = c.body;
+                f(c).keyup(function (b) {
+                    !b.ctrlKey && !b.altKey && ab[b.which] && a(b)
+                });
+                f(c).mouseup(a).contextmenu(a);
+                f(this.win).blur(a);
+                f(d).bind("paste", b);
+                f(d).bind("cut", b);
+                return this
+            }
+        });
+        f.EditClass =
+            pa;
+        f.edit = yb;
+        f.iframeDoc = Ta;
+        E(Aa, R, {
+            init: function (a) {
+                function b(a) {
+                    a = f(a);
+                    if (a.hasClass("ke-outline"))return a;
+                    if (a.hasClass("ke-toolbar-icon"))return a.parent()
+                }
+
+                function c(a, c) {
+                    var d = b(a.target);
+                    if (d && !d.hasClass("ke-disabled") && !d.hasClass("ke-selected")) d[c]("ke-on")
+                }
+
+                var d = this;
+                Aa.parent.init.call(d, a);
+                d.disableMode = j(a.disableMode, !1);
+                d.noDisableItemMap = u(j(a.noDisableItems, []));
+                d._itemMap = {};
+                d.div.addClass("ke-toolbar").bind("contextmenu,mousedown,mousemove", function (a) {
+                    a.preventDefault()
+                }).attr("unselectable",
+                    "on");
+                d.div.mouseover(function (a) {
+                    c(a, "addClass")
+                }).mouseout(function (a) {
+                    c(a, "removeClass")
+                }).click(function (a) {
+                    var c = b(a.target);
+                    c && !c.hasClass("ke-disabled") && d.options.click.call(this, a, c.attr("data-name"))
+                })
+            }, get: function (a) {
+                if (this._itemMap[a])return this._itemMap[a];
+                return this._itemMap[a] = f("span.ke-icon-" + a, this.div).parent()
+            }, select: function (a) {
+                zb.call(this, a, function (a) {
+                    a.addClass("ke-selected")
+                });
+                return self
+            }, unselect: function (a) {
+                zb.call(this, a, function (a) {
+                    a.removeClass("ke-selected").removeClass("ke-on")
+                });
+                return self
+            }, enable: function (a) {
+                if (a = a.get ? a : this.get(a)) a.removeClass("ke-disabled"), a.opacity(1);
+                return this
+            }, disable: function (a) {
+                if (a = a.get ? a : this.get(a)) a.removeClass("ke-selected").addClass("ke-disabled"), a.opacity(0.5);
+                return this
+            }, disableAll: function (a, b) {
+                var c = this, d = c.noDisableItemMap;
+                b && (d = u(b));
+                (a === o ? !c.disableMode : a) ? (f("span.ke-outline", c.div).each(function () {
+                        var a = f(this), b = a[0].getAttribute("data-name", 2);
+                        d[b] || c.disable(a)
+                    }), c.disableMode = !0) : (f("span.ke-outline", c.div).each(function () {
+                        var a =
+                            f(this), b = a[0].getAttribute("data-name", 2);
+                        d[b] || c.enable(a)
+                    }), c.disableMode = !1);
+                return c
+            }
+        });
+        f.ToolbarClass = Aa;
+        f.toolbar = Ab;
+        E(qa, R, {
+            init: function (a) {
+                a.z = a.z || 811213;
+                qa.parent.init.call(this, a);
+                this.centerLineMode = j(a.centerLineMode, !0);
+                this.div.addClass("ke-menu").bind("click,mousedown", function (a) {
+                    a.stopPropagation()
+                }).attr("unselectable", "on")
+            }, addItem: function (a) {
+                if (a.title === "-") this.div.append(f('<div class="ke-menu-separator"></div>')); else {
+                    var b = f('<div class="ke-menu-item" unselectable="on"></div>'),
+                        c = f('<div class="ke-inline-block ke-menu-item-left"></div>'), d = f('<div class="ke-inline-block ke-menu-item-right"></div>'), e = s(a.height), g = j(a.iconClass, "");
+                    this.div.append(b);
+                    e && (b.css("height", e), d.css("line-height", e));
+                    var h;
+                    this.centerLineMode && (h = f('<div class="ke-inline-block ke-menu-item-center"></div>'), e && h.css("height", e));
+                    b.mouseover(function () {
+                        f(this).addClass("ke-menu-item-on");
+                        h && h.addClass("ke-menu-item-center-on")
+                    }).mouseout(function () {
+                        f(this).removeClass("ke-menu-item-on");
+                        h && h.removeClass("ke-menu-item-center-on")
+                    }).click(function (b) {
+                        a.click.call(f(this));
+                        b.stopPropagation()
+                    }).append(c);
+                    h && b.append(h);
+                    b.append(d);
+                    a.checked && (g = "ke-icon-checked");
+                    g !== "" && c.html('<span class="ke-inline-block ke-toolbar-icon ke-toolbar-icon-url ' + g + '"></span>');
+                    d.html(a.title);
+                    return this
+                }
+            }, remove: function () {
+                this.options.beforeRemove && this.options.beforeRemove.call(this);
+                f(".ke-menu-item", this.div[0]).unbind();
+                qa.parent.remove.call(this);
+                return this
+            }
+        });
+        f.MenuClass = qa;
+        f.menu = Wa;
+        E(ra, R, {
+            init: function (a) {
+                a.z = a.z || 811213;
+                ra.parent.init.call(this, a);
+                var b = a.colors || [["#E53333",
+                        "#E56600", "#FF9900", "#64451D", "#DFC5A4", "#FFE500"], ["#009900", "#006600", "#99BB00", "#B8D100", "#60D978", "#00D5FF"], ["#337FE5", "#003399", "#4C33E5", "#9933E5", "#CC33E5", "#EE33EE"], ["#FFFFFF", "#CCCCCC", "#999999", "#666666", "#333333", "#000000"]];
+                this.selectedColor = (a.selectedColor || "").toLowerCase();
+                this._cells = [];
+                this.div.addClass("ke-colorpicker").bind("click,mousedown", function (a) {
+                    a.stopPropagation()
+                }).attr("unselectable", "on");
+                a = this.doc.createElement("table");
+                this.div.append(a);
+                a.className = "ke-colorpicker-table";
+                a.cellPadding = 0;
+                a.cellSpacing = 0;
+                a.border = 0;
+                var c = a.insertRow(0), d = c.insertCell(0);
+                d.colSpan = b[0].length;
+                this._addAttr(d, "", "ke-colorpicker-cell-top");
+                for (var e = 0; e < b.length; e++)for (var c = a.insertRow(e + 1), g = 0; g < b[e].length; g++)d = c.insertCell(g), this._addAttr(d, b[e][g], "ke-colorpicker-cell")
+            }, _addAttr: function (a, b, c) {
+                var d = this, a = f(a).addClass(c);
+                d.selectedColor === b.toLowerCase() && a.addClass("ke-colorpicker-cell-selected");
+                a.attr("title", b || d.options.noColor);
+                a.mouseover(function () {
+                    f(this).addClass("ke-colorpicker-cell-on")
+                });
+                a.mouseout(function () {
+                    f(this).removeClass("ke-colorpicker-cell-on")
+                });
+                a.click(function (a) {
+                    a.stop();
+                    d.options.click.call(f(this), b)
+                });
+                b ? a.append(f('<div class="ke-colorpicker-cell-color" unselectable="on"></div>').css("background-color", b)) : a.html(d.options.noColor);
+                f(a).attr("unselectable", "on");
+                d._cells.push(a)
+            }, remove: function () {
+                m(this._cells, function () {
+                    this.unbind()
+                });
+                ra.parent.remove.call(this);
+                return this
+            }
+        });
+        f.ColorPickerClass = ra;
+        f.colorpicker = Bb;
+        E(Xa, {
+            init: function (a) {
+                var b = f(a.button), c = a.fieldName ||
+                    "file", d = a.url || "", e = b.val(), g = a.extraParams || {}, h = b[0].className || "", i = a.target || "kindeditor_upload_iframe_" + (new Date).getTime();
+                a.afterError = a.afterError || function (a) {
+                        alert(a)
+                    };
+                var k = [], j;
+                for (j in g)k.push('<input type="hidden" name="' + j + '" value="' + g[j] + '" />');
+                c = ['<div class="ke-inline-block ' + h + '">', a.target ? "" : '<iframe name="' + i + '" style="display:none;"></iframe>', a.form ? '<div class="ke-upload-area">' : '<form class="ke-upload-area ke-form" method="post" enctype="multipart/form-data" target="' +
+                    i + '" action="' + d + '">', '<span class="ke-button-common">', k.join(""), '<input type="button" class="ke-button-common ke-button" value="' + e + '" />', "</span>", '<input type="file" class="ke-upload-file" name="' + c + '" tabindex="-1" />', a.form ? "</div>" : "</form>", "</div>"].join("");
+                c = f(c, b.doc);
+                b.hide();
+                b.before(c);
+                this.div = c;
+                this.button = b;
+                this.iframe = a.target ? f('iframe[name="' + i + '"]') : f("iframe", c);
+                this.form = a.form ? f(a.form) : f("form", c);
+                b = a.width || f(".ke-button-common", c).width();
+                this.fileBox = f(".ke-upload-file",
+                    c).width(b);
+                this.options = a
+            }, submit: function () {
+                var a = this, b = a.iframe;
+                b.bind("load", function () {
+                    b.unbind();
+                    var c = document.createElement("form");
+                    a.fileBox.before(c);
+                    f(c).append(a.fileBox);
+                    c.reset();
+                    f(c).remove(!0);
+                    var c = f.iframeDoc(b), d = c.getElementsByTagName("pre")[0], e = "", g, e = d ? d.innerHTML : c.body.innerHTML, e = fa(e);
+                    b[0].src = "javascript:false";
+                    try {
+                        g = f.json(e)
+                    } catch (h) {
+                        a.options.afterError.call(a, "<!doctype html><html>" + c.body.parentNode.innerHTML + "</html>")
+                    }
+                    g && a.options.afterUpload.call(a, g)
+                });
+                a.form[0].submit();
+                return a
+            }, remove: function () {
+                this.fileBox && this.fileBox.unbind();
+                this.iframe.remove();
+                this.div.remove();
+                this.button.show();
+                return this
+            }
+        });
+        f.UploadButtonClass = Xa;
+        f.uploadbutton = function (a) {
+            return new Xa(a)
+        };
+        E(sa, R, {
+            init: function (a) {
+                var b = j(a.shadowMode, !0);
+                a.z = a.z || 811213;
+                a.shadowMode = !1;
+                a.autoScroll = j(a.autoScroll, !0);
+                sa.parent.init.call(this, a);
+                var c = a.title, d = f(a.body, this.doc), e = a.previewBtn, g = a.yesBtn, h = a.noBtn, i = a.closeBtn, k = j(a.showMask, !0);
+                this.div.addClass("ke-dialog").bind("click,mousedown",
+                    function (a) {
+                        a.stopPropagation()
+                    });
+                var n = f('<div class="ke-dialog-content"></div>').appendTo(this.div);
+                l && z < 7 ? this.iframeMask = f('<iframe src="about:blank" class="ke-dialog-shadow"></iframe>').appendTo(this.div) : b && f('<div class="ke-dialog-shadow"></div>').appendTo(this.div);
+                b = f('<div class="ke-dialog-header"></div>');
+                n.append(b);
+                b.html(c);
+                this.closeIcon = f('<span class="ke-dialog-icon-close" title="' + i.name + '"></span>').click(i.click);
+                b.append(this.closeIcon);
+                this.draggable({clickEl: b, beforeDrag: a.beforeDrag});
+                a = f('<div class="ke-dialog-body"></div>');
+                n.append(a);
+                a.append(d);
+                var o = f('<div class="ke-dialog-footer"></div>');
+                (e || g || h) && n.append(o);
+                m([{btn: e, name: "preview"}, {btn: g, name: "yes"}, {btn: h, name: "no"}], function () {
+                    if (this.btn) {
+                        var a = this.btn, a = a || {}, b = a.name || "", c = f('<span class="ke-button-common ke-button-outer" title="' + b + '"></span>'), b = f('<input class="ke-button-common ke-button" type="button" value="' + b + '" />');
+                        a.click && b.click(a.click);
+                        c.append(b);
+                        c.addClass("ke-dialog-" + this.name);
+                        o.append(c)
+                    }
+                });
+                this.height && a.height(t(this.height) - b.height() - o.height());
+                this.div.width(this.div.width());
+                this.div.height(this.div.height());
+                this.mask = null;
+                if (k) d = G(this.doc), this.mask = Ua({
+                    x: 0,
+                    y: 0,
+                    z: this.z - 1,
+                    cls: "ke-dialog-mask",
+                    width: Math.max(d.scrollWidth, d.clientWidth),
+                    height: Math.max(d.scrollHeight, d.clientHeight)
+                });
+                this.autoPos(this.div.width(), this.div.height());
+                this.footerDiv = o;
+                this.bodyDiv = a;
+                this.headerDiv = b;
+                this.isLoading = !1
+            }, setMaskIndex: function (a) {
+                this.mask.div.css("z-index", a)
+            }, showLoading: function (a) {
+                var a =
+                    j(a, ""), b = this.bodyDiv;
+                this.loading = f('<div class="ke-dialog-loading"><div class="ke-inline-block ke-dialog-loading-content" style="margin-top:' + Math.round(b.height() / 3) + 'px;">' + a + "</div></div>").width(b.width()).height(b.height()).css("top", this.headerDiv.height() + "px");
+                b.css("visibility", "hidden").after(this.loading);
+                this.isLoading = !0;
+                return this
+            }, hideLoading: function () {
+                this.loading && this.loading.remove();
+                this.bodyDiv.css("visibility", "visible");
+                this.isLoading = !1;
+                return this
+            }, remove: function () {
+                this.options.beforeRemove &&
+                this.options.beforeRemove.call(this);
+                this.mask && this.mask.remove();
+                this.iframeMask && this.iframeMask.remove();
+                this.closeIcon.unbind();
+                f("input", this.div).unbind();
+                f("button", this.div).unbind();
+                this.footerDiv.unbind();
+                this.bodyDiv.unbind();
+                this.headerDiv.unbind();
+                f("iframe", this.div).each(function () {
+                    f(this).remove()
+                });
+                sa.parent.remove.call(this);
+                return this
+            }
+        });
+        f.DialogClass = sa;
+        f.dialog = Cb;
+        f.tabs = function (a) {
+            var b = Ua(a), c = b.remove, d = a.afterSelect, a = b.div, e = [];
+            a.addClass("ke-tabs").bind("contextmenu,mousedown,mousemove",
+                function (a) {
+                    a.preventDefault()
+                });
+            var g = f('<ul class="ke-tabs-ul ke-clearfix"></ul>');
+            a.append(g);
+            b.add = function (a) {
+                var b = f('<li class="ke-tabs-li">' + a.title + "</li>");
+                b.data("tab", a);
+                e.push(b);
+                g.append(b)
+            };
+            b.selectedIndex = 0;
+            b.select = function (a) {
+                b.selectedIndex = a;
+                m(e, function (c, d) {
+                    d.unbind();
+                    c === a ? (d.addClass("ke-tabs-li-selected"), f(d.data("tab").panel).show("")) : (d.removeClass("ke-tabs-li-selected").removeClass("ke-tabs-li-on").mouseover(function () {
+                            f(this).addClass("ke-tabs-li-on")
+                        }).mouseout(function () {
+                            f(this).removeClass("ke-tabs-li-on")
+                        }).click(function () {
+                            b.select(c)
+                        }),
+                            f(d.data("tab").panel).hide())
+                });
+                d && d.call(b, a)
+            };
+            b.remove = function () {
+                m(e, function () {
+                    this.remove()
+                });
+                g.remove();
+                c.call(b)
+            };
+            return b
+        };
+        f.loadScript = Ya;
+        f.loadStyle = Za;
+        f.ajax = function (a, b, c, d, e) {
+            var c = c || "GET", e = e || "json", g = A.XMLHttpRequest ? new A.XMLHttpRequest : new ActiveXObject("Microsoft.XMLHTTP");
+            g.open(c, a, !0);
+            g.onreadystatechange = function () {
+                if (g.readyState == 4 && g.status == 200 && b) {
+                    var a = B(g.responseText);
+                    e == "json" && (a = cb(a));
+                    b(a)
+                }
+            };
+            if (c == "POST") {
+                var f = [];
+                m(d, function (a, b) {
+                    f.push(encodeURIComponent(a) +
+                        "=" + encodeURIComponent(b))
+                });
+                try {
+                    g.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
+                } catch (i) {
+                }
+                g.send(f.join("&"))
+            } else g.send(null)
+        };
+        var V = {}, M = {};
+        ta.prototype = {
+            lang: function (a) {
+                return Gb(a, this.langType)
+            }, loadPlugin: function (a, b) {
+                var c = this;
+                if (V[a]) {
+                    if (c._calledPlugins[a])return b && b.call(c), c;
+                    V[a].call(c, KindEditor);
+                    b && b.call(c);
+                    c._calledPlugins[a] = !0;
+                    return c
+                }
+                if (c.isLoading)return c;
+                c.isLoading = !0;
+                Ya(c.pluginsPath + a + "/" + a + ".js?ver=" + encodeURIComponent(f.DEBUG ? Ca : Da), function () {
+                    c.isLoading = !1;
+                    V[a] && c.loadPlugin(a, b)
+                });
+                return c
+            }, handler: function (a, b) {
+                var c = this;
+                c._handlers[a] || (c._handlers[a] = []);
+                if (bb(b))return c._handlers[a].push(b), c;
+                m(c._handlers[a], function () {
+                    b = this.call(c, b)
+                });
+                return b
+            }, clickToolbar: function (a, b) {
+                var c = this, d = "clickToolbar" + a;
+                if (b === o) {
+                    if (c._handlers[d])return c.handler(d);
+                    c.loadPlugin(a, function () {
+                        c.handler(d)
+                    });
+                    return c
+                }
+                return c.handler(d, b)
+            }, updateState: function () {
+                var a = this;
+                m("justifyleft,justifycenter,justifyright,justifyfull,insertorderedlist,insertunorderedlist,subscript,superscript,bold,italic,underline,strikethrough".split(","),
+                    function (b, c) {
+                        a.cmd.state(c) ? a.toolbar.select(c) : a.toolbar.unselect(c)
+                    });
+                return a
+            }, addContextmenu: function (a) {
+                this._contextmenus.push(a);
+                return this
+            }, afterCreate: function (a) {
+                return this.handler("afterCreate", a)
+            }, beforeRemove: function (a) {
+                return this.handler("beforeRemove", a)
+            }, beforeGetHtml: function (a) {
+                return this.handler("beforeGetHtml", a)
+            }, beforeSetHtml: function (a) {
+                return this.handler("beforeSetHtml", a)
+            }, afterSetHtml: function (a) {
+                return this.handler("afterSetHtml", a)
+            }, create: function () {
+                function a() {
+                    k.height() ===
+                    0 ? setTimeout(a, 100) : b.resize(d, e, !1)
+                }
+
+                var b = this, c = b.fullscreenMode;
+                if (b.isCreated)return b;
+                if (b.srcElement.data("kindeditor"))return b;
+                b.srcElement.data("kindeditor", "true");
+                c ? G().style.overflow = "hidden" : G().style.overflow = "";
+                var d = c ? G().clientWidth + "px" : b.width, e = c ? G().clientHeight + "px" : b.height;
+                if (l && z < 8 || O) e = s(t(e) + 2);
+                var g = b.container = f(b.layout);
+                c ? f(document.body).append(g) : b.srcElement.before(g);
+                var h = f(".toolbar", g), i = f(".edit", g), k = b.statusbar = f(".statusbar", g);
+                g.removeClass("container").addClass("ke-container ke-container-" +
+                    b.themeType).css("width", d);
+                if (c) {
+                    g.css({position: "absolute", left: 0, top: 0, "z-index": 811211});
+                    if (!ea) b._scrollPos = ba();
+                    A.scrollTo(0, 0);
+                    f(document.body).css({height: "1px", overflow: "hidden"});
+                    f(document.body.parentNode).css("overflow", "hidden");
+                    b._fullscreenExecuted = !0
+                } else b._fullscreenExecuted && (f(document.body).css({
+                    height: "",
+                    overflow: ""
+                }), f(document.body.parentNode).css("overflow", "")), b._scrollPos && A.scrollTo(b._scrollPos.x, b._scrollPos.y);
+                var j = [];
+                f.each(b.items, function (a, c) {
+                    c == "|" ? j.push('<span class="ke-inline-block ke-separator"></span>') :
+                        c == "/" ? j.push('<div class="ke-hr"></div>') : (j.push('<span class="ke-outline" data-name="' + c + '" title="' + b.lang(c) + '" unselectable="on">'), j.push('<span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-' + c + '" unselectable="on"></span></span>'))
+                });
+                var h = b.toolbar = Ab({
+                    src: h,
+                    html: j.join(""),
+                    noDisableItems: b.noDisableItems,
+                    click: function (a, c) {
+                        a.stop();
+                        if (b.menu) {
+                            var d = b.menu.name;
+                            b.hideMenu();
+                            if (d === c)return
+                        }
+                        b.clickToolbar(c)
+                    }
+                }), m = t(e) - h.div.height(), p = b.edit = yb({
+                    height: m > 0 && t(e) > b.minHeight ? m : b.minHeight,
+                    src: i,
+                    srcElement: b.srcElement,
+                    designMode: b.designMode,
+                    themesPath: b.themesPath,
+                    bodyClass: b.bodyClass,
+                    cssPath: b.cssPath,
+                    cssData: b.cssData,
+                    beforeGetHtml: function (a) {
+                        a = b.beforeGetHtml(a);
+                        return S(a, b.filterMode ? b.htmlTags : null, b.urlType, b.wellFormatMode, b.indentChar)
+                    },
+                    beforeSetHtml: function (a) {
+                        a = S(a, b.filterMode ? b.htmlTags : null, "", !1);
+                        return b.beforeSetHtml(a)
+                    },
+                    afterSetHtml: function () {
+                        b.edit = p = this;
+                        b.afterSetHtml()
+                    },
+                    afterCreate: function () {
+                        b.edit = p = this;
+                        b.cmd = p.cmd;
+                        b._docMousedownFn = function () {
+                            b.menu &&
+                            b.hideMenu()
+                        };
+                        f(p.doc, document).mousedown(b._docMousedownFn);
+                        Yb.call(b);
+                        Zb.call(b);
+                        $b.call(b);
+                        ac.call(b);
+                        p.afterChange(function () {
+                            p.designMode && (b.updateState(), b.addBookmark(), b.options.afterChange && b.options.afterChange.call(b))
+                        });
+                        p.textarea.keyup(function (a) {
+                            !a.ctrlKey && !a.altKey && Nb[a.which] && b.options.afterChange && b.options.afterChange.call(b)
+                        });
+                        b.readonlyMode && b.readonly();
+                        b.isCreated = !0;
+                        if (b.initContent === "") b.initContent = b.html();
+                        b.afterCreate();
+                        b.options.afterCreate && b.options.afterCreate.call(b)
+                    }
+                });
+                k.removeClass("statusbar").addClass("ke-statusbar").append('<span class="ke-inline-block ke-statusbar-center-icon"></span>').append('<span class="ke-inline-block ke-statusbar-right-icon"></span>');
+                if (b._fullscreenResizeHandler) f(A).unbind("resize", b._fullscreenResizeHandler), b._fullscreenResizeHandler = null;
+                a();
+                c ? (b._fullscreenResizeHandler = function () {
+                        b.isCreated && b.resize(G().clientWidth, G().clientHeight, !1)
+                    }, f(A).bind("resize", b._fullscreenResizeHandler), h.select("fullscreen"), k.first().css("visibility",
+                        "hidden"), k.last().css("visibility", "hidden")) : (ea && f(A).bind("scroll", function () {
+                        b._scrollPos = ba()
+                    }), b.resizeType > 0 ? Sa({
+                            moveEl: g, clickEl: k, moveFn: function (a, c, d, e, g, f) {
+                                e += f;
+                                b.resize(null, e)
+                            }
+                        }) : k.first().css("visibility", "hidden"), b.resizeType === 2 ? Sa({
+                            moveEl: g,
+                            clickEl: k.last(),
+                            moveFn: function (a, c, d, e, g, f) {
+                                d += g;
+                                e += f;
+                                b.resize(d, e)
+                            }
+                        }) : k.last().css("visibility", "hidden"));
+                return b
+            }, remove: function () {
+                var a = this;
+                if (!a.isCreated)return a;
+                a.beforeRemove();
+                a.srcElement.data("kindeditor", "");
+                a.menu && a.hideMenu();
+                m(a.dialogs, function () {
+                    a.hideDialog()
+                });
+                f(document).unbind("mousedown", a._docMousedownFn);
+                a.toolbar.remove();
+                a.edit.remove();
+                a.statusbar.last().unbind();
+                a.statusbar.unbind();
+                a.container.remove();
+                a.container = a.toolbar = a.edit = a.menu = null;
+                a.dialogs = [];
+                a.isCreated = !1;
+                return a
+            }, resize: function (a, b, c) {
+                c = j(c, !0);
+                if (a && (/%/.test(a) || (a = t(a), a = a < this.minWidth ? this.minWidth : a), this.container.css("width", s(a)), c)) this.width = s(a);
+                if (b && (b = t(b), editHeight = t(b) - this.toolbar.div.height() - this.statusbar.height(),
+                        editHeight = editHeight < this.minHeight ? this.minHeight : editHeight, this.edit.setHeight(editHeight), c)) this.height = s(b);
+                return this
+            }, select: function () {
+                this.isCreated && this.cmd.select();
+                return this
+            }, html: function (a) {
+                if (a === o)return this.isCreated ? this.edit.html() : oa(this.srcElement);
+                this.isCreated ? this.edit.html(a) : oa(this.srcElement, a);
+                this.isCreated && this.cmd.selection();
+                return this
+            }, fullHtml: function () {
+                return this.isCreated ? this.edit.html(o, !0) : ""
+            }, text: function (a) {
+                return a === o ? B(this.html().replace(/<(?!img|embed).*?>/ig,
+                        "").replace(/&nbsp;/ig, " ")) : this.html(C(a))
+            }, isEmpty: function () {
+                return B(this.text().replace(/\r\n|\n|\r/, "")) === ""
+            }, isDirty: function () {
+                return B(this.initContent.replace(/\r\n|\n|\r|t/g, "")) !== B(this.html().replace(/\r\n|\n|\r|t/g, ""))
+            }, selectedHtml: function () {
+                return this.isCreated ? this.cmd.range.html() : ""
+            }, count: function (a) {
+                a = (a || "html").toLowerCase();
+                if (a === "html")return X($a(this.html())).length;
+                if (a === "text")return this.text().replace(/<(?:img|embed).*?>/ig, "K").replace(/\r\n|\n|\r/g, "").length;
+                return 0
+            }, exec: function (a) {
+                var a = a.toLowerCase(), b = this.cmd, c = N(a, "selectall,copy,paste,print".split(",")) < 0;
+                c && this.addBookmark(!1);
+                b[a].apply(b, Fa(arguments, 1));
+                c && (this.updateState(), this.addBookmark(!1), this.options.afterChange && this.options.afterChange.call(this));
+                return this
+            }, insertHtml: function (a, b) {
+                if (!this.isCreated)return this;
+                a = this.beforeSetHtml(a);
+                this.exec("inserthtml", a, b);
+                return this
+            }, appendHtml: function (a) {
+                this.html(this.html() + a);
+                if (this.isCreated) a = this.cmd, a.range.selectNodeContents(a.doc.body).collapse(!1),
+                    a.select();
+                return this
+            }, sync: function () {
+                oa(this.srcElement, this.html());
+                return this
+            }, focus: function () {
+                this.isCreated ? this.edit.focus() : this.srcElement[0].focus();
+                return this
+            }, blur: function () {
+                this.isCreated ? this.edit.blur() : this.srcElement[0].blur();
+                return this
+            }, addBookmark: function (a) {
+                var a = j(a, !0), b = this.edit, c = b.doc.body, d = $a(c.innerHTML);
+                if (a && this._undoStack.length > 0 && Math.abs(d.length - X(this._undoStack[this._undoStack.length - 1].html).length) < this.minChangeSize)return this;
+                b.designMode && !this._firstAddBookmark ?
+                    (b = this.cmd.range, a = b.createBookmark(!0), a.html = $a(c.innerHTML), b.moveToBookmark(a)) : a = {html: d};
+                this._firstAddBookmark = !1;
+                Hb(this._undoStack, a);
+                return this
+            }, undo: function () {
+                return Ib.call(this, this._undoStack, this._redoStack)
+            }, redo: function () {
+                return Ib.call(this, this._redoStack, this._undoStack)
+            }, fullscreen: function (a) {
+                this.fullscreenMode = a === o ? !this.fullscreenMode : a;
+                return this.remove().create()
+            }, readonly: function (a) {
+                var a = j(a, !0), b = this, c = b.edit, d = c.doc;
+                b.designMode ? b.toolbar.disableAll(a, []) : m(b.noDisableItems,
+                        function () {
+                            b.toolbar[a ? "disable" : "enable"](this)
+                        });
+                l ? d.body.contentEditable = !a : d.designMode = a ? "off" : "on";
+                c.textarea[0].disabled = a
+            }, createMenu: function (a) {
+                var b = this.toolbar.get(a.name), c = b.pos();
+                a.x = c.x;
+                a.y = c.y + b.height();
+                a.z = this.options.zIndex;
+                a.shadowMode = j(a.shadowMode, this.shadowMode);
+                a.selectedColor !== o ? (a.cls = "ke-colorpicker-" + this.themeType, a.noColor = this.lang("noColor"), this.menu = Bb(a)) : (a.cls = "ke-menu-" + this.themeType, a.centerLineMode = !1, this.menu = Wa(a));
+                return this.menu
+            }, hideMenu: function () {
+                this.menu.remove();
+                this.menu = null;
+                return this
+            }, hideContextmenu: function () {
+                this.contextmenu.remove();
+                this.contextmenu = null;
+                return this
+            }, createDialog: function (a) {
+                var b = this;
+                a.z = b.options.zIndex;
+                a.shadowMode = j(a.shadowMode, b.shadowMode);
+                a.closeBtn = j(a.closeBtn, {
+                    name: b.lang("close"), click: function () {
+                        b.hideDialog();
+                        l && b.cmd && b.cmd.select()
+                    }
+                });
+                a.noBtn = j(a.noBtn, {
+                    name: b.lang(a.yesBtn ? "no" : "close"), click: function () {
+                        b.hideDialog();
+                        l && b.cmd && b.cmd.select()
+                    }
+                });
+                if (b.dialogAlignType != "page") a.alignEl = b.container;
+                a.cls = "ke-dialog-" +
+                    b.themeType;
+                if (b.dialogs.length > 0) {
+                    var c = b.dialogs[b.dialogs.length - 1];
+                    b.dialogs[0].setMaskIndex(c.z + 2);
+                    a.z = c.z + 3;
+                    a.showMask = !1
+                }
+                a = Cb(a);
+                b.dialogs.push(a);
+                return a
+            }, hideDialog: function () {
+                this.dialogs.length > 0 && this.dialogs.pop().remove();
+                this.dialogs.length > 0 && this.dialogs[0].setMaskIndex(this.dialogs[this.dialogs.length - 1].z - 1);
+                return this
+            }, errorDialog: function (a) {
+                var b = this.createDialog({
+                        width: 750,
+                        title: this.lang("uploadError"),
+                        body: '<div style="padding:10px 20px;"><iframe frameborder="0" style="width:708px;height:400px;"></iframe></div>'
+                    }),
+                    b = f("iframe", b.div), c = f.iframeDoc(b);
+                c.open();
+                c.write(a);
+                c.close();
+                f(c.body).css("background-color", "#FFF");
+                b[0].contentWindow.focus();
+                return this
+            }
+        };
+        _instances = [];
+        f.remove = function (a) {
+            Kb(a, function (a) {
+                this.remove();
+                _instances.splice(a, 1)
+            })
+        };
+        f.sync = function (a) {
+            Kb(a, function () {
+                this.sync()
+            })
+        };
+        l && z < 7 && P(document, "BackgroundImageCache", !0);
+        f.EditorClass = ta;
+        f.editor = function (a) {
+            return new ta(a)
+        };
+        f.create = Jb;
+        f.instances = _instances;
+        f.plugin = Eb;
+        f.lang = Gb;
+        Eb("core", function (a) {
+            var b = this, c = {
+                undo: "Z", redo: "Y",
+                bold: "B", italic: "I", underline: "U", print: "P", selectall: "A"
+            };
+            b.afterSetHtml(function () {
+                b.options.afterChange && b.options.afterChange.call(b)
+            });
+            b.afterCreate(function () {
+                if (b.syncType == "form") {
+                    for (var c = a(b.srcElement), d = !1; c = c.parent();)if (c.name == "form") {
+                        d = !0;
+                        break
+                    }
+                    if (d) {
+                        c.bind("submit", function () {
+                            b.sync();
+                            a(A).bind("unload", function () {
+                                b.edit.textarea.remove()
+                            })
+                        });
+                        var f = a('[type="reset"]', c);
+                        f.click(function () {
+                            b.html(b.initContent);
+                            b.cmd.selection()
+                        });
+                        b.beforeRemove(function () {
+                            c.unbind();
+                            f.unbind()
+                        })
+                    }
+                }
+            });
+            b.clickToolbar("source", function () {
+                b.edit.designMode ? (b.toolbar.disableAll(!0), b.edit.design(!1), b.toolbar.select("source")) : (b.toolbar.disableAll(!1), b.edit.design(!0), b.toolbar.unselect("source"), b.cmd.selection());
+                b.designMode = b.edit.designMode
+            });
+            b.afterCreate(function () {
+                b.designMode || b.toolbar.disableAll(!0).select("source")
+            });
+            b.clickToolbar("fullscreen", function () {
+                b.fullscreen()
+            });
+            if (b.fullscreenShortcut) {
+                var d = !1;
+                b.afterCreate(function () {
+                    a(b.edit.doc, b.edit.textarea).keyup(function (a) {
+                        a.which ==
+                        27 && setTimeout(function () {
+                            b.fullscreen()
+                        }, 0)
+                    });
+                    if (d) {
+                        if (l && !b.designMode)return;
+                        b.focus()
+                    }
+                    d || (d = !0)
+                })
+            }
+            m("undo,redo".split(","), function (a, d) {
+                c[d] && b.afterCreate(function () {
+                    Ga(this.edit.doc, c[d], function () {
+                        b.clickToolbar(d)
+                    })
+                });
+                b.clickToolbar(d, function () {
+                    b[d]()
+                })
+            });
+            b.clickToolbar("formatblock", function () {
+                var a = b.lang("formatblock.formatBlock"), c = {
+                    h1: 28,
+                    h2: 24,
+                    h3: 18,
+                    H4: 14,
+                    p: 12
+                }, d = b.cmd.val("formatblock"), f = b.createMenu({
+                    name: "formatblock",
+                    width: b.langType == "en" ? 200 : 150
+                });
+                m(a, function (a, e) {
+                    var j = "font-size:" +
+                        c[a] + "px;";
+                    a.charAt(0) === "h" && (j += "font-weight:bold;");
+                    f.addItem({
+                        title: '<span style="' + j + '" unselectable="on">' + e + "</span>",
+                        height: c[a] + 12,
+                        checked: d === a || d === e,
+                        click: function () {
+                            b.select().exec("formatblock", "<" + a + ">").hideMenu()
+                        }
+                    })
+                })
+            });
+            b.clickToolbar("fontname", function () {
+                var a = b.cmd.val("fontname"), c = b.createMenu({name: "fontname", width: 150});
+                m(b.lang("fontname.fontName"), function (d, f) {
+                    c.addItem({
+                        title: '<span style="font-family: ' + d + ';" unselectable="on">' + f + "</span>",
+                        checked: a === d.toLowerCase() ||
+                        a === f.toLowerCase(),
+                        click: function () {
+                            b.exec("fontname", d).hideMenu()
+                        }
+                    })
+                })
+            });
+            b.clickToolbar("fontsize", function () {
+                var a = b.cmd.val("fontsize"), c = b.createMenu({name: "fontsize", width: 150});
+                m(b.fontSizeTable, function (d, f) {
+                    c.addItem({
+                        title: '<span style="font-size:' + f + ';" unselectable="on">' + f + "</span>",
+                        height: t(f) + 12,
+                        checked: a === f,
+                        click: function () {
+                            b.exec("fontsize", f).hideMenu()
+                        }
+                    })
+                })
+            });
+            m("forecolor,hilitecolor".split(","), function (a, c) {
+                b.clickToolbar(c, function () {
+                    b.createMenu({
+                        name: c, selectedColor: b.cmd.val(c) ||
+                        "default", colors: b.colorTable, click: function (a) {
+                            b.exec(c, a).hideMenu()
+                        }
+                    })
+                })
+            });
+            m("cut,copy,paste".split(","), function (a, c) {
+                b.clickToolbar(c, function () {
+                    b.focus();
+                    try {
+                        b.exec(c, null)
+                    } catch (a) {
+                        alert(b.lang(c + "Error"))
+                    }
+                })
+            });
+            b.clickToolbar("about", function () {
+                var a = '<div style="margin:20px;"><div>KindEditor ' + Da + '</div><div>Copyright &copy; <a href="http://www.kindsoft.net/" target="_blank">kindsoft.net</a> All rights reserved.</div></div>';
+                b.createDialog({name: "about", width: 350, title: b.lang("about"), body: a})
+            });
+            b.plugin.getSelectedLink = function () {
+                return b.cmd.commonAncestor("a")
+            };
+            b.plugin.getSelectedImage = function () {
+                return Ba(b.edit.cmd.range, function (a) {
+                    return !/^ke-\w+$/i.test(a[0].className)
+                })
+            };
+            b.plugin.getSelectedFlash = function () {
+                return Ba(b.edit.cmd.range, function (a) {
+                    return a[0].className == "ke-flash"
+                })
+            };
+            b.plugin.getSelectedMedia = function () {
+                return Ba(b.edit.cmd.range, function (a) {
+                    return a[0].className == "ke-media" || a[0].className == "ke-rm"
+                })
+            };
+            b.plugin.getSelectedAnchor = function () {
+                return Ba(b.edit.cmd.range,
+                    function (a) {
+                        return a[0].className == "ke-anchor"
+                    })
+            };
+            m("link,image,flash,media,anchor".split(","), function (a, c) {
+                var d = c.charAt(0).toUpperCase() + c.substr(1);
+                m("edit,delete".split(","), function (a, e) {
+                    b.addContextmenu({
+                        title: b.lang(e + d), click: function () {
+                            b.loadPlugin(c, function () {
+                                b.plugin[c][e]();
+                                b.hideMenu()
+                            })
+                        }, cond: b.plugin["getSelected" + d], width: 150, iconClass: e == "edit" ? "ke-icon-" + c : o
+                    })
+                });
+                b.addContextmenu({title: "-"})
+            });
+            b.plugin.getSelectedTable = function () {
+                return b.cmd.commonAncestor("table")
+            };
+            b.plugin.getSelectedRow =
+                function () {
+                    return b.cmd.commonAncestor("tr")
+                };
+            b.plugin.getSelectedCell = function () {
+                return b.cmd.commonAncestor("td")
+            };
+            m("prop,cellprop,colinsertleft,colinsertright,rowinsertabove,rowinsertbelow,rowmerge,colmerge,rowsplit,colsplit,coldelete,rowdelete,insert,delete".split(","), function (a, c) {
+                var d = N(c, ["prop", "delete"]) < 0 ? b.plugin.getSelectedCell : b.plugin.getSelectedTable;
+                b.addContextmenu({
+                    title: b.lang("table" + c), click: function () {
+                        b.loadPlugin("table", function () {
+                            b.plugin.table[c]();
+                            b.hideMenu()
+                        })
+                    }, cond: d,
+                    width: 170, iconClass: "ke-icon-table" + c
+                })
+            });
+            b.addContextmenu({title: "-"});
+            m("selectall,justifyleft,justifycenter,justifyright,justifyfull,insertorderedlist,insertunorderedlist,indent,outdent,subscript,superscript,hr,print,bold,italic,underline,strikethrough,removeformat,unlink".split(","), function (a, d) {
+                c[d] && b.afterCreate(function () {
+                    Ga(this.edit.doc, c[d], function () {
+                        b.cmd.selection();
+                        b.clickToolbar(d)
+                    })
+                });
+                b.clickToolbar(d, function () {
+                    b.focus().exec(d, null)
+                })
+            });
+            b.afterCreate(function () {
+                function c() {
+                    f.range.moveToBookmark(i);
+                    f.select();
+                    W && (a("div." + n, j).each(function () {
+                        a(this).after("<br />").remove(!0)
+                    }), a("span.Apple-style-span", j).remove(!0), a("span.Apple-tab-span", j).remove(!0), a("span[style]", j).each(function () {
+                        a(this).css("white-space") == "nowrap" && a(this).remove(!0)
+                    }), a("meta", j).remove());
+                    var d = j[0].innerHTML;
+                    j.remove();
+                    d !== "" && (W && (d = d.replace(/(<br>)\1/ig, "$1")), b.pasteType === 2 && (d = d.replace(/(<(?:p|p\s[^>]*)>) *(<\/p>)/ig, ""), /schemas-microsoft-com|worddocument|mso-\w+/i.test(d) ? d = lb(d, b.filterMode ? b.htmlTags :
+                            a.options.htmlTags) : (d = S(d, b.filterMode ? b.htmlTags : null), d = b.beforeSetHtml(d))), b.pasteType === 1 && (d = d.replace(/&nbsp;/ig, " "), d = d.replace(/\n\s*\n/g, "\n"), d = d.replace(/<br[^>]*>/ig, "\n"), d = d.replace(/<\/p><p[^>]*>/ig, "\n"), d = d.replace(/<[^>]+>/g, ""), d = d.replace(/ {2}/g, " &nbsp;"), b.newlineTag == "p" ? /\n/.test(d) && (d = d.replace(/^/, "<p>").replace(/$/, "<br /></p>").replace(/\n/g, "<br /></p><p>")) : d = d.replace(/\n/g, "<br />$&")), b.insertHtml(d, !0))
+                }
+
+                var d = b.edit.doc, f, i, j, n = "__kindeditor_paste__", m = !1;
+                a(d.body).bind("paste",
+                    function (o) {
+                        if (b.pasteType === 0) o.stop(); else if (!m) {
+                            m = !0;
+                            a("div." + n, d).remove();
+                            f = b.cmd.selection();
+                            i = f.range.createBookmark();
+                            j = a('<div class="' + n + '"></div>', d).css({
+                                position: "absolute",
+                                width: "1px",
+                                height: "1px",
+                                overflow: "hidden",
+                                left: "-1981px",
+                                top: a(i.start).pos().y + "px",
+                                "white-space": "nowrap"
+                            });
+                            a(d.body).append(j);
+                            if (l) {
+                                var q = f.range.get(!0);
+                                q.moveToElementText(j[0]);
+                                q.select();
+                                q.execCommand("paste");
+                                o.preventDefault()
+                            } else f.range.selectNodeContents(j[0]), f.select();
+                            setTimeout(function () {
+                                c();
+                                m = !1
+                            }, 0)
+                        }
+                    })
+            });
+            b.beforeGetHtml(function (a) {
+                l && z <= 8 && (a = a.replace(/<div\s+[^>]*data-ke-input-tag="([^"]*)"[^>]*>([\s\S]*?)<\/div>/ig, function (a, b) {
+                    return unescape(b)
+                }), a = a.replace(/(<input)((?:\s+[^>]*)?>)/ig, function (a, b, c) {
+                    if (!/\s+type="[^"]+"/i.test(a))return b + ' type="text"' + c;
+                    return a
+                }));
+                return a.replace(/(<(?:noscript|noscript\s[^>]*)>)([\s\S]*?)(<\/noscript>)/ig, function (a, b, c, d) {
+                    return b + fa(c).replace(/\s+/g, " ") + d
+                }).replace(/<img[^>]*class="?ke-(flash|rm|media)"?[^>]*>/ig, function (a) {
+                    var a = H(a),
+                        b = aa(a.style || ""), c = nb(a["data-ke-tag"]);
+                    c.width = j(a.width, t(j(b.width, "")));
+                    c.height = j(a.height, t(j(b.height, "")));
+                    return Ia(c)
+                }).replace(/<img[^>]*class="?ke-anchor"?[^>]*>/ig, function (a) {
+                    a = H(a);
+                    return '<a name="' + unescape(a["data-ke-name"]) + '"></a>'
+                }).replace(/<div\s+[^>]*data-ke-script-attr="([^"]*)"[^>]*>([\s\S]*?)<\/div>/ig, function (a, b, c) {
+                    return "<script" + unescape(b) + ">" + unescape(c) + "<\/script>"
+                }).replace(/<div\s+[^>]*data-ke-noscript-attr="([^"]*)"[^>]*>([\s\S]*?)<\/div>/ig, function (a, b, c) {
+                    return "<noscript" +
+                        unescape(b) + ">" + unescape(c) + "</noscript>"
+                }).replace(/(<[^>]*)data-ke-src="([^"]*)"([^>]*>)/ig, function (a, b, c) {
+                    a = a.replace(/(\s+(?:href|src)=")[^"]*(")/i, function (a, b, d) {
+                        return b + fa(c) + d
+                    });
+                    return a = a.replace(/\s+data-ke-src="[^"]*"/i, "")
+                }).replace(/(<[^>]+\s)data-ke-(on\w+="[^"]*"[^>]*>)/ig, function (a, b, c) {
+                    return b + c
+                })
+            });
+            b.beforeSetHtml(function (a) {
+                l && z <= 8 && (a = a.replace(/<input[^>]*>|<(select|button)[^>]*>[\s\S]*?<\/\1>/ig, function (a) {
+                    var b = H(a);
+                    if (aa(b.style || "").display == "none")return '<div class="ke-display-none" data-ke-input-tag="' +
+                        escape(a) + '"></div>';
+                    return a
+                }));
+                return a.replace(/<embed[^>]*type="([^"]+)"[^>]*>(?:<\/embed>)?/ig, function (a) {
+                    a = H(a);
+                    a.src = j(a.src, "");
+                    a.width = j(a.width, 0);
+                    a.height = j(a.height, 0);
+                    return ob(b.themesPath + "common/blank.gif", a)
+                }).replace(/<a[^>]*name="([^"]+)"[^>]*>(?:<\/a>)?/ig, function (a) {
+                    var c = H(a);
+                    if (c.href !== o)return a;
+                    return '<img class="ke-anchor" src="' + b.themesPath + 'common/anchor.gif" data-ke-name="' + escape(c.name) + '" />'
+                }).replace(/<script([^>]*)>([\s\S]*?)<\/script>/ig, function (a, b, c) {
+                    return '<div class="ke-script" data-ke-script-attr="' +
+                        escape(b) + '">' + escape(c) + "</div>"
+                }).replace(/<noscript([^>]*)>([\s\S]*?)<\/noscript>/ig, function (a, b, c) {
+                    return '<div class="ke-noscript" data-ke-noscript-attr="' + escape(b) + '">' + escape(c) + "</div>"
+                }).replace(/(<[^>]*)(href|src)="([^"]*)"([^>]*>)/ig, function (a, b, c, d, e) {
+                    if (a.match(/\sdata-ke-src="[^"]*"/i))return a;
+                    return a = b + c + '="' + d + '" data-ke-src="' + C(d) + '"' + e
+                }).replace(/(<[^>]+\s)(on\w+="[^"]*"[^>]*>)/ig, function (a, b, c) {
+                    return b + "data-ke-" + c
+                }).replace(/<table[^>]*\s+border="0"[^>]*>/ig, function (a) {
+                    if (a.indexOf("ke-zeroborder") >=
+                        0)return a;
+                    return Qb(a, "ke-zeroborder")
+                })
+            })
+        })
+    }
+})(window);
