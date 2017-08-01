@@ -1,0 +1,43 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+ul, li {
+    list-style: none;
+}
+
+li {
+    color: #333;
+    line-height: 35px;
+    text-indent: 10px;
+    background: #fff;
+}
+
+li:nth-child(odd) {
+    background: #F4F4F4;
+}
+
+li:nth-child(even) {
+    background: #fff;
+}
+
+li:hover{
+    background: #73B1E0;
+    color:#fff;
+    cursor:pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: #00a0e9;
+}
+
+.container{
+    margin:10px;
+}
+
+

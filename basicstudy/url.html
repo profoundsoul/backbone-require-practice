@@ -6,11 +6,16 @@
 </head>
 <body>
 <div style="position:relative;min-height: 1500px;border: 2px outset greenyellow;">
-    <a name="pos">aaaaaaaaaaaaaaaaa</a>
+    <a name="pos" onclick="javascipt:mytest('aaaa')" style="cursor: pointer">aaaaaaaaaaaaaaaaa</a>
     <div style="margin-top: 1200px; min-height: 300px;"  id="bottom">测试区域</div>
     <p name="bttom2" style="min-height: 100px;background: #008080;"></p>
     <h1 id="bttom3" style="min-height: 100px;background: #008080;"></h1>
-    <a id="bottom4">test</a>
+    <a id="bottom4" href="#" onclick="alert('----');">test</a>
 </div>
+<script>
+    function mytest(){
+        alert('aaaa');
+    }
+</script>
 </body>
 </html>
