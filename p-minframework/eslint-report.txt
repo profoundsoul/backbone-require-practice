@@ -1,0 +1,2143 @@
+
+E:\project-source\github\backbone-require-practice\p-minframework\custom\chart.min.js
+  13:332    error  'e' is already defined                  no-redeclare
+  13:360    error  'n' is already defined                  no-redeclare
+  13:2153   error  'i' is defined but never used           no-unused-vars
+  13:3098   error  Unexpected console statement            no-console
+  13:5161   error  'labelTemplateString' is not defined    no-undef
+  13:12203  error  't' is defined but never used           no-unused-vars
+  13:16039  error  't' is defined but never used           no-unused-vars
+  13:20816  error  'i' is assigned a value but never used  no-unused-vars
+  14:7047   error  'e' is already defined                  no-redeclare
+  14:7072   error  's' is defined but never used           no-unused-vars
+  14:9136   error  'n' is defined but never used           no-unused-vars
+
+E:\project-source\github\backbone-require-practice\p-minframework\custom\lib.js
+    2:446    error  Unnecessary escape character: \/                                 no-useless-escape
+    2:4632   error  'ActiveXObject' is not defined                                   no-undef
+    2:7137   error  Empty block statement                                            no-empty
+    2:16131  error  Empty block statement                                            no-empty
+    2:18273  error  Empty block statement                                            no-empty
+    2:18591  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+    2:19009  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+    2:19365  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+    2:21454  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+    2:27744  error  Empty block statement                                            no-empty
+    2:30473  error  Empty block statement                                            no-empty
+    3:4553   error  Unnecessary escape character: \=                                 no-useless-escape
+    3:4870   error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+    3:5358   error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+    3:5373   error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+    3:6095   error  Empty block statement                                            no-empty
+    3:8222   error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+    3:9589   error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+    3:10079  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+    3:10117  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+    3:10557  error  Empty block statement                                            no-empty
+    3:11067  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+    3:11239  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+    3:11876  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+    3:13612  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+    3:13850  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+    3:13998  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+    3:15017  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+    3:17335  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+    3:17428  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+    3:17488  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+    3:18710  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+    3:19261  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+    3:19375  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+    3:20654  error  Unnecessary escape character: \[                                 no-useless-escape
+    3:20656  error  Unnecessary escape character: \.                                 no-useless-escape
+    3:27684  error  Empty block statement                                            no-empty
+    4:217    error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+    4:344    error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+    4:3131   error  Empty block statement                                            no-empty
+    4:8944   error  Unnecessary escape character: \/                                 no-useless-escape
+    4:9249   error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+    4:11457  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+    4:13339  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+    4:14928  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+    4:17106  error  Empty block statement                                            no-empty
+    4:17183  error  Empty block statement                                            no-empty
+    4:17815  error  Empty block statement                                            no-empty
+    4:19831  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+    4:21404  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+    6:411    error  Empty block statement                                            no-empty
+    6:3081   error  Unnecessary escape character: \/                                 no-useless-escape
+    6:3114   error  Unnecessary escape character: \/                                 no-useless-escape
+    6:3160   error  Unnecessary escape character: \/                                 no-useless-escape
+  112:5      error  'key' is defined but never used                                  no-unused-vars
+
+E:\project-source\github\backbone-require-practice\p-minframework\custom\min-choose.js
+  11:25     error  'r' is assigned a value but never used  no-unused-vars
+  11:1527   error  Unnecessary escape character: \&        no-useless-escape
+  11:1529   error  Unnecessary escape character: \<        no-useless-escape
+  11:1531   error  Unnecessary escape character: \>        no-useless-escape
+  11:1533   error  Unnecessary escape character: \"        no-useless-escape
+  11:1535   error  Unnecessary escape character: \'        no-useless-escape
+  11:1537   error  Unnecessary escape character: \`        no-useless-escape
+  11:1631   error  Unnecessary escape character: \<        no-useless-escape
+  11:1633   error  Unnecessary escape character: \>        no-useless-escape
+  11:1635   error  Unnecessary escape character: \"        no-useless-escape
+  11:1637   error  Unnecessary escape character: \'        no-useless-escape
+  11:1639   error  Unnecessary escape character: \`        no-useless-escape
+  11:4329   error  't' is defined but never used           no-unused-vars
+  11:4540   error  't' is defined but never used           no-unused-vars
+  11:6350   error  't' is defined but never used           no-unused-vars
+  11:9366   error  't' is defined but never used           no-unused-vars
+  11:10683  error  'e' is defined but never used           no-unused-vars
+  11:16703  error  't' is defined but never used           no-unused-vars
+  11:19918  error  't' is defined but never used           no-unused-vars
+  11:26991  error  'i' is assigned a value but never used  no-unused-vars
+
+E:\project-source\github\backbone-require-practice\p-minframework\custom\min-date.js
+  1:3785   error  Unexpected console statement      no-console
+  1:13065  error  'S' is already defined            no-redeclare
+  1:13098  error  'F' is already defined            no-redeclare
+  1:14217  error  'S' is already defined            no-redeclare
+  1:19053  error  'd' is already defined            no-redeclare
+  1:19080  error  'o' is already defined            no-redeclare
+  1:19113  error  'r' is already defined            no-redeclare
+  1:19143  error  'l' is already defined            no-redeclare
+  1:19173  error  'u' is already defined            no-redeclare
+  1:19205  error  'c' is already defined            no-redeclare
+  1:19490  error  'm' is already defined            no-redeclare
+  1:21050  error  'viewMode' is not defined         no-undef
+  1:21083  error  'viewMode' is not defined         no-undef
+  1:21108  error  'viewMode' is not defined         no-undef
+  1:21124  error  'viewMode' is not defined         no-undef
+  1:21200  error  'viewMode' is not defined         no-undef
+  1:21278  error  'viewMode' is not defined         no-undef
+  1:21354  error  'viewMode' is not defined         no-undef
+  1:21430  error  'viewMode' is not defined         no-undef
+  1:21694  error  'viewMode' is not defined         no-undef
+  1:21727  error  'viewMode' is not defined         no-undef
+  1:21752  error  'viewMode' is not defined         no-undef
+  1:21768  error  'viewMode' is not defined         no-undef
+  1:21844  error  'viewMode' is not defined         no-undef
+  1:21922  error  'viewMode' is not defined         no-undef
+  1:22002  error  'viewMode' is not defined         no-undef
+  1:22168  error  'viewMode' is not defined         no-undef
+  1:25547  error  Unnecessary escape character: \/  no-useless-escape
+  1:25552  error  Unnecessary escape character: \[  no-useless-escape
+  1:25929  error  Unnecessary escape character: \-  no-useless-escape
+  1:25938  error  Unnecessary escape character: \-  no-useless-escape
+  1:26003  error  Unnecessary escape character: \-  no-useless-escape
+  1:26012  error  Unnecessary escape character: \-  no-useless-escape
+  1:26032  error  Unnecessary escape character: \:  no-useless-escape
+  1:26103  error  Unnecessary escape character: \-  no-useless-escape
+  1:26112  error  Unnecessary escape character: \-  no-useless-escape
+  1:26132  error  Unnecessary escape character: \:  no-useless-escape
+  1:26141  error  Unnecessary escape character: \:  no-useless-escape
+  1:26737  error  'd' is already defined            no-redeclare
+  1:26739  error  'c' is already defined            no-redeclare
+  1:26777  error  'a' is already defined            no-redeclare
+  1:27764  error  'm' is already defined            no-redeclare
+  1:28243  error  'm' is already defined            no-redeclare
+  1:29802  error  't' is already defined            no-redeclare
+  1:31332  error  'old' is not defined              no-undef
+
+E:\project-source\github\backbone-require-practice\p-minframework\custom\min.js
+   220:15   error  Empty block statement                   no-empty
+  1028:14   error  Empty block statement                   no-empty
+  1245:21   error  Unexpected console statement            no-console
+  1574:7    error  't' is assigned a value but never used  no-unused-vars
+  1889:19   error  'a' is defined but never used           no-unused-vars
+  1891:35   error  Unexpected console statement            no-console
+  2003:8    error  'e' is assigned a value but never used  no-unused-vars
+  2024:20   error  'n' is defined but never used           no-unused-vars
+  3022:13   error  'p' is already defined                  no-redeclare
+  3026:10   error  'f' is already defined                  no-redeclare
+  3176:7    error  'a' is already defined                  no-redeclare
+  3216:4    error  'e' is already defined                  no-redeclare
+  3338:14   error  't' is defined but never used           no-unused-vars
+  3339:21   error  'result' is not defined                 no-undef
+  3339:73   error  'result' is not defined                 no-undef
+  3590:16   error  't' is defined but never used           no-unused-vars
+  3611:13   error  't' is defined but never used           no-unused-vars
+  3756:12   error  's' is already defined                  no-redeclare
+  3875:17   error  'm' is assigned a value but never used  no-unused-vars
+  3918:112  error  Unexpected console statement            no-console
+  3973:23   error  't' is defined but never used           no-unused-vars
+
+E:\project-source\github\backbone-require-practice\p-minframework\custom\my.full.js
+    13:31   error  'config' is not defined                                     no-undef
+    18:7    error  'i' is not defined                                          no-undef
+    18:14   error  'i' is not defined                                          no-undef
+    18:31   error  'i' is not defined                                          no-undef
+    18:42   error  'i' is not defined                                          no-undef
+    18:52   error  'i' is not defined                                          no-undef
+    20:5    error  'config' is not defined                                     no-undef
+    22:6    error  'config' is not defined                                     no-undef
+    22:42   error  'link' is not defined                                       no-undef
+    22:49   error  'config' is not defined                                     no-undef
+    22:79   error  'config' is not defined                                     no-undef
+    23:6    error  'config' is not defined                                     no-undef
+    23:42   error  'link' is not defined                                       no-undef
+    23:49   error  'config' is not defined                                     no-undef
+    23:95   error  'config' is not defined                                     no-undef
+    26:8    error  'i' is not defined                                          no-undef
+    26:15   error  'i' is not defined                                          no-undef
+    26:32   error  'i' is not defined                                          no-undef
+    26:38   error  'link' is not defined                                       no-undef
+    26:46   error  'config' is not defined                                     no-undef
+    26:71   error  'i' is not defined                                          no-undef
+    28:3    error  'link' is not defined                                       no-undef
+    32:3    error  'link' is not defined                                       no-undef
+    32:10   error  'config' is not defined                                     no-undef
+    32:32   error  'config' is not defined                                     no-undef
+    32:76   error  'config' is not defined                                     no-undef
+    32:120  error  'config' is not defined                                     no-undef
+    33:16   error  'i' is not defined                                          no-undef
+    33:23   error  'i' is not defined                                          no-undef
+    33:40   error  'i' is not defined                                          no-undef
+    33:46   error  'link' is not defined                                       no-undef
+    33:65   error  'i' is not defined                                          no-undef
+    33:84   error  'i' is not defined                                          no-undef
+    37:13   error  'config' is not defined                                     no-undef
+    37:48   error  'config' is not defined                                     no-undef
+    39:18   error  'config' is not defined                                     no-undef
+    40:3    error  'link' is not defined                                       no-undef
+    40:10   error  'link' is not defined                                       no-undef
+    42:9    error  'link' is not defined                                       no-undef
+    67:10   error  'shortcut' is defined but never used                        no-unused-vars
+    69:2    error  'objectType' is not defined                                 no-undef
+    70:2    error  'objectValue' is not defined                                no-undef
+    71:5    error  'objectType' is not defined                                 no-undef
+    71:19   error  'objectValue' is not defined                                no-undef
+    73:28   error  'objectType' is not defined                                 no-undef
+    73:56   error  'objectValue' is not defined                                no-undef
+    88:10   error  'showSearchMenu' is defined but never used                  no-unused-vars
+   204:10   error  'switchMore' is defined but never used                      no-unused-vars
+   221:10   error  'switchDocLib' is defined but never used                    no-unused-vars
+   227:4    error  'link' is not defined                                       no-undef
+   231:4    error  'link' is not defined                                       no-undef
+   236:3    error  'link' is not defined                                       no-undef
+   238:18   error  'link' is not defined                                       no-undef
+   247:10   error  'setPing' is defined but never used                         no-unused-vars
+   260:5    error  'config' is not defined                                     no-undef
+   262:3    error  'requiredFields' is not defined                             no-undef
+   262:20   error  'config' is not defined                                     no-undef
+   263:7    error  'i' is not defined                                          no-undef
+   263:14   error  'i' is not defined                                          no-undef
+   263:18   error  'requiredFields' is not defined                             no-undef
+   263:41   error  'i' is not defined                                          no-undef
+   265:12   error  'requiredFields' is not defined                             no-undef
+   265:27   error  'i' is not defined                                          no-undef
+   266:25   error  'requiredFields' is not defined                             no-undef
+   266:40   error  'i' is not defined                                          no-undef
+   279:10   error  'setHelpLink' is defined but never used                     no-unused-vars
+   281:57   error  'config' is not defined                                     no-undef
+   281:81   error  'config' is not defined                                     no-undef
+   282:2    error  'className' is not defined                                  no-undef
+   287:3    error  'currentFieldName' is not defined                           no-undef
+   288:6    error  'currentFieldName' is not defined                           no-undef
+   288:38   error  'currentFieldName' is not defined                           no-undef
+   289:6    error  'currentFieldName' is not defined                           no-undef
+   289:41   error  'currentFieldName' is not defined                           no-undef
+   289:60   error  'currentFieldName' is not defined                           no-undef
+   289:87   error  'currentFieldName' is not defined                           no-undef
+   290:3    error  'currentFieldName' is not defined                           no-undef
+   290:22   error  'currentFieldName' is not defined                           no-undef
+   291:3    error  'helpLink' is not defined                                   no-undef
+   291:54   error  'config' is not defined                                     no-undef
+   291:90   error  'config' is not defined                                     no-undef
+   291:125  error  'currentFieldName' is not defined                           no-undef
+   292:43   error  'className' is not defined                                  no-undef
+   292:68   error  'helpLink' is not defined                                   no-undef
+   308:18   error  'holders' is not defined                                    no-undef
+   312:38   error  'holders' is not defined                                    no-undef
+   324:10   error  'toggleHelpLink' is defined but never used                  no-unused-vars
+   327:72   error  'config' is not defined                                     no-undef
+   327:96   error  'config' is not defined                                     no-undef
+   328:72   error  'config' is not defined                                     no-undef
+   328:96   error  'config' is not defined                                     no-undef
+   340:38   error  'config' is not defined                                     no-undef
+   340:62   error  'config' is not defined                                     no-undef
+   355:38   error  'config' is not defined                                     no-undef
+   355:62   error  'config' is not defined                                     no-undef
+   367:10   error  'setTreeBox' is defined but never used                      no-unused-vars
+   378:3    error  Unexpected newline between function and ( of function call  no-unexpected-multiline
+   403:10   error  'selectLang' is defined but never used                      no-unused-vars
+   405:34   error  'config' is not defined                                     no-undef
+   405:58   error  'config' is not defined                                     no-undef
+   415:10   error  'selectTheme' is defined but never used                     no-unused-vars
+   417:36   error  'config' is not defined                                     no-undef
+   417:60   error  'config' is not defined                                     no-undef
+   430:2    error  'pos' is not defined                                        no-undef
+   431:5    error  'pos' is not defined                                        no-undef
+   431:38   error  'pos' is not defined                                        no-undef
+   443:2    error  'width' is not defined                                      no-undef
+   444:2    error  'height' is not defined                                     no-undef
+   445:27   error  'width' is not defined                                      no-undef
+   446:27   error  'height' is not defined                                     no-undef
+   489:3    error  'submitObj' is not defined                                  no-undef
+   490:8    error  'submitObj' is not defined                                  no-undef
+   492:16   error  'submitObj' is not defined                                  no-undef
+   493:4    error  'submitLabel' is not defined                                no-undef
+   493:28   error  'submitObj' is not defined                                  no-undef
+   493:50   error  'submitObj' is not defined                                  no-undef
+   494:6    error  'submitObj' is not defined                                  no-undef
+   495:21   error  'submitObj' is not defined                                  no-undef
+   495:58   error  'lang' is not defined                                       no-undef
+   496:14   error  'submitObj' is not defined                                  no-undef
+   497:11   error  'submitObj' is not defined                                  no-undef
+   506:6    error  'submitObj' is not defined                                  no-undef
+   507:7    error  'submitObj' is not defined                                  no-undef
+   509:5    error  'submitObj' is not defined                                  no-undef
+   509:20   error  'submitLabel' is not defined                                no-undef
+   513:7    error  'submitObj' is not defined                                  no-undef
+   513:32   error  'submitLabel' is not defined                                no-undef
+   515:6    error  'submitObj' is not defined                                  no-undef
+   529:10   error  'setFormAction' is defined but never used                   no-unused-vars
+   531:2    error  '$form' is not defined                                      no-undef
+   532:16   error  '$form' is not defined                                      no-undef
+   533:7    error  '$form' is not defined                                      no-undef
+   535:2    error  '$form' is not defined                                      no-undef
+   544:10   error  'setImageSize' is defined but never used                    no-unused-vars
+   549:3    error  'bodyWidth' is not defined                                  no-undef
+   550:15   error  'bodyWidth' is not defined                                  no-undef
+   577:10   error  'setMailto' is defined but never used                       no-unused-vars
+   579:2    error  'link' is not defined                                       no-undef
+   580:8    error  'link' is not defined                                       no-undef
+   584:26   error  'defaultChosenOptions' is not defined                       no-undef
+   595:10   error  'ajaxGetContacts' is defined but never used                 no-unused-vars
+   597:2    error  'link' is not defined                                       no-undef
+   598:8    error  'link' is not defined                                       no-undef
+   602:3    error  '$inputgroup' is not defined                                no-undef
+   603:3    error  '$inputgroup' is not defined                                no-undef
+   604:3    error  '$inputgroup' is not defined                                no-undef
+   605:3    error  '$inputgroup' is not defined                                no-undef
+   605:42   error  'defaultChosenOptions' is not defined                       no-undef
+   615:10   error  'setComment' is defined but never used                      no-unused-vars
+   729:2    error  Unexpected newline between function and ( of function call  no-unexpected-multiline
+   732:7    error  'browseType' is not defined                                 no-undef
+   738:13   error  'browseType' is not defined                                 no-undef
+   746:7    error  'browseType' is not defined                                 no-undef
+   752:13   error  'browseType' is not defined                                 no-undef
+   786:10   error  'addItem' is defined but never used                         no-unused-vars
+   788:2    error  'ItemList' is not defined                                   no-undef
+   789:2    error  'Target' is not defined                                     no-undef
+   790:21   error  'ItemList' is not defined                                   no-undef
+   792:13   error  'ItemList' is not defined                                   no-undef
+   795:4    error  'flag' is not defined                                       no-undef
+   796:19   error  'Target' is not defined                                     no-undef
+   798:17   error  'Target' is not defined                                     no-undef
+   801:6    error  'flag' is not defined                                       no-undef
+   804:7    error  'flag' is not defined                                       no-undef
+   806:5    error  'Target' is not defined                                     no-undef
+   806:20   error  'Target' is not defined                                     no-undef
+   819:10   error  'delItem' is defined but never used                         no-unused-vars
+   821:2    error  'ItemList' is not defined                                   no-undef
+   822:12   error  'ItemList' is not defined                                   no-undef
+   824:13   error  'ItemList' is not defined                                   no-undef
+   827:4    error  'ItemList' is not defined                                   no-undef
+   839:10   error  'upItem' is defined but never used                          no-unused-vars
+   841:2    error  'ItemList' is not defined                                   no-undef
+   842:16   error  'ItemList' is not defined                                   no-undef
+   844:13   error  'ItemList' is not defined                                   no-undef
+   847:4    error  'tmpUpValue' is not defined                                 no-undef
+   847:17   error  'ItemList' is not defined                                   no-undef
+   848:4    error  'tmpUpText' is not defined                                  no-undef
+   848:17   error  'ItemList' is not defined                                   no-undef
+   849:4    error  'ItemList' is not defined                                   no-undef
+   850:4    error  'ItemList' is not defined                                   no-undef
+   851:4    error  'ItemList' is not defined                                   no-undef
+   851:32   error  'tmpUpValue' is not defined                                 no-undef
+   852:4    error  'ItemList' is not defined                                   no-undef
+   852:32   error  'tmpUpText' is not defined                                  no-undef
+   853:4    error  'ItemList' is not defined                                   no-undef
+   854:4    error  'ItemList' is not defined                                   no-undef
+   867:10   error  'downItem' is defined but never used                        no-unused-vars
+   869:2    error  'ItemList' is not defined                                   no-undef
+   870:16   error  'ItemList' is not defined                                   no-undef
+   872:13   error  'ItemList' is not defined                                   no-undef
+   875:4    error  'tmpUpValue' is not defined                                 no-undef
+   875:17   error  'ItemList' is not defined                                   no-undef
+   876:4    error  'tmpUpText' is not defined                                  no-undef
+   876:17   error  'ItemList' is not defined                                   no-undef
+   877:4    error  'ItemList' is not defined                                   no-undef
+   878:4    error  'ItemList' is not defined                                   no-undef
+   879:4    error  'ItemList' is not defined                                   no-undef
+   879:32   error  'tmpUpValue' is not defined                                 no-undef
+   880:4    error  'ItemList' is not defined                                   no-undef
+   880:32   error  'tmpUpText' is not defined                                  no-undef
+   881:4    error  'ItemList' is not defined                                   no-undef
+   882:4    error  'ItemList' is not defined                                   no-undef
+   895:10   error  'selectItem' is defined but never used                      no-unused-vars
+   897:2    error  'ItemList' is not defined                                   no-undef
+   898:12   error  'ItemList' is not defined                                   no-undef
+   900:13   error  'ItemList' is not defined                                   no-undef
+   914:10   error  'ajaxDelete' is defined but never used                      no-unused-vars
+   930:43   error  'sortTable' is not defined                                  no-undef
+  1026:8    error  '$ajaxModal' is not defined                                 no-undef
+  1116:48   error  'dialog' is defined but never used                          no-unused-vars
+  1186:3    error  '$ajaxModal' is not defined                                 no-undef
+  1187:3    error  '$ajaxModal' is not defined                                 no-undef
+  1191:4    error  '$ajaxModal' is not defined                                 no-undef
+  1193:22   error  '$ajaxModal' is not defined                                 no-undef
+  1200:4    error  '$ajaxModal' is not defined                                 no-undef
+  1201:43   error  '$ajaxModal' is not defined                                 no-undef
+  1205:60   error  '$ajaxModal' is not defined                                 no-undef
+  1206:62   error  '$ajaxModal' is not defined                                 no-undef
+  1207:60   error  '$ajaxModal' is not defined                                 no-undef
+  1208:64   error  '$ajaxModal' is not defined                                 no-undef
+  1218:8    error  'pos' is assigned a value but never used                    no-unused-vars
+  1253:10   error  'setModal4List' is defined but never used                   no-unused-vars
+  1289:34   error  'datepickerOptions' is not defined                          no-undef
+  1291:17   error  Empty block statement                                       no-empty
+  1344:10   error  'startCron' is defined but never used                       no-unused-vars
+  1349:10   error  'computePasswordStrength' is defined but never used         no-unused-vars
+  1358:6    error  'i' is not defined                                          no-undef
+  1358:13   error  'i' is not defined                                          no-undef
+  1358:25   error  'i' is not defined                                          no-undef
+  1360:3    error  'letter' is not defined                                     no-undef
+  1360:28   error  'i' is not defined                                          no-undef
+  1361:13   error  'letter' is not defined                                     no-undef
+  1378:26   error  'letter' is not defined                                     no-undef
+  1378:56   error  'letter' is not defined                                     no-undef
+  1384:6    error  'i' is not defined                                          no-undef
+  1387:31   error  'i' is not defined                                          no-undef
+  1401:2    error  Unexpected console statement                                no-console
+  1437:10   error  'j' is assigned a value but never used                      no-unused-vars
+  1457:3    error  'href' is not defined                                       no-undef
+  1458:19   error  'href' is not defined                                       no-undef
+  1469:10   error  'fixedTfootAction' is defined but never used                no-unused-vars
+  1493:3    error  'offsetHeight' is not defined                               no-undef
+  1496:19   error  'offsetHeight' is not defined                               no-undef
+  1503:19   error  'offsetHeight' is not defined                               no-undef
+  1503:73   error  'offsetHeight' is not defined                               no-undef
+  1536:10   error  'fixedTableHead' is defined but never used                  no-unused-vars
+  1565:10   error  'fixedTheadOfList' is defined but never used                no-unused-vars
+  1649:10   error  'applyCssStyle' is defined but never used                   no-unused-vars
+  1669:10   error  'showBrowserNotice' is defined but never used               no-unused-vars
+  1671:2    error  'userAgent' is not defined                                  no-undef
+  1672:2    error  '$browser' is not defined                                   no-undef
+  1673:2    error  '$browser' is not defined                                   no-undef
+  1673:32   error  'userAgent' is not defined                                  no-undef
+  1674:2    error  '$browser' is not defined                                   no-undef
+  1674:34   error  'userAgent' is not defined                                  no-undef
+  1718:261  error  'browserNotice' is not defined                              no-undef
+  1728:10   error  'removeCookieByKey' is defined but never used               no-unused-vars
+  1730:35   error  'config' is not defined                                     no-undef
+  1730:59   error  'config' is not defined                                     no-undef
+  1774:5    error  'config' is not defined                                     no-undef
+  1788:7    error  '$oldActiveItem' is assigned a value but never used         no-unused-vars
+  1789:7    error  '$helpMenuItem' is assigned a value but never used          no-unused-vars
+  1793:107  error  'lang' is not defined                                       no-undef
+  1845:10   error  'setHomepage' is defined but never used                     no-unused-vars
+  1858:5    error  'config' is not defined                                     no-undef
+  1865:30   error  'lang' is not defined                                       no-undef
+  1871:10   error  'removeDitto' is defined but never used                     no-unused-vars
+  1873:2    error  '$firstTr' is not defined                                   no-undef
+  1874:2    error  '$firstTr' is not defined                                   no-undef
+  1893:46   error  'config' is not defined                                     no-undef
+  1893:70   error  'config' is not defined                                     no-undef
+  1900:40   error  'config' is not defined                                     no-undef
+  1900:64   error  'config' is not defined                                     no-undef
+  1907:38   error  'config' is not defined                                     no-undef
+  1907:62   error  'config' is not defined                                     no-undef
+  1911:39   error  'config' is not defined                                     no-undef
+  1911:63   error  'config' is not defined                                     no-undef
+  1917:1    error  'needPing' is not defined                                   no-undef
+  1922:12   error  'config' is not defined                                     no-undef
+  1922:47   error  'config' is not defined                                     no-undef
+  1923:64   error  'config' is not defined                                     no-undef
+  1943:25   error  'config' is not defined                                     no-undef
+  1943:54   error  'config' is not defined                                     no-undef
+  1947:5    error  'needPing' is not defined                                   no-undef
+  1961:46   error  'config' is not defined                                     no-undef
+  1961:70   error  'config' is not defined                                     no-undef
+
+E:\project-source\github\backbone-require-practice\p-minframework\demo\abstractview_back.js
+   26:4  error  Unexpected console statement                   no-console
+   29:4  error  Unexpected console statement                   no-console
+  114:8  error  'eventArr' is assigned a value but never used  no-unused-vars
+  135:8  error  'eventArr' is assigned a value but never used  no-unused-vars
+
+E:\project-source\github\backbone-require-practice\p-minframework\demo\css.min.js
+  1:224   error  Unnecessary escape character: \:  no-useless-escape
+  1:905   error  Empty block statement             no-empty
+  1:1385  error  'e' is defined but never used     no-unused-vars
+
+E:\project-source\github\backbone-require-practice\p-minframework\demo\dialog\dialog.js
+   16:7   error  '_count' is assigned a value but never used           no-unused-vars
+  147:9   error  'that' is assigned a value but never used             no-unused-vars
+  432:17  error  Empty block statement                                 no-empty
+  443:17  error  Empty block statement                                 no-empty
+  858:8   error  'originalOptions' is assigned a value but never used  no-unused-vars
+
+E:\project-source\github\backbone-require-practice\p-minframework\demo\dialog\testdialog.js
+  14:26  error  'options' is defined but never used  no-unused-vars
+  23:19  error  'e' is defined but never used        no-unused-vars
+  26:5   error  Unexpected console statement         no-console
+
+E:\project-source\github\backbone-require-practice\p-minframework\demo\jquery.search.js
+  2:2  error  Unexpected console statement  no-console
+
+E:\project-source\github\backbone-require-practice\p-minframework\demo\main_his.js
+  31:14  error  'template' is not defined            no-undef
+  55:36  error  'data' is defined but never used     no-unused-vars
+  74:20  error  'err' is defined but never used      no-unused-vars
+  77:15  error  'data' is defined but never used     no-unused-vars
+  81:11  error  'getDate' is defined but never used  no-unused-vars
+
+E:\project-source\github\backbone-require-practice\p-minframework\demo\main.js
+   25:2    error  Unexpected console statement                     no-console
+   27:144  error  'se' is defined but never used                   no-unused-vars
+   60:4    error  Unexpected console statement                     no-console
+   61:4    error  Unexpected console statement                     no-console
+   82:4    error  Unexpected console statement                     no-console
+   95:42   error  'data' is defined but never used                 no-unused-vars
+  107:23   error  'e' is defined but never used                    no-unused-vars
+  109:9    error  'dialogView' is assigned a value but never used  no-unused-vars
+  112:22   error  'e' is defined but never used                    no-unused-vars
+  130:25   error  'e' is defined but never used                    no-unused-vars
+  146:24   error  'e' is defined but never used                    no-unused-vars
+  157:23   error  'e' is defined but never used                    no-unused-vars
+  168:24   error  'e' is defined but never used                    no-unused-vars
+  189:22   error  'e' is defined but never used                    no-unused-vars
+  200:23   error  'e' is defined but never used                    no-unused-vars
+  202:21   error  'e' is defined but never used                    no-unused-vars
+  210:5    error  Unexpected console statement                     no-console
+  216:5    error  Unexpected console statement                     no-console
+  221:21   error  'clickToHide' is defined but never used          no-unused-vars
+  228:8    error  'target' is assigned a value but never used      no-unused-vars
+  237:7    error  Unexpected console statement                     no-console
+  243:8    error  'target' is assigned a value but never used      no-unused-vars
+  252:7    error  Unexpected console statement                     no-console
+  268:22   error  'err' is defined but never used                  no-unused-vars
+  271:17   error  'data' is defined but never used                 no-unused-vars
+
+E:\project-source\github\backbone-require-practice\p-minframework\demo\mylist.js
+  8:4  error  Unexpected console statement  no-console
+
+E:\project-source\github\backbone-require-practice\p-minframework\demo\ywstat.js
+   8:3   error  Unexpected console statement                      no-console
+  12:6   error  'getUniqueid' is assigned a value but never used  no-unused-vars
+  36:11  error  'send' is defined but never used                  no-unused-vars
+  44:11  error  'getCookieByName' is defined but never used       no-unused-vars
+  48:20  error  'c' is not defined                                no-undef
+  56:11  error  'setCookie' is defined but never used             no-unused-vars
+
+E:\project-source\github\backbone-require-practice\p-minframework\dist\all.js
+     2:446    error  Unnecessary escape character: \/                                 no-useless-escape
+     2:4632   error  'ActiveXObject' is not defined                                   no-undef
+     2:7137   error  Empty block statement                                            no-empty
+     2:16131  error  Empty block statement                                            no-empty
+     2:18273  error  Empty block statement                                            no-empty
+     2:18591  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+     2:19009  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+     2:19365  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+     2:21454  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+     2:27744  error  Empty block statement                                            no-empty
+     2:30473  error  Empty block statement                                            no-empty
+     3:4553   error  Unnecessary escape character: \=                                 no-useless-escape
+     3:4870   error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+     3:5358   error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+     3:5373   error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+     3:6095   error  Empty block statement                                            no-empty
+     3:8222   error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+     3:9589   error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+     3:10079  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+     3:10117  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+     3:10557  error  Empty block statement                                            no-empty
+     3:11067  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+     3:11239  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+     3:11876  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+     3:13612  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+     3:13850  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+     3:13998  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+     3:15017  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+     3:17335  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+     3:17428  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+     3:17488  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+     3:18710  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+     3:19261  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+     3:19375  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+     3:20654  error  Unnecessary escape character: \[                                 no-useless-escape
+     3:20656  error  Unnecessary escape character: \.                                 no-useless-escape
+     3:27684  error  Empty block statement                                            no-empty
+     4:217    error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+     4:344    error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+     4:3131   error  Empty block statement                                            no-empty
+     4:8944   error  Unnecessary escape character: \/                                 no-useless-escape
+     4:9249   error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+     4:11457  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+     4:13339  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+     4:14928  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+     4:17106  error  Empty block statement                                            no-empty
+     4:17183  error  Empty block statement                                            no-empty
+     4:17815  error  Empty block statement                                            no-empty
+     4:19831  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+     4:21404  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+     6:411    error  Empty block statement                                            no-empty
+     6:3081   error  Unnecessary escape character: \/                                 no-useless-escape
+     6:3114   error  Unnecessary escape character: \/                                 no-useless-escape
+     6:3160   error  Unnecessary escape character: \/                                 no-useless-escape
+   112:5      error  'key' is defined but never used                                  no-unused-vars
+   376:15     error  Empty block statement                                            no-empty
+  1184:14     error  Empty block statement                                            no-empty
+  1401:21     error  Unexpected console statement                                     no-console
+  1730:7      error  't' is assigned a value but never used                           no-unused-vars
+  2045:19     error  'a' is defined but never used                                    no-unused-vars
+  2047:35     error  Unexpected console statement                                     no-console
+  2159:8      error  'e' is assigned a value but never used                           no-unused-vars
+  2180:20     error  'n' is defined but never used                                    no-unused-vars
+  3178:13     error  'p' is already defined                                           no-redeclare
+  3182:10     error  'f' is already defined                                           no-redeclare
+  3332:7      error  'a' is already defined                                           no-redeclare
+  3372:4      error  'e' is already defined                                           no-redeclare
+  3494:14     error  't' is defined but never used                                    no-unused-vars
+  3495:21     error  'result' is not defined                                          no-undef
+  3495:73     error  'result' is not defined                                          no-undef
+  3746:16     error  't' is defined but never used                                    no-unused-vars
+  3767:13     error  't' is defined but never used                                    no-unused-vars
+  3912:12     error  's' is already defined                                           no-redeclare
+  4031:17     error  'm' is assigned a value but never used                           no-unused-vars
+  4074:112    error  Unexpected console statement                                     no-console
+  4129:23     error  't' is defined but never used                                    no-unused-vars
+  4305:31     error  'config' is not defined                                          no-undef
+  4310:7      error  'i' is not defined                                               no-undef
+  4310:14     error  'i' is not defined                                               no-undef
+  4310:31     error  'i' is not defined                                               no-undef
+  4310:42     error  'i' is not defined                                               no-undef
+  4310:52     error  'i' is not defined                                               no-undef
+  4312:5      error  'config' is not defined                                          no-undef
+  4314:6      error  'config' is not defined                                          no-undef
+  4314:42     error  'link' is not defined                                            no-undef
+  4314:49     error  'config' is not defined                                          no-undef
+  4314:79     error  'config' is not defined                                          no-undef
+  4315:6      error  'config' is not defined                                          no-undef
+  4315:42     error  'link' is not defined                                            no-undef
+  4315:49     error  'config' is not defined                                          no-undef
+  4315:95     error  'config' is not defined                                          no-undef
+  4318:8      error  'i' is not defined                                               no-undef
+  4318:15     error  'i' is not defined                                               no-undef
+  4318:32     error  'i' is not defined                                               no-undef
+  4318:38     error  'link' is not defined                                            no-undef
+  4318:46     error  'config' is not defined                                          no-undef
+  4318:71     error  'i' is not defined                                               no-undef
+  4320:3      error  'link' is not defined                                            no-undef
+  4324:3      error  'link' is not defined                                            no-undef
+  4324:10     error  'config' is not defined                                          no-undef
+  4324:32     error  'config' is not defined                                          no-undef
+  4324:76     error  'config' is not defined                                          no-undef
+  4324:120    error  'config' is not defined                                          no-undef
+  4325:16     error  'i' is not defined                                               no-undef
+  4325:23     error  'i' is not defined                                               no-undef
+  4325:40     error  'i' is not defined                                               no-undef
+  4325:46     error  'link' is not defined                                            no-undef
+  4325:65     error  'i' is not defined                                               no-undef
+  4325:84     error  'i' is not defined                                               no-undef
+  4329:13     error  'config' is not defined                                          no-undef
+  4329:48     error  'config' is not defined                                          no-undef
+  4331:18     error  'config' is not defined                                          no-undef
+  4332:3      error  'link' is not defined                                            no-undef
+  4332:10     error  'link' is not defined                                            no-undef
+  4334:9      error  'link' is not defined                                            no-undef
+  4359:10     error  'shortcut' is defined but never used                             no-unused-vars
+  4361:2      error  'objectType' is not defined                                      no-undef
+  4362:2      error  'objectValue' is not defined                                     no-undef
+  4363:5      error  'objectType' is not defined                                      no-undef
+  4363:19     error  'objectValue' is not defined                                     no-undef
+  4365:28     error  'objectType' is not defined                                      no-undef
+  4365:56     error  'objectValue' is not defined                                     no-undef
+  4380:10     error  'showSearchMenu' is defined but never used                       no-unused-vars
+  4496:10     error  'switchMore' is defined but never used                           no-unused-vars
+  4513:10     error  'switchDocLib' is defined but never used                         no-unused-vars
+  4519:4      error  'link' is not defined                                            no-undef
+  4523:4      error  'link' is not defined                                            no-undef
+  4528:3      error  'link' is not defined                                            no-undef
+  4530:18     error  'link' is not defined                                            no-undef
+  4539:10     error  'setPing' is defined but never used                              no-unused-vars
+  4552:5      error  'config' is not defined                                          no-undef
+  4554:3      error  'requiredFields' is not defined                                  no-undef
+  4554:20     error  'config' is not defined                                          no-undef
+  4555:7      error  'i' is not defined                                               no-undef
+  4555:14     error  'i' is not defined                                               no-undef
+  4555:18     error  'requiredFields' is not defined                                  no-undef
+  4555:41     error  'i' is not defined                                               no-undef
+  4557:12     error  'requiredFields' is not defined                                  no-undef
+  4557:27     error  'i' is not defined                                               no-undef
+  4558:25     error  'requiredFields' is not defined                                  no-undef
+  4558:40     error  'i' is not defined                                               no-undef
+  4571:10     error  'setHelpLink' is defined but never used                          no-unused-vars
+  4573:57     error  'config' is not defined                                          no-undef
+  4573:81     error  'config' is not defined                                          no-undef
+  4574:2      error  'className' is not defined                                       no-undef
+  4579:3      error  'currentFieldName' is not defined                                no-undef
+  4580:6      error  'currentFieldName' is not defined                                no-undef
+  4580:38     error  'currentFieldName' is not defined                                no-undef
+  4581:6      error  'currentFieldName' is not defined                                no-undef
+  4581:41     error  'currentFieldName' is not defined                                no-undef
+  4581:60     error  'currentFieldName' is not defined                                no-undef
+  4581:87     error  'currentFieldName' is not defined                                no-undef
+  4582:3      error  'currentFieldName' is not defined                                no-undef
+  4582:22     error  'currentFieldName' is not defined                                no-undef
+  4583:3      error  'helpLink' is not defined                                        no-undef
+  4583:54     error  'config' is not defined                                          no-undef
+  4583:90     error  'config' is not defined                                          no-undef
+  4583:125    error  'currentFieldName' is not defined                                no-undef
+  4584:43     error  'className' is not defined                                       no-undef
+  4584:68     error  'helpLink' is not defined                                        no-undef
+  4600:18     error  'holders' is not defined                                         no-undef
+  4604:38     error  'holders' is not defined                                         no-undef
+  4616:10     error  'toggleHelpLink' is defined but never used                       no-unused-vars
+  4619:72     error  'config' is not defined                                          no-undef
+  4619:96     error  'config' is not defined                                          no-undef
+  4620:72     error  'config' is not defined                                          no-undef
+  4620:96     error  'config' is not defined                                          no-undef
+  4632:38     error  'config' is not defined                                          no-undef
+  4632:62     error  'config' is not defined                                          no-undef
+  4647:38     error  'config' is not defined                                          no-undef
+  4647:62     error  'config' is not defined                                          no-undef
+  4659:10     error  'setTreeBox' is defined but never used                           no-unused-vars
+  4670:3      error  Unexpected newline between function and ( of function call       no-unexpected-multiline
+  4695:10     error  'selectLang' is defined but never used                           no-unused-vars
+  4697:34     error  'config' is not defined                                          no-undef
+  4697:58     error  'config' is not defined                                          no-undef
+  4707:10     error  'selectTheme' is defined but never used                          no-unused-vars
+  4709:36     error  'config' is not defined                                          no-undef
+  4709:60     error  'config' is not defined                                          no-undef
+  4722:2      error  'pos' is not defined                                             no-undef
+  4723:5      error  'pos' is not defined                                             no-undef
+  4723:38     error  'pos' is not defined                                             no-undef
+  4735:2      error  'width' is not defined                                           no-undef
+  4736:2      error  'height' is not defined                                          no-undef
+  4737:27     error  'width' is not defined                                           no-undef
+  4738:27     error  'height' is not defined                                          no-undef
+  4781:3      error  'submitObj' is not defined                                       no-undef
+  4782:8      error  'submitObj' is not defined                                       no-undef
+  4784:16     error  'submitObj' is not defined                                       no-undef
+  4785:4      error  'submitLabel' is not defined                                     no-undef
+  4785:28     error  'submitObj' is not defined                                       no-undef
+  4785:50     error  'submitObj' is not defined                                       no-undef
+  4786:6      error  'submitObj' is not defined                                       no-undef
+  4787:21     error  'submitObj' is not defined                                       no-undef
+  4787:58     error  'lang' is not defined                                            no-undef
+  4788:14     error  'submitObj' is not defined                                       no-undef
+  4789:11     error  'submitObj' is not defined                                       no-undef
+  4798:6      error  'submitObj' is not defined                                       no-undef
+  4799:7      error  'submitObj' is not defined                                       no-undef
+  4801:5      error  'submitObj' is not defined                                       no-undef
+  4801:20     error  'submitLabel' is not defined                                     no-undef
+  4805:7      error  'submitObj' is not defined                                       no-undef
+  4805:32     error  'submitLabel' is not defined                                     no-undef
+  4807:6      error  'submitObj' is not defined                                       no-undef
+  4821:10     error  'setFormAction' is defined but never used                        no-unused-vars
+  4823:2      error  '$form' is not defined                                           no-undef
+  4824:16     error  '$form' is not defined                                           no-undef
+  4825:7      error  '$form' is not defined                                           no-undef
+  4827:2      error  '$form' is not defined                                           no-undef
+  4836:10     error  'setImageSize' is defined but never used                         no-unused-vars
+  4841:3      error  'bodyWidth' is not defined                                       no-undef
+  4842:15     error  'bodyWidth' is not defined                                       no-undef
+  4869:10     error  'setMailto' is defined but never used                            no-unused-vars
+  4871:2      error  'link' is not defined                                            no-undef
+  4872:8      error  'link' is not defined                                            no-undef
+  4876:26     error  'defaultChosenOptions' is not defined                            no-undef
+  4887:10     error  'ajaxGetContacts' is defined but never used                      no-unused-vars
+  4889:2      error  'link' is not defined                                            no-undef
+  4890:8      error  'link' is not defined                                            no-undef
+  4894:3      error  '$inputgroup' is not defined                                     no-undef
+  4895:3      error  '$inputgroup' is not defined                                     no-undef
+  4896:3      error  '$inputgroup' is not defined                                     no-undef
+  4897:3      error  '$inputgroup' is not defined                                     no-undef
+  4897:42     error  'defaultChosenOptions' is not defined                            no-undef
+  4907:10     error  'setComment' is defined but never used                           no-unused-vars
+  5021:2      error  Unexpected newline between function and ( of function call       no-unexpected-multiline
+  5024:7      error  'browseType' is not defined                                      no-undef
+  5030:13     error  'browseType' is not defined                                      no-undef
+  5038:7      error  'browseType' is not defined                                      no-undef
+  5044:13     error  'browseType' is not defined                                      no-undef
+  5078:10     error  'addItem' is defined but never used                              no-unused-vars
+  5080:2      error  'ItemList' is not defined                                        no-undef
+  5081:2      error  'Target' is not defined                                          no-undef
+  5082:21     error  'ItemList' is not defined                                        no-undef
+  5084:13     error  'ItemList' is not defined                                        no-undef
+  5087:4      error  'flag' is not defined                                            no-undef
+  5088:19     error  'Target' is not defined                                          no-undef
+  5090:17     error  'Target' is not defined                                          no-undef
+  5093:6      error  'flag' is not defined                                            no-undef
+  5096:7      error  'flag' is not defined                                            no-undef
+  5098:5      error  'Target' is not defined                                          no-undef
+  5098:20     error  'Target' is not defined                                          no-undef
+  5111:10     error  'delItem' is defined but never used                              no-unused-vars
+  5113:2      error  'ItemList' is not defined                                        no-undef
+  5114:12     error  'ItemList' is not defined                                        no-undef
+  5116:13     error  'ItemList' is not defined                                        no-undef
+  5119:4      error  'ItemList' is not defined                                        no-undef
+  5131:10     error  'upItem' is defined but never used                               no-unused-vars
+  5133:2      error  'ItemList' is not defined                                        no-undef
+  5134:16     error  'ItemList' is not defined                                        no-undef
+  5136:13     error  'ItemList' is not defined                                        no-undef
+  5139:4      error  'tmpUpValue' is not defined                                      no-undef
+  5139:17     error  'ItemList' is not defined                                        no-undef
+  5140:4      error  'tmpUpText' is not defined                                       no-undef
+  5140:17     error  'ItemList' is not defined                                        no-undef
+  5141:4      error  'ItemList' is not defined                                        no-undef
+  5142:4      error  'ItemList' is not defined                                        no-undef
+  5143:4      error  'ItemList' is not defined                                        no-undef
+  5143:32     error  'tmpUpValue' is not defined                                      no-undef
+  5144:4      error  'ItemList' is not defined                                        no-undef
+  5144:32     error  'tmpUpText' is not defined                                       no-undef
+  5145:4      error  'ItemList' is not defined                                        no-undef
+  5146:4      error  'ItemList' is not defined                                        no-undef
+  5159:10     error  'downItem' is defined but never used                             no-unused-vars
+  5161:2      error  'ItemList' is not defined                                        no-undef
+  5162:16     error  'ItemList' is not defined                                        no-undef
+  5164:13     error  'ItemList' is not defined                                        no-undef
+  5167:4      error  'tmpUpValue' is not defined                                      no-undef
+  5167:17     error  'ItemList' is not defined                                        no-undef
+  5168:4      error  'tmpUpText' is not defined                                       no-undef
+  5168:17     error  'ItemList' is not defined                                        no-undef
+  5169:4      error  'ItemList' is not defined                                        no-undef
+  5170:4      error  'ItemList' is not defined                                        no-undef
+  5171:4      error  'ItemList' is not defined                                        no-undef
+  5171:32     error  'tmpUpValue' is not defined                                      no-undef
+  5172:4      error  'ItemList' is not defined                                        no-undef
+  5172:32     error  'tmpUpText' is not defined                                       no-undef
+  5173:4      error  'ItemList' is not defined                                        no-undef
+  5174:4      error  'ItemList' is not defined                                        no-undef
+  5187:10     error  'selectItem' is defined but never used                           no-unused-vars
+  5189:2      error  'ItemList' is not defined                                        no-undef
+  5190:12     error  'ItemList' is not defined                                        no-undef
+  5192:13     error  'ItemList' is not defined                                        no-undef
+  5206:10     error  'ajaxDelete' is defined but never used                           no-unused-vars
+  5222:43     error  'sortTable' is not defined                                       no-undef
+  5318:8      error  '$ajaxModal' is not defined                                      no-undef
+  5408:48     error  'dialog' is defined but never used                               no-unused-vars
+  5478:3      error  '$ajaxModal' is not defined                                      no-undef
+  5479:3      error  '$ajaxModal' is not defined                                      no-undef
+  5483:4      error  '$ajaxModal' is not defined                                      no-undef
+  5485:22     error  '$ajaxModal' is not defined                                      no-undef
+  5492:4      error  '$ajaxModal' is not defined                                      no-undef
+  5493:43     error  '$ajaxModal' is not defined                                      no-undef
+  5497:60     error  '$ajaxModal' is not defined                                      no-undef
+  5498:62     error  '$ajaxModal' is not defined                                      no-undef
+  5499:60     error  '$ajaxModal' is not defined                                      no-undef
+  5500:64     error  '$ajaxModal' is not defined                                      no-undef
+  5510:8      error  'pos' is assigned a value but never used                         no-unused-vars
+  5545:10     error  'setModal4List' is defined but never used                        no-unused-vars
+  5581:34     error  'datepickerOptions' is not defined                               no-undef
+  5583:17     error  Empty block statement                                            no-empty
+  5636:10     error  'startCron' is defined but never used                            no-unused-vars
+  5641:10     error  'computePasswordStrength' is defined but never used              no-unused-vars
+  5650:6      error  'i' is not defined                                               no-undef
+  5650:13     error  'i' is not defined                                               no-undef
+  5650:25     error  'i' is not defined                                               no-undef
+  5652:3      error  'letter' is not defined                                          no-undef
+  5652:28     error  'i' is not defined                                               no-undef
+  5653:13     error  'letter' is not defined                                          no-undef
+  5670:26     error  'letter' is not defined                                          no-undef
+  5670:56     error  'letter' is not defined                                          no-undef
+  5676:6      error  'i' is not defined                                               no-undef
+  5679:31     error  'i' is not defined                                               no-undef
+  5693:2      error  Unexpected console statement                                     no-console
+  5729:10     error  'j' is assigned a value but never used                           no-unused-vars
+  5749:3      error  'href' is not defined                                            no-undef
+  5750:19     error  'href' is not defined                                            no-undef
+  5761:10     error  'fixedTfootAction' is defined but never used                     no-unused-vars
+  5785:3      error  'offsetHeight' is not defined                                    no-undef
+  5788:19     error  'offsetHeight' is not defined                                    no-undef
+  5795:19     error  'offsetHeight' is not defined                                    no-undef
+  5795:73     error  'offsetHeight' is not defined                                    no-undef
+  5828:10     error  'fixedTableHead' is defined but never used                       no-unused-vars
+  5857:10     error  'fixedTheadOfList' is defined but never used                     no-unused-vars
+  5941:10     error  'applyCssStyle' is defined but never used                        no-unused-vars
+  5961:10     error  'showBrowserNotice' is defined but never used                    no-unused-vars
+  5963:2      error  'userAgent' is not defined                                       no-undef
+  5964:2      error  '$browser' is not defined                                        no-undef
+  5965:2      error  '$browser' is not defined                                        no-undef
+  5965:32     error  'userAgent' is not defined                                       no-undef
+  5966:2      error  '$browser' is not defined                                        no-undef
+  5966:34     error  'userAgent' is not defined                                       no-undef
+  6010:261    error  'browserNotice' is not defined                                   no-undef
+  6020:10     error  'removeCookieByKey' is defined but never used                    no-unused-vars
+  6022:35     error  'config' is not defined                                          no-undef
+  6022:59     error  'config' is not defined                                          no-undef
+  6066:5      error  'config' is not defined                                          no-undef
+  6080:7      error  '$oldActiveItem' is assigned a value but never used              no-unused-vars
+  6081:7      error  '$helpMenuItem' is assigned a value but never used               no-unused-vars
+  6085:107    error  'lang' is not defined                                            no-undef
+  6137:10     error  'setHomepage' is defined but never used                          no-unused-vars
+  6150:5      error  'config' is not defined                                          no-undef
+  6157:30     error  'lang' is not defined                                            no-undef
+  6163:10     error  'removeDitto' is defined but never used                          no-unused-vars
+  6165:2      error  '$firstTr' is not defined                                        no-undef
+  6166:2      error  '$firstTr' is not defined                                        no-undef
+  6185:46     error  'config' is not defined                                          no-undef
+  6185:70     error  'config' is not defined                                          no-undef
+  6192:40     error  'config' is not defined                                          no-undef
+  6192:64     error  'config' is not defined                                          no-undef
+  6199:38     error  'config' is not defined                                          no-undef
+  6199:62     error  'config' is not defined                                          no-undef
+  6203:39     error  'config' is not defined                                          no-undef
+  6203:63     error  'config' is not defined                                          no-undef
+  6209:1      error  'needPing' is not defined                                        no-undef
+  6214:12     error  'config' is not defined                                          no-undef
+  6214:47     error  'config' is not defined                                          no-undef
+  6215:64     error  'config' is not defined                                          no-undef
+  6235:25     error  'config' is not defined                                          no-undef
+  6235:54     error  'config' is not defined                                          no-undef
+  6239:5      error  'needPing' is not defined                                        no-undef
+  6253:46     error  'config' is not defined                                          no-undef
+  6253:70     error  'config' is not defined                                          no-undef
+  6272:25     error  'r' is assigned a value but never used                           no-unused-vars
+  6272:1527   error  Unnecessary escape character: \&                                 no-useless-escape
+  6272:1529   error  Unnecessary escape character: \<                                 no-useless-escape
+  6272:1531   error  Unnecessary escape character: \>                                 no-useless-escape
+  6272:1533   error  Unnecessary escape character: \"                                 no-useless-escape
+  6272:1535   error  Unnecessary escape character: \'                                 no-useless-escape
+  6272:1537   error  Unnecessary escape character: \`                                 no-useless-escape
+  6272:1631   error  Unnecessary escape character: \<                                 no-useless-escape
+  6272:1633   error  Unnecessary escape character: \>                                 no-useless-escape
+  6272:1635   error  Unnecessary escape character: \"                                 no-useless-escape
+  6272:1637   error  Unnecessary escape character: \'                                 no-useless-escape
+  6272:1639   error  Unnecessary escape character: \`                                 no-useless-escape
+  6272:4329   error  't' is defined but never used                                    no-unused-vars
+  6272:4540   error  't' is defined but never used                                    no-unused-vars
+  6272:6350   error  't' is defined but never used                                    no-unused-vars
+  6272:9366   error  't' is defined but never used                                    no-unused-vars
+  6272:10683  error  'e' is defined but never used                                    no-unused-vars
+  6272:16703  error  't' is defined but never used                                    no-unused-vars
+  6272:19918  error  't' is defined but never used                                    no-unused-vars
+  6272:26991  error  'i' is assigned a value but never used                           no-unused-vars
+  6284:332    error  'e' is already defined                                           no-redeclare
+  6284:360    error  'n' is already defined                                           no-redeclare
+  6284:2153   error  'i' is defined but never used                                    no-unused-vars
+  6284:3098   error  Unexpected console statement                                     no-console
+  6284:5161   error  'labelTemplateString' is not defined                             no-undef
+  6284:12203  error  't' is defined but never used                                    no-unused-vars
+  6284:16039  error  't' is defined but never used                                    no-unused-vars
+  6284:20816  error  'i' is assigned a value but never used                           no-unused-vars
+  6285:7047   error  'e' is already defined                                           no-redeclare
+  6285:7072   error  's' is defined but never used                                    no-unused-vars
+  6285:9136   error  'n' is defined but never used                                    no-unused-vars
+  6285:17573  error  Unexpected console statement                                     no-console
+  6285:26853  error  'S' is already defined                                           no-redeclare
+  6285:26886  error  'F' is already defined                                           no-redeclare
+  6285:28005  error  'S' is already defined                                           no-redeclare
+  6285:32841  error  'd' is already defined                                           no-redeclare
+  6285:32868  error  'o' is already defined                                           no-redeclare
+  6285:32901  error  'r' is already defined                                           no-redeclare
+  6285:32931  error  'l' is already defined                                           no-redeclare
+  6285:32961  error  'u' is already defined                                           no-redeclare
+  6285:32993  error  'c' is already defined                                           no-redeclare
+  6285:33278  error  'm' is already defined                                           no-redeclare
+  6285:34838  error  'viewMode' is not defined                                        no-undef
+  6285:34871  error  'viewMode' is not defined                                        no-undef
+  6285:34896  error  'viewMode' is not defined                                        no-undef
+  6285:34912  error  'viewMode' is not defined                                        no-undef
+  6285:34988  error  'viewMode' is not defined                                        no-undef
+  6285:35066  error  'viewMode' is not defined                                        no-undef
+  6285:35142  error  'viewMode' is not defined                                        no-undef
+  6285:35218  error  'viewMode' is not defined                                        no-undef
+  6285:35482  error  'viewMode' is not defined                                        no-undef
+  6285:35515  error  'viewMode' is not defined                                        no-undef
+  6285:35540  error  'viewMode' is not defined                                        no-undef
+  6285:35556  error  'viewMode' is not defined                                        no-undef
+  6285:35632  error  'viewMode' is not defined                                        no-undef
+  6285:35710  error  'viewMode' is not defined                                        no-undef
+  6285:35790  error  'viewMode' is not defined                                        no-undef
+  6285:35956  error  'viewMode' is not defined                                        no-undef
+  6285:39335  error  Unnecessary escape character: \/                                 no-useless-escape
+  6285:39340  error  Unnecessary escape character: \[                                 no-useless-escape
+  6285:39717  error  Unnecessary escape character: \-                                 no-useless-escape
+  6285:39726  error  Unnecessary escape character: \-                                 no-useless-escape
+  6285:39791  error  Unnecessary escape character: \-                                 no-useless-escape
+  6285:39800  error  Unnecessary escape character: \-                                 no-useless-escape
+  6285:39820  error  Unnecessary escape character: \:                                 no-useless-escape
+  6285:39891  error  Unnecessary escape character: \-                                 no-useless-escape
+  6285:39900  error  Unnecessary escape character: \-                                 no-useless-escape
+  6285:39920  error  Unnecessary escape character: \:                                 no-useless-escape
+  6285:39929  error  Unnecessary escape character: \:                                 no-useless-escape
+  6285:40525  error  'd' is already defined                                           no-redeclare
+  6285:40527  error  'c' is already defined                                           no-redeclare
+  6285:40565  error  'a' is already defined                                           no-redeclare
+  6285:41552  error  'm' is already defined                                           no-redeclare
+  6285:42031  error  'm' is already defined                                           no-redeclare
+  6285:43590  error  't' is already defined                                           no-redeclare
+  6285:45120  error  'old' is not defined                                             no-undef
+
+E:\project-source\github\backbone-require-practice\p-minframework\dist\all.min.js
+   1:41     error  'config' is not defined                                          no-undef
+   1:92     error  'i' is not defined                                               no-undef
+   1:96     error  'i' is not defined                                               no-undef
+   1:107    error  'i' is not defined                                               no-undef
+   1:113    error  'i' is not defined                                               no-undef
+   1:118    error  'i' is not defined                                               no-undef
+   1:142    error  'config' is not defined                                          no-undef
+   1:178    error  'config' is not defined                                          no-undef
+   1:199    error  'link' is not defined                                            no-undef
+   1:204    error  'config' is not defined                                          no-undef
+   1:221    error  'config' is not defined                                          no-undef
+   1:256    error  'config' is not defined                                          no-undef
+   1:277    error  'link' is not defined                                            no-undef
+   1:282    error  'config' is not defined                                          no-undef
+   1:312    error  'config' is not defined                                          no-undef
+   1:339    error  'i' is not defined                                               no-undef
+   1:343    error  'i' is not defined                                               no-undef
+   1:354    error  'i' is not defined                                               no-undef
+   1:358    error  'link' is not defined                                            no-undef
+   1:364    error  'config' is not defined                                          no-undef
+   1:384    error  'i' is not defined                                               no-undef
+   1:390    error  'link' is not defined                                            no-undef
+   1:410    error  'link' is not defined                                            no-undef
+   1:415    error  'config' is not defined                                          no-undef
+   1:433    error  'config' is not defined                                          no-undef
+   1:460    error  'config' is not defined                                          no-undef
+   1:487    error  'config' is not defined                                          no-undef
+   1:514    error  'i' is not defined                                               no-undef
+   1:518    error  'i' is not defined                                               no-undef
+   1:529    error  'i' is not defined                                               no-undef
+   1:533    error  'link' is not defined                                            no-undef
+   1:545    error  'i' is not defined                                               no-undef
+   1:557    error  'i' is not defined                                               no-undef
+   1:575    error  'config' is not defined                                          no-undef
+   1:599    error  'config' is not defined                                          no-undef
+   1:632    error  'config' is not defined                                          no-undef
+   1:683    error  'link' is not defined                                            no-undef
+   1:698    error  'link' is not defined                                            no-undef
+   1:950    error  'shortcut' is defined but never used                             no-unused-vars
+   1:961    error  'objectType' is not defined                                      no-undef
+   1:1003   error  'objectValue' is not defined                                     no-undef
+   1:1047   error  'objectType' is not defined                                      no-undef
+   1:1059   error  'objectValue' is not defined                                     no-undef
+   1:1098   error  'objectType' is not defined                                      no-undef
+   1:1122   error  'objectValue' is not defined                                     no-undef
+   1:1145   error  'showSearchMenu' is defined but never used                       no-unused-vars
+   1:3036   error  'switchMore' is defined but never used                           no-unused-vars
+   1:3204   error  'switchDocLib' is defined but never used                         no-unused-vars
+   1:3235   error  'link' is not defined                                            no-undef
+   1:3328   error  'link' is not defined                                            no-undef
+   1:3387   error  'link' is not defined                                            no-undef
+   1:3401   error  'setPing' is defined but never used                              no-unused-vars
+   1:3497   error  'config' is not defined                                          no-undef
+   1:3523   error  'requiredFields' is not defined                                  no-undef
+   1:3538   error  'config' is not defined                                          no-undef
+   1:3571   error  'i' is not defined                                               no-undef
+   1:3575   error  'i' is not defined                                               no-undef
+   1:3577   error  'requiredFields' is not defined                                  no-undef
+   1:3599   error  'i' is not defined                                               no-undef
+   1:3610   error  'requiredFields' is not defined                                  no-undef
+   1:3625   error  'i' is not defined                                               no-undef
+   1:3715   error  'requiredFields' is not defined                                  no-undef
+   1:3730   error  'i' is not defined                                               no-undef
+   1:3896   error  'setHelpLink' is defined but never used                          no-unused-vars
+   1:3959   error  'config' is not defined                                          no-undef
+   1:3982   error  'config' is not defined                                          no-undef
+   1:3999   error  'className' is not defined                                       no-undef
+   1:4180   error  'currentFieldName' is not defined                                no-undef
+   1:4268   error  'currentFieldName' is not defined                                no-undef
+   1:4295   error  'currentFieldName' is not defined                                no-undef
+   1:4314   error  'currentFieldName' is not defined                                no-undef
+   1:4348   error  'currentFieldName' is not defined                                no-undef
+   1:4365   error  'currentFieldName' is not defined                                no-undef
+   1:4391   error  'currentFieldName' is not defined                                no-undef
+   1:4423   error  'currentFieldName' is not defined                                no-undef
+   1:4440   error  'currentFieldName' is not defined                                no-undef
+   1:4471   error  'helpLink' is not defined                                        no-undef
+   1:4516   error  'config' is not defined                                          no-undef
+   1:4548   error  'config' is not defined                                          no-undef
+   1:4579   error  'currentFieldName' is not defined                                no-undef
+   1:4635   error  'className' is not defined                                       no-undef
+   1:4656   error  'helpLink' is not defined                                        no-undef
+   1:4824   error  'holders' is not defined                                         no-undef
+   1:4895   error  'holders' is not defined                                         no-undef
+   1:4916   error  'toggleHelpLink' is defined but never used                       no-unused-vars
+   1:5018   error  'config' is not defined                                          no-undef
+   1:5041   error  'config' is not defined                                          no-undef
+   1:5112   error  'config' is not defined                                          no-undef
+   1:5135   error  'config' is not defined                                          no-undef
+   1:5210   error  'config' is not defined                                          no-undef
+   1:5233   error  'config' is not defined                                          no-undef
+   1:5513   error  'config' is not defined                                          no-undef
+   1:5536   error  'config' is not defined                                          no-undef
+   1:5777   error  'setTreeBox' is defined but never used                           no-unused-vars
+   1:6236   error  'selectLang' is defined but never used                           no-unused-vars
+   1:6277   error  'config' is not defined                                          no-undef
+   1:6300   error  'config' is not defined                                          no-undef
+   1:6368   error  'selectTheme' is defined but never used                          no-unused-vars
+   1:6411   error  'config' is not defined                                          no-undef
+   1:6434   error  'config' is not defined                                          no-undef
+   1:6525   error  'pos' is not defined                                             no-undef
+   1:6544   error  'pos' is not defined                                             no-undef
+   1:6564   error  'pos' is not defined                                             no-undef
+   1:6597   error  'width' is not defined                                           no-undef
+   1:6621   error  'height' is not defined                                          no-undef
+   1:6670   error  'width' is not defined                                           no-undef
+   1:6701   error  'height' is not defined                                          no-undef
+   1:7200   error  'submitObj' is not defined                                       no-undef
+   1:7236   error  'submitObj' is not defined                                       no-undef
+   1:7274   error  'submitObj' is not defined                                       no-undef
+   1:7300   error  'submitLabel' is not defined                                     no-undef
+   1:7316   error  'submitObj' is not defined                                       no-undef
+   1:7336   error  'submitObj' is not defined                                       no-undef
+   1:7363   error  'submitObj' is not defined                                       no-undef
+   1:7408   error  'submitObj' is not defined                                       no-undef
+   1:7443   error  'lang' is not defined                                            no-undef
+   1:7461   error  'submitObj' is not defined                                       no-undef
+   1:7481   error  'submitObj' is not defined                                       no-undef
+   1:7549   error  'submitObj' is not defined                                       no-undef
+   1:7593   error  'submitObj' is not defined                                       no-undef
+   1:7619   error  'submitObj' is not defined                                       no-undef
+   1:7634   error  'submitLabel' is not defined                                     no-undef
+   1:7649   error  'submitObj' is not defined                                       no-undef
+   1:7673   error  'submitLabel' is not defined                                     no-undef
+   1:7688   error  'submitObj' is not defined                                       no-undef
+   1:7740   error  'setFormAction' is defined but never used                        no-unused-vars
+   1:7761   error  '$form' is not defined                                           no-undef
+   1:7811   error  '$form' is not defined                                           no-undef
+   1:7834   error  '$form' is not defined                                           no-undef
+   1:7861   error  '$form' is not defined                                           no-undef
+   1:7902   error  'setImageSize' is defined but never used                         no-unused-vars
+   1:7924   error  'bodyWidth' is not defined                                       no-undef
+   1:7954   error  'bodyWidth' is not defined                                       no-undef
+   1:8223   error  'setMailto' is defined but never used                            no-unused-vars
+   1:8238   error  'link' is not defined                                            no-undef
+   1:8302   error  'link' is not defined                                            no-undef
+   1:8387   error  'defaultChosenOptions' is not defined                            no-undef
+   1:8420   error  'ajaxGetContacts' is defined but never used                      no-unused-vars
+   1:8439   error  'link' is not defined                                            no-undef
+   1:8490   error  'link' is not defined                                            no-undef
+   1:8522   error  '$inputgroup' is not defined                                     no-undef
+   1:8563   error  '$inputgroup' is not defined                                     no-undef
+   1:8609   error  '$inputgroup' is not defined                                     no-undef
+   1:8631   error  '$inputgroup' is not defined                                     no-undef
+   1:8670   error  'defaultChosenOptions' is not defined                            no-undef
+   1:8703   error  'setComment' is defined but never used                           no-unused-vars
+   1:10638  error  'browseType' is not defined                                      no-undef
+   1:10695  error  'browseType' is not defined                                      no-undef
+   1:10848  error  'browseType' is not defined                                      no-undef
+   1:10902  error  'browseType' is not defined                                      no-undef
+   1:11156  error  'addItem' is defined but never used                              no-unused-vars
+   1:11169  error  'ItemList' is not defined                                        no-undef
+   1:11205  error  'Target' is not defined                                          no-undef
+   1:11253  error  'ItemList' is not defined                                        no-undef
+   1:11280  error  'ItemList' is not defined                                        no-undef
+   1:11315  error  'flag' is not defined                                            no-undef
+   1:11337  error  'Target' is not defined                                          no-undef
+   1:11356  error  'Target' is not defined                                          no-undef
+   1:11391  error  'flag' is not defined                                            no-undef
+   1:11400  error  'flag' is not defined                                            no-undef
+   1:11407  error  'Target' is not defined                                          no-undef
+   1:11422  error  'Target' is not defined                                          no-undef
+   1:11488  error  'delItem' is defined but never used                              no-unused-vars
+   1:11499  error  'ItemList' is not defined                                        no-undef
+   1:11545  error  'ItemList' is not defined                                        no-undef
+   1:11573  error  'ItemList' is not defined                                        no-undef
+   1:11604  error  'ItemList' is not defined                                        no-undef
+   1:11640  error  'upItem' is defined but never used                               no-unused-vars
+   1:11650  error  'ItemList' is not defined                                        no-undef
+   1:11700  error  'ItemList' is not defined                                        no-undef
+   1:11727  error  'ItemList' is not defined                                        no-undef
+   1:11762  error  'tmpUpValue' is not defined                                      no-undef
+   1:11773  error  'ItemList' is not defined                                        no-undef
+   1:11801  error  'tmpUpText' is not defined                                       no-undef
+   1:11811  error  'ItemList' is not defined                                        no-undef
+   1:11838  error  'ItemList' is not defined                                        no-undef
+   1:11874  error  'ItemList' is not defined                                        no-undef
+   1:11908  error  'ItemList' is not defined                                        no-undef
+   1:11934  error  'tmpUpValue' is not defined                                      no-undef
+   1:11945  error  'ItemList' is not defined                                        no-undef
+   1:11970  error  'tmpUpText' is not defined                                       no-undef
+   1:11980  error  'ItemList' is not defined                                        no-undef
+   1:12014  error  'ItemList' is not defined                                        no-undef
+   1:12063  error  'downItem' is defined but never used                             no-unused-vars
+   1:12075  error  'ItemList' is not defined                                        no-undef
+   1:12125  error  'ItemList' is not defined                                        no-undef
+   1:12152  error  'ItemList' is not defined                                        no-undef
+   1:12187  error  'tmpUpValue' is not defined                                      no-undef
+   1:12198  error  'ItemList' is not defined                                        no-undef
+   1:12226  error  'tmpUpText' is not defined                                       no-undef
+   1:12236  error  'ItemList' is not defined                                        no-undef
+   1:12263  error  'ItemList' is not defined                                        no-undef
+   1:12299  error  'ItemList' is not defined                                        no-undef
+   1:12333  error  'ItemList' is not defined                                        no-undef
+   1:12359  error  'tmpUpValue' is not defined                                      no-undef
+   1:12370  error  'ItemList' is not defined                                        no-undef
+   1:12395  error  'tmpUpText' is not defined                                       no-undef
+   1:12405  error  'ItemList' is not defined                                        no-undef
+   1:12439  error  'ItemList' is not defined                                        no-undef
+   1:12488  error  'selectItem' is defined but never used                           no-unused-vars
+   1:12502  error  'ItemList' is not defined                                        no-undef
+   1:12548  error  'ItemList' is not defined                                        no-undef
+   1:12576  error  'ItemList' is not defined                                        no-undef
+   1:12618  error  'ajaxDelete' is defined but never used                           no-unused-vars
+   1:12840  error  'sortTable' is not defined                                       no-undef
+   1:14611  error  's' is defined but never used                                    no-unused-vars
+   1:15652  error  '$ajaxModal' is not defined                                      no-undef
+   1:15679  error  '$ajaxModal' is not defined                                      no-undef
+   1:15750  error  '$ajaxModal' is not defined                                      no-undef
+   1:15798  error  '$ajaxModal' is not defined                                      no-undef
+   1:15913  error  '$ajaxModal' is not defined                                      no-undef
+   1:15973  error  '$ajaxModal' is not defined                                      no-undef
+   1:16056  error  '$ajaxModal' is not defined                                      no-undef
+   1:16142  error  '$ajaxModal' is not defined                                      no-undef
+   1:16228  error  '$ajaxModal' is not defined                                      no-undef
+   1:16316  error  '$ajaxModal' is not defined                                      no-undef
+   1:17660  error  '$ajaxModal' is not defined                                      no-undef
+   1:18191  error  'setModal4List' is defined but never used                        no-unused-vars
+   1:18833  error  'datepickerOptions' is not defined                               no-undef
+   1:18860  error  Empty block statement                                            no-empty
+   1:19732  error  'startCron' is defined but never used                            no-unused-vars
+   1:19820  error  'computePasswordStrength' is defined but never used              no-unused-vars
+   1:19911  error  'i' is not defined                                               no-undef
+   1:19915  error  'i' is not defined                                               no-undef
+   1:19919  error  'i' is not defined                                               no-undef
+   1:19924  error  'letter' is not defined                                          no-undef
+   1:19940  error  'i' is not defined                                               no-undef
+   1:19949  error  'letter' is not defined                                          no-undef
+   1:20051  error  'letter' is not defined                                          no-undef
+   1:20064  error  'letter' is not defined                                          no-undef
+   1:20116  error  'i' is not defined                                               no-undef
+   1:20133  error  'i' is not defined                                               no-undef
+   1:20255  error  Unexpected console statement                                     no-console
+   1:20512  error  'r' is assigned a value but never used                           no-unused-vars
+   1:20603  error  'href' is not defined                                            no-undef
+   1:20664  error  'href' is not defined                                            no-undef
+   1:20707  error  'fixedTfootAction' is defined but never used                     no-unused-vars
+   1:20785  error  'offsetHeight' is not defined                                    no-undef
+   1:20886  error  'offsetHeight' is not defined                                    no-undef
+   1:21000  error  'offsetHeight' is not defined                                    no-undef
+   1:21038  error  'offsetHeight' is not defined                                    no-undef
+   1:21768  error  'fixedTableHead' is defined but never used                       no-unused-vars
+   1:22363  error  'fixedTheadOfList' is defined but never used                     no-unused-vars
+   1:23999  error  'applyCssStyle' is defined but never used                        no-unused-vars
+   1:24202  error  'showBrowserNotice' is defined but never used                    no-unused-vars
+   1:24222  error  'userAgent' is not defined                                       no-undef
+   1:24266  error  '$browser' is not defined                                        no-undef
+   1:24286  error  '$browser' is not defined                                        no-undef
+   1:24312  error  'userAgent' is not defined                                       no-undef
+   1:24323  error  '$browser' is not defined                                        no-undef
+   1:24353  error  'userAgent' is not defined                                       no-undef
+   1:24917  error  'browserNotice' is not defined                                   no-undef
+   1:24954  error  'removeCookieByKey' is defined but never used                    no-unused-vars
+   1:24998  error  'config' is not defined                                          no-undef
+   1:25021  error  'config' is not defined                                          no-undef
+   1:25583  error  'config' is not defined                                          no-undef
+   1:26179  error  'lang' is not defined                                            no-undef
+   1:27308  error  'setHomepage' is defined but never used                          no-unused-vars
+   1:27463  error  'config' is not defined                                          no-undef
+   1:27684  error  'lang' is not defined                                            no-undef
+   1:27709  error  'removeDitto' is defined but never used                          no-unused-vars
+   1:27723  error  '$firstTr' is not defined                                        no-undef
+   1:27772  error  '$firstTr' is not defined                                        no-undef
+   1:28094  error  'config' is not defined                                          no-undef
+   1:28117  error  'config' is not defined                                          no-undef
+   1:28297  error  'config' is not defined                                          no-undef
+   1:28320  error  'config' is not defined                                          no-undef
+   1:28492  error  'config' is not defined                                          no-undef
+   1:28515  error  'config' is not defined                                          no-undef
+   1:28633  error  'config' is not defined                                          no-undef
+   1:28656  error  'config' is not defined                                          no-undef
+   1:30098  error  Empty block statement                                            no-empty
+   2:2630   error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   2:3678   error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   2:4096   error  Empty block statement                                            no-empty
+   2:4172   error  Empty block statement                                            no-empty
+   2:5185   error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   2:6544   error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   2:7665   error  Unnecessary escape character: \/                                 no-useless-escape
+   2:11923  error  'ActiveXObject' is not defined                                   no-undef
+   2:14418  error  Empty block statement                                            no-empty
+   2:24125  error  Empty block statement                                            no-empty
+   2:24445  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   2:24867  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   2:25226  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   2:27337  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   3:1700   error  Empty block statement                                            no-empty
+   3:4437   error  Empty block statement                                            no-empty
+   3:9768   error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   3:9784   error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   3:10505  error  Empty block statement                                            no-empty
+   3:10675  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   3:11490  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   3:11583  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   3:11643  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   3:12845  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   3:13379  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   3:13492  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   3:15633  error  Unnecessary escape character: \=                                 no-useless-escape
+   3:15947  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   3:18027  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   3:19389  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   3:19877  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   3:19914  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   3:20352  error  Empty block statement                                            no-empty
+   3:20857  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   3:21164  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   3:22894  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   3:23131  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   3:24286  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   3:26613  error  Unnecessary escape character: \[                                 no-useless-escape
+   3:26615  error  Unnecessary escape character: \.                                 no-useless-escape
+   4:1178   error  Empty block statement                                            no-empty
+   4:4112   error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   4:4237   error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   4:6355   error  Empty block statement                                            no-empty
+   4:10780  error  Unnecessary escape character: \/                                 no-useless-escape
+   4:13374  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   4:15264  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   4:18004  error  Empty block statement                                            no-empty
+   4:26051  error  Empty block statement                                            no-empty
+   4:28719  error  Unnecessary escape character: \/                                 no-useless-escape
+   4:28752  error  Unnecessary escape character: \/                                 no-useless-escape
+   4:28798  error  Unnecessary escape character: \/                                 no-useless-escape
+   5:7580   error  Empty block statement                                            no-empty
+   5:9774   error  'n' is defined but never used                                    no-unused-vars
+   5:24050  error  Empty block statement                                            no-empty
+   5:29218  error  Unexpected console statement                                     no-console
+   6:13839  error  'n' is defined but never used                                    no-unused-vars
+   6:13886  error  Unexpected console statement                                     no-console
+   6:16233  error  'e' is assigned a value but never used                           no-unused-vars
+   6:16567  error  'o' is defined but never used                                    no-unused-vars
+   7:7580   error  'd' is already defined                                           no-redeclare
+   7:7656   error  'p' is already defined                                           no-redeclare
+   7:11540  error  'i' is already defined                                           no-redeclare
+   7:12650  error  'e' is already defined                                           no-redeclare
+   7:15814  error  't' is defined but never used                                    no-unused-vars
+   7:15830  error  'result' is not defined                                          no-undef
+   7:15881  error  'result' is not defined                                          no-undef
+   7:20944  error  't' is defined but never used                                    no-unused-vars
+   7:21436  error  't' is defined but never used                                    no-unused-vars
+   7:24489  error  'a' is already defined                                           no-redeclare
+   7:29612  error  'v' is assigned a value but never used                           no-unused-vars
+   7:30647  error  Unexpected console statement                                     no-console
+   7:31947  error  't' is defined but never used                                    no-unused-vars
+   8:3801   error  'needPing' is not defined                                        no-undef
+   8:3851   error  'config' is not defined                                          no-undef
+   8:3875   error  'config' is not defined                                          no-undef
+   8:3974   error  'config' is not defined                                          no-undef
+   8:4189   error  'config' is not defined                                          no-undef
+   8:4214   error  'config' is not defined                                          no-undef
+   8:4294   error  'needPing' is not defined                                        no-undef
+   8:4559   error  'config' is not defined                                          no-undef
+   8:4582   error  'config' is not defined                                          no-undef
+   8:4714   error  's' is assigned a value but never used                           no-unused-vars
+   8:6216   error  Unnecessary escape character: \&                                 no-useless-escape
+   8:6218   error  Unnecessary escape character: \<                                 no-useless-escape
+   8:6220   error  Unnecessary escape character: \>                                 no-useless-escape
+   8:6222   error  Unnecessary escape character: \"                                 no-useless-escape
+   8:6224   error  Unnecessary escape character: \'                                 no-useless-escape
+   8:6226   error  Unnecessary escape character: \`                                 no-useless-escape
+   8:6320   error  Unnecessary escape character: \<                                 no-useless-escape
+   8:6322   error  Unnecessary escape character: \>                                 no-useless-escape
+   8:6324   error  Unnecessary escape character: \"                                 no-useless-escape
+   8:6326   error  Unnecessary escape character: \'                                 no-useless-escape
+   8:6328   error  Unnecessary escape character: \`                                 no-useless-escape
+   8:9006   error  't' is defined but never used                                    no-unused-vars
+   8:9217   error  't' is defined but never used                                    no-unused-vars
+   8:11027  error  't' is defined but never used                                    no-unused-vars
+   8:14043  error  't' is defined but never used                                    no-unused-vars
+   8:15352  error  'e' is defined but never used                                    no-unused-vars
+   8:21369  error  't' is defined but never used                                    no-unused-vars
+   8:24580  error  't' is defined but never used                                    no-unused-vars
+   9:437    error  'i' is already defined                                           no-redeclare
+   9:465    error  's' is already defined                                           no-redeclare
+   9:2258   error  'e' is defined but never used                                    no-unused-vars
+   9:3203   error  Unexpected console statement                                     no-console
+   9:5257   error  'labelTemplateString' is not defined                             no-undef
+   9:12248  error  't' is defined but never used                                    no-unused-vars
+   9:16084  error  't' is defined but never used                                    no-unused-vars
+  10:7107   error  'i' is already defined                                           no-redeclare
+  10:7132   error  'n' is defined but never used                                    no-unused-vars
+  10:9189   error  's' is defined but never used                                    no-unused-vars
+  10:17625  error  Unexpected console statement                                     no-console
+  10:26902  error  '$' is already defined                                           no-redeclare
+  10:26935  error  'M' is already defined                                           no-redeclare
+  10:28054  error  '$' is already defined                                           no-redeclare
+  11:861    error  'h' is already defined                                           no-redeclare
+  11:888    error  'r' is already defined                                           no-redeclare
+  11:921    error  'l' is already defined                                           no-redeclare
+  11:951    error  'c' is already defined                                           no-redeclare
+  11:981    error  'd' is already defined                                           no-redeclare
+  11:1013   error  'u' is already defined                                           no-redeclare
+  11:1298   error  'p' is already defined                                           no-redeclare
+  11:2840   error  'viewMode' is not defined                                        no-undef
+  11:2873   error  'viewMode' is not defined                                        no-undef
+  11:2898   error  'viewMode' is not defined                                        no-undef
+  11:2914   error  'viewMode' is not defined                                        no-undef
+  11:2990   error  'viewMode' is not defined                                        no-undef
+  11:3068   error  'viewMode' is not defined                                        no-undef
+  11:3144   error  'viewMode' is not defined                                        no-undef
+  11:3220   error  'viewMode' is not defined                                        no-undef
+  11:3484   error  'viewMode' is not defined                                        no-undef
+  11:3517   error  'viewMode' is not defined                                        no-undef
+  11:3542   error  'viewMode' is not defined                                        no-undef
+  11:3558   error  'viewMode' is not defined                                        no-undef
+  11:3634   error  'viewMode' is not defined                                        no-undef
+  11:3712   error  'viewMode' is not defined                                        no-undef
+  11:3792   error  'viewMode' is not defined                                        no-undef
+  11:3958   error  'viewMode' is not defined                                        no-undef
+  11:7334   error  Unnecessary escape character: \/                                 no-useless-escape
+  11:7339   error  Unnecessary escape character: \[                                 no-useless-escape
+  11:7716   error  Unnecessary escape character: \-                                 no-useless-escape
+  11:7725   error  Unnecessary escape character: \-                                 no-useless-escape
+  11:7790   error  Unnecessary escape character: \-                                 no-useless-escape
+  11:7799   error  Unnecessary escape character: \-                                 no-useless-escape
+  11:7819   error  Unnecessary escape character: \:                                 no-useless-escape
+  11:7890   error  Unnecessary escape character: \-                                 no-useless-escape
+  11:7899   error  Unnecessary escape character: \-                                 no-useless-escape
+  11:7919   error  Unnecessary escape character: \:                                 no-useless-escape
+  11:7928   error  Unnecessary escape character: \:                                 no-useless-escape
+  11:8524   error  'h' is already defined                                           no-redeclare
+  11:8526   error  'u' is already defined                                           no-redeclare
+  11:8564   error  's' is already defined                                           no-redeclare
+  11:9551   error  'p' is already defined                                           no-redeclare
+  11:10022  error  'p' is already defined                                           no-redeclare
+  11:11580  error  'e' is already defined                                           no-redeclare
+  11:13068  error  'old' is not defined                                             no-undef
+
+E:\project-source\github\backbone-require-practice\p-minframework\dist\plugins\kindeditor-min.js
+    53:25   error  'a' is already defined                                           no-redeclare
+    73:7    error  'b' is already defined                                           no-redeclare
+    75:8    error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   107:7    error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   113:48   error  Unnecessary escape character: \/                                 no-useless-escape
+   113:145  error  Unnecessary escape character: \-                                 no-useless-escape
+   203:32   error  Unnecessary escape character: \-                                 no-useless-escape
+   203:60   error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   212:145  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   236:13   error  'a' is already defined                                           no-redeclare
+   251:15   error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   258:61   error  'd' is already defined                                           no-redeclare
+   260:7    error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   260:24   error  Unnecessary escape character: \/                                 no-useless-escape
+   270:7    error  'c' is already defined                                           no-redeclare
+   270:20   error  'd' is already defined                                           no-redeclare
+   270:34   error  'e' is already defined                                           no-redeclare
+   270:121  error  'a' is already defined                                           no-redeclare
+   272:8    error  'a' is already defined                                           no-redeclare
+   272:69   error  'a' is already defined                                           no-redeclare
+   273:20   error  'a' is already defined                                           no-redeclare
+   273:50   error  'a' is already defined                                           no-redeclare
+   277:15   error  'a' is already defined                                           no-redeclare
+   279:9    error  'n' is already defined                                           no-redeclare
+   279:22   error  'r' is already defined                                           no-redeclare
+   279:69   error  'p' is already defined                                           no-redeclare
+   279:91   error  'j' is already defined                                           no-redeclare
+   333:8    error  'a' is already defined                                           no-redeclare
+   335:8    error  'a' is already defined                                           no-redeclare
+   335:41   error  'a' is already defined                                           no-redeclare
+   379:10   error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   385:7    error  'b' is already defined                                           no-redeclare
+   403:27   error  Unnecessary escape character: \-                                 no-useless-escape
+   436:21   error  'd' is already defined                                           no-redeclare
+   441:44   error  Unnecessary escape character: \[                                 no-useless-escape
+   442:8    error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   442:21   error  Unnecessary escape character: \-                                 no-useless-escape
+   442:71   error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   442:85   error  Unnecessary escape character: \-                                 no-useless-escape
+   442:135  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   442:149  error  Unnecessary escape character: \-                                 no-useless-escape
+   443:61   error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   443:75   error  Unnecessary escape character: \-                                 no-useless-escape
+   471:12   error  'b' is already defined                                           no-redeclare
+   471:31   error  'k' is already defined                                           no-redeclare
+   471:74   error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   474:7    error  'p' is already defined                                           no-redeclare
+   476:8    error  'lenth' is not defined                                           no-undef
+   476:30   error  'lenth' is not defined                                           no-undef
+   545:7    error  'a' is already defined                                           no-redeclare
+   597:18   error  Empty block statement                                            no-empty
+   607:12   error  'l' is already defined                                           no-redeclare
+   623:15   error  Empty block statement                                            no-empty
+   635:18   error  'k' is already defined                                           no-redeclare
+   696:23   error  'a' is already defined                                           no-redeclare
+   724:15   error  Empty block statement                                            no-empty
+   732:15   error  Empty block statement                                            no-empty
+   762:12   error  'c' is already defined                                           no-redeclare
+   762:33   error  'b' is already defined                                           no-redeclare
+   765:78   error  'e' is already defined                                           no-redeclare
+   765:88   error  'g' is already defined                                           no-redeclare
+   780:13   error  'c' is already defined                                           no-redeclare
+   780:34   error  'b' is already defined                                           no-redeclare
+   786:52   error  'g' is already defined                                           no-redeclare
+   828:17   error  Empty block statement                                            no-empty
+   842:40   error  'a' is already defined                                           no-redeclare
+   982:7    error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+  1005:8    error  'a' is already defined                                           no-redeclare
+  1040:11   error  'g' is already defined                                           no-redeclare
+  1072:10   error  'e' is already defined                                           no-redeclare
+  1076:16   error  'i' is already defined                                           no-redeclare
+  1094:9    error  'c' is already defined                                           no-redeclare
+  1179:15   error  'KindEditor' is not defined                                      no-undef
+  1198:8    error  '_instances' is not defined                                      no-undef
+  1201:4    error  '_instances' is not defined                                      no-undef
+  1212:11   error  '_instances' is not defined                                      no-undef
+  1220:8    error  Unexpected console statement                                     no-console
+  1220:21   error  Unexpected console statement                                     no-console
+  1223:328  error  Unnecessary escape character: \/                                 no-useless-escape
+  1261:133  error  Unnecessary escape character: \.                                 no-useless-escape
+  1320:4    error  'q' is already defined                                           no-redeclare
+  1340:33   error  'd' is already defined                                           no-redeclare
+  1393:21   error  'KindEditor' is not defined                                      no-undef
+  1418:17   error  Empty block statement                                            no-empty
+  1448:14   error  'a' is already defined                                           no-redeclare
+  1731:11   error  'd' is already defined                                           no-redeclare
+  1858:18   error  Empty block statement                                            no-empty
+  1935:42   error  'a' is already defined                                           no-redeclare
+  1942:5    error  Unexpected console statement                                     no-console
+  1943:5    error  Unexpected console statement                                     no-console
+  1944:5    error  Unexpected console statement                                     no-console
+  1967:17   error  Empty block statement                                            no-empty
+  1976:9    error  'a' is already defined                                           no-redeclare
+  1984:19   error  Empty block statement                                            no-empty
+  1997:17   error  Empty block statement                                            no-empty
+  2013:6    error  'a' is already defined                                           no-redeclare
+  2033:18   error  'a' is already defined                                           no-redeclare
+  2129:45   error  'c' is already defined                                           no-redeclare
+  2132:38   error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+  2143:86   error  'c' is already defined                                           no-redeclare
+  2143:103  error  'g' is already defined                                           no-redeclare
+  2143:161  error  'd' is already defined                                           no-redeclare
+  2143:222  error  'e' is already defined                                           no-redeclare
+  2150:17   error  Empty block statement                                            no-empty
+  2155:31   error  'a' is already defined                                           no-redeclare
+  2206:10   error  'b' is already defined                                           no-redeclare
+  2337:36   error  'a' is already defined                                           no-redeclare
+  2350:45   error  'c' is already defined                                           no-redeclare
+  2350:82   error  'd' is already defined                                           no-redeclare
+  2351:6    error  'x' is not defined                                               no-undef
+  2352:6    error  'y' is not defined                                               no-undef
+  2353:29   error  'x' is not defined                                               no-undef
+  2353:67   error  'y' is not defined                                               no-undef
+  2354:25   error  'x' is not defined                                               no-undef
+  2354:35   error  'y' is not defined                                               no-undef
+  2355:21   error  'x' is not defined                                               no-undef
+  2355:24   error  'y' is not defined                                               no-undef
+  2372:19   error  'a' is already defined                                           no-redeclare
+  2386:7    error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+  2432:138  error  'k' is already defined                                           no-redeclare
+  2566:9    error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+  2569:9    error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+  2649:48   error  'c' is already defined                                           no-redeclare
+  2651:19   error  'a' is already defined                                           no-redeclare
+  2708:10   error  'c' is already defined                                           no-redeclare
+  2708:79   error  'e' is already defined                                           no-redeclare
+  2708:119  error  'e' is already defined                                           no-redeclare
+  2758:25   error  'a' is already defined                                           no-redeclare
+  2758:143  error  'b' is already defined                                           no-redeclare
+  2785:9    error  'a' is already defined                                           no-redeclare
+  2817:52   error  'a' is already defined                                           no-redeclare
+  2858:8    error  'c' is already defined                                           no-redeclare
+  2858:24   error  'e' is already defined                                           no-redeclare
+  2858:91   error  'ActiveXObject' is not defined                                   no-undef
+  2875:17   error  Empty block statement                                            no-empty
+  2888:19   error  'KindEditor' is not defined                                      no-undef
+  2972:9    error  'h' is already defined                                           no-redeclare
+  3076:25   error  'editHeight' is not defined                                      no-undef
+  3077:6    error  'editHeight' is not defined                                      no-undef
+  3077:19   error  'editHeight' is not defined                                      no-undef
+  3077:66   error  'editHeight' is not defined                                      no-undef
+  3077:98   error  'editHeight' is not defined                                      no-undef
+  3104:9    error  'a' is already defined                                           no-redeclare
+  3129:9    error  'a' is already defined                                           no-redeclare
+  3144:9    error  'a' is already defined                                           no-redeclare
+  3205:6    error  'b' is already defined                                           no-redeclare
+  3214:3    error  '_instances' is not defined                                      no-undef
+  3218:5    error  '_instances' is not defined                                      no-undef
+  3232:17   error  '_instances' is not defined                                      no-undef
+  3245:44   error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+  3508:10   error  'a' is already defined                                           no-redeclare
+  3517:61   error  Unnecessary escape character: \/                                 no-useless-escape
+
+E:\project-source\github\backbone-require-practice\p-minframework\dist\plugins\kindeditor-min.min.js
+  1:926    error  'e' is already defined                                           no-redeclare
+  1:1240   error  't' is already defined                                           no-redeclare
+  1:1307   error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+  1:2045   error  Unnecessary escape character: \/                                 no-useless-escape
+  1:2141   error  Unnecessary escape character: \-                                 no-useless-escape
+  1:3708   error  Unnecessary escape character: \-                                 no-useless-escape
+  1:3732   error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+  1:3952   error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+  1:4390   error  'e' is already defined                                           no-redeclare
+  1:4691   error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+  1:4959   error  'i' is already defined                                           no-redeclare
+  1:4980   error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+  1:4995   error  Unnecessary escape character: \/                                 no-useless-escape
+  1:5271   error  'n' is already defined                                           no-redeclare
+  1:5279   error  'i' is already defined                                           no-redeclare
+  1:5289   error  'r' is already defined                                           no-redeclare
+  1:5369   error  'e' is already defined                                           no-redeclare
+  1:5497   error  'e' is already defined                                           no-redeclare
+  1:5554   error  'e' is already defined                                           no-redeclare
+  1:5613   error  'e' is already defined                                           no-redeclare
+  1:5639   error  'e' is already defined                                           no-redeclare
+  1:5931   error  'e' is already defined                                           no-redeclare
+  1:6124   error  'l' is already defined                                           no-redeclare
+  1:6132   error  'c' is already defined                                           no-redeclare
+  1:6166   error  'd' is already defined                                           no-redeclare
+  1:6179   error  'h' is already defined                                           no-redeclare
+  1:7315   error  'e' is already defined                                           no-redeclare
+  1:7466   error  'e' is already defined                                           no-redeclare
+  1:7495   error  'e' is already defined                                           no-redeclare
+  1:8665   error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+  1:8728   error  't' is already defined                                           no-redeclare
+  1:9084   error  Unnecessary escape character: \-                                 no-useless-escape
+  1:9836   error  'i' is already defined                                           no-redeclare
+  1:10029  error  Unnecessary escape character: \[                                 no-useless-escape
+  1:10060  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+  1:10071  error  Unnecessary escape character: \-                                 no-useless-escape
+  1:10114  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+  1:10126  error  Unnecessary escape character: \-                                 no-useless-escape
+  1:10169  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+  1:10181  error  Unnecessary escape character: \-                                 no-useless-escape
+  1:10244  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+  1:10256  error  Unnecessary escape character: \-                                 no-useless-escape
+  1:10844  error  't' is already defined                                           no-redeclare
+  1:10858  error  'l' is already defined                                           no-redeclare
+  1:10892  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+  1:10991  error  'u' is already defined                                           no-redeclare
+  1:11004  error  'lenth' is not defined                                           no-undef
+  1:11021  error  'lenth' is not defined                                           no-undef
+  1:12104  error  'e' is already defined                                           no-redeclare
+  1:13193  error  Empty block statement                                            no-empty
+  1:13555  error  'f' is already defined                                           no-redeclare
+  1:13785  error  Empty block statement                                            no-empty
+  1:14058  error  'l' is already defined                                           no-redeclare
+  1:15644  error  'e' is already defined                                           no-redeclare
+  1:16011  error  Empty block statement                                            no-empty
+  1:16077  error  Empty block statement                                            no-empty
+  1:16427  error  'n' is already defined                                           no-redeclare
+  1:16445  error  't' is already defined                                           no-redeclare
+  1:16564  error  'r' is already defined                                           no-redeclare
+  1:16571  error  'o' is already defined                                           no-redeclare
+  1:16776  error  'n' is already defined                                           no-redeclare
+  1:16794  error  't' is already defined                                           no-redeclare
+  1:16901  error  'o' is already defined                                           no-redeclare
+  1:17578  error  Empty block statement                                            no-empty
+  1:17780  error  'e' is already defined                                           no-redeclare
+  1:21627  error  'e' is already defined                                           no-redeclare
+  1:22433  error  'a' is already defined                                           no-redeclare
+  1:23211  error  'r' is already defined                                           no-redeclare
+  1:23509  error  'a' is already defined                                           no-redeclare
+  1:23801  error  'n' is already defined                                           no-redeclare
+  1:25536  error  'KindEditor' is not defined                                      no-undef
+  1:25990  error  '_instances' is not defined                                      no-undef
+  1:26045  error  '_instances' is not defined                                      no-undef
+  1:26224  error  '_instances' is not defined                                      no-undef
+  1:26346  error  Unexpected console statement                                     no-console
+  1:26360  error  Unexpected console statement                                     no-console
+  1:26729  error  Unnecessary escape character: \/                                 no-useless-escape
+  1:28168  error  Unnecessary escape character: \.                                 no-useless-escape
+  1:31696  error  'q' is already defined                                           no-redeclare
+  2:707    error  'i' is already defined                                           no-redeclare
+  2:1773   error  'KindEditor' is not defined                                      no-undef
+  2:2125   error  Empty block statement                                            no-empty
+  2:2880   error  'e' is already defined                                           no-redeclare
+  2:8742   error  'i' is already defined                                           no-redeclare
+  2:12895  error  Empty block statement                                            no-empty
+  2:15146  error  'e' is already defined                                           no-redeclare
+  2:15326  error  Unexpected console statement                                     no-console
+  2:15362  error  Unexpected console statement                                     no-console
+  2:15474  error  Unexpected console statement                                     no-console
+  2:15882  error  Empty block statement                                            no-empty
+  2:16175  error  'e' is already defined                                           no-redeclare
+  2:16442  error  Empty block statement                                            no-empty
+  2:16676  error  Empty block statement                                            no-empty
+  2:17144  error  'e' is already defined                                           no-redeclare
+  2:17573  error  'e' is already defined                                           no-redeclare
+  2:20117  error  'n' is already defined                                           no-redeclare
+  2:20460  error  'n' is already defined                                           no-redeclare
+  2:20474  error  'o' is already defined                                           no-redeclare
+  2:20517  error  'i' is already defined                                           no-redeclare
+  2:20563  error  'r' is already defined                                           no-redeclare
+  2:20675  error  Empty block statement                                            no-empty
+  2:20718  error  'e' is already defined                                           no-redeclare
+  2:22842  error  't' is already defined                                           no-redeclare
+  2:25817  error  'e' is already defined                                           no-redeclare
+  2:26163  error  'i' is already defined                                           no-redeclare
+  2:26191  error  'r' is already defined                                           no-redeclare
+  2:26220  error  'x' is not defined                                               no-undef
+  2:26236  error  'y' is not defined                                               no-undef
+  2:26271  error  'x' is not defined                                               no-undef
+  2:26300  error  'y' is not defined                                               no-undef
+  2:26349  error  'x' is not defined                                               no-undef
+  2:26356  error  'y' is not defined                                               no-undef
+  2:26373  error  'x' is not defined                                               no-undef
+  2:26375  error  'y' is not defined                                               no-undef
+  2:26625  error  'e' is already defined                                           no-redeclare
+  2:28083  error  'c' is already defined                                           no-redeclare
+  3:2310   error  'n' is already defined                                           no-redeclare
+  3:2453   error  'e' is already defined                                           no-redeclare
+  3:4447   error  'n' is already defined                                           no-redeclare
+  3:4504   error  'o' is already defined                                           no-redeclare
+  3:4537   error  'o' is already defined                                           no-redeclare
+  3:6014   error  'e' is already defined                                           no-redeclare
+  3:6115   error  't' is already defined                                           no-redeclare
+  3:6800   error  'e' is already defined                                           no-redeclare
+  3:7784   error  'e' is already defined                                           no-redeclare
+  3:8635   error  'n' is already defined                                           no-redeclare
+  3:8646   error  'r' is already defined                                           no-redeclare
+  3:8702   error  'ActiveXObject' is not defined                                   no-undef
+  3:9056   error  Empty block statement                                            no-empty
+  3:9268   error  'KindEditor' is not defined                                      no-undef
+  3:11843  error  'c' is already defined                                           no-redeclare
+  3:14568  error  'editHeight' is not defined                                      no-undef
+  3:14634  error  'editHeight' is not defined                                      no-undef
+  3:14645  error  'editHeight' is not defined                                      no-undef
+  3:14686  error  'editHeight' is not defined                                      no-undef
+  3:14717  error  'editHeight' is not defined                                      no-undef
+  3:15662  error  'e' is already defined                                           no-redeclare
+  3:16445  error  'e' is already defined                                           no-redeclare
+  3:17092  error  'e' is already defined                                           no-redeclare
+  3:18770  error  't' is already defined                                           no-redeclare
+  3:18919  error  '_instances' is not defined                                      no-undef
+  3:18985  error  '_instances' is not defined                                      no-undef
+  3:19187  error  '_instances' is not defined                                      no-undef
+  3:19496  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+  3:26407  error  'e' is already defined                                           no-redeclare
+  3:26810  error  Unnecessary escape character: \/                                 no-useless-escape
+
+E:\project-source\github\backbone-require-practice\p-minframework\dist\plugins\laydate\laydate_old.js
+   50:15  error  Empty block statement                     no-empty
+  140:7   error  'node' is already defined                 no-redeclare
+  342:7   error  'S' is assigned a value but never used    no-unused-vars
+  474:57  error  'index' is defined but never used         no-unused-vars
+  494:7   error  'S' is assigned a value but never used    no-unused-vars
+  494:24  error  'log' is assigned a value but never used  no-unused-vars
+  659:64  error  'index' is defined but never used         no-unused-vars
+  679:7   error  'S' is assigned a value but never used    no-unused-vars
+  788:8   error  'now' is assigned a value but never used  no-unused-vars
+  845:40  error  'ev' is defined but never used            no-unused-vars
+
+E:\project-source\github\backbone-require-practice\p-minframework\dist\plugins\laydate\laydate_old.min.js
+  1:644    error  Empty block statement          no-empty
+  1:1899   error  'e' is already defined         no-redeclare
+  1:7182   error  'n' is defined but never used  no-unused-vars
+  1:11156  error  'a' is defined but never used  no-unused-vars
+  1:14095  error  't' is defined but never used  no-unused-vars
+
+E:\project-source\github\backbone-require-practice\p-minframework\dist\plugins\laydate\laydate.js
+   50:15  error  Empty block statement                     no-empty
+  139:7   error  'node' is already defined                 no-redeclare
+  293:4   error  'isvoid' is not defined                   no-undef
+  294:7   error  'isvoid' is not defined                   no-undef
+  299:4   error  'isvoid' is not defined                   no-undef
+  303:5   error  'isvoid' is not defined                   no-undef
+  306:5   error  'isvoid' is not defined                   no-undef
+  308:5   error  'isvoid' is not defined                   no-undef
+  312:5   error  'isvoid' is not defined                   no-undef
+  315:5   error  'isvoid' is not defined                   no-undef
+  317:5   error  'isvoid' is not defined                   no-undef
+  321:6   error  'isvoid' is not defined                   no-undef
+  324:6   error  'isvoid' is not defined                   no-undef
+  327:6   error  'isvoid' is not defined                   no-undef
+  330:8   error  'isvoid' is not defined                   no-undef
+  332:15  error  'isvoid' is not defined                   no-undef
+  333:28  error  'isvoid' is not defined                   no-undef
+  394:7   error  'S' is assigned a value but never used    no-unused-vars
+  526:57  error  'index' is defined but never used         no-unused-vars
+  546:7   error  'S' is assigned a value but never used    no-unused-vars
+  546:24  error  'log' is assigned a value but never used  no-unused-vars
+  713:64  error  'index' is defined but never used         no-unused-vars
+  733:7   error  'S' is assigned a value but never used    no-unused-vars
+  842:8   error  'now' is assigned a value but never used  no-unused-vars
+  899:40  error  'ev' is defined but never used            no-unused-vars
+
+E:\project-source\github\backbone-require-practice\p-minframework\dist\plugins\laydate\laydate.min.js
+  1:637    error  Empty block statement          no-empty
+  1:1892   error  'e' is already defined         no-redeclare
+  1:4216   error  'isvoid' is not defined        no-undef
+  1:4279   error  'isvoid' is not defined        no-undef
+  1:4370   error  'isvoid' is not defined        no-undef
+  1:4524   error  'isvoid' is not defined        no-undef
+  1:4556   error  'isvoid' is not defined        no-undef
+  1:4587   error  'isvoid' is not defined        no-undef
+  1:4617   error  'isvoid' is not defined        no-undef
+  1:4667   error  'isvoid' is not defined        no-undef
+  1:4698   error  'isvoid' is not defined        no-undef
+  1:4747   error  'isvoid' is not defined        no-undef
+  1:4783   error  'isvoid' is not defined        no-undef
+  1:4819   error  'isvoid' is not defined        no-undef
+  1:4835   error  'isvoid' is not defined        no-undef
+  1:4882   error  'isvoid' is not defined        no-undef
+  1:4931   error  'isvoid' is not defined        no-undef
+  1:8153   error  'n' is defined but never used  no-unused-vars
+  1:12141  error  'a' is defined but never used  no-unused-vars
+  1:15080  error  't' is defined but never used  no-unused-vars
+
+E:\project-source\github\backbone-require-practice\p-minframework\dist\ywcore.min.js
+  1:1910   error  Unnecessary escape character: \[  no-useless-escape
+  1:1912   error  Unnecessary escape character: \{  no-useless-escape
+  1:26294  error  'e' is defined but never used     no-unused-vars
+  2:446    error  Unnecessary escape character: \)  no-useless-escape
+  2:2993   error  Unexpected console statement      no-console
+  2:3995   error  Unnecessary escape character: \.  no-useless-escape
+  2:4297   error  'e' is defined but never used     no-unused-vars
+  2:4795   error  Unnecessary escape character: \$  no-useless-escape
+
+E:\project-source\github\backbone-require-practice\p-minframework\dist\ywrequire.min.js
+  1:12656  error  Unnecessary escape character: \:                   no-useless-escape
+  1:12664  error  Unnecessary escape character: \:                   no-useless-escape
+  1:12727  error  Unnecessary escape character: \+                   no-useless-escape
+  1:12729  error  Unnecessary escape character: \.                   no-useless-escape
+  1:12731  error  Unnecessary escape character: \-                   no-useless-escape
+  1:12780  error  Unnecessary escape character: \:                   no-useless-escape
+  1:15414  error  'n' is defined but never used                      no-unused-vars
+  1:16276  error  'importScripts' is not defined                     no-undef
+  1:17907  error  Unnecessary escape character: \'                   no-useless-escape
+  1:17909  error  Unnecessary escape character: \"                   no-useless-escape
+  1:17924  error  Unnecessary escape character: \'                   no-useless-escape
+  1:17926  error  Unnecessary escape character: \"                   no-useless-escape
+  1:18079  error  Unnecessary escape character: \:                   no-useless-escape
+  1:18704  error  'ActiveXObject' is not defined                     no-undef
+  1:18729  error  Empty block statement                              no-empty
+  1:19069  error  Unnecessary escape character: \:                   no-useless-escape
+  1:19080  error  Unnecessary escape character: \/                   no-useless-escape
+  1:19764  error  'r' is defined but never used                      no-unused-vars
+  1:20021  error  't' is defined but never used                      no-unused-vars
+  1:20184  error  'process' is not defined                           no-undef
+  1:20202  error  'process' is not defined                           no-undef
+  1:20226  error  'process' is not defined                           no-undef
+  1:20260  error  'process' is not defined                           no-undef
+  1:20670  error  'i' is defined but never used                      no-unused-vars
+  1:20965  error  'java' is not defined                              no-undef
+  1:20983  error  'java' is not defined                              no-undef
+  1:21036  error  'java' is not defined                              no-undef
+  1:21063  error  'java' is not defined                              no-undef
+  1:21093  error  'java' is not defined                              no-undef
+  1:21149  error  'java' is not defined                              no-undef
+  1:21422  error  'Components' is not defined                        no-undef
+  1:21442  error  'Components' is not defined                        no-undef
+  1:21469  error  'Components' is not defined                        no-undef
+  1:21490  error  'Components' is not defined                        no-undef
+  1:21512  error  'Components' is not defined                        no-undef
+  1:21690  error  'FileUtils' is not defined                         no-undef
+  1:22340  error  Unnecessary escape character: \:                   no-useless-escape
+  1:23069  error  Empty block statement                              no-empty
+  1:23541  error  'r' is defined but never used                      no-unused-vars
+  1:23614  error  'template' is not defined                          no-undef
+  1:23817  error  Read-only global 'console' should not be modified  no-global-assign
+  1:24530  error  Unnecessary escape character: \{                   no-useless-escape
+  1:24532  error  Unnecessary escape character: \)                   no-useless-escape
+  1:25539  error  Unnecessary escape character: \-                   no-useless-escape
+  1:25551  error  Unnecessary escape character: \-                   no-useless-escape
+  1:25788  error  'util' is not defined                              no-undef
+  1:26898  error  'e' is already defined                             no-redeclare
+  1:27488  error  Unexpected console statement                       no-console
+  1:27561  error  Unexpected console statement                       no-console
+  1:31064  error  Empty block statement                              no-empty
+  1:31181  error  Empty block statement                              no-empty
+  2:8187   error  Empty block statement                              no-empty
+  2:8582   error  Empty block statement                              no-empty
+
+E:\project-source\github\backbone-require-practice\p-minframework\gulpfile.js
+   7:5   error  'fs' is assigned a value but never used    no-unused-vars
+   8:5   error  'path' is assigned a value but never used  no-unused-vars
+  19:60  error  Unexpected console statement               no-console
+  20:37  error  Unexpected console statement               no-console
+  21:24  error  Unexpected console statement               no-console
+  23:49  error  Unexpected console statement               no-console
+  35:62  error  Unexpected console statement               no-console
+  36:34  error  Unexpected console statement               no-console
+  37:24  error  Unexpected console statement               no-console
+  39:49  error  Unexpected console statement               no-console
+  47:19  error  Unexpected console statement               no-console
+  48:24  error  Unexpected console statement               no-console
+  57:19  error  Unexpected console statement               no-console
+  58:24  error  Unexpected console statement               no-console
+  81:57  error  Unexpected console statement               no-console
+  84:19  error  Unexpected console statement               no-console
+  85:24  error  Unexpected console statement               no-console
+
+E:\project-source\github\backbone-require-practice\p-minframework\lib\arttemplate3.1.0.js
+  2:576   error  Unnecessary escape character: \)  no-useless-escape
+  2:3123  error  Unexpected console statement      no-console
+  2:4125  error  Unnecessary escape character: \.  no-useless-escape
+  2:4427  error  'b' is defined but never used     no-unused-vars
+  2:4925  error  Unnecessary escape character: \$  no-useless-escape
+
+E:\project-source\github\backbone-require-practice\p-minframework\lib\core\base.js
+  6:3  error  Read-only global 'console' should not be modified  no-global-assign
+
+E:\project-source\github\backbone-require-practice\p-minframework\lib\core\inherit.js
+   9:4   error  Unreachable code                  no-unreachable
+  17:4   error  Unreachable code                  no-unreachable
+  36:39  error  Unnecessary escape character: \{  no-useless-escape
+  36:41  error  Unnecessary escape character: \)  no-useless-escape
+
+E:\project-source\github\backbone-require-practice\p-minframework\lib\core\ui\abstractdialog.js
+  8:6  error  'Base' is already defined  no-redeclare
+
+E:\project-source\github\backbone-require-practice\p-minframework\lib\core\ui\abstractview.js
+  14:4  error  Unexpected console statement  no-console
+  17:4  error  Unexpected console statement  no-console
+
+E:\project-source\github\backbone-require-practice\p-minframework\lib\core\ui\dialog-plus.js
+     4:7   error  '_count' is assigned a value but never used           no-unused-vars
+   131:9   error  'that' is assigned a value but never used             no-unused-vars
+   408:17  error  Empty block statement                                 no-empty
+   420:17  error  Empty block statement                                 no-empty
+   818:8   error  'originalOptions' is assigned a value but never used  no-unused-vars
+  1453:19  error  Empty block statement                                 no-empty
+  1506:18  error  Empty block statement                                 no-empty
+
+E:\project-source\github\backbone-require-practice\p-minframework\lib\core\ui\uibase.js
+  64:8  error  'eventArr' is assigned a value but never used  no-unused-vars
+  85:8  error  'eventArr' is assigned a value but never used  no-unused-vars
+
+E:\project-source\github\backbone-require-practice\p-minframework\lib\core\utility.js
+  29:28  error  Unnecessary escape character: \-  no-useless-escape
+  29:40  error  Unnecessary escape character: \-  no-useless-escape
+  51:8   error  'util' is not defined             no-undef
+
+E:\project-source\github\backbone-require-practice\p-minframework\lib\plugins\kindeditor-min.js
+    53:25   error  'a' is already defined                                           no-redeclare
+    73:7    error  'b' is already defined                                           no-redeclare
+    75:8    error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   107:7    error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   113:48   error  Unnecessary escape character: \/                                 no-useless-escape
+   113:145  error  Unnecessary escape character: \-                                 no-useless-escape
+   203:32   error  Unnecessary escape character: \-                                 no-useless-escape
+   203:60   error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   212:145  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   236:13   error  'a' is already defined                                           no-redeclare
+   251:15   error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   258:61   error  'd' is already defined                                           no-redeclare
+   260:7    error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   260:24   error  Unnecessary escape character: \/                                 no-useless-escape
+   270:7    error  'c' is already defined                                           no-redeclare
+   270:20   error  'd' is already defined                                           no-redeclare
+   270:34   error  'e' is already defined                                           no-redeclare
+   270:121  error  'a' is already defined                                           no-redeclare
+   272:8    error  'a' is already defined                                           no-redeclare
+   272:69   error  'a' is already defined                                           no-redeclare
+   273:20   error  'a' is already defined                                           no-redeclare
+   273:50   error  'a' is already defined                                           no-redeclare
+   277:15   error  'a' is already defined                                           no-redeclare
+   279:9    error  'n' is already defined                                           no-redeclare
+   279:22   error  'r' is already defined                                           no-redeclare
+   279:69   error  'p' is already defined                                           no-redeclare
+   279:91   error  'j' is already defined                                           no-redeclare
+   333:8    error  'a' is already defined                                           no-redeclare
+   335:8    error  'a' is already defined                                           no-redeclare
+   335:41   error  'a' is already defined                                           no-redeclare
+   379:10   error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   385:7    error  'b' is already defined                                           no-redeclare
+   403:27   error  Unnecessary escape character: \-                                 no-useless-escape
+   436:21   error  'd' is already defined                                           no-redeclare
+   441:44   error  Unnecessary escape character: \[                                 no-useless-escape
+   442:8    error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   442:21   error  Unnecessary escape character: \-                                 no-useless-escape
+   442:71   error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   442:85   error  Unnecessary escape character: \-                                 no-useless-escape
+   442:135  error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   442:149  error  Unnecessary escape character: \-                                 no-useless-escape
+   443:61   error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   443:75   error  Unnecessary escape character: \-                                 no-useless-escape
+   471:12   error  'b' is already defined                                           no-redeclare
+   471:31   error  'k' is already defined                                           no-redeclare
+   471:74   error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+   474:7    error  'p' is already defined                                           no-redeclare
+   476:8    error  'lenth' is not defined                                           no-undef
+   476:30   error  'lenth' is not defined                                           no-undef
+   545:7    error  'a' is already defined                                           no-redeclare
+   597:18   error  Empty block statement                                            no-empty
+   607:12   error  'l' is already defined                                           no-redeclare
+   623:15   error  Empty block statement                                            no-empty
+   635:18   error  'k' is already defined                                           no-redeclare
+   696:23   error  'a' is already defined                                           no-redeclare
+   724:15   error  Empty block statement                                            no-empty
+   732:15   error  Empty block statement                                            no-empty
+   762:12   error  'c' is already defined                                           no-redeclare
+   762:33   error  'b' is already defined                                           no-redeclare
+   765:78   error  'e' is already defined                                           no-redeclare
+   765:88   error  'g' is already defined                                           no-redeclare
+   780:13   error  'c' is already defined                                           no-redeclare
+   780:34   error  'b' is already defined                                           no-redeclare
+   786:52   error  'g' is already defined                                           no-redeclare
+   828:17   error  Empty block statement                                            no-empty
+   842:40   error  'a' is already defined                                           no-redeclare
+   982:7    error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+  1005:8    error  'a' is already defined                                           no-redeclare
+  1040:11   error  'g' is already defined                                           no-redeclare
+  1072:10   error  'e' is already defined                                           no-redeclare
+  1076:16   error  'i' is already defined                                           no-redeclare
+  1094:9    error  'c' is already defined                                           no-redeclare
+  1179:15   error  'KindEditor' is not defined                                      no-undef
+  1198:8    error  '_instances' is not defined                                      no-undef
+  1201:4    error  '_instances' is not defined                                      no-undef
+  1212:11   error  '_instances' is not defined                                      no-undef
+  1220:8    error  Unexpected console statement                                     no-console
+  1220:21   error  Unexpected console statement                                     no-console
+  1223:328  error  Unnecessary escape character: \/                                 no-useless-escape
+  1261:133  error  Unnecessary escape character: \.                                 no-useless-escape
+  1320:4    error  'q' is already defined                                           no-redeclare
+  1340:33   error  'd' is already defined                                           no-redeclare
+  1393:21   error  'KindEditor' is not defined                                      no-undef
+  1418:17   error  Empty block statement                                            no-empty
+  1448:14   error  'a' is already defined                                           no-redeclare
+  1731:11   error  'd' is already defined                                           no-redeclare
+  1858:18   error  Empty block statement                                            no-empty
+  1935:42   error  'a' is already defined                                           no-redeclare
+  1942:5    error  Unexpected console statement                                     no-console
+  1943:5    error  Unexpected console statement                                     no-console
+  1944:5    error  Unexpected console statement                                     no-console
+  1967:17   error  Empty block statement                                            no-empty
+  1976:9    error  'a' is already defined                                           no-redeclare
+  1984:19   error  Empty block statement                                            no-empty
+  1997:17   error  Empty block statement                                            no-empty
+  2013:6    error  'a' is already defined                                           no-redeclare
+  2033:18   error  'a' is already defined                                           no-redeclare
+  2129:45   error  'c' is already defined                                           no-redeclare
+  2132:38   error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+  2143:86   error  'c' is already defined                                           no-redeclare
+  2143:103  error  'g' is already defined                                           no-redeclare
+  2143:161  error  'd' is already defined                                           no-redeclare
+  2143:222  error  'e' is already defined                                           no-redeclare
+  2150:17   error  Empty block statement                                            no-empty
+  2155:31   error  'a' is already defined                                           no-redeclare
+  2206:10   error  'b' is already defined                                           no-redeclare
+  2337:36   error  'a' is already defined                                           no-redeclare
+  2350:45   error  'c' is already defined                                           no-redeclare
+  2350:82   error  'd' is already defined                                           no-redeclare
+  2351:6    error  'x' is not defined                                               no-undef
+  2352:6    error  'y' is not defined                                               no-undef
+  2353:29   error  'x' is not defined                                               no-undef
+  2353:67   error  'y' is not defined                                               no-undef
+  2354:25   error  'x' is not defined                                               no-undef
+  2354:35   error  'y' is not defined                                               no-undef
+  2355:21   error  'x' is not defined                                               no-undef
+  2355:24   error  'y' is not defined                                               no-undef
+  2372:19   error  'a' is already defined                                           no-redeclare
+  2386:7    error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+  2432:138  error  'k' is already defined                                           no-redeclare
+  2566:9    error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+  2569:9    error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+  2649:48   error  'c' is already defined                                           no-redeclare
+  2651:19   error  'a' is already defined                                           no-redeclare
+  2708:10   error  'c' is already defined                                           no-redeclare
+  2708:79   error  'e' is already defined                                           no-redeclare
+  2708:119  error  'e' is already defined                                           no-redeclare
+  2758:25   error  'a' is already defined                                           no-redeclare
+  2758:143  error  'b' is already defined                                           no-redeclare
+  2785:9    error  'a' is already defined                                           no-redeclare
+  2817:52   error  'a' is already defined                                           no-redeclare
+  2858:8    error  'c' is already defined                                           no-redeclare
+  2858:24   error  'e' is already defined                                           no-redeclare
+  2858:91   error  'ActiveXObject' is not defined                                   no-undef
+  2875:17   error  Empty block statement                                            no-empty
+  2888:19   error  'KindEditor' is not defined                                      no-undef
+  2972:9    error  'h' is already defined                                           no-redeclare
+  3076:25   error  'editHeight' is not defined                                      no-undef
+  3077:6    error  'editHeight' is not defined                                      no-undef
+  3077:19   error  'editHeight' is not defined                                      no-undef
+  3077:66   error  'editHeight' is not defined                                      no-undef
+  3077:98   error  'editHeight' is not defined                                      no-undef
+  3104:9    error  'a' is already defined                                           no-redeclare
+  3129:9    error  'a' is already defined                                           no-redeclare
+  3144:9    error  'a' is already defined                                           no-redeclare
+  3205:6    error  'b' is already defined                                           no-redeclare
+  3214:3    error  '_instances' is not defined                                      no-undef
+  3218:5    error  '_instances' is not defined                                      no-undef
+  3232:17   error  '_instances' is not defined                                      no-undef
+  3245:44   error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+  3508:10   error  'a' is already defined                                           no-redeclare
+  3517:61   error  Unnecessary escape character: \/                                 no-useless-escape
+
+E:\project-source\github\backbone-require-practice\p-minframework\lib\plugins\laydate\laydate_old.js
+   50:15  error  Empty block statement                     no-empty
+  140:7   error  'node' is already defined                 no-redeclare
+  342:7   error  'S' is assigned a value but never used    no-unused-vars
+  474:57  error  'index' is defined but never used         no-unused-vars
+  494:7   error  'S' is assigned a value but never used    no-unused-vars
+  494:24  error  'log' is assigned a value but never used  no-unused-vars
+  659:64  error  'index' is defined but never used         no-unused-vars
+  679:7   error  'S' is assigned a value but never used    no-unused-vars
+  788:8   error  'now' is assigned a value but never used  no-unused-vars
+  845:40  error  'ev' is defined but never used            no-unused-vars
+
+E:\project-source\github\backbone-require-practice\p-minframework\lib\plugins\laydate\laydate.js
+   50:15  error  Empty block statement                     no-empty
+  139:7   error  'node' is already defined                 no-redeclare
+  293:4   error  'isvoid' is not defined                   no-undef
+  294:7   error  'isvoid' is not defined                   no-undef
+  299:4   error  'isvoid' is not defined                   no-undef
+  303:5   error  'isvoid' is not defined                   no-undef
+  306:5   error  'isvoid' is not defined                   no-undef
+  308:5   error  'isvoid' is not defined                   no-undef
+  312:5   error  'isvoid' is not defined                   no-undef
+  315:5   error  'isvoid' is not defined                   no-undef
+  317:5   error  'isvoid' is not defined                   no-undef
+  321:6   error  'isvoid' is not defined                   no-undef
+  324:6   error  'isvoid' is not defined                   no-undef
+  327:6   error  'isvoid' is not defined                   no-undef
+  330:8   error  'isvoid' is not defined                   no-undef
+  332:15  error  'isvoid' is not defined                   no-undef
+  333:28  error  'isvoid' is not defined                   no-undef
+  394:7   error  'S' is assigned a value but never used    no-unused-vars
+  526:57  error  'index' is defined but never used         no-unused-vars
+  546:7   error  'S' is assigned a value but never used    no-unused-vars
+  546:24  error  'log' is assigned a value but never used  no-unused-vars
+  713:64  error  'index' is defined but never used         no-unused-vars
+  733:7   error  'S' is assigned a value but never used    no-unused-vars
+  842:8   error  'now' is assigned a value but never used  no-unused-vars
+  899:40  error  'ev' is defined but never used            no-unused-vars
+
+E:\project-source\github\backbone-require-practice\p-minframework\lib\require.config.js
+  2:9  error  'template' is not defined  no-undef
+
+E:\project-source\github\backbone-require-practice\p-minframework\lib\require.css.js
+   40:107  error  Unnecessary escape character: \:    no-useless-escape
+  122:16   error  Empty block statement               no-empty
+  161:43   error  'config' is defined but never used  no-unused-vars
+
+E:\project-source\github\backbone-require-practice\p-minframework\lib\require.js
+  1674:28  error  Unnecessary escape character: \:  no-useless-escape
+  1674:36  error  Unnecessary escape character: \:  no-useless-escape
+  1675:53  error  Unnecessary escape character: \+  no-useless-escape
+  1675:55  error  Unnecessary escape character: \.  no-useless-escape
+  1675:57  error  Unnecessary escape character: \-  no-useless-escape
+  1678:37  error  Unnecessary escape character: \:  no-useless-escape
+  1875:49  error  'url' is defined but never used   no-unused-vars
+
+E:\project-source\github\backbone-require-practice\p-minframework\lib\require.text.js
+   15:40  error  Unnecessary escape character: \'    no-useless-escape
+   15:42  error  Unnecessary escape character: \"    no-useless-escape
+   15:57  error  Unnecessary escape character: \'    no-useless-escape
+   15:59  error  Unnecessary escape character: \"    no-useless-escape
+   18:84  error  Unnecessary escape character: \:    no-useless-escape
+   82:18  error  Empty block statement               no-empty
+  136:21  error  Unnecessary escape character: \:    no-useless-escape
+  136:32  error  Unnecessary escape character: \/    no-useless-escape
+  223:51  error  'config' is defined but never used  no-unused-vars
+  244:43  error  'value' is defined but never used   no-unused-vars
+  303:39  error  'evt' is defined but never used     no-unused-vars
+
+E:\project-source\github\backbone-require-practice\p-minframework\lib\zepto.fx_methods.js
+  6:34  error  'docElem' is assigned a value but never used  no-unused-vars
+
+E:\project-source\github\backbone-require-practice\p-minframework\lib\zepto.js
+   329:15  error  Unnecessary escape character: \[                                 no-useless-escape
+   329:17  error  Unnecessary escape character: \{                                 no-useless-escape
+  1457:8   error  Expected a conditional expression and instead saw an assignment  no-cond-assign
+
+E:\project-source\github\backbone-require-practice\p-minframework\minlib\require.min.js
+  5:12673  error  Unnecessary escape character: \:  no-useless-escape
+  5:12681  error  Unnecessary escape character: \:  no-useless-escape
+  5:12744  error  Unnecessary escape character: \+  no-useless-escape
+  5:12746  error  Unnecessary escape character: \.  no-useless-escape
+  5:12748  error  Unnecessary escape character: \-  no-useless-escape
+  5:12797  error  Unnecessary escape character: \:  no-useless-escape
+  5:15485  error  'i' is defined but never used     no-unused-vars
+  5:16347  error  'importScripts' is not defined    no-undef
+
+E:\project-source\github\backbone-require-practice\p-minframework\minlib\underscore-min.js
+  5:1244  error  Read-only global 'exports' should not be modified  no-global-assign
+
+E:\project-source\github\backbone-require-practice\p-minframework\minlib\underscore.js
+    50:4  error  Read-only global 'exports' should not be modified  no-global-assign
+  1111:3  error  Expected a 'break' statement before 'case'         no-fallthrough
+
+E:\project-source\github\backbone-require-practice\p-minframework\minlib\zepto.min.js
+  2:1908  error  Unnecessary escape character: \[        no-useless-escape
+  2:1910  error  Unnecessary escape character: \{        no-useless-escape
+  2:7575  error  'e' is assigned a value but never used  no-unused-vars
+
+✖ 2047 problems (2047 errors, 0 warnings)

@@ -1,4 +1,4 @@
 function mySelect (){
-    console.log('1111');
-};
-$.fn.mySelect= mySelect;
+	console.log("1111")
+}
+$.fn.mySelect= mySelect
