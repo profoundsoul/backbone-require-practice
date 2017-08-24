@@ -40,6 +40,13 @@ p.then(function (x) {
     console.log('Image loaded Error！');
 });
 
+_promise2.default.resolve(1).then(function (v) {
+    return console.log('Promise.resolve Test: ' + v);
+});
+
+// Promise All parallal 并行加载
+// Promise.all   相当于all，并行执行，全部成功或有一个失败，改变状态
+// Promise.race  相当于any，并行执行，任何一个执行完成即可！改变状态
 var dStart = +new Date();
 var p1 = new _promise2.default(function (resolve, reject) {
     setTimeout(function () {

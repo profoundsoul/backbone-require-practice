@@ -1413,7 +1413,7 @@ if (typeof window.Piwik !== 'object') {
          */
         function beforeUnloadHandler() {
             var now;
-
+;
             executePluginMethod('unload');
             /*
              * Delay/pause (blocks UI)
@@ -1422,8 +1422,10 @@ if (typeof window.Piwik !== 'object') {
                 // the things we do for backwards compatibility...
                 // in ECMA-262 5th ed., we could simply use:
                 //     while (Date.now() < expireDateTime) { }
+                console.log(expireDateTime);
                 do {
                     now = new Date();
+                    console.log('now----', now.getTimeAlias());
                 } while (now.getTimeAlias() < expireDateTime);
             }
         }

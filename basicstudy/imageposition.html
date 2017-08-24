@@ -1,0 +1,80 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="http://10.250.160.65/download/egatee/images/icon.png">
+    <title>egatee</title>
+    <link rel="stylesheet" href="http://10.250.160.65/download/egatee/css/index.css">
+</head>
+<body>
+<style>
+    .hoverDiv{
+        background:transparent;
+    }
+    .logo_bg{
+        height: 400px;
+        width:400px;
+        margin: 0px auto;
+        background: url(http://10.250.160.65/download/egatee/images/downlown.png) no-repeat center;
+        background-size: contain;
+        position: relative;
+    }
+
+    .code{
+        top: 25%;
+        right: 27%;
+    }
+</style>
+<div class="bg">
+    <div class="content">
+        <div class="logo">
+            <!--<img src="images/logo.png" class="logo"/>-->
+        </div>
+        <div class="text">
+            Enjoy the Gateway to E-Retail
+            <!--<img src="images/slogan.png" class="text"/>-->
+        </div>
+        <div class="hoverDiv">
+            <div class="logo_bg">
+                <div class="code"></div>
+            </div>
+            <!--<img src="images/code.png" class="code"/>-->
+
+        </div>
+        <div class="download-link">
+            <div class="download">
+                <a href="/download/egatee.apk">Download</a>
+            </div>
+            <div class="google" style="display:none;">
+                <a href="https://play.google.com/store/apps/details?id=com.transsion.shopnc">
+                    <i></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="http://10.250.160.65/wap/js/config.js"></script>
+<script type="text/javascript" src="http://10.250.160.65/wap/js/zepto.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        if(Environment == 'IN'){
+            $('.google').show();
+        }
+        var ua = navigator.userAgent;
+        if (/(iPhone|iPad|iPod|iOS|symbianos|windows phone)/i.test(ua)) {
+            window.location.href = 'http://m.egatee.com';
+        }
+        function downloadLog(){
+            $.ajax({
+                type: "post",
+                url: ApiUrl + "/index.php?act=index&op=downloadData",
+                data: {
+                    type: 1
+                },
+                dataType: "json",
+                async: true,
+            })
+        }
+    });
+</script>
+</body></html>
