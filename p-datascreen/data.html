@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据大屏展示</title>
+    <script src="libs/echarts.min.js"></script>
+    <script src="libs/world.js"></script>
+    <script src="timeManager.js"></script>
+</head>
+<body>
+<div id="main" style="width: 100%;height:95vh;"></div>
+<script type="text/javascript">
+    var myChart = echarts.init(document.getElementById('main'));
+    var app = {
+        currentLoc: 0
+    };
+    var locations = [{
+        name: 'India',
+        coord: [70.50585937500009, 25.685302734375085]
+    }, {
+        name: 'Ghana',
+        coord: [-0.08632812499999, 10.673046875]
+    }, {
+        name: 'Uganda',
+        coord: [30.50996093750001, -1.067285156250009]
+    }
+    ];
+    var option = {
+//        backgroundColor: '#1b1b1b',
+        title: {
+            text: 'World Order',
+            subtext: 'from United Nations, Total population, both sexes combined, as of 1 July (thousands)',
+            sublink: 'http://esa.un.org/wpp/Excel-Data/population.htm',
+            left: 'center',
+            top: 'top'
+        },
+        tooltip: {
+            show:false,
+            trigger: 'item',
+            position: 'bottom',
+            formatter: function (params) {
+                var value = (params.value + '').split('.');
+                value = value[0].replace(/(\d{1,3})(?=(?:\d{3})+(?!\d))/g, '$1,')
+                    + '.' + value[1];
+                return params.seriesName + '<br/>' + params.name + ' : ' + value;
+            }
+        },
+        toolbox: {
+            show: true,
+            orient: 'vertical',
+            left: 'right',
+            top: 'center',
+            feature: {
+                dataView: {readOnly: false},
+                restore: {},
+                saveAsImage: {}
+            }
+        },
+        series: [
+            {
+                name: 'Order Data',
+                type: 'map',
+                mapType: 'world',
+                roam: true,
+                zoom: 3,
+                center: locations[2].coord,
+                selectedMode: 'single',
+                itemStyle: {
+                    emphasis: {
+                        label: {show: true}
+                    }
+                },
+                label: {
+                    emphasis: {
+                        fontSize: 24
+                    }
+                },
+                data: [
+                    {
+                        name: 'Uganda', value: 64.951, itemStyle: {
+                        normal: {
+                            areaColor: '#f1453d',
+                            label: {show: true}
+                        }
+                    }
+                    },
+                    {
+                        name: 'Ghana', value: 64.951, itemStyle: {
+                        normal: {
+                            areaColor: '#f1453d',
+                            label: {show: true}
+                        }
+                    }
+                    },
+                    {
+                        name: 'India', value: 64.951, itemStyle: {
+                        normal: {
+                            areaColor: '#f1453d',
+                            label: {show: true}
+                        },
+                    }
+                    }
+                ]
+            }
+        ]
+    };
+    myChart.setOption(option);
+
+    var generateAction = function (status) {
+        return function () {
+            myChart.dispatchAction({
+                type: 'downplay',
+                name: locations[app.currentLoc].name,
+                seriesIndex: 0
+            });
+            myChart.dispatchAction({
+                type: 'hideTip',
+                name: locations[app.currentLoc].name,
+                seriesIndex: 0
+            });
+            var curData = getDataByName(option, locations[app.currentLoc].name);
+            curData.selected = false;
+
+            app.currentLoc = (app.currentLoc + 1) % locations.length;
+            var GhanaData = getDataByName(option, status.name);
+            GhanaData.selected = true;
+            option.series[0].center = locations[app.currentLoc].coord;
+            option.series[0].animationDurationUpdate = 2000;
+            option.series[0].animationEasingUpdate = 'cubicInOut';
+            myChart.setOption(option);
+        }
+    }
+    var showTips = function () {
+        myChart.dispatchAction({
+            type: 'showTip',
+            name: locations[app.currentLoc].name,
+            seriesIndex: 0
+        });
+    }
+    var changeColor = function () {
+        var curData = getDataByName(option, locations[app.currentLoc].name);
+        curData.itemStyle.emphasis = {areaColor: 'green',
+            borderColor:'#FFC107',
+            borderWidth:5,
+            borderType:'solid'
+        };
+        myChart.setOption(option);
+    }
+    var changeResetColor = function () {
+        var curData = getDataByName(option, locations[app.currentLoc].name);
+        curData.itemStyle.emphasis = {areaColor: 'red',
+                                borderWidth:0
+        };
+        myChart.setOption(option);
+    }
+
+    timeManager.push({
+        delay: 1000,
+        fn: generateAction(locations[1])
+    });
+    for (var i = 0; i < 4; i++) {
+        timeManager.push({
+            delay: 200,
+            fn: changeColor
+        });
+        timeManager.push({
+            delay: 200,
+            fn: changeResetColor
+        });
+    }
+//    timeManager.push({
+//        delay: 2000,
+//        fn: showTips
+//    });
+    timeManager.push({
+        delay: 1000,
+        fn: generateAction(locations[2])
+    });
+    for (var i = 0; i < 4; i++) {
+        timeManager.push({
+            delay: 200,
+            fn: changeColor
+        });
+        timeManager.push({
+            delay: 200,
+            fn: changeResetColor
+        });
+    }
+//    timeManager.push({
+//        delay: 2000,
+//        fn: showTips
+//    });
+    timeManager.push({
+        delay: 1000,
+        fn: generateAction(locations[0])
+    });
+    for (var i = 0; i < 4; i++) {
+        timeManager.push({
+            delay: 200,
+            fn: changeColor
+        });
+        timeManager.push({
+            delay: 200,
+            fn: changeResetColor
+        });
+    }
+//    timeManager.push({
+//        delay: 2000,
+//        fn: showTips
+//    });
+    timeManager.start();
+
+    myChart.on('click', function(params) {
+        console.log('click--', params.name);
+        timeManager.stop();
+    });
+
+//    myChart.on('geoselectchanged', function(params){
+//        console.log('geoselectchanged--', params);
+//    })
+
+//    myChart.on('mouseover', function(params){
+//        console.log('mouseover--', params.name);
+//        timeManager.stop();
+//
+//        myChart.off('mouseout');
+//        myChart.on('mouseout', function(params){
+//            console.log('mouseout--', params.name);
+//            timeManager.start();
+//        });
+//    });
+
+    myChart.on('mapselected', function(){
+        console.log(arguments);
+    });
+
+    function getDataByName(options, name) {
+        var firstSeries = options.series[0];
+        var len = firstSeries.data.length;
+        for (var i = 0; i < len; i++) {
+            var obj = firstSeries.data[i];
+            if (obj.name == name) {
+                return obj;
+            }
+        }
+        return null;
+    }
+
+</script>
+
+</body>
+</html>
