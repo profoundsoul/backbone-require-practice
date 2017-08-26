@@ -1,28 +1,27 @@
 (function (win) {
     win.timeManager = (function () {
-        var _ = this;
+        var curInstance = this;
         this.push = function () {
-            [].push.apply(_.execQueue, arguments);
+            [].push.apply(curInstance.execQueue, arguments);
         };
         this.start = function () {
-            var first = _.execQueue.shift();
+            var first = curInstance.execQueue.shift();
             first.fn();
-            _.execQueue.push(first);
+            curInstance.execQueue.push(first);
 
             this.listenNextAction(first.delay);
         };
         this.listenNextAction = function(delay){
             var next = this.execQueue[0];
-            this.$timeoutid = _._createTimeout(next.fn, delay);
-
+            this.$timeoutid = curInstance.$createTimeout(next.fn, delay);
         };
         this.stop = function () {
-            if(_.$timeoutid) {
-                clearTimeout(_.$timeoutid);
-                _.$timeoutid = 0;
+            if(curInstance.$timeoutid) {
+                clearTimeout(curInstance.$timeoutid);
+                curInstance.$timeoutid = 0;
 
-                if(_.execQueue.length) {
-                    _.execQueue.unshift(_.execQueue.pop());
+                if(curInstance.execQueue.length) {
+                    curInstance.execQueue.unshift(curInstance.execQueue.pop());
                 }
             }
         };
@@ -31,13 +30,13 @@
             this.stop();
         };
 
-        this._createTimeout = function(fn, delay){
+        this.$createTimeout = function(fn, delay){
             return setTimeout(function(){
-                _.$timeoutid = 0;
-                var cur = _.execQueue.shift();
-                _.execQueue.push(cur);
-                _.listenNextAction(cur.delay);
-                typeof fn === 'function' && fn.call(_);
+                curInstance.$timeoutid = 0;
+                var current = curInstance.execQueue.shift();
+                curInstance.execQueue.push(current);
+                curInstance.listenNextAction(current.delay);
+                typeof fn === 'function' && fn.call(curInstance);
             }, delay);
         }
 
