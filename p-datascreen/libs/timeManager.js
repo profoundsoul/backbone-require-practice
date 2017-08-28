@@ -1,4 +1,20 @@
 (function (win) {
+    var requestNextAnimationFrame = function (){
+        return window.requestAnimationFrame
+            || window.mozRequestAnimationFrame
+            || window.webkitRequestAnimationFrame
+            || window.msRequestAnimationFrame
+            || window.oRequestAnimationFrame;
+    }();
+    var cancelNextRequestAnimationFrame = function () {
+        return window.cancelAnimationFrame
+            || window.webkitCancelAnimationFrame
+            || window.webkitCancelAnimationFrame
+            || window.mozCancelAnimationFrame
+            || window.oCancelAnimationFrame
+            || window.msCancelAnimationFrame;
+    }();
+
     win.timeManager = (function () {
         var curInstance = this;
         this.push = function () {
@@ -6,9 +22,8 @@
         };
         this.start = function () {
             var first = curInstance.execQueue.shift();
-            first.fn();
             curInstance.execQueue.push(first);
-
+            curInstance._exec(first.fn);
             this.listenNextAction(first.delay);
         };
         this.listenNextAction = function(delay){
@@ -36,8 +51,17 @@
                 var current = curInstance.execQueue.shift();
                 curInstance.execQueue.push(current);
                 curInstance.listenNextAction(current.delay);
-                typeof fn === 'function' && fn.call(curInstance);
+                curInstance._exec(fn);
             }, delay);
+        }
+        this._exec = function (fn) {
+            // if(requestNextAnimationFrame) {
+            //     requestNextAnimationFrame(function(){
+            //         typeof fn === 'function' && fn.call(curInstance);
+            //     });
+            // }else{
+                typeof fn === 'function' && fn.call(curInstance);
+            // }
         }
 
         return this;

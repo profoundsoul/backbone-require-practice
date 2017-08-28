@@ -1,6 +1,12 @@
 (function () {
     var planePath = 'arrow';
     var selectRegion = '';
+    var SITE = {
+        'India': 1,
+        'Ghana': 3,
+        'Uganda': 4
+    }
+
     var geoCoordMap = {
         'India': [78.474914, 20.336701],
         'Ghana': [-1.612877, 6.665886],
@@ -9,8 +15,7 @@
         'Nigeria': [7.520490, 9.197806],
         'Tanzania': [34.650861, -5.941140],
         'Ethiopia': [40.003153, 9.251650],
-        'Focus': [66.872961, 18.541838],
-        '中国': [111.2002, 33.949888]
+        'Focus': [66.872961, 18.541838]
     };
     var data = [{
         name: 'India',
@@ -92,7 +97,7 @@
             }
         },
         geo: {
-            name: 'Enroll distribution',
+            name: 'Data screen',
             type: 'map',
             map: 'world',
             roam: true,
@@ -133,7 +138,7 @@
                 smooth: true,
                 effect: {
                     show: true,
-                    period: 6,
+                    period: 5,
                     trailLength: 0.1,
                     shadowBlur: 10,
                     symbol: 'circle',
@@ -157,7 +162,7 @@
                     show: true,
                     trailLength: 0.1,
                     scaleSize: 1,
-                    period: 20,
+                    period: 10,
                     shadowBlur: 10,
                     color: '#9CE6FE',
                     symbol: planePath,
@@ -210,52 +215,1028 @@
             }
         ]
     };
-    console.log(option);
-    var myChart = echarts.init(document.getElementById('main'));
-    myChart.setOption(option);
+    var mainEle = document.getElementById('main');
+    if (mainEle) {
+        var myChart = echarts.init(mainEle);
+        myChart.setOption(option);
+        startAnimateTimer();
+        bindEvent(myChart);
+    }
+    function bindEvent(myChart){
+        myChart.on('click', function(param) {
+            if(geoCoordMap[param.name]){
+                timeManager.stop();
+                myDialog.show({
+                    site:SITE.Ghana || '',
+                    callbackFn:function(){
+                        timeManager.start();
+                    }
+                });
+            }
+        });
+    }
+    function startAnimateTimer() {
+        timeManager.push({delay: 0, fn: generateHideTipsFn()});
+        timeManager.push({delay: 0, fn: generateSelectedFn('India')});
+        batchPushColorEffect('India', 800, 3);
+        timeManager.push({delay: 0, fn: generateSelectedFn('Ethiopia')});
+        batchPushColorEffect('Ethiopia', 800, 3);
+        timeManager.push({delay: 0, fn: generateSelectedFn('Uganda')});
+        batchPushColorEffect('Uganda', 800, 3);
+        timeManager.push({delay: 0, fn: generateSelectedFn('Tanzania')});
+        batchPushColorEffect('Tanzania', 800, 3);
+        timeManager.push({delay: 0, fn: generateSelectedFn('Nigeria')});
+        batchPushColorEffect('Nigeria', 800, 3);
+        timeManager.push({delay: 0, fn: generateSelectedFn('Ghana')});
+        batchPushColorEffect('Ghana', 800, 3);
 
-    timeManager.push({delay: 0, fn: generateHideTipsFn()});
-    timeManager.push({delay: 0, fn: generateSelectedFn('India')});
-    batchPushColorEffect('India', 800, 5);
-    timeManager.push({delay: 0, fn: generateSelectedFn('Ethiopia')});
-    batchPushColorEffect('Ethiopia', 800, 5);
-    timeManager.push({delay: 0, fn: generateSelectedFn('Uganda')});
-    batchPushColorEffect('Uganda', 800, 5);
-    timeManager.push({delay: 0, fn: generateSelectedFn('Tanzania')});
-    batchPushColorEffect('Tanzania', 800, 5);
-    timeManager.push({delay: 0, fn: generateSelectedFn('Nigeria')});
-    batchPushColorEffect('Nigeria', 800, 5);
-    timeManager.push({delay: 0, fn: generateSelectedFn('Ghana')});
-    batchPushColorEffect('Ghana', 800, 5);
+        timeManager.push({delay: 1500, fn: generateCenterRegionFn('India')});
+        timeManager.push({delay: 1500, fn: generateScaleGeoRegionsFn(4)});
+        timeManager.push({delay: 4000, fn: generateSingleLineSelectedFn('India')});
 
-    timeManager.push({delay: 1500, fn: generateCenterRegionFn('India')});
-    timeManager.push({delay: 1500, fn: generateScaleGeoRegionsFn(4)});
-    timeManager.push({delay: 3000, fn: generateSingleLineSelectedFn('India')});
+        timeManager.push({delay: 1500, fn: generateCenterRegionFn('Ethiopia')});
+        timeManager.push({delay: 4000, fn: generateSingleLineSelectedFn('Ethiopia')});
 
-    timeManager.push({delay: 1500, fn: generateCenterRegionFn('Ethiopia')});
-    timeManager.push({delay: 3000, fn: generateSingleLineSelectedFn('Ethiopia')});
+        timeManager.push({delay: 1500, fn: generateCenterRegionFn('Uganda')});
+        timeManager.push({delay: 4000, fn: generateSingleLineSelectedFn('Uganda')});
 
-    timeManager.push({delay: 1500, fn: generateCenterRegionFn('Uganda')});
-    timeManager.push({delay: 3000, fn: generateSingleLineSelectedFn('Uganda')});
+        timeManager.push({delay: 1500, fn: generateCenterRegionFn('Tanzania')});
+        timeManager.push({delay: 4000, fn: generateSingleLineSelectedFn('Tanzania')});
 
-    timeManager.push({delay: 1500, fn: generateCenterRegionFn('Tanzania')});
-    timeManager.push({delay: 3000, fn: generateSingleLineSelectedFn('Tanzania')});
+        timeManager.push({delay: 1500, fn: generateCenterRegionFn('Nigeria')});
+        timeManager.push({delay: 4000, fn: generateSingleLineSelectedFn('Nigeria')});
 
-    timeManager.push({delay: 1500, fn: generateCenterRegionFn('Nigeria')});
-    timeManager.push({delay: 3000, fn: generateSingleLineSelectedFn('Nigeria')});
+        timeManager.push({delay: 1500, fn: generateCenterRegionFn('Ghana')});
+        timeManager.push({delay: 4000, fn: generateSingleLineSelectedFn('Ghana')});
+        timeManager.push({delay: 1500, fn: generateCenterRegionFn('Focus')});
+        timeManager.push({delay: 1500, fn: generateScaleGeoRegionsFn(2)});
 
-    timeManager.push({delay: 1500, fn: generateCenterRegionFn('Ghana')});
-    timeManager.push({delay: 3000, fn: generateSingleLineSelectedFn('Ghana')});
-    // timeManager.push({delay: 1000, fn: generateCenterRegionFn('Focus')});
-    timeManager.push({delay: 1500, fn: generateScaleGeoRegionsFn(2)});
+        timeManager.start();
+    };
 
-    timeManager.start();
+    var myDialog = (function () {
+        var host = 'http://10.250.160.74:88';
+        var token = '0f23cf8d65e4ca0cb6c1ebaea66c796f';
+        var PERIOD = {
+            day: 'day',
+            week: 'week',
+            month: 'month',
+            year: 'year',
+            range: 'range'
+        }
 
-    function batchPushColorEffect(regionName, delay, times){
+        this.getBiggerIndex = function(start){
+            return function(){
+                return ++start;
+            }
+        }(1000);
+
+        this.show = function(options, fn){
+            var existsDialog = $('[data-dialog="'+this.dialogid+'"]');
+            if(!(existsDialog && existsDialog.length)){
+                $.extend(this, options||{},{size:SITE.Ghana});
+                this.dialogid = 'dialog'+this.getBiggerIndex();
+                var dialogEle = $($('#js_overview_tpl').html());
+                dialogEle.filter('[data-dialog]').attr('data-dialog', this.dialogid);
+                $(document.body).append(dialogEle);
+                this.$el = $('[data-dialog="'+this.dialogid+'"]');
+                this.$el.find('.tips').hide();
+                this.initialize();
+                this._bindEvent();
+            }else{
+                console.log('data-dialog:'+ this.dialogid + '   is existed!');
+            }
+        };
+        this._bindEvent =function(){
+            var _this = this;
+            this.$el.find('.ui-close').on('click', function(){
+                _this.hide();
+            })
+        };
+        this._destory =function(){
+            var existsDialog = $('[data-dialog="'+this.dialogid+'"]');
+            existsDialog.remove();
+        }
+        this.hide =function(fn) {
+            fn = fn || this.callbackFn;
+            this._destory();
+            typeof fn === 'function' && fn.call(this);
+        };
+        this.initialize = function(){
+            var _this =this;
+            getVisitedOverTimeApi(this.site || SITE.Ghana, PERIOD.range, getLastestMonthDate()).success(function (data) {
+                _this.$el.find('.tips').show();
+                showLineChart_VisitTime(data);
+                showLineChart_Visit1(data);
+                showLineChart_Visit2(data);
+                showLineChart_Visit3(data);
+                showLineChart_Visit4(data);
+                showLineChart_Visit5(data);
+                showLineChart_Visit6(data);
+                showLineChart_Visit7(data);
+                showLineChart_Visit8(data);
+                showLineChart_Visit9(data);
+                showLineChart_Visit10(data);
+                showLineChart_Visit11(data);
+            })
+                .fail(function(err){
+                    console.log(err);
+                });
+
+            getOverViewApi(this.site || SITE.Ghana, PERIOD.range, getLastestMonthDate()).success(function (data) {
+                showLineChart_OverView(data);
+                showLineChart_View1(data);
+                showLineChart_View2(data);
+                showLineChart_View3(data);
+                showLineChart_View4(data);
+                showLineChart_View5(data);
+                showLineChart_View6(data);
+                showLineChart_View7(data);
+                showLineChart_View99(data);
+            })
+                .fail(function(err){
+                    console.log(err);
+                });
+        };
+
+        function showLineChart_VisitTime(data) {
+            var opt = {
+                tooltip: {
+                    trigger: 'axis'
+                },
+                legend: {
+                    data: ['Visits', 'Unique visitors']
+                },
+                xAxis: {
+                    type: 'category',
+                    boundaryGap: false,
+                },
+                yAxis: {
+                    type: 'value',
+                    splitNumber: 2,
+                    axisLabel: {
+                        formatter: '{value}'
+                    }
+                },
+                textStyle: {
+                    fontSize: 16,
+                    color: '#000'
+                },
+                series: [
+                    {
+                        name: 'Visits',
+                        type: 'line'
+                    },
+                    {
+                        name: 'Unique visitors',
+                        type: 'line',
+                        lineStyle: {
+                            normal: {
+                                color: '#3c8dbc'
+                            }
+                        }
+                    }
+                ]
+            };
+            opt.xAxis.data = data.map(function (item) {
+                return item.date;
+            })
+            opt.series[0].data = data.map(function (item) {
+                return item.nb_visits || 0;
+            })
+            opt.series[1].data = data.map(function (item) {
+                return item.nb_uniq_visitors || 0;
+            })
+            var lineCharts = echarts.init(document.getElementById('main_visitstime'));
+            lineCharts.setOption(opt);
+        }
+
+        function showLineChart_Visit1(data) {
+            var opt = {
+                xAxis: {
+                    // type: 'category',
+                    show: false,
+                },
+                yAxis: {
+                    show: false,
+                    type: 'value',
+                },
+                series: [{
+                    type: 'line',
+                    showSymbol: false,
+                    lineStyle: {
+                        normal: {
+                            color: '#2196f3'
+                        }
+                    }
+                }]
+            };
+            opt.xAxis.data = data.map(function (item) {
+                return item.date;
+            })
+            opt.series[0].data = data.map(function (item) {
+                return item.nb_visits || 0;
+            })
+
+            var totalv = opt.series[0].data.reduce(function(total, cur) {
+                total += cur;
+                return total;
+            }, 0)
+            $('.visit1_vt').html(totalv);
+
+            var totaluv = data.reduce(function(total, cur) {
+                total += cur.nb_uniq_visitors || 0;
+                return total;
+            }, 0)
+            $('.visit1_uvt').html(totaluv);
+
+            var lineCharts = echarts.init(document.getElementById('visit1'));
+            lineCharts.setOption(opt);
+        }
+
+        function showLineChart_Visit2(data) {
+            var opt = {
+                xAxis: {
+                    // type: 'category',
+                    show: false,
+                },
+                yAxis: {
+                    show: false,
+                    type: 'value',
+                },
+                series: [{
+                    type: 'line',
+                    showSymbol: false,
+                    lineStyle: {
+                        normal: {
+                            color: '#2196f3'
+                        }
+                    }
+                }]
+            };
+            opt.xAxis.data = data.map(function (item) {
+                return item.date;
+            })
+            opt.series[0].data = data.map(function (item) {
+                return item.nb_users || 0;
+            })
+            var totalnbuser = opt.series[0].data.reduce(function(total, cur) {
+                total += cur;
+                return total;
+            }, 0)
+            $('.visit2_nbuser').html(totalnbuser);
+            var lineCharts = echarts.init(document.getElementById('visit2'));
+            lineCharts.setOption(opt);
+        }
+
+        function showLineChart_Visit3(data) {
+            var opt = {
+                xAxis: {
+                    // type: 'category',
+                    show: false,
+                },
+                yAxis: {
+                    show: false,
+                    type: 'value',
+                },
+                series: [{
+                    type: 'line',
+                    showSymbol: false,
+                    lineStyle: {
+                        normal: {
+                            color: '#2196f3'
+                        }
+                    }
+                }]
+            };
+            opt.xAxis.data = data.map(function (item) {
+                return item.date;
+            })
+            opt.series[0].data = data.map(function (item) {
+                return +item.nb_visits ? item.sum_visit_length / item.nb_visits : 0;
+            })
+            var total_len = data.reduce(function(total, cur) {
+                total += cur.sum_visit_length;
+                return total;
+            }, 0);
+            var total_v = data.reduce(function(total, cur) {
+                total += cur.nb_visits || 0;
+                return total;
+            }, 0);
+            $('.visit3_avg').html((total_len/(total_v || 1)).toFixed(2));
+
+            var lineCharts = echarts.init(document.getElementById('visit3'));
+            lineCharts.setOption(opt);
+        }
+
+        function showLineChart_Visit4(data) {
+            var opt = {
+                xAxis: {
+                    // type: 'category',
+                    show: false,
+                },
+                yAxis: {
+                    show: false,
+                    type: 'value',
+                },
+                series: [{
+                    type: 'line',
+                    showSymbol: false,
+                    lineStyle: {
+                        normal: {
+                            color: '#2196f3'
+                        }
+                    }
+                }]
+            };
+            opt.xAxis.data = data.map(function (item) {
+                return item.date;
+            })
+            opt.series[0].data = data.map(function (item) {
+                return Math.round((+item.nb_visits ? item.bounce_count / item.nb_visits : 0) * 100);
+            })
+            var lineCharts = echarts.init(document.getElementById('visit4'));
+            lineCharts.setOption(opt);
+        }
+
+        function showLineChart_Visit5(data) {
+            var opt = {
+                xAxis: {
+                    // type: 'category',
+                    show: false,
+                },
+                yAxis: {
+                    show: false,
+                    type: 'value',
+                },
+                series: [{
+                    type: 'line',
+                    showSymbol: false,
+                    lineStyle: {
+                        normal: {
+                            color: '#2196f3'
+                        }
+                    }
+                }]
+            };
+            opt.xAxis.data = data.map(function (item) {
+                return item.date;
+            })
+            opt.series[0].data = data.map(function (item) {
+                return (+item.nb_visits ? item.nb_actions / item.nb_visits : 0).toFixed(1);
+            })
+            var total_len = data.reduce(function(total, cur) {
+                total += cur.nb_actions;
+                return total;
+            }, 0);
+            var total_v = data.reduce(function(total, cur) {
+                total += cur.nb_visits || 0;
+                return total;
+            }, 0);
+            $('.visit5_ac').html((total_len/(total_v || 1)).toFixed(0));
+            var lineCharts = echarts.init(document.getElementById('visit5'));
+            lineCharts.setOption(opt);
+        }
+
+        function showLineChart_Visit6(data) {
+            var opt = {
+                xAxis: {
+                    // type: 'category',
+                    show: false,
+                },
+                yAxis: {
+                    show: false,
+                    type: 'value',
+                },
+                series: [{
+                    type: 'line',
+                    showSymbol: false,
+                    lineStyle: {
+                        normal: {
+                            color: '#2196f3'
+                        }
+                    }
+                }]
+            };
+            opt.xAxis.data = data.map(function (item) {
+                return item.date;
+            })
+            opt.series[0].data = data.map(function (item) {
+                return +item.Actions_nb_hits_with_time_generation ? item.Actions_sum_time_generation / item.Actions_nb_hits_with_time_generation : 0;
+            })
+            var total_len = data.reduce(function(total, cur) {
+                total += cur.Actions_sum_time_generation;
+                return total;
+            }, 0);
+            var total_v = data.reduce(function(total, cur) {
+                total += cur.Actions_nb_hits_with_time_generation || 0;
+                return total;
+            }, 0);
+            $('.visit6_agt').html((total_len/(total_v || 1)).toFixed(2));
+            var lineCharts = echarts.init(document.getElementById('visit6'));
+            lineCharts.setOption(opt);
+        }
+
+        function showLineChart_Visit7(data) {
+            var opt = {
+                xAxis: {
+                    // type: 'category',
+                    show: false,
+                },
+                yAxis: {
+                    show: false,
+                    type: 'value',
+                },
+                series: [{
+                    type: 'line',
+                    showSymbol: false,
+                    lineStyle: {
+                        normal: {
+                            color: '#2196f3'
+                        }
+                    }
+                }]
+            };
+            opt.xAxis.data = data.map(function (item) {
+                return item.date;
+            })
+            opt.series[0].data = data.map(function (item) {
+                return item.Actions_nb_pageviews || 0;
+            })
+            var total_p = opt.series[0].data.reduce(function(total, cur) {
+                total += cur;
+                return total;
+            }, 0)
+            $('.visit7_p').html(total_p);
+
+            var total_up = data.reduce(function(total, cur) {
+                total += cur.Actions_nb_uniq_pageviews;
+                return total;
+            }, 0)
+            $('.visit7_up').html(total_up);
+            var lineCharts = echarts.init(document.getElementById('visit7'));
+            lineCharts.setOption(opt);
+        }
+
+        function showLineChart_Visit8(data) {
+            var opt = {
+                xAxis: {
+                    // type: 'category',
+                    show: false,
+                },
+                yAxis: {
+                    show: false,
+                    type: 'value',
+                },
+                series: [{
+                    type: 'line',
+                    showSymbol: false,
+                    lineStyle: {
+                        normal: {
+                            color: '#2196f3'
+                        }
+                    }
+                }]
+            };
+            opt.xAxis.data = data.map(function (item) {
+                return item.date;
+            })
+            opt.series[0].data = data.map(function (item) {
+                return item.Actions_nb_searches || 0;
+            })
+            var total_ts = opt.series[0].data.reduce(function(total, cur) {
+                total += cur;
+                return total;
+            }, 0)
+            $('.visit8_ts').html(total_ts);
+
+            var total_uk = data.reduce(function(total, cur) {
+                total += cur.Actions_nb_keywords;
+                return total;
+            }, 0)
+            $('.visit8_uk').html(total_uk);
+            var lineCharts = echarts.init(document.getElementById('visit8'));
+            lineCharts.setOption(opt);
+        }
+
+        function showLineChart_Visit9(data) {
+            var opt = {
+                xAxis: {
+                    // type: 'category',
+                    show: false,
+                },
+                yAxis: {
+                    show: false,
+                    type: 'value',
+                },
+                series: [{
+                    type: 'line',
+                    showSymbol: false,
+                    lineStyle: {
+                        normal: {
+                            color: '#2196f3'
+                        }
+                    }
+                }]
+            };
+            opt.xAxis.data = data.map(function (item) {
+                return item.date;
+            })
+            opt.series[0].data = data.map(function (item) {
+                return item.Actions_nb_downloads || 0;
+            })
+            var total_dld = opt.series[0].data.reduce(function(total, cur) {
+                total += cur;
+                return total;
+            }, 0)
+            $('.visit9_dld').html(total_dld);
+
+            var total_udld = data.reduce(function(total, cur) {
+                total += cur.Actions_nb_uniq_downloads;
+                return total;
+            }, 0)
+            $('.visit9_udld').html(total_udld);
+            var lineCharts = echarts.init(document.getElementById('visit9'));
+            lineCharts.setOption(opt);
+        }
+
+        function showLineChart_Visit10(data) {
+            var opt = {
+                xAxis: {
+                    // type: 'category',
+                    show: false,
+                },
+                yAxis: {
+                    show: false,
+                    type: 'value',
+                },
+                series: [{
+                    type: 'line',
+                    showSymbol: false,
+                    lineStyle: {
+                        normal: {
+                            color: '#2196f3'
+                        }
+                    }
+                }]
+            };
+            opt.xAxis.data = data.map(function (item) {
+                return item.date;
+            })
+            opt.series[0].data = data.map(function (item) {
+                return item.Actions_nb_outlinks || 0;
+            })
+            var total_ol = opt.series[0].data.reduce(function(total, cur) {
+                total += cur;
+                return total;
+            }, 0)
+            $('.visit10_ol').html(total_ol);
+            var total_uol = data.reduce(function(total, cur) {
+                total += cur.Actions_nb_uniq_outlinks;
+                return total;
+            }, 0)
+            $('.visit10_uol').html(total_uol);
+
+            var lineCharts = echarts.init(document.getElementById('visit10'));
+            lineCharts.setOption(opt);
+        }
+
+        function showLineChart_Visit11(data) {
+            var opt = {
+                xAxis: {
+                    // type: 'category',
+                    show: false,
+                },
+                yAxis: {
+                    show: false,
+                    type: 'value',
+                },
+                series: [{
+                    type: 'line',
+                    showSymbol: false,
+                    lineStyle: {
+                        normal: {
+                            color: '#2196f3'
+                        }
+                    }
+                }]
+            };
+            opt.xAxis.data = data.map(function (item) {
+                return item.date;
+            })
+            opt.series[0].data = data.map(function (item) {
+                return item.max_actions || 0;
+            })
+            var total_ol = opt.series[0].data.reduce(function(total, cur) {
+                total += cur;
+                return total;
+            }, 0);
+            var total_visited = data.reduce(function(total, cur) {
+                total += cur.nb_visits;
+                return total;
+            }, 0);
+
+            $('.visit11_ma').html(parseInt(total_ol/total_visited));
+            var lineCharts = echarts.init(document.getElementById('visit11'));
+            lineCharts.setOption(opt);
+        }
+
+        function showLineChart_OverView(data) {
+            var opt = {
+                tooltip: {
+                    trigger: 'axis'
+                },
+                legend: {
+                    data: ['Ecommerce Order']
+                },
+                xAxis: {
+                    type: 'category',
+                    boundaryGap: false,
+                },
+                yAxis: {
+                    type: 'value',
+                    splitNumber: 2,
+                    axisLabel: {
+                        formatter: '{value}'
+                    }
+                },
+                textStyle: {
+                    fontSize: 16,
+                    color: '#000'
+                },
+                series: [
+                    {
+                        name: 'Ecommerce Order',
+                        type: 'line'
+                    },
+                ]
+            };
+            opt.xAxis.data = data.map(function (item) {
+                return item.date;
+            })
+            opt.series[0].data = data.map(function (item) {
+                return item.order_num || 0;
+            })
+            var lineCharts = echarts.init(document.getElementById('main_overview'));
+            // var lineCharts = echarts.init(document.getElementById('main2'));
+            lineCharts.setOption(opt);
+        }
+
+        function showLineChart_View1(data) {
+            var opt = {
+                xAxis: {
+                    // type: 'category',
+                    show: false,
+                },
+                yAxis: {
+                    show: false,
+                    type: 'value',
+                },
+                series: [{
+                    type: 'line',
+                    showSymbol: false,
+                    lineStyle: {
+                        normal: {
+                            color: '#2196f3'
+                        }
+                    }
+                }]
+            };
+            opt.xAxis.data = data.map(function (item) {
+                return item.date;
+            })
+            opt.series[0].data = data.map(function (item) {
+                return item.order_num || 0;
+            });
+            var total = opt.series[0].data.reduce(function (t, item) {
+                t += item;
+                return t;
+            }, 0);
+            var visited = data.reduce(function (t, item) {
+                t += item.visits || 0;
+                return t;
+            }, 0);
+            $('.overview1_total').html(total)
+            $('.overview1_visit').html(visited)
+
+            var lineCharts = echarts.init(document.getElementById('overview1'));
+            lineCharts.setOption(opt);
+        }
+
+        function showLineChart_View2(data) {
+            var opt = {
+                xAxis: {
+                    // type: 'category',
+                    show: false,
+                },
+                yAxis: {
+                    show: false,
+                    type: 'value',
+                },
+                series: [{
+                    type: 'line',
+                    showSymbol: false,
+                    lineStyle: {
+                        normal: {
+                            color: '#2196f3'
+                        }
+                    }
+                }]
+            };
+            opt.xAxis.data = data.map(function (item) {
+                return item.date;
+            })
+            opt.series[0].data = data.map(function (item) {
+                return item.order_revenue || 0;
+            })
+            var total = opt.series[0].data.reduce(function(t, item) {
+                t +=item;
+                return t;
+            },0);
+            $('.overview2_revenue').html(total);
+            var lineCharts = echarts.init(document.getElementById('overview2'));
+            lineCharts.setOption(opt);
+        }
+
+        function showLineChart_View3(data) {
+            var opt = {
+                xAxis: {
+                    // type: 'category',
+                    show: false,
+                },
+                yAxis: {
+                    show: false,
+                    type: 'value',
+                },
+                series: [{
+                    type: 'line',
+                    showSymbol: false,
+                    lineStyle: {
+                        normal: {
+                            color: '#2196f3'
+                        }
+                    }
+                }]
+            };
+            opt.xAxis.data = data.map(function (item) {
+                return item.date;
+            })
+            opt.series[0].data = data.map(function (item) {
+                return (+item.order_num) ? item.order_revenue / item.order_num : 0;
+            })
+            ;
+            var revenuetotal = data.reduce(function(total, cur){
+                total += cur.order_revenue || 0;
+                return total;
+            }, 0);
+            var numtotal = data.reduce(function(total, cur){
+                total += cur.order_num || 0;
+                return total;
+            }, 0);
+            $('.overview3_avg').html((revenuetotal/(numtotal || 1)).toFixed(2));
+            var lineCharts = echarts.init(document.getElementById('overview3'));
+            lineCharts.setOption(opt);
+        }
+
+        function showLineChart_View4(data) {
+            var opt = {
+                xAxis: {
+                    // type: 'category',
+                    show: false,
+                },
+                yAxis: {
+                    show: false,
+                    type: 'value',
+                },
+                series: [{
+                    type: 'line',
+                    showSymbol: false,
+                    lineStyle: {
+                        normal: {
+                            color: '#2196f3'
+                        }
+                    }
+                }]
+            };
+            opt.xAxis.data = data.map(function (item) {
+                return item.date;
+            })
+            opt.series[0].data = data.map(function (item) {
+                return parseFloat(item.order_conversion_rate) || 0;
+            })
+            var ele = $('.overview4_ocr');
+            var lineCharts = echarts.init(document.getElementById('overview4'));
+            lineCharts.setOption(opt);
+        }
+
+        function showLineChart_View5(data) {
+            var opt = {
+                xAxis: {
+                    // type: 'category',
+                    show: false,
+                },
+                yAxis: {
+                    show: false,
+                    type: 'value',
+                },
+                series: [{
+                    type: 'line',
+                    showSymbol: false,
+                    lineStyle: {
+                        normal: {
+                            color: '#2196f3'
+                        }
+                    }
+                }]
+            };
+            opt.xAxis.data = data.map(function (item) {
+                return item.date;
+            })
+            opt.series[0].data = data.map(function (item) {
+                return item.give_up || 0;
+            })
+            var total = opt.series[0].data.reduce(function(total, cur) {
+                total += cur;
+                return total;
+            }, 0)
+            $('.overview5_gp').html(total);
+            var lineCharts = echarts.init(document.getElementById('overview5'));
+            lineCharts.setOption(opt);
+        }
+
+        function showLineChart_View6(data) {
+            var opt = {
+                xAxis: {
+                    // type: 'category',
+                    show: false,
+                },
+                yAxis: {
+                    show: false,
+                    type: 'value',
+                },
+                series: [{
+                    type: 'line',
+                    showSymbol: false,
+                    lineStyle: {
+                        normal: {
+                            color: '#2196f3'
+                        }
+                    }
+                }]
+            };
+            opt.xAxis.data = data.map(function (item) {
+                return item.date;
+            })
+            opt.series[0].data = data.map(function (item) {
+                return parseFloat(item.cart_revenue) || 0;
+            })
+            var total = opt.series[0].data.reduce(function(total, cur) {
+                total += cur;
+                return total;
+            }, 0)
+            $('.overview6_cr').html(total.toFixed(2));
+            var lineCharts = echarts.init(document.getElementById('overview6'));
+            lineCharts.setOption(opt);
+        }
+
+        function showLineChart_View7(data) {
+            var opt = {
+                xAxis: {
+                    // type: 'category',
+                    show: false,
+                },
+                yAxis: {
+                    show: false,
+                    type: 'value',
+                },
+                series: [{
+                    type: 'line',
+                    showSymbol: false,
+                    lineStyle: {
+                        normal: {
+                            color: '#2196f3'
+                        }
+                    }
+                }]
+            };
+            opt.xAxis.data = data.map(function (item) {
+                return item.date;
+            })
+            opt.series[0].data = data.map(function (item) {
+                return parseFloat(item.give_up_rate) || 0;
+            })
+            var lineCharts = echarts.init(document.getElementById('overview7'));
+            lineCharts.setOption(opt);
+        }
+
+        function showLineChart_View99(data) {
+            var opt = {
+                xAxis: {
+                    // type: 'category',
+                    show: false,
+                },
+                yAxis: {
+                    show: false,
+                    type: 'value',
+                },
+                series: [{
+                    type: 'line',
+                    showSymbol: false,
+                    lineStyle: {
+                        normal: {
+                            color: '#2196f3'
+                        }
+                    }
+                }]
+            };
+            opt.xAxis.data = data.map(function (item) {
+                return item.date;
+            })
+            opt.series[0].data = data.map(function (item) {
+                return item.buy || 0;
+            })
+            var total = opt.series[0].data.reduce(function(total, cur) {
+                total += cur;
+                return total;
+            }, 0)
+            $('.overview99_buy').html(total);
+            var lineCharts = echarts.init(document.getElementById('overview99'));
+            lineCharts.setOption(opt);
+        }
+
+
+        function getOverViewApi(site, period, date, fn) {
+            var urlArr = [];
+            urlArr.push(host + '/index.php?module=API&method=Goals.getOverView');
+            urlArr.push('idSite=' + site);
+            urlArr.push('period=' + period);
+            urlArr.push('date=' + date);
+            urlArr.push('token_auth=' + token);
+
+            return $.ajax({
+                type: 'get',
+                url: urlArr.join('&'),
+                processData: false,
+                crossDomain: true,
+                dataType: 'json'
+                // success:fn
+            });
+        }
+
+        function getVisitedOverTimeApi(site, period, date, fn) {
+            var urlArr = [];
+            urlArr.push(host + '/index.php?module=API&method=VisitsSummary.getVisitsOverTime');
+            urlArr.push('idSite=' + encodeURIComponent(site));
+            urlArr.push('period=' + encodeURIComponent(period));
+            urlArr.push('date=' + encodeURIComponent(date));
+            urlArr.push('token_auth=' + token);
+
+            return $.ajax({
+                type: 'get',
+                url: urlArr.join('&'),
+                processData: false,
+                crossDomain: true,
+                dataType: 'json'
+                // success:fn
+            });
+        }
+
+        /**
+         * 获取最近一个月的区间字符串
+         * @returns {string}
+         */
+        function getLastestMonthDate() {
+            var result = [];
+            var now = new Date();
+            result.push([now.getFullYear(), fillZero(now.getMonth() + 1), fillZero(now.getDate())].join('-'));
+
+            now.setMonth(now.getMonth() - 1);
+            result.push([now.getFullYear(), fillZero(now.getMonth() + 1), fillZero(now.getDate())].join('-'));
+            return result.reverse().join(',')
+        }
+
+        function fillZero(str, digits) {
+            str = str || '';
+            digits = digits || 2;
+            for (var i = 0; i < digits; i++) {
+                str = '0' + str;
+            }
+            return str.substr(digits * -1);
+        }
+
+        return this;
+    }).call({});
+    // myDialog.show({
+    //     site:SITE.Uganda,
+    //     callbackFn:function(){
+    //     }
+    // });
+
+    function batchPushColorEffect(regionName, delay, times) {
         times = +times || 1;
         for (var i = 0; i < times; i++) {
-            timeManager.push({delay:delay, fn:generateChangeColorFn(regionName)});
-            timeManager.push({delay:delay, fn:generateResetColorFn(regionName)});
+            timeManager.push({delay: delay, fn: generateChangeColorFn(regionName)});
+            timeManager.push({delay: delay, fn: generateResetColorFn(regionName)});
         }
     }
 
@@ -385,14 +1366,15 @@
                 preData.selected = false;
             }
             var curData = getRegionByName(regionName);
-            curData.selected = true;
-            myChart.setOption(getEffectOptionsFn(true));
+            if (curData) {
+                curData.selected = true;
+                myChart.setOption(getEffectOptionsFn(true));
 
-            //记录选择的Regions
-            selectRegion = regionName;
+                //记录选择的Regions
+                selectRegion = regionName;
+            }
         }
     }
-
 
     function getDataIndex(regionName) {
         var len = data.length;
