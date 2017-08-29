@@ -114,7 +114,7 @@
             name: 'Data screen',
             type: 'map',
             map: 'world',
-            roam: true,
+            roam: false,
             zoom: 2,
             selectedMode: false,
             center: geoCoordMap.Focus,
