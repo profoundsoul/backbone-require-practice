@@ -6,6 +6,11 @@
         'Ghana': 3,
         'Uganda': 4
     }
+    var SITE_CURRENCY ={
+        India:'INR  ',
+        Ghana:'GHS  ',
+        Uganda:'UGX  '
+    }
     var P_COUNTRY_STAT_KEY = 'P_COUNTRY_STAT';
 
     var host = 'http://bam.yiwill.cn/';
@@ -19,6 +24,15 @@
         year: 'year',
         range: 'range'
     }
+    var WEEK_NAME = {
+        1:'Mon',
+        2:'Tue',
+        3:'Wed',
+        4:'Thu',
+        5:'Fri',
+        6:'Sat',
+        0:'Sun'
+    };
 
     var geoCoordMap = {
         'India': [77.13, 28.37],
@@ -298,8 +312,6 @@
     };
 
     var myDialog = (function () {
-
-
         this.getBiggerIndex = function (start) {
             return function () {
                 return ++start;
@@ -309,7 +321,7 @@
         this.show = function (options, fn) {
             var existsDialog = $('[data-dialog="' + this.dialogid + '"]');
             if (!(existsDialog && existsDialog.length)) {
-                $.extend(this, options || {}, {size: SITE.Ghana});
+                $.extend(this, {site: SITE.Ghana}, options || {});
                 this.dialogid = 'dialog' + this.getBiggerIndex();
                 var dialogEle = $($('#js_overview_tpl').html());
                 dialogEle.filter('[data-dialog]').attr('data-dialog', this.dialogid);
@@ -343,34 +355,35 @@
             var _this = this;
             this.$el.find('.js_title').html(this.countryName);
             getVisitedOverTimeApi(this.site || SITE.Ghana, PERIOD.range, getLastestMonthDate()).success(function (data) {
-                _this.$el.find('.tips').show();
-                showLineChart_VisitTime(data);
-                showLineChart_Visit1(data);
-                showLineChart_Visit2(data);
-                showLineChart_Visit3(data);
-                showLineChart_Visit4(data);
-                showLineChart_Visit5(data);
-                showLineChart_Visit6(data);
-                showLineChart_Visit7(data);
-                showLineChart_Visit8(data);
-                showLineChart_Visit9(data);
-                showLineChart_Visit10(data);
-                showLineChart_Visit11(data);
+                _this.$el.find('.ui-visittime .tips').show();
+                showLineChart_VisitTime.call(_this, data);
+                showLineChart_Visit1.call(_this, data);
+                showLineChart_Visit2.call(_this, data);
+                showLineChart_Visit3.call(_this, data);
+                showLineChart_Visit4.call(_this, data);
+                showLineChart_Visit5.call(_this, data);
+                showLineChart_Visit6.call(_this, data);
+                showLineChart_Visit7.call(_this, data);
+                showLineChart_Visit8.call(_this, data);
+                showLineChart_Visit9.call(_this, data);
+                showLineChart_Visit10.call(_this, data);
+                showLineChart_Visit11.call(_this, data);
             })
                 .fail(function (err) {
                     console.log(err);
                 });
 
             getOverViewApi(this.site || SITE.Ghana, PERIOD.range, getLastestMonthDate()).success(function (data) {
-                showLineChart_OverView(data);
-                showLineChart_View1(data);
-                showLineChart_View2(data);
-                showLineChart_View3(data);
-                showLineChart_View4(data);
-                showLineChart_View5(data);
-                showLineChart_View6(data);
-                showLineChart_View7(data);
-                showLineChart_View99(data);
+                _this.$el.find('.ui-overview .tips').show();
+                showLineChart_OverView.call(_this, data);
+                showLineChart_View1.call(_this, data);
+                showLineChart_View2.call(_this, data);
+                showLineChart_View3.call(_this, data);
+                showLineChart_View4.call(_this, data);
+                showLineChart_View5.call(_this, data);
+                showLineChart_View6.call(_this, data);
+                showLineChart_View7.call(_this, data);
+                showLineChart_View99.call(_this, data);
             })
                 .fail(function (err) {
                     console.log(err);
@@ -380,7 +393,22 @@
         function showLineChart_VisitTime(data) {
             var opt = {
                 tooltip: {
-                    trigger: 'axis'
+                    trigger: 'axis',
+                    show: true,
+                    enterable: true,
+                    hideDelay:0,
+                    formatter:function(params) {
+                        var title = params[0].name;
+                        var curDate = dateParse(params[0].name);
+                        if(curDate) {
+                            title +='   ' + WEEK_NAME[curDate.getDay()]
+                        }
+                        var htmlArr = [title + '<br/>'];
+                        params.forEach(function(item) {
+                            htmlArr.push(item.marker + item.seriesName + '：' + item.value + '<br/>');
+                        })
+                        return htmlArr.join(' ');
+                    }
                 },
                 legend: {
                     data: ['Visits', 'Unique visitors']
@@ -660,7 +688,7 @@
                 total += cur.Actions_nb_hits_with_time_generation || 0;
                 return total;
             }, 0);
-            $('.visit6_agt').html((total_len / (total_v || 1)).toFixed(2));
+            $('.visit6_agt').html((total_len / (total_v || 1)).toFixed(2) + 's');
             var lineCharts = echarts.init(document.getElementById('visit6'));
             lineCharts.setOption(opt);
         }
@@ -872,7 +900,23 @@
         function showLineChart_OverView(data) {
             var opt = {
                 tooltip: {
-                    trigger: 'axis'
+                    trigger: 'axis',
+                    show: true,
+                    enterable: true,
+                    hideDelay:0,
+                    formatter:function(params) {
+                        var title = params[0].name;
+                        var curDate = dateParse(params[0].name);
+                        if(curDate) {
+                            title +='   ' + WEEK_NAME[curDate.getDay()]
+                        }
+                        var htmlArr = [title + '<br/>'];
+                        params.forEach(function(item) {
+                            htmlArr.push(item.marker + item.seriesName + '：' + item.value + '<br/>');
+                        })
+                        return htmlArr.join(' ');
+                    }
+
                 },
                 legend: {
                     data: ['Ecommerce Order']
@@ -981,7 +1025,7 @@
                 t += item;
                 return t;
             }, 0);
-            $('.overview2_revenue').html(total);
+            $('.overview2_revenue').html(SITE_CURRENCY[this.countryName]+addCurrencyCommas(total));
             var lineCharts = echarts.init(document.getElementById('overview2'));
             lineCharts.setOption(opt);
         }
@@ -1021,7 +1065,7 @@
                 total += cur.order_num || 0;
                 return total;
             }, 0);
-            $('.overview3_avg').html((revenuetotal / (numtotal || 1)).toFixed(2));
+            $('.overview3_avg').html(SITE_CURRENCY[this.countryName]+addCurrencyCommas((revenuetotal / (numtotal || 1)).toFixed(2)));
             var lineCharts = echarts.init(document.getElementById('overview3'));
             lineCharts.setOption(opt);
         }
@@ -1130,7 +1174,7 @@
                 total += cur;
                 return total;
             }, 0)
-            $('.overview6_cr').html(total.toFixed(2));
+            $('.overview6_cr').html(SITE_CURRENCY[this.countryName] + addCurrencyCommas(total.toFixed(2)));
             var lineCharts = echarts.init(document.getElementById('overview6'));
             lineCharts.setOption(opt);
         }
@@ -1495,11 +1539,44 @@
     function getLastestMonthDate() {
         var result = [];
         var now = new Date();
+        now.setDate(now.getDate() - 1);
         result.push([now.getFullYear(), fillZero(now.getMonth() + 1), fillZero(now.getDate())].join('-'));
 
         now.setMonth(now.getMonth() - 1);
         result.push([now.getFullYear(), fillZero(now.getMonth() + 1), fillZero(now.getDate())].join('-'));
         return result.reverse().join(',')
+    }
+
+    function dateParse(str) {
+        if (!str) {
+            return false
+        }
+        if (Object.prototype.toString.call(str) === "[object Date]") {
+            return str
+        }else if (typeof str === "number") {
+            return new Date(str)
+        } else if (typeof str === "string") {
+            str = str || '';
+            var regtime = /^(\d{4})\-?(\d{1,2})\-?(\d{1,2})/i;
+            if (str.match(regtime)) {
+                str = str.replace(regtime, "$2/$3/$1");
+            }
+            var st = Date.parse(str);
+            return !!str ? new Date(st) : false;
+        }
+        return false
+    }
+
+    /**
+     * 添加货币千分位
+     * @param val
+     * @returns {string}
+     */
+    function addCurrencyCommas(val) {
+        var sIntNum = val.toString(), bIndex = sIntNum.indexOf('.');
+        return sIntNum.replace(/\d(?=(?:\d{3})+(?:\.|$))/g, function($0, i) {
+            return bIndex < 0 || i < bIndex ? ($0 + ',') : $0;
+        });
     }
 
     function fillZero(str, digits) {
