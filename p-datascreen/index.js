@@ -243,7 +243,7 @@
 
     function bindEvent(myChart) {
         myChart.on('click', function (param) {
-            if (geoCoordMap[param.name]) {
+            if (geoCoordMap[param.name] && SITE[param.name]) {
                 timeManager.stop();
                 myDialog.show({
                     site: SITE[param.name] || '',
