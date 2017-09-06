@@ -182,6 +182,7 @@
 		} catch (e) {
 			target = {}
 		}
+		Dates.options = options;
 		elem = options.elem ? S(options.elem) : target
 
 		as.elemv = /textarea|input/.test(elem.tagName.toLocaleLowerCase()) ? "value" : "innerHTML"
@@ -933,8 +934,9 @@
 		var timeZones = document.getElementById("timeZones")
 		if(timeZones){
 			var timeStr = timeZones.value
-			var serverNow = new Date(timeStr)
-			if(!isNaN(serverNow)) {
+			// var serverNow = new Date(timeStr)
+            var serverNow = Dates.dateParse(timeStr)
+            if(!isNaN(serverNow)) {
 				return serverNow
 			}
 		}
