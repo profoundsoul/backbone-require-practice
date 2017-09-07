@@ -4411,6 +4411,9 @@ if (typeof window.Piwik !== 'object') {
             function logEcommerceCartUpdate(grandTotal) {
                 if (isDefined(grandTotal)) {
                     logEcommerce("", grandTotal, "", "", "", "");
+
+                    //force delete ecommerce items by linq
+                    ecommerceItems={};
                 }
             }
 
@@ -6852,7 +6855,7 @@ if (typeof window.Piwik !== 'object') {
              * @param float price Item's display price, not use in standard Piwik reports, but output in API product reports.
              */
             this.setEcommerceView = function (sku, name, category, price) {
-                if (!isDefined(category) || !category.length) {
+                if (!isDefined(category) || !category) {
                     category = "";
                 } else if (category instanceof Array) {
                     category = JSON_PIWIK.stringify(category);
@@ -6865,16 +6868,16 @@ if (typeof window.Piwik !== 'object') {
                 }
 
                 // On a category page, do not track Product name not defined
-                if ((!isDefined(sku) || !sku.length)
-                    && (!isDefined(name) || !name.length)) {
+                if ((!isDefined(sku) || !sku)
+                    && (!isDefined(name) || !name)) {
                     return;
                 }
 
-                if (isDefined(sku) && sku.length) {
+                if (isDefined(sku) && sku) {
                     customVariablesPage[3] = ['_pks', sku];
                 }
 
-                if (!isDefined(name) || !name.length) {
+                if (!isDefined(name) || !name) {
                     name = "";
                 }
 
@@ -6894,6 +6897,7 @@ if (typeof window.Piwik !== 'object') {
              * @param float quantity (optional) Item's quantity. If not specified, will default to 1
              */
             this.addEcommerceItem = function (sku, name, category, price, quantity) {
+                sku = String(sku || '');
                 if (sku.length) {
                     ecommerceItems[sku] = [sku, name, category, price, quantity];
                 }
