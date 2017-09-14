@@ -1422,10 +1422,8 @@ if (typeof window.Piwik !== 'object') {
                 // the things we do for backwards compatibility...
                 // in ECMA-262 5th ed., we could simply use:
                 //     while (Date.now() < expireDateTime) { }
-                console.log(expireDateTime);
                 do {
                     now = new Date();
-                    console.log('now----', now.getTimeAlias());
                 } while (now.getTimeAlias() < expireDateTime);
             }
         }
@@ -7547,12 +7545,10 @@ if (typeof window.Piwik === 'object' && typeof window.Piwik.PerformanceTrace !==
             // Chrome
             if (window.chrome && window.chrome.loadTimes) {
                 api.firstPaintTime = window.chrome.loadTimes().firstPaintTime * 1000 - pfc.timing.navigationStart;
-            }
-            // IE
-            else if (typeof pfc.timing.msFirstPaint === 'number') {
+            }else if (typeof pfc.timing.msFirstPaint === 'number') {// IE
                 api.firstPaintTime = pfc.timing.msFirstPaint - pfc.timing.navigationStart;
             } else {
-                api.firstPaintTime = pfc.timing.responseStart - pfc.timing.navigationStart;
+                api.firstPaintTime = (pfc.timing.responseStart || pfc.timing.responseEnd) - pfc.timing.navigationStart;
             }
             // DNS query time
             api.lookupDomainTime = timing.domainLookupEnd - timing.domainLookupStart;
@@ -7575,6 +7571,8 @@ if (typeof window.Piwik === 'object' && typeof window.Piwik.PerformanceTrace !==
             // Load event time
             api.loadEventTime = timing.loadEventEnd ? (timing.loadEventEnd - timing.loadEventStart) : 0;
 
+            //super fix big error data
+            api = _.fixNegativeTime(api);
             _.log(api);
 
             return api;
@@ -7747,6 +7745,16 @@ if (typeof window.Piwik === 'object' && typeof window.Piwik.PerformanceTrace !==
             if(window.console && typeof console.log === 'function') {
                 console.log.apply(console, arguments);
             }
+        }
+        this.fixNegativeTime = function(times){
+            for(var t in times) {
+                if(times.hasOwnProperty(t)) {
+                    if(times[t]<0 || times[t]>Math.pow(10, 8)){
+                        times[t] = 0;
+                    }
+                }
+            }
+            return times;
         }
         return this;
     }).call({});
