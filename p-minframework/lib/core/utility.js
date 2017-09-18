@@ -99,11 +99,8 @@ define("Utility", [], function () {
          */
 		this.bindFn = function (fn, context){
 			var _self = context || this
-			if(typeof fn !== "function"){
-				throw new TypeError("Bind must be called on a function")
-			}
 			return function () {
-				fn.apply(_self, arguments)
+                typeof fn === "function" && fn.apply(_self, arguments)
 			}
 		}
 

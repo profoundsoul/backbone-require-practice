@@ -42,6 +42,7 @@ require(["Inherit", "AbstractView", "template", "text!addlist.html", "list", "se
 			"click .js_dialog_iframe":"showIframe",
 			"click .js_dialog_ab": "showTest",
 			"click .js_confirm": "confirm",
+			"click .js_confirm_nobtn": "confirm_nobtn",
 			"click .js_toast":"toast",
 			"click .js_showloading": "sloading",
 			"click .js_hideloading": "hloading",
@@ -210,6 +211,16 @@ require(["Inherit", "AbstractView", "template", "text!addlist.html", "list", "se
 				console.log(this.el)
 			})
 		},
+        confirm_nobtn:function(){
+            this.showConfirm("tipsxxxxxx？",function(){
+                console.log(this.el)
+            },function(){},{
+            	cancel:true,
+				ok:false
+			})
+        },
+
+
 		toast:function(){
 			this.showToast("服务调用异常！", function(){
 				//
