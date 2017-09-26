@@ -669,7 +669,7 @@
 
 		// css 文件路径，留空则不会使用 js 自动加载样式
 		// 注意：css 只允许加载一个
-		cssUri: "./css/ui-dialog.css",
+		// cssUri: "./css/ui-dialog.css",
 
 		// 模板（使用 table 解决 IE7 宽度自适应的 BUG）
 		// js 使用 i="***" 属性识别结构，其余的均可自定义
@@ -707,20 +707,20 @@
      * For details, see: http://www.gnu.org/licenses/lgpl-2.1.html
      */
 	define("Dialog", ["Zepto", "Popup", "DialogConfig"], function ($, Popup, defaults) {
-		var css = defaults.cssUri
-		// css loader: RequireJS & SeaJS
-		if (css) {
-			var fn = require[require.toUrl ? "toUrl" : "resolve"]
-			if (fn) {
-				css = fn(css)
-				css = "<link rel=\"stylesheet\" href=\"" + css + "\" />"
-				if ($("base")[0]) {
-					$("base").before(css)
-				} else {
-					$("head").append(css)
-				}
-			}
-		}
+		// var css = defaults.cssUri
+		// // css loader: RequireJS & SeaJS
+		// if (css) {
+		// 	var fn = require[require.toUrl ? "toUrl" : "resolve"]
+		// 	if (fn) {
+		// 		css = fn(css)
+		// 		css = "<link rel=\"stylesheet\" href=\"" + css + "\" />"
+		// 		if ($("base")[0]) {
+		// 			$("base").before(css)
+		// 		} else {
+		// 			$("head").append(css)
+		// 		}
+		// 	}
+		// }
 		var _count = 0
 		var _expando = new Date() - 0 // Date.now()
 		var _isIE6 = !("minWidth" in $("html")[0].style)

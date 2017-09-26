@@ -125,7 +125,8 @@ if (typeof JSON_PIWIK !== 'object' && typeof window.JSON === 'object' && window.
                         var value, serialized = '{"a":[1,true,false,null,"\\u0000\\b\\n\\f\\r\\t"]}';
                         // Test `JSON.stringify`.
                         if (name == "json-stringify") {
-                            var stringify = exports.stringify, stringifySupported = typeof stringify == "function" && isExtended;
+                            var stringify = exports.stringify,
+                                stringifySupported = typeof stringify == "function" && isExtended;
                             if (stringifySupported) {
                                 // A test function object with a custom `toJSON` method.
                                 (value = function () {
@@ -339,7 +340,7 @@ if (typeof JSON_PIWIK !== 'object' && typeof window.JSON === 'object' && window.
                                     }
                                 }
                                 // Manually invoke the callback for each non-enumerable property.
-                                for (length = members.length; property = members[--length]; hasProperty.call(object, property) && callback(property));
+                                for (length = members.length; property = members[--length]; hasProperty.call(object, property) && callback(property)) ;
                             };
                         } else if (size == 2) {
                             // Safari <= 2.0.4 enumerates shadowed properties twice.
@@ -407,7 +408,8 @@ if (typeof JSON_PIWIK !== 'object' && typeof window.JSON === 'object' && window.
                         // `Quote(value)` operation defined in ES 5.1 section 15.12.3.
                         var unicodePrefix = "\\u00";
                         var quote = function (value) {
-                            var result = '"', index = 0, length = value.length, useCharIndex = !charIndexBuggy || length > 10;
+                            var result = '"', index = 0, length = value.length,
+                                useCharIndex = !charIndexBuggy || length > 10;
                             var symbols = useCharIndex && (charIndexBuggy ? value.split("") : value);
                             for (; index < length; index++) {
                                 var charCode = value.charCodeAt(index);
@@ -437,7 +439,8 @@ if (typeof JSON_PIWIK !== 'object' && typeof window.JSON === 'object' && window.
                         // Internal: Recursively serializes an object. Implements the
                         // `Str(key, holder)`, `JO(value)`, and `JA(value)` operations.
                         var serialize = function (property, object, callback, properties, whitespace, indentation, stack) {
-                            var value, className, year, month, date, time, hours, minutes, seconds, milliseconds, results, element, index, length, prefix, result;
+                            var value, className, year, month, date, time, hours, minutes, seconds, milliseconds,
+                                results, element, index, length, prefix, result;
                             try {
                                 // Necessary for host object support.
                                 value = object[property];
@@ -455,8 +458,8 @@ if (typeof JSON_PIWIK !== 'object' && typeof window.JSON === 'object' && window.
                                             // seconds, and milliseconds if the `getUTC*` methods are
                                             // buggy. Adapted from @Yaffle's `date-shim` project.
                                             date = floor(value / 864e5);
-                                            for (year = floor(date / 365.2425) + 1970 - 1; getDay(year + 1, 0) <= date; year++);
-                                            for (month = floor((date - getDay(year, 0)) / 30.42); getDay(year, month + 1) <= date; month++);
+                                            for (year = floor(date / 365.2425) + 1970 - 1; getDay(year + 1, 0) <= date; year++) ;
+                                            for (month = floor((date - getDay(year, 0)) / 30.42); getDay(year, month + 1) <= date; month++) ;
                                             date = 1 + date - getDay(year, month);
                                             // The `time` value specifies the time within the day (see ES
                                             // 5.1 section 15.9.1.2). The formula `(A % B + B) % B` is used
@@ -573,7 +576,7 @@ if (typeof JSON_PIWIK !== 'object' && typeof window.JSON === 'object' && window.
                                 } else if (className == arrayClass) {
                                     // Convert the property names array into a makeshift set.
                                     properties = {};
-                                    for (var index = 0, length = filter.length, value; index < length; value = filter[index++], ((className = getClass.call(value)), className == stringClass || className == numberClass) && (properties[value] = 1));
+                                    for (var index = 0, length = filter.length, value; index < length; value = filter[index++], ((className = getClass.call(value)), className == stringClass || className == numberClass) && (properties[value] = 1)) ;
                                 }
                             }
                             if (width) {
@@ -581,7 +584,7 @@ if (typeof JSON_PIWIK !== 'object' && typeof window.JSON === 'object' && window.
                                     // Convert the `width` to an integer and create a string containing
                                     // `width` number of space characters.
                                     if ((width -= width % 1) > 0) {
-                                        for (whitespace = "", width > 10 && (width = 10); whitespace.length < width; whitespace += " ");
+                                        for (whitespace = "", width > 10 && (width = 10); whitespace.length < width; whitespace += " ") ;
                                     }
                                 } else if (className == stringClass) {
                                     whitespace = width.length <= 10 ? width : width.slice(0, 10);
@@ -737,13 +740,13 @@ if (typeof JSON_PIWIK !== 'object' && typeof window.JSON === 'object' && window.
                                             }
                                             isSigned = false;
                                             // Parse the integer component.
-                                            for (; Index < length && ((charCode = source.charCodeAt(Index)), charCode >= 48 && charCode <= 57); Index++);
+                                            for (; Index < length && ((charCode = source.charCodeAt(Index)), charCode >= 48 && charCode <= 57); Index++) ;
                                             // Floats cannot contain a leading decimal point; however, this
                                             // case is already accounted for by the parser.
                                             if (source.charCodeAt(Index) == 46) {
                                                 position = ++Index;
                                                 // Parse the decimal component.
-                                                for (; position < length && ((charCode = source.charCodeAt(position)), charCode >= 48 && charCode <= 57); position++);
+                                                for (; position < length && ((charCode = source.charCodeAt(position)), charCode >= 48 && charCode <= 57); position++) ;
                                                 if (position == Index) {
                                                     // Illegal trailing decimal.
                                                     abort();
@@ -761,7 +764,7 @@ if (typeof JSON_PIWIK !== 'object' && typeof window.JSON === 'object' && window.
                                                     Index++;
                                                 }
                                                 // Parse the exponential component.
-                                                for (position = Index; position < length && ((charCode = source.charCodeAt(position)), charCode >= 48 && charCode <= 57); position++);
+                                                for (position = Index; position < length && ((charCode = source.charCodeAt(position)), charCode >= 48 && charCode <= 57); position++) ;
                                                 if (position == Index) {
                                                     // Illegal empty exponent.
                                                     abort();
@@ -1084,36 +1087,36 @@ if (typeof window.Piwik !== 'object') {
 
         var expireDateTime,
 
-        /* plugins */
+            /* plugins */
             plugins = {},
 
             eventHandlers = {},
 
-        /* alias frequently used globals for added minification */
+            /* alias frequently used globals for added minification */
             documentAlias = document,
             navigatorAlias = navigator,
             screenAlias = screen,
             windowAlias = window,
 
-        /* performance timing */
+            /* performance timing */
             performanceAlias = windowAlias.performance || windowAlias.mozPerformance || windowAlias.msPerformance || windowAlias.webkitPerformance,
 
-        /* encode */
+            /* encode */
             encodeWrapper = windowAlias.encodeURIComponent,
 
-        /* decode */
+            /* decode */
             decodeWrapper = windowAlias.decodeURIComponent,
 
-        /* urldecode */
+            /* urldecode */
             urldecode = unescape,
 
-        /* asynchronous tracker */
+            /* asynchronous tracker */
             asyncTrackers = [],
 
-        /* iterator */
+            /* iterator */
             iterator,
 
-        /* local Piwik */
+            /* local Piwik */
             Piwik,
 
             missedPluginTrackerCalls = [];
@@ -1413,7 +1416,7 @@ if (typeof window.Piwik !== 'object') {
          */
         function beforeUnloadHandler() {
             var now;
-;
+            ;
             executePluginMethod('unload');
             /*
              * Delay/pause (blocks UI)
@@ -2960,15 +2963,15 @@ if (typeof window.Piwik !== 'object') {
              ************************************************************/
 
             var
-            /*<DEBUG>*/
-            /*
-             * registered test hooks
-             */
+                /*<DEBUG>*/
+                /*
+                 * registered test hooks
+                 */
                 registeredHooks = {},
-            /*</DEBUG>*/
+                /*</DEBUG>*/
 
                 trackerInstance = this,
-            // Current URL and Referrer URL
+                // Current URL and Referrer URL
                 locationArray = urlFixup(documentAlias.domain, windowAlias.location.href, getReferrer()),
                 domainAlias = domainFixup(locationArray[0]),
                 locationHrefAlias = safeDecodeWrapper(locationArray[1]),
@@ -2978,194 +2981,194 @@ if (typeof window.Piwik !== 'object') {
 
                 defaultRequestMethod = 'GET',
 
-            // Request method (GET or POST)
+                // Request method (GET or POST)
                 configRequestMethod = defaultRequestMethod,
 
                 defaultRequestContentType = 'application/x-www-form-urlencoded; charset=UTF-8',
 
-            // Request Content-Type header value; applicable when POST request method is used for submitting tracking events
+                // Request Content-Type header value; applicable when POST request method is used for submitting tracking events
                 configRequestContentType = defaultRequestContentType,
 
-            // Tracker URL
+                // Tracker URL
                 configTrackerUrl = trackerUrl || '',
 
-            // API URL (only set if it differs from the Tracker URL)
+                // API URL (only set if it differs from the Tracker URL)
                 configApiUrl = '',
 
-            // This string is appended to the Tracker URL Request (eg. to send data that is not handled by the existing setters/getters)
+                // This string is appended to the Tracker URL Request (eg. to send data that is not handled by the existing setters/getters)
                 configAppendToTrackingUrl = '',
 
-            // Site ID
+                // Site ID
                 configTrackerSiteId = siteId || '',
 
-            // User ID
+                // User ID
                 configUserId = '',
 
-            // Visitor UUID
+                // Visitor UUID
                 visitorUUID = '',
 
-            // Document URL
+                // Document URL
                 configCustomUrl,
 
-            // Document title
+                // Document title
                 configTitle = '',
 
-            // Extensions to be treated as download links
+                // Extensions to be treated as download links
                 configDownloadExtensions = ['7z', 'aac', 'apk', 'arc', 'arj', 'asf', 'asx', 'avi', 'azw3', 'bin', 'csv', 'deb', 'dmg', 'doc', 'docx', 'epub', 'exe', 'flv', 'gif', 'gz', 'gzip', 'hqx', 'ibooks', 'jar', 'jpg', 'jpeg', 'js', 'mobi', 'mp2', 'mp3', 'mp4', 'mpg', 'mpeg', 'mov', 'movie', 'msi', 'msp', 'odb', 'odf', 'odg', 'ods', 'odt', 'ogg', 'ogv', 'pdf', 'phps', 'png', 'ppt', 'pptx', 'qt', 'qtm', 'ra', 'ram', 'rar', 'rpm', 'sea', 'sit', 'tar', 'tbz', 'tbz2', 'bz', 'bz2', 'tgz', 'torrent', 'txt', 'wav', 'wma', 'wmv', 'wpd', 'xls', 'xlsx', 'xml', 'z', 'zip'],
 
-            // Hosts or alias(es) to not treat as outlinks
+                // Hosts or alias(es) to not treat as outlinks
                 configHostsAlias = [domainAlias],
 
-            // HTML anchor element classes to not track
+                // HTML anchor element classes to not track
                 configIgnoreClasses = [],
 
-            // HTML anchor element classes to treat as downloads
+                // HTML anchor element classes to treat as downloads
                 configDownloadClasses = [],
 
-            // HTML anchor element classes to treat at outlinks
+                // HTML anchor element classes to treat at outlinks
                 configLinkClasses = [],
 
-            // Maximum delay to wait for web bug image to be fetched (in milliseconds)
+                // Maximum delay to wait for web bug image to be fetched (in milliseconds)
                 configTrackerPause = 500,
 
-            // Minimum visit time after initial page view (in milliseconds)
+                // Minimum visit time after initial page view (in milliseconds)
                 configMinimumVisitTime,
 
-            // Recurring heart beat after initial ping (in milliseconds)
+                // Recurring heart beat after initial ping (in milliseconds)
                 configHeartBeatDelay,
 
-            // alias to circumvent circular function dependency (JSLint requires this)
+                // alias to circumvent circular function dependency (JSLint requires this)
                 heartBeatPingIfActivityAlias,
 
-            // Disallow hash tags in URL
+                // Disallow hash tags in URL
                 configDiscardHashTag,
 
-            // Custom data
+                // Custom data
                 configCustomData,
 
-            // Campaign names
+                // Campaign names
                 configCampaignNameParameters = ['pk_campaign', 'piwik_campaign', 'utm_campaign', 'utm_source', 'utm_medium'],
 
-            // Campaign keywords
+                // Campaign keywords
                 configCampaignKeywordParameters = ['pk_kwd', 'piwik_kwd', 'utm_term'],
 
-            // First-party cookie name prefix
+                // First-party cookie name prefix
                 configCookieNamePrefix = '_pk_',
 
-            // the URL parameter that will store the visitorId if cross domain linking is enabled
-            // pk_vid = visitor ID
-            // first part of this URL parameter will be 16 char visitor Id.
-            // The second part is the 10 char current timestamp and the third and last part will be a 6 characters deviceId
-            // timestamp is needed to prevent reusing the visitorId when the URL is shared. The visitorId will be
-            // only reused if the timestamp is less than 45 seconds old.
-            // deviceId parameter is needed to prevent reusing the visitorId when the URL is shared. The visitorId
-            // will be only reused if the device is still the same when opening the link.
-            // VDI = visitor device identifier
+                // the URL parameter that will store the visitorId if cross domain linking is enabled
+                // pk_vid = visitor ID
+                // first part of this URL parameter will be 16 char visitor Id.
+                // The second part is the 10 char current timestamp and the third and last part will be a 6 characters deviceId
+                // timestamp is needed to prevent reusing the visitorId when the URL is shared. The visitorId will be
+                // only reused if the timestamp is less than 45 seconds old.
+                // deviceId parameter is needed to prevent reusing the visitorId when the URL is shared. The visitorId
+                // will be only reused if the device is still the same when opening the link.
+                // VDI = visitor device identifier
                 configVisitorIdUrlParameter = 'pk_vid',
 
-            // First-party cookie domain
-            // User agent defaults to origin hostname
+                // First-party cookie domain
+                // User agent defaults to origin hostname
                 configCookieDomain,
 
-            // First-party cookie path
-            // Default is user agent defined.
+                // First-party cookie path
+                // Default is user agent defined.
                 configCookiePath,
 
-            // First-party cookies are disabled
+                // First-party cookies are disabled
                 configCookiesDisabled = false,
 
-            // Do Not Track
+                // Do Not Track
                 configDoNotTrack,
 
-            // Count sites which are pre-rendered
+                // Count sites which are pre-rendered
                 configCountPreRendered,
 
-            // Do we attribute the conversion to the first referrer or the most recent referrer?
+                // Do we attribute the conversion to the first referrer or the most recent referrer?
                 configConversionAttributionFirstReferrer,
 
-            // Life of the visitor cookie (in milliseconds)
+                // Life of the visitor cookie (in milliseconds)
                 configVisitorCookieTimeout = 33955200000, // 13 months (365 days + 28days)
 
-            // Life of the session cookie (in milliseconds)
+                // Life of the session cookie (in milliseconds)
                 configSessionCookieTimeout = 1800000, // 30 minutes
 
-            // Life of the referral cookie (in milliseconds)
+                // Life of the referral cookie (in milliseconds)
                 configReferralCookieTimeout = 15768000000, // 6 months
 
-            // Is performance tracking enabled
+                // Is performance tracking enabled
                 configPerformanceTrackingEnabled = true,
 
-            // Generation time set from the server
+                // Generation time set from the server
                 configPerformanceGenerationTime = 0,
 
-            // Whether Custom Variables scope "visit" should be stored in a cookie during the time of the visit
+                // Whether Custom Variables scope "visit" should be stored in a cookie during the time of the visit
                 configStoreCustomVariablesInCookie = false,
 
-            // Custom Variables read from cookie, scope "visit"
+                // Custom Variables read from cookie, scope "visit"
                 customVariables = false,
 
                 configCustomRequestContentProcessing,
 
-            // Custom Variables, scope "page"
+                // Custom Variables, scope "page"
                 customVariablesPage = {},
 
-            // Custom Variables, scope "event"
+                // Custom Variables, scope "event"
                 customVariablesEvent = {},
 
-            // Custom Dimensions (can be any scope)
+                // Custom Dimensions (can be any scope)
                 customDimensions = {},
 
-            // Custom Variables names and values are each truncated before being sent in the request or recorded in the cookie
+                // Custom Variables names and values are each truncated before being sent in the request or recorded in the cookie
                 customVariableMaximumLength = 200,
 
-            // Ecommerce items
+                // Ecommerce items
                 ecommerceItems = {},
 
-            // Browser features via client-side data collection
+                // Browser features via client-side data collection
                 browserFeatures = {},
 
-            // Keeps track of previously tracked content impressions
+                // Keeps track of previously tracked content impressions
                 trackedContentImpressions = [],
                 isTrackOnlyVisibleContentEnabled = false,
 
-            // Guard to prevent empty visits see #6415. If there is a new visitor and the first 2 (or 3 or 4)
-            // tracking requests are at nearly same time (eg trackPageView and trackContentImpression) 2 or more
-            // visits will be created
+                // Guard to prevent empty visits see #6415. If there is a new visitor and the first 2 (or 3 or 4)
+                // tracking requests are at nearly same time (eg trackPageView and trackContentImpression) 2 or more
+                // visits will be created
                 timeNextTrackingRequestCanBeExecutedImmediately = false,
 
-            // Guard against installing the link tracker more than once per Tracker instance
+                // Guard against installing the link tracker more than once per Tracker instance
                 linkTrackingInstalled = false,
                 linkTrackingEnabled = false,
                 crossDomainTrackingEnabled = false,
 
-            // Guard against installing the activity tracker more than once per Tracker instance
+                // Guard against installing the activity tracker more than once per Tracker instance
                 heartBeatSetUp = false,
 
-            // bool used to detect whether this browser window had focus at least once. So far we cannot really
-            // detect this 100% correct for an iframe so whenever Piwik is loaded inside an iframe we presume
-            // the window had focus at least once.
+                // bool used to detect whether this browser window had focus at least once. So far we cannot really
+                // detect this 100% correct for an iframe so whenever Piwik is loaded inside an iframe we presume
+                // the window had focus at least once.
                 hadWindowFocusAtLeastOnce = isInsideAnIframe(),
 
-            // Timestamp of last tracker request sent to Piwik
+                // Timestamp of last tracker request sent to Piwik
                 lastTrackerRequestTime = null,
 
-            // Handle to the current heart beat timeout
+                // Handle to the current heart beat timeout
                 heartBeatTimeout,
 
-            // Internal state of the pseudo click handler
+                // Internal state of the pseudo click handler
                 lastButton,
                 lastTarget,
 
-            // Hash function
+                // Hash function
                 hash = sha1,
 
-            // Domain hash value
+                // Domain hash value
                 domainHash,
 
                 configIdPageView,
 
-            // we measure how many pageviews have been tracked so plugins can use it to eg detect if a
-            // pageview was already tracked or not
+                // we measure how many pageviews have been tracked so plugins can use it to eg detect if a
+                // pageview was already tracked or not
                 numTrackedPageviews = 0,
 
                 configCookiesToDelete = ['id', 'ses', 'cvar', 'ref'];
@@ -3465,8 +3468,8 @@ if (typeof window.Piwik !== 'object') {
                     var xhr = windowAlias.XMLHttpRequest
                         ? new windowAlias.XMLHttpRequest()
                         : windowAlias.ActiveXObject
-                        ? new ActiveXObject('Microsoft.XMLHTTP')
-                        : null;
+                            ? new ActiveXObject('Microsoft.XMLHTTP')
+                            : null;
 
                     xhr.open('POST', configTrackerUrl, true);
 
@@ -4166,8 +4169,8 @@ if (typeof window.Piwik !== 'object') {
                     if (currentReferrerHostName.length && // there is a referrer
                         !isSiteHostName(currentReferrerHostName) && // domain is not the current domain
                         (!configConversionAttributionFirstReferrer || // attribute to last known referrer
-                        !originalReferrerHostName.length || // previously empty
-                        isSiteHostName(originalReferrerHostName))) { // previously set but in current domain
+                            !originalReferrerHostName.length || // previously empty
+                            isSiteHostName(originalReferrerHostName))) { // previously set but in current domain
                         referralUrl = configReferrerUrl;
                     }
 
@@ -4411,7 +4414,7 @@ if (typeof window.Piwik !== 'object') {
                     logEcommerce("", grandTotal, "", "", "", "");
 
                     //force delete ecommerce items by linq
-                    ecommerceItems={};
+                    ecommerceItems = {};
                 }
             }
 
@@ -4460,7 +4463,7 @@ if (typeof window.Piwik !== 'object') {
                 var downloadPattern = getClassesRegExp(configDownloadClasses, 'download'),
                     linkPattern = getClassesRegExp(configLinkClasses, 'link'),
 
-                // does file extension indicate that it is a download?
+                    // does file extension indicate that it is a download?
                     downloadExtensionsPattern = new RegExp('\\.(' + configDownloadExtensions.join('|') + ')([?&#]|$)', 'i');
 
                 if (linkPattern.test(className)) {
@@ -4981,7 +4984,7 @@ if (typeof window.Piwik !== 'object') {
             function trackCallback(callback) {
                 var isPreRendered,
                     i,
-                // Chrome 13, IE10, FF10
+                    // Chrome 13, IE10, FF10
                     prefixes = ['', 'webkit', 'ms', 'moz'],
                     prefix;
 
@@ -5400,6 +5403,7 @@ if (typeof window.Piwik !== 'object') {
             }
 
             /*<DEBUG>*/
+
             /*
              * Register a test hook. Using eval() permits access to otherwise
              * privileged members.
@@ -7478,8 +7482,8 @@ if (typeof window.Piwik === 'object' && typeof window.Piwik.PerformanceTrace !==
                 _.getGeoPosition(function (data) {
                     var coords = {
                         latitude: 0,
-                        longitude:0,
-                        action_state:'page_performance'
+                        longitude: 0,
+                        action_state: 'page_performance'
                     };
                     if (typeof data.code !== 'undefined') {
                         switch (data.code) {
@@ -7496,7 +7500,7 @@ if (typeof window.Piwik === 'object' && typeof window.Piwik.PerformanceTrace !==
                                 console.info('尝试获取用户的位置数据超时');
                                 break;
                         }
-                        coords.errmsg =  (data.message || 'geolocation error') + '; errorCode:' + data.code;
+                        coords.errmsg = (data.message || 'geolocation error') + '; errorCode:' + data.code;
                     } else {
                         //成功获取
                         coords.latitude = _.toDecimal(data.coords.latitude);
@@ -7545,7 +7549,7 @@ if (typeof window.Piwik === 'object' && typeof window.Piwik.PerformanceTrace !==
             // Chrome
             if (window.chrome && window.chrome.loadTimes) {
                 api.firstPaintTime = window.chrome.loadTimes().firstPaintTime * 1000 - pfc.timing.navigationStart;
-            }else if (typeof pfc.timing.msFirstPaint === 'number') {// IE
+            } else if (typeof pfc.timing.msFirstPaint === 'number') {// IE
                 api.firstPaintTime = pfc.timing.msFirstPaint - pfc.timing.navigationStart;
             } else {
                 api.firstPaintTime = (pfc.timing.responseStart || pfc.timing.responseEnd) - pfc.timing.navigationStart;
@@ -7557,7 +7561,7 @@ if (typeof window.Piwik === 'object' && typeof window.Piwik.PerformanceTrace !==
             // Time spent during redirection
             api.redirectTime = timing.redirectEnd - timing.redirectStart;
             // Time spent during the request
-            api.documentDownloadTime = (timing.responseEnd || timing.domLoading)  - timing.requestStart;
+            api.documentDownloadTime = (timing.responseEnd || timing.domLoading) - timing.requestStart;
             // Time Spent during dom loading
             api.domContentLoadEventTime = timing.domContentLoadedEventEnd ? timing.domContentLoadedEventEnd - timing.domContentLoadedEventStart : 0;
             // Total time from start to load
@@ -7708,7 +7712,7 @@ if (typeof window.Piwik === 'object' && typeof window.Piwik.PerformanceTrace !==
             };
             options = options || {};
             for (key in options) {
-                if(options.hasOwnProperty(key)){
+                if (options.hasOwnProperty(key)) {
                     defOptions[key] = options[key];
                 }
             }
@@ -7722,7 +7726,7 @@ if (typeof window.Piwik === 'object' && typeof window.Piwik.PerformanceTrace !==
          * Debugger Timing value incorrect
          * @returns {Array.<*>}
          */
-        this.sortTiming = function() {
+        this.sortTiming = function () {
             var pfc = _.getPerformance();
             if (!(pfc && pfc.timing)) {
                 return;
@@ -7730,7 +7734,7 @@ if (typeof window.Piwik === 'object' && typeof window.Piwik.PerformanceTrace !==
             var timing = pfc.timing;
             var arr = [];
             for (var key in timing) {
-                if(typeof timing[key] === 'number'){
+                if (typeof timing[key] === 'number') {
                     arr.push({
                         key: key,
                         value: timing[key]
@@ -7741,15 +7745,15 @@ if (typeof window.Piwik === 'object' && typeof window.Piwik.PerformanceTrace !==
                 return b.value - a.value;
             });
         }
-        this.log = function(obj){
-            if(window.console && typeof console.log === 'function') {
+        this.log = function (obj) {
+            if (window.console && typeof console.log === 'function') {
                 console.log.apply(console, arguments);
             }
         }
-        this.fixNegativeTime = function(times){
-            for(var t in times) {
-                if(times.hasOwnProperty(t)) {
-                    if(times[t]<0 || times[t]>Math.pow(10, 8)){
+        this.fixNegativeTime = function (times) {
+            for (var t in times) {
+                if (times.hasOwnProperty(t)) {
+                    if (times[t] < 0 || times[t] > Math.pow(10, 8)) {
                         times[t] = 0;
                     }
                 }
