@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>边框图片</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .border-btn {
+            margin: 10px;
+            width: 100px;
+            height: 100px;
+            border: 20px solid transparent;
+            border-image: url('./test.png') 29 29 stretch stretch;
+        }
+
+        .title_box {
+            border-image-source: url('../images/transparent_border.png');
+            display: inline-block;
+            margin: 10px;
+            width: 286px;
+            box-sizing: border-box;
+            height: 70px;
+            border-width: 10px;
+            border-color: transparent;
+            border-style: solid;
+            border-image-slice: 40 38;
+            border-image-width: 30px;
+            border-image-repeat: round round;
+        }
+    </style>
+</head>
+<body>
+    <div class="border-btn"></div>
+    <div class="title_box">
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>下拉动画</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .l-menu {
+            margin: 10px;
+            position: relative;
+            display: inline-block;
+            width: 200px;;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .l-menu .arrow {
+            position: relative;
+            display: inline-block;
+            margin-left: 5px;
+            top: -3px;
+            width: 10px;;
+            height: 10px;
+            font-style: normal;
+            transform: rotate(225deg)
+        }
+        .l-menu .arrow:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;;
+            height:6px;
+            border-left: 1px solid #999;
+            border-top: 1px solid #999;
+            transition: transform 0.5s ease;
+
+        }
+        .l-menu:hover .arrow:after{
+            transform: rotate(180deg)
+        }
+
+        .l-menu:hover .popup-box{
+            transform: scaleY(1);
+        }
+
+        .l-menu .popup-box {
+            display: block;
+            position: absolute;
+            top: 100%;
+            left: 0px;
+            list-style: none;
+            background-color: #eee;
+            width: 100%;
+            height:auto;
+            border: 1px solid #e1e1e1;
+            cursor: pointer;
+            box-sizing: border-box;
+            transition: transform 0.3s ease;
+            transform: scaleY(0);
+            transform-origin: center top;
+        }
+
+        .l-menu .popup-box:before {
+            /*content: '';*/
+            position: absolute;
+            display: inline-block;
+            left: calc(50% - 10px);
+            top: -20px;
+            border: transparent 10px solid;
+            border-bottom-color: #e1e1e1;
+        }
+
+        .l-menu .popup-box:after {
+            content: '';
+            clear: both;
+            display: block;
+        }
+
+        .l-menu .popup-box .popup-item {
+            height: 40px;
+            text-align: center;
+        }
+
+        .l-menu .popup-box .popup-item:hover {
+            background: yellowgreen;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="l-menu">
+        <div>我的订单 <i class="arrow"></i></div>
+        <ul class="popup-box">
+            <li class="popup-item">全部订单</li>
+            <li class="popup-item">未支付订单</li>
+            <li class="popup-item">已支付订单</li>
+            <li class="popup-item">已完成订单</li>
+        </ul>
+    </div>
+</body>
+</html>

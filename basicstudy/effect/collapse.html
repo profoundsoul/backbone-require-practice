@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简易折叠面板</title>
+    <script src="../libs/jquery-1.12.3.js"></script>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .collapse-demo {
+            margin: 10px;
+            background: #fff;
+            border: solid 1px #e1e1e1;
+            overflow: hidden;
+            height: auto;
+            min-height: 100px;
+            width: 60%;
+            position: relative;
+            padding: 10px;
+            padding-bottom: 40px;
+        }
+
+        .collapse-demo .collapse-item{
+            cursor: pointer;
+            border-top: 1px solid #e1e1e1;
+        }
+
+        .collapse-item.isActive{
+
+        }
+
+        .collapse-item:last-child{
+            border-bottom: 1px solid #e1e1e1;
+        }
+
+        .collapse-item .header {
+            position: relative;
+            display: block;
+            width: 100%;
+            text-align: left;
+            height: 40px;
+            line-height: 40px;
+            font-size: 14px;
+            color: #666;
+            margin-left :10px;
+            margin-right: 10px;
+            
+        }
+
+        .collapse-item .header:before {
+            content: '';
+            display: inline-block;
+            position: absolute;
+            right: 30px;
+            top: 15px;
+            width: 10px;
+            height: 10px;
+            border-right: 1px solid #bbb;
+            border-top: 1px solid #bbb;
+            transition: transform 0.5s ease;
+            transform: rotate(45deg)
+        }
+
+        .isActive .header:before{
+            transform: rotate(135deg)
+        }
+
+        .collapse-item .content {
+            font-size: 12px;
+            color: #999;
+            margin-left :10px;
+            margin-right: 10px;
+            transition: all 0.5s ease;
+            overflow: hidden;
+            height:0px;
+            /*animation: expand 1s ease both;*/
+        }
+
+
+        /*.isActive .content{*/
+            /*height: 100px;*/
+        /*}*/
+
+        .content .box {
+            overflow: hidden;
+            padding-bottom: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="collapse-demo">
+        <div class="collapse-item">
+            <div class="header">一致性 Consistency</div>
+            <div class="content">
+                <div class="box">
+                    与现实生活一致：与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念；
+                    <br>
+                    在界面中一致：所有的元素和结构需保持一致，比如：设计样式、图标和文本、元素的位置等。
+                </div>
+            </div>
+        </div>
+        <div class="collapse-item">
+            <div class="header">反馈 Feedback</div>
+            <div class="content">
+                <div class="box">
+                    控制反馈：通过界面样式和交互动效让用户可以清晰的感知自己的操作；
+                    <br>
+                    页面反馈：操作后，通过页面元素的变化清晰地展现当前状态。
+                </div>
+            </div>
+        </div>
+        <div class="collapse-item">
+            <div class="header">效率 Efficiency</div>
+            <div class="content">
+                <div class="box">
+                    简化流程：设计简洁直观的操作流程；
+                    <br>
+                    清晰明确：语言表达清晰且表意明确，让用户快速理解进而作出决策；
+                    <br>
+                    帮助用户识别：界面简单直白，让用户快速识别而非回忆，减少用户记忆负担。
+                    <br>
+                </div>
+            </div>
+        </div>
+        <div class="collapse-item">
+            <div class="header">可控 Controllability</div>
+            <div class="content">
+                <div class="box">
+                    用户决策：根据场景可给予用户操作建议或安全提示，但不能代替用户进行决策；
+                    <br>
+                    结果可控：用户可以自由的进行操作，包括撤销、回退和终止当前操作等。
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function(){
+            var attrName = 'data-expand';
+            $('.header').on('click', function(e) {
+                var target = $(e.currentTarget);
+                var p = target.parent();
+                if(p.hasClass('isActive')) {
+                    p.removeClass('isActive').siblings('.isActive').removeClass('isActive').find('.content').height(0)
+                    p.find('.content').height(0);
+                }else{
+                    p.addClass('isActive').siblings('.isActive').removeClass('isActive').find('.content').height(0)
+                    let height = p.find('.box').get(0).offsetHeight;
+                    p.find('.content').height(height);
+                }
+//                var curContent = target.siblings('.content')
+//                $('.collapse-demo').find('.content').not(curContent.get(0)).attr(attrName,'0').css('height', '0px');
+//                if(curContent.attr(attrName)=='1') {
+//                    curContent.attr(attrName,'0').css('height', '0px');
+//                }else{
+//                    curContent.attr(attrName,'1').css('height', '100px');
+//                }
+            })
+        })
+
+    </script>
+</body>
+</html>
