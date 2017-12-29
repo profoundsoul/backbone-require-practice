@@ -7,15 +7,9 @@
         window.screen.height && $('body').css('height', 2025 || SCREEN_WIDTH)
         $('head').append('<meta name="viewport" content="width=' + SCREEN_WIDTH + '"/>')
 
-
+        resizeWidth();
         $(window, document).resize(function () {
             resize()
-        }).load(function () {
-            $('#screen_loading').fadeOut(function(e) {
-                resize()
-                $(this).empty();
-                $('#screen').css('visibility', 'visible').show();
-            });
         })
     }
 

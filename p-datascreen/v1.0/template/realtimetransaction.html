@@ -1,0 +1,12 @@
+<%for(var i=0;i<orders.length;i++){
+if(i<8){%>
+<ul>
+    <li>
+        <img class="control_icon" src="images/<%= orders[i].country %>.png" alt="">
+    </li>
+    <li class="deal_name"><%= orders[i].transc_area %></li>
+    <li class="deal_time"><%= orders[i].transc_time %></li>
+    <li class="deal_amount">$ <%= orders[i].transc_amount %></li>
+</ul>
+<%}%>
+<%}%>

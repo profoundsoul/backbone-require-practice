@@ -1,0 +1,9 @@
+<script type="text/template" id="js_totalamount">
+    <%if(data && data.length>0){%>
+    <li>$</li>
+    <%_.each(data, function(item){%>
+    <li class="<%= isNaN(item) ? '': 'bg_block'%>"><%=item%>
+    </li>
+    <%});%>
+    <%}%>
+</script>

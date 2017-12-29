@@ -1,0 +1,205 @@
+.rmb_box .hot_title_box {
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    top: -42px;
+    width: 280px;
+    height: 83px;
+    line-height: 83px;
+    border: none;
+    transform: translate3d(-50%, -50%, 0);
+    background: url('../images/1title.png') 0px 0px repeat repeat;
+    text-align: center;
+    color: #e13780;
+    font-size: 42px;
+    font-family: arial, "Hiragino Sans GB", "Microsoft Yahei", "微软雅黑", "宋体", 宋体, Tahoma, Arial, Helvetica, STHeiti;
+}
+.rmb_box .tab_box {
+    position: relative;
+    display: flex;
+    display: -webkit-flex;
+    list-style: none;
+    margin-top: 6px;
+    height: 78px;
+    margin-left: 20px;
+    margin-right: 20px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #179dd2;
+    cursor: pointer;
+}
+.rmb_box .tab_box:before {
+    content: '';
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: #24578c;
+    opacity: 0.2;
+
+}
+.rmb_box .tab_box li {
+    -webkit-flex: 1;
+    flex: 1;
+    height: 78px;
+    line-height: 78px;
+    font-size: 34px;
+}
+.rmb_box .tab_box .active {
+    color: #fff;
+    background: #0f2541;
+}
+.rank_slider{
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    height:90%;
+}
+.swipe-wrap{
+    overflow: hidden;
+    position: relative;
+    height:100%;
+}
+.swipe-wrap>.item{
+    width:100%;
+}
+@keyframes slideIn {
+    from {
+        transform: translate3d(-100%, 0, 0);
+        visibility: visible;
+    }
+
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.slideInLeft {
+    animation-name: slideIn;
+}
+.rmb_box .rank_box {
+    margin-top: 25px;
+    margin-left: 20px;
+    margin-right: 0px;
+    overflow: hidden;
+    display: -webkit-flex;
+    display: flex;
+}
+.rmb_box .rank_box .rank_col {
+    list-style: none;
+    color: #179dd2;
+}
+.rmb_box .rank_box .flex_strenth {
+    flex: 1;
+    -webkit-flex: 1;
+}
+.rmb_box .rank_box .rank_col li {
+    width: 100%;
+    line-height: 35px;
+    margin-top: 3px;
+    font-size: 28px;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+}
+.rmb_box .rank_box .rank_col li:nth-child(2),
+.rmb_box .rank_box .rank_col li:nth-child(3),
+.rmb_box .rank_box .rank_col li:nth-child(4) {
+    color: #90d6ff;
+}
+.rmb_box .rank_box .rank_col .rank_title {
+    text-align: left;
+    color: #fff;
+    margin-bottom: 15px;
+    font-size: 32px;
+}
+.rmb_box .rank_box .rank_col li .no {
+    display: inline-block;
+    margin-right: 5px;
+    align-self: flex-start;
+}
+.rmb_box .rank_box .rank_col li .first_no {
+    background: url('../images/1.png') 0px 0px no-repeat no-repeat;
+    width: 12px;
+    height: 28px;
+}
+.rmb_box .rank_box .rank_col li .second_no {
+    background: url('../images/2.png') 0px 0px no-repeat no-repeat;
+    width: 23px;
+    height: 28px;
+    margin-left: -2px;
+}
+.rmb_box .rank_box .rank_col li .third_no {
+    background: url('../images/3.png') 0px 0px no-repeat no-repeat;
+    width: 21px;
+    height: 28px;
+    margin-left: -2px;
+}
+.rmb_box .rank_box .rank_col li .goods_name {
+    flex: 1;
+    -webkit-flex: 1;
+    text-align: right;
+    margin-right: 5px;
+}
+.rmb_box .rank_box .rank_col li .goods_name span {
+    display: inline-block;
+    overflow: hidden;
+    width: 100%;
+    word-break: break-word;
+}
+.rmb_box .rank_box .flex_strenth .goods_name {
+    text-align: left !important;
+    padding-left: 25px;
+}
+.rmb_box .country_rank {
+    position: absolute;
+    left: 0px;
+    bottom: 12px;
+    right: 0px;
+    overflow: hidden;
+    display: block;
+    margin-left: 20px;
+}
+.rmb_box .country_rank .title {
+    display: block;
+    font-size: 32px;
+    color: #fff;
+}
+.rmb_box .country_rank ul {
+    list-style: none;
+    display: -webkit-flex;
+    display: flex;
+    margin-top: 30px;
+    justify-content: left;
+    align-items: baseline;
+    /*text-align: center;*/
+}
+.rmb_box .country_rank ul li {
+    -webkit-flex: 1;
+    flex: 1;
+    font-size: 60px;
+    color: #90d6ff;
+}
+.rmb_box .country_rank ul li i {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+.rmb_box .country_rank ul li .top1 {
+    background: url('../images/Top1.png') 0px 0px no-repeat;
+    width: 63px;
+    height: 28px;
+}
+.rmb_box .country_rank ul li .top2 {
+    background: url('../images/Top2.png') 0px 0px no-repeat;
+    width: 68px;
+    height: 28px;
+}
+.rmb_box .country_rank ul li .top3 {
+    background: url('../images/Top3.png') 0px 0px no-repeat;
+    width: 67px;
+    height: 28px;
+}

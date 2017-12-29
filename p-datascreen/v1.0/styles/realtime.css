@@ -1,0 +1,176 @@
+.realtime_box .realtime_title_box {
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    width: 280px;
+    height: 83px;
+    top: -40px;
+    line-height: 83px;
+    border: none;
+    transform: translate3d(-50%, -50%, 0);
+    background: url('../images/2title.png') 0px 0px repeat repeat;
+    text-align: center;
+    color: #e13780;
+    font-size: 42px;
+    font-family: arial, "Hiragino Sans GB", "Microsoft Yahei", "微软雅黑", "宋体", 宋体, Tahoma, Arial, Helvetica, STHeiti;
+}
+.realtime_box .deal_box {
+    position: relative;
+    margin: 20px 16px 0px 16px;
+    border: 2px solid #00b7ee;
+    border-left: none;
+    border-right: none;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    min-height: 620px;
+    padding: 40px 40px 0px 40px;
+}
+.realtime_box .deal_box:before {
+    content: '';
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: #24578c;
+    opacity: 0.18;
+    z-index: -1;
+}
+.realtime_box .deal_box .deal_title {
+    font-size: 36px;
+    color: #fff;
+    display: block;
+}
+.realtime_box .deal_box .deal_list {
+    margin-top: 40px;
+}
+.realtime_box .deal_list ul {
+    position: relative;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+    color: #fbb548;
+    list-style: none;
+    margin-top: 15px;
+}
+.realtime_box .deal_list ul:nth-child(2n) {
+    color: #90d6ff;
+}
+.realtime_box .deal_list ul .control_icon {
+    display: inline-block;
+    width: 44px;
+    height: 30px;
+    margin-right: 20px;
+}
+.realtime_box .deal_list ul .deal_name {
+    flex: 2;
+    -webkit-flex: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* word-spacing: normal; */
+    /* word-break: normal; */
+    white-space: nowrap;
+}
+.realtime_box .deal_list ul .deal_time {
+    margin-left: 24px;
+    margin-right: 24px;
+}
+.realtime_box .deal_list ul .deal_amount {
+    flex: 1;
+    -webkit-flex: 1;
+    text-align: right;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.realtime_box .deal_list ul .deal_amount span {
+    float: right;
+}
+.realtime_box .active_user_box {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: solid 2px #00b7ee;
+    border-right: none;
+    border-left: none;
+    min-height: 990px;
+    margin: 0px 16px;
+    margin-top: 34px;
+    padding: 40px 40px 0px 40px;
+}
+.realtime_box .active_user_box:before {
+    content: '';
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: #24578c;
+    opacity: 0.18;
+    z-index: -1;
+}
+.realtime_box .active_user_box .active_user_title {
+    font-size: 36px;
+    color: #fff;
+    display: block;
+}
+.realtime_box .active_user_box .active_list {
+    margin-top: 50px;
+    overflow: hidden;
+    padding-bottom: 20px;
+}
+.realtime_box .active_user_box .active_list .user_info {
+    overflow: hidden;
+    border-bottom: 2px solid #0c84b3;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.realtime_box .active_user_box .active_list .user_info:first-child {
+    border-top: 2px solid #0c84b3;
+}
+
+.realtime_box .active_user_box .active_list .user_info:last-child {
+    border: none;
+}
+.realtime_box .active_user_box .user_info .caption {
+    height: 80px;
+    line-height: 80px;
+    text-align: left;
+    color: #90d6ff;
+    font-size: 34px;
+}
+.active_user_box .user_info .active_user{
+    height:128px;
+    margin-bottom: 40px;
+    overflow:hidden;
+}
+.realtime_box .active_user_box .user_info:first-child .caption{
+    color:#e13780;
+}
+.realtime_box .active_user_box .user_info .detail_list {
+    font-size: 24px;
+    line-height: 32px;
+    margin-left: 80px;
+    list-style: decimal;
+    /*padding-bottom: 40px;*/
+    display: none;
+   /* margin-top: -10px;*/
+    list-style-position: inside;
+}
+.realtime_box .active_user_box .user_info.active .detail_list {
+    display: block;
+}
+.realtime_box .user_info .detail_list li {
+    color: #179dd2;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

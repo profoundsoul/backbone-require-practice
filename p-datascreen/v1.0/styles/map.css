@@ -1,0 +1,129 @@
+
+.map_box .amount_box{
+    position: absolute;
+    top: 20px;
+    left: 0px;
+    right: 0px;
+    width: 100%;
+    min-height: 300px;
+    z-index: 1000;
+
+    overflow: hidden;
+    font-size: 46px;
+    margin: 0px auto;
+    text-align: center;
+}
+.map_box .amount_box .total_title {
+    display: block;
+    margin-left: 50px;
+    text-align: left;
+    color: #fff;
+}
+.map_box .amount_box  .total_sum {
+    list-style: none;
+    display: inline-block;
+    width: 100%;
+    margin-top: 25px;
+    font-size: 0;
+}
+.map_box .amount_box .total_sum li {
+    display: inline-block;
+    height: 110px;
+    width: 60px;
+    margin-left: 12px;
+    color: #f8e225;
+    font-size: 80px;
+    font-weight: bold;
+    overflow: hidden;
+    position: relative;
+}
+.map_box .amount_box .total_sum li:first-child{
+    margin-left: 0px;
+}
+.map_box .amount_box .total_sum li.bg_block{
+    position: relative;
+    overflow: hidden;
+    width: 60px;
+}
+.map_box .amount_box .total_sum li.bg_block:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: #5083ba;
+    opacity: 0.5;
+    z-index: -1;
+}
+.map_box .amount_box .detail_box{
+    list-style: none;
+    display: inline-block;
+    margin-top: 28px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+.map_box .amount_box .detail_box .total_sales {
+    position: relative;
+    overflow: hidden;
+    width: 490px;
+    height: 152px;
+    line-height: 152px;
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+    margin-left: 80px;
+}
+.map_box .amount_box .detail_box .total_orders{
+    position: relative;
+    overflow: hidden;
+    width: 490px;
+    height: 152px;
+    line-height: 152px;
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+    margin-left: 88px;
+}
+.map_box .amount_box .detail_box .total_sales:before,
+.map_box .amount_box .detail_box .total_orders:before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: #5083ba;
+    opacity: 0.5;
+    z-index: -1;
+}
+.map_box .amount_box .detail_box .center {
+    display: inline-block;
+    line-height: normal;
+    vertical-align: middle;
+    text-align: left;
+    overflow: hidden;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.map_box .amount_box .detail_box .details_title{
+    display: inline-block;
+    color: #fff;
+    font-size: 46px;
+    clear:both;
+    text-align: left;
+    white-space: nowrap;
+}
+.map_box .amount_box .detail_box .details_amount{
+    display: inline-block;
+    color: #f8e225;
+    text-align: left;
+    white-space: nowrap;
+}
+
+
+
