@@ -15,7 +15,7 @@
 <script>
     var yiwill = {
         getUserName:function(callbackid, id, mm) {
-            console.log('调用android 后台API啦！callbackid' + callbackid + '，arguments:id:' + id + '，mm: '+ mm)
+            console.log('调用android 后台API啦！callbackid：' + callbackid + '，arguments id：' + id + '，mm：'+ mm)
         }
     }
 </script>
@@ -36,6 +36,17 @@
                 })
             }, 2000)
         })
+        yiwillJSBridge.on('event:homeback', function(e) {
+            console.log('homeBack Execute !!!', e);
+        })
+
+        setTimeout(function(){
+            yiwillJSBridge.__handleMessageFromYiwill({
+                __msg_type: 'event',
+                __eventid: 'event:homeback',
+                __param: ['test']
+            })
+        }, 5000)
     })();
 </script>
 </body>
