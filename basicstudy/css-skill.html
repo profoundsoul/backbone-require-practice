@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>常见的CSS技巧练习</title>
+    <style>
+        *{
+            margin:0px;
+            padding: 0px;
+        }
+
+        .bother-selector{
+            list-style: none;
+
+        }
+
+        .bother-selector li:nth-child(2n) {
+            opacity: 0.1;
+            background-color: #00a0e9;
+        }
+
+        .bother-selector dd~li{
+            color: greenyellow;
+            background: #666666;
+        }
+    </style>
+</head>
+<body>
+<ul class="bother-selector">
+    <li>1</li>
+    <li>2</li>
+    <dd>rrrrrrrrrr</dd>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+</ul>
+
+<a href="/aaaa.html" data-info="inner images">链接到aaaa站点</a>
+
+<a href="http://www.baidu.com" data-info="external images">链接到百度</a>
+</body>
+</html>

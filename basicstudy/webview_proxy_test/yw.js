@@ -58,7 +58,8 @@
             args.unshift(callBackId)
         }
         try {
-            return window[_JAVA_PROXY_ORIGIN_METHODS][funcName].apply(null, args)
+            return window[_JAVA_PROXY_ORIGIN_METHODS][funcName].apply(window[_JAVA_PROXY_ORIGIN_METHODS], args)
+
         } catch (e) {
             return _setFailCommonReturn('调用apk：' + funcName + '方法失败！', e)
         }
@@ -104,7 +105,7 @@
     }
 
     function __handleMessageFromYiwill (message) {
-        var msgObj = message
+        var msgObj = message || {}
         switch (msgObj[_MESSAGE_TYPE]) {
             case 'callback':
                 var callbackId = +msgObj[_CALLBACK_ID] || 0
@@ -171,6 +172,5 @@
         _log('定义window.yiwillJSBridge属性失败！', e)
         return
     }
-
 })()
 
