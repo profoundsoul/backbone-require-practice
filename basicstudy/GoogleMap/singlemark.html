@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        html, body {
+            height: 100%;
+        }
+
+        /* Set the size of the div element that contains the map */
+        #map {
+            height: 80%; /* The height is 400 pixels */
+            width: 100%; /* The width is the width of the web page */
+        }
+    </style>
+</head>
+<body>
+<h3>My Google Maps Demo</h3>
+<!--The div element for the map -->
+<div id="map"></div>
+<script>
+    var mapStyle = [{
+//        'stylers': [{'visibility': 'off'}]
+    }, {
+        'featureType': 'landscape',
+        'elementType': 'geometry',
+        'stylers': [{'visibility': 'on'}, {'color': '#fcfcfc'}]
+    }, {
+        'featureType': 'water',
+        'elementType': 'geometry',
+        'stylers': [{'visibility': 'on'}, {'color': '#bfd4ff'}]
+    }]
+    var map = null;
+
+    function initMap () {
+        var uluru = {lat: -25.344, lng: 131.036}
+        map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 3,
+            center: uluru,
+            styles: mapStyle
+        })
+        map.data.setStyle(styleFeature);
+        loadMapShapes();
+
+        setTimeout(setData, 7000)
+    }
+
+    function styleFeature(feature) {
+
+        var saleCount = feature.getProperty('sale');
+        var showRow =  saleCount? true:false;
+        var outlineWeight = 0.5;
+
+        var low = [5, 69, 54];  // color of smallest datum
+        var high = [151, 83, 34];   // color of largest datum
+
+
+        var saleMin = 0;
+        var saleMax = 5000;
+        var delta = (saleCount - saleMin)/(saleMax - saleMin);
+
+        var color = [];
+        for (var i = 0; i < 3; i++) {
+            // calculate an integer color based on the delta
+            color[i] = (high[i] - low[i]) * delta + low[i];
+        }
+        if(showRow) {
+            console.log(showRow, saleCount, feature, 'styleFeature!!!');
+        }
+
+        return {
+            strokeWeight: outlineWeight,
+            strokeColor: '#fff',
+            zIndex: 11,
+            fillColor: 'hsl(' + color[0] + ',' + color[1] + '%,' + color[2] + '%)',
+            fillOpacity: 0.75,
+            visible: showRow
+        };
+    }
+
+    var COUNTRYS = {
+        'India': [77.13, 28.37],
+        'Ghana': [-0.06, 5.35],
+        'Uganda': [32.30, 0.20],
+        'China': [114.045801, 22.543437],
+        'Nigeria': [7.32, 9.05],
+        'Tanzania': [35.45, -6.08],
+        'United Republic of Tanzania': [38.42, 9.02]
+    };
+    function setData() {
+        for(var name in COUNTRYS){
+            var saleCount = Math.ceil(Math.random() * 5000)
+            map.data.getFeatureById(name).setProperty('sale', saleCount);
+        }
+    }
+
+    function loadMapShapes () {
+        // load US state outline polygons from a GeoJson file
+        map.data.loadGeoJson('https://raw.githubusercontent.com/matej-pavla/Google-Maps-Examples/master/BoundariesExample/geojsons/world.countries.geo.json', {
+            idPropertyName: 'name'
+        })
+    }
+</script>
+<!--Load the API from the specified URL
+* The async attribute allows the browser to render the page while the API loads
+* The key parameter will contain your own API key (which is not needed for this tutorial)
+* The callback parameter executes the initMap() function
+-->
+<!--<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA954Yhh_NK58ZyK5qUCuHLOEulM6py-Uw&callback=initMap"></script>-->
+<!--<script async defer src="http://ditu.google.cn/maps/api/js?key=AIzaSyA954Yhh_NK58ZyK5qUCuHLOEulM6py-Uw&callback=initMap"></script>-->
+<script async defer
+        src="http://www.google.cn/maps/api/js?key=AIzaSyA954Yhh_NK58ZyK5qUCuHLOEulM6py-Uw&callback=initMap"></script>
+<!--<script async defer src="http://maps.google.cn/maps/api/js?key=AIzaSyA954Yhh_NK58ZyK5qUCuHLOEulM6py-Uw&callback=initMap"></script>-->
+
+
+</body>
+</html>

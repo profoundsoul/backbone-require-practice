@@ -1,0 +1,465 @@
+[{
+    "code": "CN0000",
+    "name": "中国香港",
+    "cname": "HK,香港,中国香港"
+}, {
+    "code": "XX0006",
+    "name": "萨摩亚",
+    "cname": "萨摩亚"
+}, {
+    "code": "XX0005",
+    "name": "索马里兰",
+    "cname": "索马里兰"
+}, {
+    "code": "SB0000",
+    "name": "所罗门",
+    "cname": "所罗门,所罗门群岛"
+}, {
+    "code": "XX0001",
+    "name": "迪拜",
+    "cname": "迪拜"
+}, {
+    "code": "XX0004",
+    "name": "加勒比海",
+    "cname": "加勒比海"
+}, {
+    "code": "SS0000",
+    "name": "南苏丹",
+    "cname": "南苏丹"
+}, {
+    "code": "CF0000",
+    "name": "中非共和国",
+    "cname": "中非共和国"
+}, {
+    "code": "CD0000",
+    "name": "刚果金",
+    "cname": "刚果金,刚果民主共和国"
+}, {
+    "code": "BD0000",
+    "name": "孟加拉",
+    "cname": "孟加拉,孟加拉国"
+}, {
+    "code": "CN0001",
+    "name": "中国大陆",
+    "cname": "国内工厂"
+}, {
+    "code": "CG0000",
+    "name": "刚果布",
+    "cname": "刚果布,刚果共和国"
+}, {
+    "code": "YY0000",
+    "name": "公共部门",
+    "cname": "公共部门"
+}, {
+    "code": "XX0003",
+    "name": "北苏丹",
+    "cname": "北苏丹"
+}, {
+    "code": "GM0000",
+    "name": "冈比亚",
+    "cname": "冈比亚",
+    "twocode": "GM",
+    "threecode": "GMB"
+}, {
+    "code": "EG0000",
+    "name": "埃及",
+    "cname": "埃及",
+    "twocode": "EG",
+    "threecode": "EGY"
+}, {
+    "code": "IR0000",
+    "name": "伊朗",
+    "cname": "伊朗,伊朗伊斯兰教共和国",
+    "twocode": "IR",
+    "threecode": "IRN"
+}, {
+    "code": "NG0000",
+    "name": "尼日利亚",
+    "cname": "尼日利亚",
+    "twocode": "NG",
+    "threecode": "NGA"
+}, {
+    "code": "GH0000",
+    "name": "加纳",
+    "cname": "加纳",
+    "twocode": "GH",
+    "threecode": "GHA"
+}, {
+    "code": "SA0000",
+    "name": "沙特阿拉伯",
+    "cname": "沙特阿拉伯",
+    "twocode": "SA",
+    "threecode": "SAU"
+}, {
+    "code": "GW0000",
+    "name": "几内亚比绍",
+    "cname": "几内亚比绍",
+    "twocode": "GW",
+    "threecode": "GNB"
+}, {
+    "code": "ID0000",
+    "name": "印度尼西亚",
+    "cname": "印度尼西亚",
+    "twocode": "ID",
+    "threecode": "IDN"
+}, {
+    "code": "JO0000",
+    "name": "约旦",
+    "cname": "约旦",
+    "twocode": "JO",
+    "threecode": "JOR"
+}, {
+    "code": "ZM0000",
+    "name": "赞比亚",
+    "cname": "赞比亚",
+    "twocode": "ZM",
+    "threecode": "ZMB"
+}, {
+    "code": "MY0000",
+    "name": "马来西亚",
+    "cname": "马来西亚",
+    "twocode": "MY",
+    "threecode": "MYS"
+}, {
+    "code": "BF0000",
+    "name": "布基纳法索",
+    "cname": "布基纳法索",
+    "twocode": "BF",
+    "threecode": "BFA"
+}, {
+    "code": "TH0000",
+    "name": "泰国",
+    "cname": "泰国",
+    "twocode": "TH",
+    "threecode": "THA"
+}, {
+    "code": "KE0000",
+    "name": "肯尼亚",
+    "cname": "肯尼亚",
+    "twocode": "KE",
+    "threecode": "KEN"
+}, {
+    "code": "AO0000",
+    "name": "安哥拉",
+    "cname": "安哥拉",
+    "twocode": "AO",
+    "threecode": "AGO"
+}, {
+    "code": "GA0000",
+    "name": "加蓬",
+    "cname": "加蓬",
+    "twocode": "GA",
+    "threecode": "GAB"
+}, {
+    "code": "GQ0000",
+    "name": "赤道几内亚",
+    "cname": "赤道几内亚",
+    "twocode": "GQ",
+    "threecode": "GNQ"
+}, {
+    "code": "MG0000",
+    "name": "马达加斯加",
+    "cname": "马达加斯加",
+    "twocode": "MG",
+    "threecode": "MDG"
+}, {
+    "code": "CO0000",
+    "name": "哥伦比亚",
+    "cname": "哥伦比亚",
+    "twocode": "Co",
+    "threecode": "COL"
+}, {
+    "code": "ML0000",
+    "name": "马里",
+    "cname": "马里",
+    "twocode": "ML",
+    "threecode": "MLI"
+}, {
+    "code": "DK0000",
+    "name": "丹麦",
+    "cname": "丹麦",
+    "twocode": "DK",
+    "threecode": "DNK"
+}, {
+    "code": "MR0000",
+    "name": "毛里塔尼亚",
+    "cname": "毛里塔尼亚",
+    "twocode": "MR",
+    "threecode": "MRT"
+}, {
+    "code": "MX0000",
+    "name": "墨西哥",
+    "cname": "墨西哥",
+    "twocode": "MX",
+    "threecode": "MEX"
+}, {
+    "code": "NE0000",
+    "name": "尼日尔",
+    "cname": "尼日尔",
+    "twocode": "NE",
+    "threecode": "NER"
+}, {
+    "code": "SG0000",
+    "name": "新加坡",
+    "cname": "新加坡",
+    "twocode": "SG",
+    "threecode": "SGP"
+}, {
+    "code": "SO0000",
+    "name": "索马里",
+    "cname": "索马里",
+    "twocode": "SO",
+    "threecode": "SOM"
+}, {
+    "code": "PG0000",
+    "name": "巴布亚新几内亚",
+    "cname": "巴布亚新几内亚,巴布亚新几内亚独立国",
+    "twocode": "PG",
+    "threecode": "PNG"
+}, {
+    "code": "TD0000",
+    "name": "乍得",
+    "cname": "乍得",
+    "twocode": "TD",
+    "threecode": "TCD"
+}, {
+    "code": "LY0000",
+    "name": "利比亚",
+    "cname": "利比亚",
+    "twocode": "LY",
+    "threecode": "LBY"
+}, {
+    "code": "CM0000",
+    "name": "喀麦隆",
+    "cname": "喀麦隆",
+    "twocode": "CM",
+    "threecode": "CMR"
+}, {
+    "code": "NA0000",
+    "name": "纳米比亚",
+    "cname": "纳米比亚",
+    "twocode": "NA",
+    "threecode": "NAM"
+}, {
+    "code": "BW0000",
+    "name": "博茨瓦纳",
+    "cname": "博茨瓦纳",
+    "twocode": "BW",
+    "threecode": "BWA"
+}, {
+    "code": "DJ0000",
+    "name": "吉布提",
+    "cname": "吉布提",
+    "twocode": "DJ",
+    "threecode": "DJI"
+}, {
+    "code": "LR0000",
+    "name": "利比里亚",
+    "cname": "利比里亚",
+    "twocode": "LR",
+    "threecode": "LBR"
+}, {
+    "code": "MM0000",
+    "name": "缅甸",
+    "cname": "缅甸",
+    "twocode": "MM",
+    "threecode": "MMR"
+}, {
+    "code": "ZA0000",
+    "name": "南非",
+    "cname": "南非,南非共和国",
+    "twocode": "ZA",
+    "threecode": "ZAF"
+}, {
+    "code": "NP0000",
+    "name": "尼泊尔",
+    "cname": "尼泊尔",
+    "twocode": "NP",
+    "threecode": "NPL"
+}, {
+    "code": "SN0000",
+    "name": "塞内加尔",
+    "cname": "塞内加尔",
+    "twocode": "SN",
+    "threecode": "SEN"
+}, {
+    "code": "PH0000",
+    "name": "菲律宾",
+    "cname": "菲律宾",
+    "twocode": "PH",
+    "threecode": "PHL"
+}, {
+    "code": "VN0000",
+    "name": "越南",
+    "cname": "越南",
+    "twocode": "VN",
+    "threecode": "VNM"
+}, {
+    "code": "JM0000",
+    "name": "牙买加",
+    "cname": "牙买加",
+    "twocode": "JM",
+    "threecode": "JAM"
+}, {
+    "code": "MA0000",
+    "name": "摩洛哥",
+    "cname": "摩洛哥",
+    "twocode": "MA",
+    "threecode": "MAR"
+}, {
+    "code": "LK0000",
+    "name": "斯里兰卡",
+    "cname": "斯里兰卡",
+    "twocode": "LK",
+    "threecode": "LKA"
+}, {
+    "code": "RW0000",
+    "name": "卢旺达",
+    "cname": "卢旺达",
+    "twocode": "RW",
+    "threecode": "RWA"
+}, {
+    "code": "KH0000",
+    "name": "柬埔寨",
+    "cname": "柬埔寨",
+    "twocode": "KH",
+    "threecode": "KHM"
+}, {
+    "code": "MU0000",
+    "name": "毛里求斯",
+    "cname": "毛里求斯",
+    "twocode": "MU",
+    "threecode": "MUS"
+}, {
+    "code": "FJ0000",
+    "name": "斐济",
+    "cname": "斐济",
+    "twocode": "FJ",
+    "threecode": "FJI"
+}, {
+    "code": "SL0000",
+    "name": "塞拉利昂",
+    "cname": "塞拉利昂",
+    "twocode": "SL",
+    "threecode": "SLE"
+}, {
+    "code": "NR0000",
+    "name": "瑙鲁",
+    "cname": "瑙鲁",
+    "twocode": "NR",
+    "threecode": "NRU"
+}, {
+    "code": "XX0002",
+    "name": "科特迪瓦",
+    "cname": "科特迪瓦",
+    "twocode": "CI",
+    "threecode": "CIV"
+}, {
+    "code": "TG0000",
+    "name": "多哥",
+    "cname": "多哥",
+    "twocode": "TG",
+    "threecode": "TGO"
+}, {
+    "code": "ZW0000",
+    "name": "津巴布韦",
+    "cname": "津巴布韦",
+    "twocode": "ZW",
+    "threecode": "ZWE"
+}, {
+    "code": "TO0000",
+    "name": "汤加",
+    "cname": "汤加",
+    "twocode": "TO",
+    "threecode": "TON"
+}, {
+    "code": "TN0000",
+    "name": "突尼斯",
+    "cname": "突尼斯",
+    "twocode": "TN",
+    "threecode": "TUN"
+}, {
+    "code": "VU0000",
+    "name": "瓦努阿图",
+    "cname": "瓦努阿图",
+    "twocode": "VU",
+    "threecode": "VUT"
+}, {
+    "code": "ET0000",
+    "name": "埃塞俄比亚",
+    "cname": "埃塞俄比亚,埃塞",
+    "twocode": "ET",
+    "threecode": "ETH"
+}, {
+    "code": "FR0000",
+    "name": "法国",
+    "cname": "法国",
+    "twocode": "FR",
+    "threecode": "FRA"
+}, {
+    "code": "MW0000",
+    "name": "马拉维",
+    "cname": "马拉维",
+    "twocode": "MW",
+    "threecode": "MWI"
+}, {
+    "code": "TZ0000",
+    "name": "坦桑尼亚",
+    "cname": "坦桑尼亚",
+    "twocode": "TZ",
+    "threecode": "TZA"
+}, {
+    "code": "BJ0000",
+    "name": "贝宁",
+    "cname": "贝宁",
+    "twocode": "BJ",
+    "threecode": "BEN"
+}, {
+    "code": "OM0000",
+    "name": "阿曼",
+    "cname": "阿曼",
+    "twocode": "OM",
+    "threecode": "OMN"
+}, {
+    "code": "RU0000",
+    "name": "俄罗斯",
+    "cname": "俄罗斯,俄罗斯联邦",
+    "twocode": "RU",
+    "threecode": "RUS"
+}, {
+    "code": "LB0000",
+    "name": "黎巴嫩",
+    "cname": "黎巴嫩",
+    "twocode": "LB",
+    "threecode": "LBN"
+}, {
+    "code": "XX0000",
+    "name": "巴基斯坦",
+    "cname": "巴基斯坦",
+    "twocode": "PK",
+    "threecode": "PAK"
+}, {
+    "code": "MZ0000",
+    "name": "莫桑比克",
+    "cname": "莫桑比克",
+    "twocode": "MZ",
+    "threecode": "MOZ"
+}, {
+    "code": "GN0000",
+    "name": "几内亚",
+    "cname": "几内亚",
+    "twocode": "GN",
+    "threecode": "GIN"
+}, {
+    "code": "UG0000",
+    "name": "乌干达",
+    "cname": "乌干达",
+    "twocode": "UG",
+    "threecode": "UGA"
+}, {
+    "code": "IN0000",
+    "name": "印度",
+    "cname": "印度",
+    "twocode": "IN",
+    "threecode": "IND"
+}]
