@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Pack Order</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="libs/bootstrap-4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="libs/DataTables/datatables.min.css">
+    <link rel="stylesheet" href="libs/bootstrap-mutilselect/bootstrap-multiselect.css">
+    <style>
+        body {
+            font-size: 12px;
+        }
+
+        .pack-order-container {
+            position: relative;
+        }
+
+        .pack-order-container .table thead tr > th {
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .pack-order-container .table tfoot tr > td {
+            text-align: center;
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+
+        .pack-order-container .table .table-first-columns-cell {
+            min-width: 300px;
+        }
+
+        .pack-order-container .table .table-columns-cell {
+            min-width: 140px;
+        }
+
+        .pack-order-container .table .LineInfo {
+            display: block;
+            padding-left: 5px;
+            line-height: 20px;
+            overflow: hidden;
+            height: 20px;
+        }
+
+        .pack-order-container .table .LineInfo .LineTitle {
+            width: 320px;
+            height: 18px;
+            overflow: hidden;
+            display: inline-block;
+            padding-top: 2px;
+        }
+
+        .pack-order-container .table .divBox {
+            position: relative;
+            height: 119px;
+            overflow: hidden;
+            padding: 10px;
+        }
+
+        .pack-order-container .table .LineDays {
+            position: absolute;
+            left: 110px;
+            top: 80px;
+            font-size: larger;
+            font-weight: 700;
+            filter: alpha(opacity=50);
+            -moz-opacity: .5;
+            -khtml-opacity: .5;
+            opacity: .8;
+        }
+
+        .pack-order-container .table .LineTrip {
+            display: block;
+            padding-left: 5px;
+            line-height: 20px;
+            overflow: hidden;
+        }
+
+        .pack-order-container .table .LineTrip .border-bottom-gd {
+            border-bottom: 1px dotted #9dd9dd;
+        }
+
+        .pack-order-container .table .divOk {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(208, 243, 141, .5);
+            position: absolute;
+            display: block;
+            top: 0;
+            left: 0;
+        }
+
+        .pack-order-container .table .divOk .ok-icon {
+            position: absolute;
+            width: 32px;
+            height: 32px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .pack-order-container .table .divLev {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            display: block;
+            top: 0;
+            left: 0;
+        }
+
+        .pack-order-container .table .level5 {
+            background-color: rgba(28, 206, 16, .1);
+        }
+
+        .pack-order-container .table .divAlready {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(220, 220, 220, .8);
+            position: absolute;
+            display: block;
+            top: 0;
+            left: 0;
+        }
+
+        .pack-order-container .table .ico-already {
+            display: inline-block;
+            width: 100%;
+            padding: 2px;
+            height: 40px;
+            overflow: hidden;
+        }
+
+        .pack-order-container .table .bg-dark-grey {
+            background-color: #bebfba;
+        }
+
+        .tipbox-orderdetail{
+            list-style: none;
+            min-width: 300px;
+        }
+
+        .tipbox-orderdetail li {
+            padding-top: 5px;
+            padding-bottom: 5px;
+            list-style: none;
+        }
+        .tipbox-orderdetail-bar {
+            padding-top: 5px;
+            padding-bottom: 5px;
+            border-top: 1px solid #eee;
+        }
+
+        .popover{
+            max-width: 500px;
+        }
+
+
+    </style>
+</head>
+<body class="container-fluid mt-3 mx-0">
+<div class="container-fluid pack-order-container">
+    <div class="row">
+        <div class="col-12">
+            <div class="float-left">
+                <h5 class=" float-left">
+                    已选订单数:
+                    <span id="spNum" class="text-success">0</span>
+                    游客人数:
+                    <span id="spCount" class="text-success">0大0小</span>
+                </h5>
+            </div>
+            <div class="float-right">
+                <select id="multiLine" class="invisible" multiple="multiple">
+                    <option value="17650"> 17650 大连两日游</option>
+                </select>
+
+                <select id="multiPOI" class="invisible" multiple="multiple">
+                    <option value="17650"> 17650 大连两日游</option>
+                </select>
+                <button type="button" class="btn btn-primary">订单拼团</button>
+                <button type="button" class="btn btn-success">智能推荐</button>
+                <button type="button" class="btn btn-danger">清除选择</button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 js_table_container">
+            <table class="table table-bordered js_table" style="width: 100%;">
+                <thead>
+                <tr>
+                    <th class="text-center ">
+                        <button type="button" class="btn btn-link p-0 text-danger js_now">今天</button>
+                        <br>
+                        <div class="d-inline-block">
+                            <button type="button" data-day="" class="btn btn-link p-0 js_lastweek">上周</button>
+                            <button type="button"  data-day=""  class="btn btn-link p-0 js_lastday">前一天</button>
+                            <button type="button"  data-day=""  class="btn btn-link p-0 js_nextday">下一天</button>
+                            <button type="button"  data-day=""  class="btn btn-link p-0 js_nextweek">下周</button>
+                        </div>
+                    </th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td class="align-middle">待处理订单</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="libs/jQuery-1.12.4/jquery-1.12.4.min.js"></script>
+<script src="libs/bootstrap-4.3.1/js/bootstrap.bundle.min.js"></script>
+<script src="libs/DataTables/datatables.min.js"></script>
+<script src="libs/moment.min.js"></script>
+<script src="libs/bootstrap-mutilselect/bootstrap-multiselect.js"></script>
+<script>
+    (function () {
+        var apiResponse = {
+            "Code": 200,
+            "DebugInfo": "",
+            "welcome": "欢迎使用最棒的旅行社管理系统v0.81",
+            "Data": {
+                "Success": true,
+                "Infos": [{
+                    "OrderID": 1429150,
+                    "OrderNo": "S191011-XZ00004",
+                    "OrderTabType": 0,
+                    "LineID": 14399,
+                    "LineName": "西昌邛海 泸沽湖双汽四日游",
+                    "TripRemark": null,
+                    "ChildCount": 2,
+                    "AdultCount": 2,
+                    "JKPointName": "",
+                    "JKDD": null,
+                    "JKDate": "",
+                    "SKPointName": "",
+                    "SKDD": null,
+                    "SKDate": "",
+                    "VendorName": "微店直销",
+                    "VendorType": 0,
+                    "ContactName": "111",
+                    "ContactTel": "111",
+                    "OrderStatus": 3,
+                    "PaymentStatus": 0,
+                    "Remark": "",
+                    "Amount": 888.0000,
+                    "TravelStartDate": "2019-10-14",
+                    "TravelEndDate": "2019-10-18",
+                    "Days": [{
+                        "Date": "2019-10-14",
+                        "Day": 1,
+                        "PoiList": [{"POIID": 337134, "POIName": "邛海"}],
+                        "Selected": false,
+                        "Level": 0,
+                        "CanPack": true,
+                        "GroupID": 0,
+                        "GroupNo": "",
+                        "TripTitle": "重庆—雅安—盐源",
+                        "Remark": null,
+                        "GroupType": 0,
+                        "GroupStatus": 0,
+                        "GroupTypeShow": "新建",
+                        "GroupStatusShow": "其他",
+                        "HotelInfo": "【三星酒店】西昌",
+                        "GuideInfo": null,
+                        "GroupName": null
+                    }, {
+                        "Date": "2019-10-15",
+                        "Day": 2,
+                        "PoiList": [{"POIID": 333374, "POIName": "乘坐猪槽船游泸沽湖"}, {
+                            "POIID": 101680,
+                            "POIName": "泸沽湖观景台"
+                        }, {"POIID": 337135, "POIName": "泸沽湖"}],
+                        "Selected": false,
+                        "Level": 0,
+                        "CanPack": true,
+                        "GroupID": 0,
+                        "GroupNo": "",
+                        "TripTitle": "西昌/盐源—泸沽湖",
+                        "Remark": null,
+                        "GroupType": 0,
+                        "GroupStatus": 0,
+                        "GroupTypeShow": "新建",
+                        "GroupStatusShow": "其他",
+                        "HotelInfo": "【客栈/民宿】泸沽湖",
+                        "GuideInfo": null,
+                        "GroupName": null
+                    }, {
+                        "Date": "2019-10-16",
+                        "Day": 3,
+                        "PoiList": [{"POIID": 337136, "POIName": "摩梭古村落"}],
+                        "Selected": false,
+                        "Level": 0,
+                        "CanPack": true,
+                        "GroupID": 0,
+                        "GroupNo": "",
+                        "TripTitle": "泸沽湖—西昌",
+                        "Remark": null,
+                        "GroupType": 0,
+                        "GroupStatus": 0,
+                        "GroupTypeShow": "新建",
+                        "GroupStatusShow": "其他",
+                        "HotelInfo": "【三星酒店】西昌",
+                        "GuideInfo": null,
+                        "GroupName": null
+                    }, {
+                        "Date": "2019-10-17",
+                        "Day": 4,
+                        "PoiList": [{"POIID": 0, "POIName": "无景点"}],
+                        "Selected": false,
+                        "Level": 0,
+                        "CanPack": true,
+                        "GroupID": 0,
+                        "GroupNo": "",
+                        "TripTitle": "西昌—重庆",
+                        "Remark": null,
+                        "GroupType": 0,
+                        "GroupStatus": 0,
+                        "GroupTypeShow": "新建",
+                        "GroupStatusShow": "其他",
+                        "HotelInfo": "",
+                        "GuideInfo": null,
+                        "GroupName": null
+                    }]
+                }, {
+                    "OrderID": 1429154,
+                    "OrderNo": "S191011-XZ00006",
+                    "OrderTabType": 0,
+                    "LineID": 14399,
+                    "LineName": "西昌邛海 泸沽湖双汽四日游",
+                    "TripRemark": null,
+                    "ChildCount": 0,
+                    "AdultCount": 5,
+                    "JKPointName": "",
+                    "JKDD": null,
+                    "JKDate": "",
+                    "SKPointName": "",
+                    "SKDD": null,
+                    "SKDate": "",
+                    "VendorName": "微店直销",
+                    "VendorType": 0,
+                    "ContactName": "55",
+                    "ContactTel": "555",
+                    "OrderStatus": 3,
+                    "PaymentStatus": 0,
+                    "Remark": "",
+                    "Amount": 1110.0000,
+                    "TravelStartDate": "2019-10-16",
+                    "TravelEndDate": "2019-10-20",
+                    "Days": [{
+                        "Date": "2019-10-16",
+                        "Day": 1,
+                        "PoiList": [{"POIID": 337134, "POIName": "邛海"}],
+                        "Selected": false,
+                        "Level": 0,
+                        "CanPack": false,
+                        "GroupID": 336242,
+                        "GroupNo": "MT191016-S001",
+                        "TripTitle": "重庆—雅安—盐源",
+                        "Remark": null,
+                        "GroupType": 1,
+                        "GroupStatus": 10,
+                        "GroupTypeShow": "散拼",
+                        "GroupStatusShow": "拼团中",
+                        "HotelInfo": "【三星酒店】西昌",
+                        "GuideInfo": null,
+                        "GroupName": "西昌邛海 泸沽湖双汽四日游"
+                    }, {
+                        "Date": "2019-10-17",
+                        "Day": 2,
+                        "PoiList": [{"POIID": 333374, "POIName": "乘坐猪槽船游泸沽湖"}, {
+                            "POIID": 101680,
+                            "POIName": "泸沽湖观景台"
+                        }, {"POIID": 337135, "POIName": "泸沽湖"}],
+                        "Selected": false,
+                        "Level": 0,
+                        "CanPack": false,
+                        "GroupID": 336242,
+                        "GroupNo": "MT191016-S001",
+                        "TripTitle": "西昌/盐源—泸沽湖",
+                        "Remark": null,
+                        "GroupType": 1,
+                        "GroupStatus": 10,
+                        "GroupTypeShow": "散拼",
+                        "GroupStatusShow": "拼团中",
+                        "HotelInfo": "【客栈/民宿】泸沽湖",
+                        "GuideInfo": null,
+                        "GroupName": "西昌邛海 泸沽湖双汽四日游"
+                    }, {
+                        "Date": "2019-10-18",
+                        "Day": 3,
+                        "PoiList": [{"POIID": 337136, "POIName": "摩梭古村落"}],
+                        "Selected": false,
+                        "Level": 0,
+                        "CanPack": true,
+                        "GroupID": 0,
+                        "GroupNo": "",
+                        "TripTitle": "泸沽湖—西昌",
+                        "Remark": null,
+                        "GroupType": 0,
+                        "GroupStatus": 0,
+                        "GroupTypeShow": "新建",
+                        "GroupStatusShow": "其他",
+                        "HotelInfo": "【三星酒店】西昌",
+                        "GuideInfo": null,
+                        "GroupName": null
+                    }, {
+                        "Date": "2019-10-19",
+                        "Day": 4,
+                        "PoiList": [{"POIID": 0, "POIName": "无景点"}],
+                        "Selected": false,
+                        "Level": 0,
+                        "CanPack": true,
+                        "GroupID": 0,
+                        "GroupNo": "",
+                        "TripTitle": "西昌—重庆",
+                        "Remark": null,
+                        "GroupType": 0,
+                        "GroupStatus": 0,
+                        "GroupTypeShow": "新建",
+                        "GroupStatusShow": "其他",
+                        "HotelInfo": "",
+                        "GuideInfo": null,
+                        "GroupName": null
+                    }]
+                }, {
+                    "OrderID": 1428986,
+                    "OrderNo": "S191011-XZ00003",
+                    "OrderTabType": 0,
+                    "LineID": 17650,
+                    "LineName": "大连两日游",
+                    "TripRemark": null,
+                    "ChildCount": 2,
+                    "AdultCount": 2,
+                    "JKPointName": "",
+                    "JKDD": null,
+                    "JKDate": "",
+                    "SKPointName": "",
+                    "SKDD": null,
+                    "SKDate": "",
+                    "VendorName": "微店直销",
+                    "VendorType": 0,
+                    "ContactName": "555",
+                    "ContactTel": "55555555555",
+                    "OrderStatus": 3,
+                    "PaymentStatus": 0,
+                    "Remark": "",
+                    "Amount": 4800.0000,
+                    "TravelStartDate": "2019-10-17",
+                    "TravelEndDate": "2019-10-20",
+                    "Days": [{
+                        "Date": "2019-10-17",
+                        "Day": 1,
+                        "PoiList": [{"POIID": 0, "POIName": "无景点"}],
+                        "Selected": false,
+                        "Level": 0,
+                        "CanPack": false,
+                        "GroupID": 336176,
+                        "GroupNo": "MT191017-S001",
+                        "TripTitle": "",
+                        "Remark": null,
+                        "GroupType": 1,
+                        "GroupStatus": 10,
+                        "GroupTypeShow": "散拼",
+                        "GroupStatusShow": "拼团中",
+                        "HotelInfo": "",
+                        "GuideInfo": "王建勇",
+                        "GroupName": "大连两日游"
+                    }, {
+                        "Date": "2019-10-18",
+                        "Day": 2,
+                        "PoiList": [{"POIID": 0, "POIName": "无景点"}],
+                        "Selected": false,
+                        "Level": 0,
+                        "CanPack": false,
+                        "GroupID": 336176,
+                        "GroupNo": "MT191017-S001",
+                        "TripTitle": "",
+                        "Remark": null,
+                        "GroupType": 1,
+                        "GroupStatus": 10,
+                        "GroupTypeShow": "散拼",
+                        "GroupStatusShow": "拼团中",
+                        "HotelInfo": "",
+                        "GuideInfo": "王建勇",
+                        "GroupName": "大连两日游"
+                    }, {
+                        "Date": "2019-10-19",
+                        "Day": 3,
+                        "PoiList": [{"POIID": 0, "POIName": "无景点"}],
+                        "Selected": false,
+                        "Level": 0,
+                        "CanPack": true,
+                        "GroupID": 0,
+                        "GroupNo": "",
+                        "TripTitle": "",
+                        "Remark": null,
+                        "GroupType": 0,
+                        "GroupStatus": 0,
+                        "GroupTypeShow": "新建",
+                        "GroupStatusShow": "其他",
+                        "HotelInfo": "",
+                        "GuideInfo": null,
+                        "GroupName": null
+                    }]
+                }, {
+                    "OrderID": 1429151,
+                    "OrderNo": "S191011-XZ00005",
+                    "OrderTabType": 0,
+                    "LineID": 17650,
+                    "LineName": "大连两日游",
+                    "TripRemark": null,
+                    "ChildCount": 4,
+                    "AdultCount": 2,
+                    "JKPointName": "三峡游客中心",
+                    "JKDD": null,
+                    "JKDate": "2019-10-15",
+                    "SKPointName": "均瑶广场",
+                    "SKDD": null,
+                    "SKDate": "2019-10-15",
+                    "VendorName": "微店直销",
+                    "VendorType": 0,
+                    "ContactName": "111",
+                    "ContactTel": "111",
+                    "OrderStatus": 3,
+                    "PaymentStatus": 0,
+                    "Remark": "",
+                    "Amount": 7200.0000,
+                    "TravelStartDate": "2019-10-16",
+                    "TravelEndDate": "2019-10-18",
+                    "Days": [{
+                        "Date": "2019-10-16",
+                        "Day": 1,
+                        "PoiList": [{"POIID": 0, "POIName": "无景点"}],
+                        "Selected": false,
+                        "Level": 0,
+                        "CanPack": true,
+                        "GroupID": 0,
+                        "GroupNo": "",
+                        "TripTitle": "",
+                        "Remark": null,
+                        "GroupType": 0,
+                        "GroupStatus": 0,
+                        "GroupTypeShow": "新建",
+                        "GroupStatusShow": "其他",
+                        "HotelInfo": "",
+                        "GuideInfo": null,
+                        "GroupName": null
+                    }, {
+                        "Date": "2019-10-17",
+                        "Day": 2,
+                        "PoiList": [{"POIID": 0, "POIName": "无景点"}],
+                        "Selected": false,
+                        "Level": 0,
+                        "CanPack": true,
+                        "GroupID": 0,
+                        "GroupNo": "",
+                        "TripTitle": "",
+                        "Remark": null,
+                        "GroupType": 0,
+                        "GroupStatus": 0,
+                        "GroupTypeShow": "新建",
+                        "GroupStatusShow": "其他",
+                        "HotelInfo": "",
+                        "GuideInfo": null,
+                        "GroupName": null
+                    }, {
+                        "Date": "2019-10-18",
+                        "Day": 3,
+                        "PoiList": [{"POIID": 0, "POIName": "无景点"}],
+                        "Selected": false,
+                        "Level": 0,
+                        "CanPack": true,
+                        "GroupID": 0,
+                        "GroupNo": "",
+                        "TripTitle": "",
+                        "Remark": null,
+                        "GroupType": 0,
+                        "GroupStatus": 0,
+                        "GroupTypeShow": "新建",
+                        "GroupStatusShow": "其他",
+                        "HotelInfo": "",
+                        "GuideInfo": null,
+                        "GroupName": null
+                    }]
+                }]
+            }
+        }
+        var mockDataList = apiResponse.Data.Infos;
+        console.log(mockDataList);
+
+        var ZH_WEEL = {
+            0: '日',
+            1: '一',
+            2: '二',
+            3: '三',
+            4: '四',
+            5: '五',
+            6: '六'
+        };
+
+        function getDayInfo(d) {
+            var m = cloneMoment(d);
+            var t = moment().add(1, 'd');
+            var isTommorrow = false;
+            if (t.format('YYYY-MM-DD') == m.format('YYYY-MM-DD')) {
+                isTommorrow = true;
+            }
+            return {
+                date: m.toDate(),
+                dateStr: m.format('YYYY-MM-DD'),
+                dayOfWeek: m.day(),
+                dayOfWeekStr: ZH_WEEL[m.day()],
+                monthDay: m.format('MM-DD'),
+                isTomorrow: isTommorrow,
+            }
+        }
+
+        function cloneMoment(m) {
+            return moment(m).clone();
+        }
+
+        function getMonthDay(startDay, isPre) {
+            var totalDayNumber = 30;
+            var m = cloneMoment(startDay);
+            var i = 0;
+            var symbol = !!isPre ? -1 : 1;
+            var result = [];
+            while (i < totalDayNumber) {
+                result.push(getDayInfo(cloneMoment(m).add(i * symbol, 'd')));
+                i++;
+            }
+            return result;
+        }
+
+        function generateList(d, isPre) {
+            var monthDayList = getMonthDay(d, !!isPre);
+
+            // 为了模拟构造数据
+            var result = JSON.parse(JSON.stringify(mockDataList));
+            // 构造第一列数据，是订单数据
+            result.forEach(function (order) {
+                var orderDayList = order.Days;
+                order.allDayList = monthDayList.map(function (d) {
+                    var newDay = {};
+                    var orderDay = getOrderDay(orderDayList, d.dateStr);
+                    $.extend(true, newDay, d)
+                    if (orderDay) {
+                        $.extend(true, newDay, {
+                            orderDay: orderDay
+                        });
+                    }
+                    return newDay;
+                })
+            });
+
+            // 默认添加表头数据
+            monthDayList.forEach(function (item) {
+                $.extend(item, {
+                    totalOrderCount: 0,
+                    totalTouristCount: 0,
+                    totalChildCount: 0,
+                    totalAdultCount: 0,
+                });
+            })
+
+            return {
+                list: result,
+                columns: monthDayList
+            };
+
+            function getOrderDay(dayList, dateStr) {
+                var len = dayList.length;
+                for (var i = 0; i < len; i++) {
+                    if (dateStr == dayList[i].Date) {
+                        return dayList[i];
+                    }
+                }
+                return null;
+            }
+        }
+
+        $(document).ready(function () {
+            $('#multiLine, #multiPOI').multiselect({
+                // enableClickableOptGroups: true,
+                // enableCollapsibleOptGroups: true,
+                // enableFiltering: true,
+                includeSelectAllOption: true,
+                buttonWidth: "200px"
+            });
+
+
+            var listTable = $('.js_table');
+
+            var lastDay = moment().add(-8, 'd');
+            createDataTable(listTable, lastDay);
+            $('.js_table_container').on('click', '.js_now', function (e) {
+                var table = listTable.dataTable();
+                table.fnDestroy();
+                createDataTable(listTable, moment().add(-1, 'd'));
+            });
+
+            $('.js_table_container').on('click', '.js_lastweek', function (e) {
+                var table = listTable.dataTable();
+                table.fnDestroy();
+                var target = $(e.currentTarget);
+                var day = target.attr('data-day');
+                var date = moment();
+                if(day){
+                    date = moment(day, 'YYYY-MM-DD');
+                }
+                createDataTable(listTable, date.add(-7, 'd'));
+            });
+
+            $('.js_table_container').on('click', '.js_lastday', function (e) {
+                var table = listTable.dataTable();
+                table.fnDestroy();
+                var target = $(e.currentTarget);
+                var day = target.attr('data-day');
+                var date = moment();
+                if(day){
+                    date = moment(day, 'YYYY-MM-DD');
+                }
+                createDataTable(listTable, date.add(-1, 'd'));
+            });
+
+            $('.js_table_container').on('click', '.js_nextday', function (e) {
+                var table = listTable.dataTable();
+                table.fnDestroy();
+                var target = $(e.currentTarget);
+                var day = target.attr('data-day');
+                var date = moment();
+                if(day){
+                    date = moment(day, 'YYYY-MM-DD');
+                }
+                createDataTable(listTable, date.add(1, 'd'));
+            });
+
+            $('.js_table_container').on('click', '.js_nextweek', function (e) {
+                var table = listTable.dataTable();
+                table.fnDestroy();
+                var target = $(e.currentTarget);
+                var day = target.attr('data-day');
+                var date = moment();
+                if(day){
+                    date = moment(day, 'YYYY-MM-DD');
+                }
+                createDataTable(listTable, date.add(7, 'd'));
+            });
+
+
+            listTable.on('click', 'tbody td .divLev', function (e) {
+                var target = $(e.currentTarget);
+                var okElement = target.siblings('.divOk');
+                if (okElement.hasClass('d-none')) {
+                    okElement.removeClass('d-none');
+                } else {
+                    okElement.addClass('d-none');
+                }
+            })
+
+            listTable.find('tbody td .js_tips').popover({
+                trigger: 'hover',
+                html: true,
+                placement: 'auto',
+                content: function (d) {
+                    return '<ul class="tipbox-orderdetail mx-3 px-0">\n' +
+                        '    <li><span class="text-danger font-weight-bold">#14399</span>西昌邛海 泸沽湖双汽四日游</li>\n' +
+                        '    <li><span class="text-secondary">景点&nbsp;</span>无景点</li>\n' +
+                        '    <li><span class="text-secondary">订单&nbsp;</span><span class="text-danger font-weight-bold"># 1429150</span>微店直销</li>\n' +
+                        '    <li><strong class="font-weight-bold">111</strong>\n' +
+                        '        （111 ）\n' +
+                        '        <span class="text-success">2大 2小 </span></li>\n' +
+                        '    <li><span class="text-secondary">接客&nbsp;</span></li>\n' +
+                        '    <li><span class="text-secondary">送客&nbsp;</span></li>\n' +
+                        '    <li><span class="text-secondary">酒店&nbsp;</span></li>\n' +
+                        '    <li class="tipbox-orderdetail-bar clearfix">\n' +
+                        '        <div class="float-right">订单总额<span class="text-danger font-weight-bold"><dfn>¥</dfn>888</span></div>\n' +
+                        '    </li>\n' +
+                        '</ul>'
+                }
+            })
+        });
+
+        function createDataTable(listTable, d) {
+            var data = generateList(d);
+
+            var columns = [{
+                className: 'table-first-columns-cell bg-light',
+                data: function (data, type, val) {
+                    var html = '<div class="LineInfo">\n' +
+                        ' <img src="images/flag.png" style="width: 12px;" alt=""> &nbsp;' +
+                        '    <span class="text-secondary">订单 </span>\n' +
+                        '    <a href="/order/operation?orderid=1429150" target="_blank">\n' +
+                        data.OrderNo +
+                        '    </a>\n' +
+                        '    <span>' + data.VendorName + '</span>\n' +
+                        '</div>\n' +
+                        '<div class="LineInfo ">\n' +
+                        '    <span class="text-secondary">接客</span>\n' +
+                        '    <span class="text-success"></span></div>\n' +
+                        '<div class="LineInfo ">\n' +
+                        '    <span class="text-lightgray">送客</span>\n' +
+                        '    <span class="text-secondary"></span></div>\n' +
+                        '<div class="LineInfo ">\n' +
+                        '    <span class="text-secondary">酒店</span>\n' +
+                        '    <span class="text-success">【三星酒店】西昌</span>\n' +
+                        '</div>';
+                    return html;
+                }
+            }];
+            data.columns.forEach(function (day, index) {
+                columns.push({
+                    className: 'table-columns-cell p-0',
+                    data: function (data, type, val) {
+                        var order = data;
+                        var day = data.allDayList[index];
+                        if (day.orderDay) {
+                            var orderDay = day.orderDay;
+                            if (orderDay.CanPack) {
+                                return '<div class="divBox js_tips">\n' +
+                                    '    <div class=" LineDays"><span class="text-success">D2</span></div>\n' +
+                                    '    <ul class="LineTrip">\n' +
+                                    '        <li class="">西昌/盐源—泸沽湖</li>\n' +
+                                    '        <li class="border-bottom-gd">4人 <span class="font-12 text-success">2大2小</span></li>\n' +
+                                    '        <li class="font-10 text-danger">乘坐猪槽船游泸沽湖</li>\n' +
+                                    '        <li class="font-10 text-danger">泸沽湖观景台</li>\n' +
+                                    '        <li class="font-10 text-danger">泸沽湖</li>\n' +
+                                    '    </ul>\n' +
+                                    '    <div class="divDisabled d-none"><span class="ico-disabled"></span></div>\n' +
+                                    '    <div class="divOk d-none"><img class="ok-icon" src="images/ok.png"></div>\n' +
+                                    '    <div class="divAlready d-none"><span class="ico-already"></span></div>\n' +
+                                    '    <div class="divLev level5"></div>\n' +
+                                    '</div>'
+                            }
+                            else {
+                                return '<div class="divBox js_tips">\n' +
+                                    '    <div class=" LineDays"><span class="text-success">D2</span></div>\n' +
+                                    '    <ul class="LineTrip">\n' +
+                                    '        <li class=""></li>\n' +
+                                    '        <li class="border-bottom-gd">4人 <span class="font-12 text-success">2大2小</span></li>\n' +
+                                    '        <li class="font-10 text-danger">无景点</li>\n' +
+                                    '    </ul>\n' +
+                                    '    <div class="divDisabled d-none"><span class="ico-disabled"></span></div>\n' +
+                                    '    <div class="divOk d-none"><span class="ico-ok"></span></div>\n' +
+                                    '    <div class="divAlready">\n' +
+                                    '        <span class="ico-already bg-dark-grey">\n' +
+                                    '            <img src="images/flag-trans.png" style="width: 12px;" alt="">\n' +
+                                    '            大连两日游\n' +
+                                    '        </span>\n' +
+                                    '        <ul class="LineTrip">\n' +
+                                    '            <li class="font-10">导游：王建勇</li>\n' +
+                                    '            <li class="font-10">团号：\n' +
+                                    '                <a href="/ordgroup/OrdGroupOperation?GroupID=336176" target="_blank">MT191017-S001</a>\n' +
+                                    '            </li>\n' +
+                                    '        </ul>\n' +
+                                    '    </div>\n' +
+                                    '</div>';
+
+                            }
+                        }
+                        return '';
+                    },
+                    dynamicCol: day
+                });
+            });
+            // data.list = data.list.concat(data.list)
+            // data.list = data.list.concat(data.list)
+            // data.list = data.list.concat(data.list)
+            // data.list = data.list.concat(data.list)
+            // data.list = data.list.concat(data.list);
+
+
+            // 计算列头、 列尾的统计数量
+            data.list.reduce(function (arr, current) {
+                data.columns.forEach(function (col, colIndex) {
+                    var d = current.allDayList[colIndex];
+                    if (d.orderDay) {
+                        if (d.orderDay.CanPack) {
+                            col.totalOrderCount = col.totalOrderCount + 1;
+                            col.totalAdultCount += current.AdultCount;
+                            col.totalChildCount += current.ChildCount;
+                            col.totalTouristCount += (current.AdultCount + current.ChildCount);
+                        }
+                    }
+                });
+                return arr;
+            }, []).forEach(function (totalItem, index) {
+                $.extend(true, data.columns[index], totalItem);
+            });
+
+            return listTable.dataTable({
+                paging: false,
+                scrollCollapse: true,
+                scrollY: 500,
+                info: false,
+                searching: false,
+                fixedHeader: true,
+                ordering: false,
+                scrollX: true,
+                destroy: true,
+                data: data.list,
+                fixedColumns: {
+                    leftColumns: 1
+                },
+                columns: columns,
+                headerCallback: function (cols) {
+                    return function (thead, data, start, end, display) {
+                        // 计算一次
+                        var theadElement = $(thead);
+                        if (!theadElement.attr('data-load')) {
+                            $(thead).attr('data-load', 1);
+                            var allThElement = $(thead).find('th');
+                            cols.forEach(function (col, index) {
+                                var dynamicData = col.dynamicCol;
+                                if (index) {
+                                    var htmlArr = [];
+                                    htmlArr.push('' + dynamicData.monthDay);
+                                    if (dynamicData.isTomorrow) {
+                                        htmlArr.push('<span class="text-danger">明天</span>');
+                                    } else {
+                                        htmlArr.push(dynamicData.dayOfWeekStr);
+                                    }
+                                    htmlArr.push('<br>');
+                                    htmlArr.push('<span class="font-weight-normal">' + dynamicData.totalOrderCount + '单，共' + dynamicData.totalTouristCount + '人' + '</span>');
+                                    allThElement.eq(index).html(htmlArr.join(''));
+                                }else{
+                                    $('.js_lastweek, .js_lastday, .js_nextday, .js_nextweek').attr('data-day', cols[1].dynamicCol.dateStr);
+                                }
+                            });
+                        }
+                    }
+                }(columns),
+                footerCallback: function (cols) {
+                    return function (thead, data, start, end, display) {
+                        var theadElement = $(thead);
+                        if (!theadElement.attr('data-load')) {
+                            $(thead).attr('data-load', 1);
+                            var allThElement = $(thead).find('td');
+                            cols.forEach(function (col, index) {
+                                if (index) {
+                                    var dynamicData = col.dynamicCol;
+                                    var htmlArr = [];
+                                    htmlArr.push('总订单：' + dynamicData.totalOrderCount);
+                                    htmlArr.push(' <br> ');
+                                    htmlArr.push('总人数：' + dynamicData.totalTouristCount + '（' + dynamicData.totalAdultCount + '大' + dynamicData.totalChildCount + '小）');
+                                    allThElement.eq(index).html(htmlArr.join(''));
+                                }
+                            });
+                        }
+                    }
+                }(columns),
+                initComplete: function(){
+                    $('.js_table thead>tr, .js_table tfoot>tr').attr('data-load', '')
+                }
+            });
+        }
+    })();
+</script>
+</body>
+</html>
