@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OrderList Group Booking </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="libs/bootstrap-4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="libs/DataTables/datatables.min.css">
+    <style>
+        .share-cart-container {
+            position: relative;
+            display: inline-block;
+            color: #555;
+            font-size: 12px;
+        }
+
+        .share-cart-container .share-cart {
+            position: relative;
+            z-index: 1;
+            height: 34px;
+            line-height: 34px;
+            border: 1px solid #DFDFDF;
+            padding: 0 10px;
+            background: #F9F9F9;
+            text-align: center;
+            display: inline-block;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .share-cart-container .share-cart .cart-icon {
+            width: 14px;
+            height: 14px;
+            line-height: 14px;
+            vertical-align: baseline;
+        }
+
+        .share-cart-container .share-cart .right-icon {
+            width: 14px;
+            height: 14px;
+            line-height: 14px;
+            vertical-align: baseline;
+        }
+
+        .share-cart-container .share-cart .share-count {
+            position: absolute;
+            top: -8px;
+            right: 10px;
+            display: inline-block;
+            padding: 1px 4px;
+            font-size: 10px;
+            line-height: 12px;
+            color: #fff;
+            background-color: #e36159;
+            border-radius: 8px 8px 8px 0;
+            min-width: 12px;
+            text-align: center;
+        }
+
+        .share-cart-container .cart-list {
+            position: absolute;
+            width: 0;
+            background: #fff;
+            top: 33px;
+            left: 0;
+            transition: all .5s .5s;
+            -webkit-transition: all .5s .5s;
+            opacity: 0;
+            overflow: hidden;
+            box-shadow: none;
+            border: 0 solid rgba(223, 223, 223, 0);
+        }
+
+        .share-cart-container .cart-shadow {
+            background: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+        }
+
+        .share-cart-container .cart-list-container {
+            max-height: 500px;
+            overflow: auto;
+            width: 450px;
+        }
+
+        .share-cart-container .cart-list-container .meh-o-icon {
+            width: 18px;
+            height: 18px;
+        }
+
+        .share-cart-container .cart-list-container .text-lightgray {
+            color: #999 !important;
+        }
+
+        .share-cart-container .row {
+            margin: auto;
+        }
+
+        .share-cart-container .cart-footer {
+            padding: 8px;
+            width: 450px;
+            background: #F5F5F5;
+        }
+
+        .share-cart-container .cart-footer .line-total {
+            color: #b1b0b0;
+            font-size: 12px;
+            line-height: 35px;
+        }
+
+        .share-cart-container .cart-footer .line-total .exclamation-triangle-icon {
+            width: 12px;
+            height: 12px;
+        }
+
+        .share-cart-container:hover .share-cart {
+            background: #fff;
+            border-bottom: 0;
+            background: #fff;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, .1);
+        }
+
+        .share-cart-container:hover .cart-list {
+            transition: all .5s;
+            -webkit-transition: all .5s;
+            opacity: 1;
+            pointer-events: auto;
+            width: 450px;
+            border: 1px solid #DFDFDF;
+            box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+        }
+
+    </style>
+</head>
+<body class="container mt-5 mx-0">
+
+<div class="container-fluid">
+    <div class="row no-gutters">
+        <div class="col-12">
+            <div class="share-cart-container">
+                <div class="share-cart">
+                    <img class="cart-icon" src="images/cart.png" alt="">
+                    &nbsp;勾选订单，快速组团&nbsp;
+                    <img class="right-icon" src="images/angle-double-right.png" alt="">
+                    <span class="share-count bounceIn">1</span>
+                </div>
+                <div class="cart-list cart-shadow">
+                    <div class="cart-list-container">
+                        <table class="table table-borderless" style="display: none;">
+                            <tbody>
+                            <tr>
+                                <td style="background-color:white;text-align:center">
+                                    <h5>
+                                        <img src="images/meh-o.png" class="meh-o-icon" alt="">
+                                        &nbsp;请先选择要组团的订单
+                                    </h5>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <table class="table table-borderless">
+                            <tbody>
+                            <tr data-id="1429151">
+                                <td class="col-sm-11 pb-0 ">
+                                    <a target="_blank" href="#" class="font-semi-bold">1429151</a>
+                                    大连两日游
+                                    <span class="text-lightgray">2大4小  微店直销</span>
+                                </td>
+                                <td class="col-sm-1 pb-0 text-center ">
+                                    <span class="btn btn-link py-0 btn-sm" style="cursor:pointer;">
+                                        <img src="images/minus-circle.png" style="width: 12px;height: 12px;" alt="">
+                                    </span>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="cart-footer row no-gutters">
+                        <span class="col-sm-6 line-total">
+                            <img src="images/exclamation-triangle.png" class="exclamation-triangle-icon" alt="">
+                            &nbsp;关闭网页或退出登录会清空此列表
+                        </span>
+                        <div class="col-sm-6 text-right">
+                            <button type="button" class="btn btn-default" data-clear-btn="">清空</button>
+                            &nbsp;
+                            <a href="/smartpackorder/pack" type="button" class="btn btn-success">组团</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 300px;">
+        <div class="col-12">
+            <img src="images/cart-fly-demo.png" style="width: 100px;" alt="">
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
+            </div>
+        </div>
+        <div class="col-12">
+            <img src="images/cart-fly-demo.png" style="width: 100px;" alt="">
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck2">
+                <label class="custom-control-label" for="customCheck2">Check this custom checkbox</label>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="libs/jQuery-1.12.4/jquery-1.12.4.min.js"></script>
+<script src="libs/bootstrap-4.3.1/js/bootstrap.bundle.min.js"></script>
+<script src="libs/DataTables/datatables.min.js"></script>
+<script src="libs/jquery.fly.js"></script>
+<script>
+    $(function () {
+        $('tableaa').DataTable({
+            // fixedColumns: {
+            //     leftColumns: 1
+            // },
+            // scrollY: 300,
+            // // scrollX: true,
+            // searching: false,
+            // paging: false,
+            // info: false,
+            // // autoWidth: false,
+            // columns:[
+            //     {
+            //         title: 'aaaa'
+            //     },
+            //     {
+            //
+            //         title: 'tttt'
+            //     }
+            // ]
+        });
+
+        $('.custom-control-input').click(function (e) {
+            var target = $(e.currentTarget);
+            var flyTargetElement = $('.share-cart-container');
+            var _sourceImg = target.parents('.col-12').find('img').eq(0);
+            if(target.prop("checked")){
+                objectFlyIn(_sourceImg, flyTargetElement, function(){
+                    // 回调
+                });
+            }else{
+                objectFlyOut(_sourceImg, flyTargetElement,function(){
+                    // 回调
+                });
+            }
+        });
+
+        /**
+         * 对象飞出
+         *
+         */
+        function objectFlyOut(_sourceImg,_target, _back) {
+            var addOffset = _target.offset();
+            var X, Y;
+            var img = _sourceImg;
+            var flyer = $('<img style="display: block;width: 50px;height: 50px;border-radius: 50px;position: fixed;z-index: 100000;" src="' + img.attr('src') + '">');
+            if (img.offset()) {
+                X = img.offset().left - $(window).scrollLeft();
+                Y = img.offset().top - $(window).scrollTop();
+            }
+            flyer.fly({
+                start: {
+                    left: addOffset.left, //开始位置（必填）
+                    top: addOffset.top, //开始位置（必填）
+                    width: 5, //结束时宽度
+                    height: 5 //结束时高度
+                },
+                end: {
+                    left: X + img.width() / 2 - 25, //结束位置（必填）
+                    top: Y + img.height() / 2 - 25,//结束位置（必填）
+                    width: img.width(), //结束时宽度
+                    height: img.height() //结束时高度
+                },
+                onEnd: function () {
+                    this.destroy();
+                    _back();
+                }
+            });
+        }
+
+        function objectFlyIn(_sourceImg, _target, _back) {
+            var addOffset = _target.offset();
+
+            var img = _sourceImg;
+            var flyer = $('<img style="display: block;width: 50px;height: 50px;border-radius: 50px;position: fixed;z-index: 100000;" src="' + img.attr('src') + '">');
+            var X, Y;
+
+            if (img.offset()) {
+                X = img.offset().left - $(window).scrollLeft();
+                Y = img.offset().top - $(window).scrollTop();
+            }
+            flyer.fly({
+                start: {
+                    left: X + img.width() / 2 - 25, //开始位置（必填）
+                    top: Y + img.height() / 2 - 25 //开始位置（必填）
+                },
+                end: {
+                    left: addOffset.left + 10, //结束位置（必填）
+                    top: addOffset.top + 10, //结束位置（必填）
+                    width: 10, //结束时宽度
+                    height: 10 //结束时高度
+                },
+                onEnd: function () { //结束回调
+                    this.destroy(); //移除dom
+                    _back();
+                }
+            });
+
+        }
+    })
+</script>
+</body>
+</html>

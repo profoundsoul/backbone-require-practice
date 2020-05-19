@@ -25,8 +25,12 @@ define("UIToast", ["DialogPlus", "Base", "Zepto"], function (Dialog, Base, $) {
 			options.content = msg || options.content
 
 			//bind this value is current context
-			options.ok = Base.bindFn(okFn || options.ok, options.context || this)
-			options.cancel = Base.bindFn(failFn || options.cancel, options.context || this)
+			if(options.ok !== false) {
+                options.ok = Base.bindFn(okFn || defaults.ok, options.context || this)
+            }
+            if(options.cancel!==false){
+                options.cancel = Base.bindFn(failFn || defaults.cancel, options.context || this)
+            }
 
 			var confirm = Dialog(options)
 			confirm.showModal()

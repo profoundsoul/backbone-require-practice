@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>弧形Loading</title>
+    <style>
+        .showbox {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 5%;
+        }
+
+        .loader {
+            position: relative;
+            margin: 0 auto;
+            width: 100px;
+        }
+
+        .loader:before {
+            content: '';
+            display: block;
+            padding-top: 100%;
+        }
+
+        .circular {
+            animation: rotate 2s linear infinite;
+            height: 100%;
+            transform-origin: center center;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            border: 1px solid #333;
+        }
+
+        .circular path {
+            transform: rotate(30deg);
+            transform-origin: center center;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            25% {
+                transform: rotate(120deg);
+            }
+            50% {
+                transform: rotate(270deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="showbox">
+    <div class="loader">
+        <svg class="circular" viewBox="0 0 100 100">
+            <!--<path class="arc" fill="none" stroke="#333"-->
+            <!--d="M50, 10 A40, 40, 0, 1, 0, 78.2842712474619, 21.7157287525381"-->
+            <!--stroke-width="10"></path>-->
+            <!--<path class="triangle" fill="#333"-->
+            <!--d="M50 0 L67.320508075688776 10 L50 20 Z"></path>-->
+            <!--<path fill="none" stroke="#333" d="M5, 50  A45, 45, 0, 1, 0, 50, 5"-->
+            <!--stroke-width="5" ></path>-->
+            <!--<path fill="none" stroke="#333" d="M50, 5 A45, 45, 0, 1, 0, 95, 50"-->
+            <!--stroke-width="5" ></path>-->
+            <!--<path class="arc" fill="none" stroke="#333"-->
+                  <!--d="M50, 6 A 44 44 0, 1, 0, 81.11269837220809, 18.887301627791913"-->
+                  <!--stroke-width="6"></path>-->
+            <!--<path class="triangle" fill="#333" d="M50 0 L60.392304845413264 6 L50 12 Z"></path>-->
+            <path class="arc" fill="none" stroke="#fff"
+                  d="M50, 8 A 42 42 0, 1, 0, 86.37306695894642, 29.000000000000004"stroke-width="8"></path>
+            <path class="triangle" fill="#fff" d="M50 0 L63.856406460551014 8 L50 16 Z"></path>
+        </svg>
+    </div>
+</div>
+<script>
+    function getPointCoordinate (arcAngle, radius, borderWidth) {
+        if (arcAngle > 360 || arcAngle < 0) return
+        var ONE_ANGLE = Math.PI / 180
+        var quad = Math.floor(arcAngle / 90)
+        arcAngle = (arcAngle % 90) * ONE_ANGLE
+        var coord = {x: borderWidth, y: borderWidth}
+        switch (quad) {
+            case 0:
+                coord.x = coord.x + radius - Math.sin(arcAngle) * radius
+                coord.y = coord.y + radius - Math.cos(arcAngle) * radius
+                break
+            case 1:
+                coord.x = coord.x + radius - Math.cos(arcAngle) * radius
+                coord.y = coord.y + radius + Math.sin(arcAngle) * radius
+                break
+            case 2:
+                coord.x = coord.x + radius + Math.sin(arcAngle) * radius
+                coord.y = coord.y + radius + Math.cos(arcAngle) * radius
+                break
+            case 3:
+                coord.x = coord.x + radius + Math.cos(arcAngle) * radius
+                coord.y = coord.y + radius - Math.sin(arcAngle) * radius
+                break
+            default:
+                break
+        }
+        return coord
+    }
+
+    function printCoord (coord) {
+        var output = []
+        for (var item in coord) {
+            output.push(coord[item])
+        }
+        console.log(output.join(' \n'))
+    }
+
+    //
+    //    printCoord(getPointCoordinate(330, 45, 5))
+    //    printCoord(getPointCoordinate(0, 45, 5))
+    printCoord(getPointCoordinate(315, 40, 10))
+
+    var WIDTH = 50
+
+    function generateAllPath (borderWidth, arcAngle) {
+        var radius = WIDTH - borderWidth
+        var coord = getPointCoordinate(arcAngle, radius, borderWidth)
+
+        var arcd = 'M' + WIDTH + ', ' + borderWidth + ' A ' + radius + ' ' + radius + ' 0, 1, 0, ' + coord.x + ', ' + coord.y
+        var triangle =
+          'M50 0 L' + (WIDTH + borderWidth * 2 * Math.sin(Math.PI / 3)) + ' ' + borderWidth + ' L50 ' + borderWidth * 2 + ' Z'
+        return {
+            arc: '<path class="arc" fill="none" stroke="#333" d="' + arcd + '"stroke-width="' + borderWidth + '"></path>',
+            triangle: '<path class="triangle" fill="#333" d="' + triangle + '"></path>'
+        }
+    }
+
+    var coordPath = generateAllPath(8, 300)
+    printCoord(coordPath)
+</script>
+<script>
+    //    (function(){
+    //        var svg = d3.select('body').append('svg')
+    //          .attr('viewBox', '0 0 100 100')
+    //
+    //        var arc = d3.arc()
+    //          .innerRadius(0)
+    //          .outerRadius(50)
+    //          .cornerRadius(25)
+    //          .startAngle(0)
+    //          .endAngle(Math.PI * 2)
+    //
+    //        console.log(arc());
+    //
+    //        svg.append('path').attr('d', arc)
+    //          .style("fill","none")
+    //          .attr('stroke', '#333')
+    //          .attr('stroke-width', "2")
+    ////          .attr("transform", function(d) {
+    ////              console.log(arc.centroid(d));
+    ////              return "translate(" + arc.centroid(d) + ")";  // arc.centroid 是弧形中一个重要方法，会返回该弧形的中心位置。
+    ////          })
+    //
+    //
+    //    })();
+</script>
+</body>
+</html>

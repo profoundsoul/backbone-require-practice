@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
+    <meta http-equiv="Cache-Control" content="max-age=30" />
     <meta charset="UTF-8">
     <title>行高</title>
     <style>
@@ -33,6 +34,40 @@
             clear:both;
         }
     </style>
+    <style>
+        .container{
+            margin-top: 20px;
+            background: yellow;
+            position: fixed;
+            left: 20px;
+            top:40%;
+            width: 300px;
+        }
+        .container:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .container .left {
+            float: left;
+            width:30%;
+        }
+        .container .rgt{
+            float: right;
+            overflow: hidden;
+        }
+
+        .rgt input{
+            height:30px;
+            line-height: 30px;
+        }
+
+        .rgt .good_list{
+             line-height: 30px !important;
+            height: 30px!important;
+        }
+    </style>
+    <script src="libs/jquery-1.12.3.js"></script>
 </head>
 <body>
 <!--this is test -->
@@ -56,6 +91,31 @@
 <div class="out">
 	<span class="in2">line-height:20px;</span>
 </div>
+<div class="container">
+    <div class="left">
 
+    </div>
+    <div class="rgt">
+        <dd>
+            <input type="text">
+            <br>
+            <input type="text">
+            <br>
+            <input type="text">
+            <br>
+            <input type="text">
+            <br>
+            <input type="text">
+            <br>
+            <input type="text">
+        </dd>
+    </div>
+</div>
+<button style="float:right" id="btn">增加一行</button>
+<script>
+    $('#btn').click(function(){
+        $('.rgt').append('<input>').append('<br>')
+    })
+</script>
 </body>
 </html>

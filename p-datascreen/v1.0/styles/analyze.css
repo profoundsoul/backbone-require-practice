@@ -1,0 +1,98 @@
+.analyze_box .chart_list {
+    margin: 0px 56px 0px 56px;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.analyze_box .chart_list .chart_box {
+    position: relative;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    flex: 1;
+    -webkit-flex: 1;
+    margin-left: 34px;
+    height: 365px;
+    overflow: hidden;
+    /*background: #24578c;*/
+    /*opacity: 0.18;*/
+    padding-top: 30px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.analyze_box .chart_list .chart_box:first-child {
+    margin-left: 0px;
+}
+
+.analyze_box .chart_list .chart_box .chart_title {
+    font-size: 28px;
+    color: #fff;
+    display: block;
+    overflow: hidden;
+    text-align: left;
+    margin-bottom: 16px;
+}
+
+.analyze_box .chart_list .chart_box .chart {
+    position: relative;
+    flex: 1;
+    -webkit-flex: 1;
+    display: block;
+    background: #0d1e39;
+}
+
+.analyze_box .chart_list .chart_box .menu_box {
+    display: -webkit-flex;
+    display: flex;
+    position: absolute;
+    left: 50%;
+    top: 20px;
+    transform: translate(-50%, 0);
+    width: 350px;
+    height: 36px;
+    line-height: 36px;
+    color: #fff;
+    border: 1px solid #2251b8;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    list-style: none;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.analyze_box .chart_list .chart_box .menu_box li {
+    -webkit-flex: 1;
+    flex: 1;
+    font-size: 24px;
+    background: #010d3f;;
+    letter-spacing: 8px;
+}
+
+.analyze_box .chart_list .chart_box .menu_box li.active {
+    background: #2251b8;
+}
+
+.analyze_box .chart_list .chart_box .chart .common_chart {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.analyze_box .chart_list .chart_box .chart .chart_profile {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width:45px;
+    display: none;
+}

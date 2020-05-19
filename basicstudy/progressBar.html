@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="max-age=30" />
+    <title>进度条</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        #container{
+            z-index: 9999999;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="container"></div>
+<script src="libs/progressbar.js"></script>
+<script>
+    var progressBar = new ProgressBar.Line('#container', {
+        strokeWidth: 0.3,
+        trailWidth: 0.5,
+        color:'#0FA0CE'
+    });
+    progressBar.animate(0.6, {
+        duration: 5000,
+        easing: 'easeOut'
+    }, function() {
+        console.log('Animation has finished');
+        progressBar.animate(0.8, {
+            duration:5000,
+            easing: 'easeIn',
+        },function(){
+            progressBar.animate(1, {
+                duration: 200,
+            }, function(){
+                progressBar.destroy();
+            })
+        })
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BackGround Size</title>
+    <script src="libs/jquery-1.12.3.js"></script>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        ul,li{
+            list-style: none;
+        }
+
+        .setting{
+            float: left;
+            width:50%;
+        }
+        .img_box {
+            float: right;
+            width: 500px;
+            height: 500px;
+            border:2px solid grey;
+        }
+
+        .img{
+            background: url(images/shop.png) no-repeat;
+            background-position: left top;
+        }
+    </style>
+</head>
+<body>
+    <ul class="setting">
+        <li>
+            <input type="radio" name="bgsize" id="1" value="100px 100px"><label for="1">100px 100px</label>
+        </li>
+        <li>
+            <input type="radio" name="bgsize" id="2" value="50%"><label for="2">50%</label>
+        </li>
+        <li>
+            <input type="radio" name="bgsize" id="3" value="100%"><label for="3">100%</label>
+        </li>
+        <li>
+            <input type="radio" name="bgsize" id="4" value="cover"><label for="4">Cover</label>
+        </li>
+        <li>
+            <input type="radio" name="bgsize" id="5" value="contain"><label for="5">Contain</label>
+        </li>
+    </ul>
+    <div class="img_box img">
+    </div>
+    <script>
+        $(function(){
+            $('input[type=radio]').change(function(){
+                $('.img_box').css('background-size',$(this).val())
+            })
+        })
+    </script>
+</body>
+</html>

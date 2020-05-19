@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>易为业务数据大屏</title>
+    <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="styles/rmb.css">
+    <link rel="stylesheet" href="styles/map.css">
+    <link rel="stylesheet" href="styles/analyze.css">
+    <link rel="stylesheet" href="styles/realtime.css">
+    <script src="config.js"></script>
+    <script src="libs/jquery-3.0.0.min.js"></script>
+    <script src="libs/swipe.js"></script>
+</head>
+
+<body class="bg">
+<script src="scripts/adaptscreen.js"></script>
+<div id="screen">
+    <div class="header_box">
+        <div class="title_box">
+            易为业务数据大屏
+        </div>
+        <div class="time_box">
+            12-05-17 19：00：00
+        </div>
+    </div>
+    <div class="main_box">
+        <div class="left_box">
+            <div class="key_box">
+                <div class="rmb_box">
+                    <div class="hot_title_box">
+                        全球热卖榜
+                    </div>
+                    <ul class="tab_box">
+                        <li class="active">整体</li>
+                        <li>手机</li>
+                        <li style="display:none;">家电</li>
+                    </ul>
+                    <div class="rank_slider"><!--rank_swipe_wrap-->
+                        <div class="swipe-wrap">
+                            <div class="rank_type1 item">
+                                <div class="rank_box slideInLeft">
+                                    <ul class="rank_col" style="width:230px;">
+                                        <li class="rank_title">品牌销售额排行</li>
+                                        <li><span class="no first_no"></span>
+                                            <div class="goods_name"><span>TECNO</span></div>
+                                        </li>
+                                        <li><span class="no second_no"></span>
+                                            <div class="goods_name"><span>Infinix</span></div>
+                                        </li>
+                                        <li><span class="no third_no"></span>
+                                            <div class="goods_name"><span>Itel</span></div>
+                                        </li>
+                                        <li><span class="no">4</span>
+                                            <div class="goods_name"><span>Syinix</span></div>
+                                        </li>
+                                        <li><span class="no">5</span>
+                                            <div class="goods_name"><span>TCL</span></div>
+                                        </li>
+                                        <li><span class="no">6</span>
+                                            <div class="goods_name"><span>HUAWEI</span></div>
+                                        </li>
+                                        <li><span class="no">7</span>
+                                            <div class="goods_name"><span>Oraimo</span></div>
+                                        </li>
+                                        <li><span class="no">8</span>
+                                            <div class="goods_name"><span>SAMSUNG</span></div>
+                                        </li>
+                                        <li><span class="no">9</span>
+                                            <div class="goods_name"><span>LUMIA</span></div>
+                                        </li>
+                                        <li><span class="no">10</span>
+                                            <div class="goods_name"><span>KNONKA</span></div>
+                                        </li>
+                                    </ul>
+                                    <ul class="rank_col " style=" width: 230px;;margin-left: 60px;">
+                                        <li class="rank_title">品牌销量排行</li>
+                                        <li><span class="no first_no"></span>
+                                            <div class="goods_name"><span>Oraimo</span></div>
+                                        </li>
+                                        <li><span class="no second_no"></span>
+                                            <div class="goods_name"><span>TECNO</span></div>
+                                        </li>
+                                        <li><span class="no third_no"></span>
+                                            <div class="goods_name"><span>Infinix</span></div>
+                                        </li>
+                                        <li><span class="no">4</span>
+                                            <div class="goods_name"><span>Itel</span></div>
+                                        </li>
+                                        <li><span class="no">5</span>
+                                            <div class="goods_name"><span>Syinix</span></div>
+                                        </li>
+                                        <li><span class="no">6</span>
+                                            <div class="goods_name"><span>TCL</span></div>
+                                        </li>
+                                        <li><span class="no">7</span>
+                                            <div class="goods_name"><span>HUAWEI</span></div>
+                                        </li>
+                                        <li><span class="no">8</span>
+                                            <div class="goods_name"><span>Oraimo</span></div>
+                                        </li>
+                                        <li><span class="no">9</span>
+                                            <div class="goods_name"><span>SUMSUNG</span></div>
+                                        </li>
+                                        <li><span class="no">10</span>
+                                            <div class="goods_name"><span>KNONKA</span></div>
+                                        </li>
+                                    </ul>
+                                    <ul class="rank_col flex_strenth" style="margin-left: 60px;">
+                                        <li class="rank_title">单品销售额排行</li>
+                                        <li><span class="no first_no"></span>
+                                            <div class="goods_name"><span>TECNO Phontom9</span></div>
+                                        </li>
+                                        <li><span class="no second_no"></span>
+                                            <div class="goods_name"><span>TECNO J8 Boom</span></div>
+                                        </li>
+                                        <li><span class="no third_no"></span>
+                                            <div class="goods_name"><span>FAN SYINIX FSS18N-501</span></div>
+                                        </li>
+                                        <li><span class="no">4</span>
+                                            <div class="goods_name"><span>KETTLE SYINIX CLD 1701</span></div>
+                                        </li>
+                                        <li><span class="no">5</span>
+                                            <div class="goods_name"><span>TV SYINIX 39LED</span></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="country_rank">
+                                    <div class="title">国家销售额排行</div>
+                                    <ul>
+                                        <li>
+                                            <i class="top1"></i>
+                                            <span>Uganda</span>
+                                        </li>
+                                        <li>
+                                            <i class="top2"></i>
+                                            <span>Ghana</span>
+                                        </li>
+                                        <li>
+                                            <i class="top3"></i>
+                                            <span>India</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="rank_type2 item" style="display:none;">
+                                <div class="rank_box">
+                                    <ul class="rank_col" style="width:230px;">
+                                        <li class="rank_title">品牌销售额排行</li>
+                                        <li><span class="no first_no"></span>
+                                            <div class="goods_name"><span>TECNO</span></div>
+                                        </li>
+                                        <li><span class="no second_no"></span>
+                                            <div class="goods_name"><span>Infinix</span></div>
+                                        </li>
+                                        <li><span class="no third_no"></span>
+                                            <div class="goods_name"><span>Itel</span></div>
+                                        </li>
+                                        <li><span class="no">4</span>
+                                            <div class="goods_name"><span>Syinix</span></div>
+                                        </li>
+                                        <li><span class="no">5</span>
+                                            <div class="goods_name"><span>TCL</span></div>
+                                        </li>
+                                        <li><span class="no">6</span>
+                                            <div class="goods_name"><span>HUAWEI</span></div>
+                                        </li>
+                                        <li><span class="no">7</span>
+                                            <div class="goods_name"><span>Oraimo</span></div>
+                                        </li>
+                                        <li><span class="no">8</span>
+                                            <div class="goods_name"><span>SAMSUNG</span></div>
+                                        </li>
+                                        <li><span class="no">9</span>
+                                            <div class="goods_name"><span>LUMIA</span></div>
+                                        </li>
+                                        <li><span class="no">10</span>
+                                            <div class="goods_name"><span>KNONKA</span></div>
+                                        </li>
+                                    </ul>
+                                    <ul class="rank_col " style=" width: 230px;;margin-left: 60px;">
+                                        <li class="rank_title">品牌销量排行</li>
+                                        <li><span class="no first_no"></span>
+                                            <div class="goods_name"><span>Oraimo</span></div>
+                                        </li>
+                                        <li><span class="no second_no"></span>
+                                            <div class="goods_name"><span>TECNO</span></div>
+                                        </li>
+                                        <li><span class="no third_no"></span>
+                                            <div class="goods_name"><span>Infinix</span></div>
+                                        </li>
+                                        <li><span class="no">4</span>
+                                            <div class="goods_name"><span>Itel</span></div>
+                                        </li>
+                                        <li><span class="no">5</span>
+                                            <div class="goods_name"><span>Syinix</span></div>
+                                        </li>
+                                        <li><span class="no">6</span>
+                                            <div class="goods_name"><span>TCL</span></div>
+                                        </li>
+                                        <li><span class="no">7</span>
+                                            <div class="goods_name"><span>HUAWEI</span></div>
+                                        </li>
+                                        <li><span class="no">8</span>
+                                            <div class="goods_name"><span>Oraimo</span></div>
+                                        </li>
+                                        <li><span class="no">9</span>
+                                            <div class="goods_name"><span>SUMSUNG</span></div>
+                                        </li>
+                                        <li><span class="no">10</span>
+                                            <div class="goods_name"><span>KNONKA</span></div>
+                                        </li>
+                                    </ul>
+                                    <ul class="rank_col flex_strenth" style="margin-left: 60px;">
+                                        <li class="rank_title">单品销售额排行</li>
+                                        <li><span class="no first_no"></span>
+                                            <div class="goods_name"><span>TECNO Phontom9</span></div>
+                                        </li>
+                                        <li><span class="no second_no"></span>
+                                            <div class="goods_name"><span>TECNO J8 Boom</span></div>
+                                        </li>
+                                        <li><span class="no third_no"></span>
+                                            <div class="goods_name"><span>FAN SYINIX FSS18N-501</span></div>
+                                        </li>
+                                        <li><span class="no">4</span>
+                                            <div class="goods_name"><span>KETTLE SYINIX CLD 1701</span></div>
+                                        </li>
+                                        <li><span class="no">5</span>
+                                            <div class="goods_name"><span>TV SYINIX 39LED</span></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="country_rank">
+                                    <div class="title">国家销售额排行</div>
+                                    <ul>
+                                        <li>
+                                            <i class="top1"></i>
+                                            <span>Uganda</span>
+                                        </li>
+                                        <li>
+                                            <i class="top2"></i>
+                                            <span>Ghana</span>
+                                        </li>
+                                        <li>
+                                            <i class="top3"></i>
+                                            <span>India</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="map_box">
+                    <div class="amount_box">
+                        <div class="total_title">累积销售金额（万）</div>
+                        <ul class="total_sum js_salesamount" data-total="232425336322">
+                            <li>$
+                            </li>
+                            <li class="bg_block">2
+                            </li>
+                            <li class="bg_block">3
+                            </li>
+                            <li class="bg_block">2
+                            </li>
+                            <li>,
+                            </li>
+                            <li class="bg_block">4
+                            </li>
+                            <li class="bg_block">2
+                            </li>
+                            <li class="bg_block">5
+                            </li>
+                            <li>,
+                            </li>
+                            <li class="bg_block">3
+                            </li>
+                            <li class="bg_block">3
+                            </li>
+                            <li class="bg_block">6
+                            </li>
+                            <li>,
+                            </li>
+                            <li class="bg_block">3
+                            </li>
+                            <li class="bg_block">2
+                            </li>
+                            <li class="bg_block">2</li>
+                        </ul>
+                        <div class="detail_box">
+                            <div class="total_sales">
+                                <div class="center">
+                                    <div class="details_title">累积销量（万PCS）</div>
+                                    <div class="details_amount js_salesvolume" data-total="234456345.89">234,456,345.89</div>
+                                </div>
+                            </div>
+                            <div class="total_orders">
+                                <div class="center">
+                                    <div class="details_title">累积订单数（万）</div>
+                                    <div class="details_amount js_ordercount" data-total="2234678898.89">2,234,678,898.89</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="js_map" style="width: 100%; height:100%;"></div>
+                </div>
+            </div>
+            <div class="analyze_box">
+                <div class="chart_list">
+                    <div class="chart_box ">
+                        <div class="chart_title">【今日昨日销售对比】</div>
+                        <div class="chart">
+                            <div class="common_chart js_saleline"></div>
+                        </div>
+                    </div>
+                    <div class="chart_box ">
+                        <div class="chart_title">【成交用户分析】</div>
+                        <div class="chart ">
+                            <div class="common_chart" style="width:52%;float: left;">
+                                <div class="common_chart js_userdevice"></div>
+                            </div>
+                            <div class="common_chart "  style="width:48%;float: left;">
+                                <div class="common_chart js_member"></div>
+                                <img  src="./images/member.png" class="chart_profile">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart_box ">
+                        <div class="chart_title">【各渠道销售情况 轮播】</div>
+                        <div class="chart">
+                            <ul class="menu_box">
+                                <li class="active">年累</li>
+                                <li>月累</li>
+                            </ul>
+                            <div class="common_chart js_channalsalepie"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chart_list">
+                    <div class="chart_box">
+                        <div class="chart_title">【月累零售趋势】</div>
+                        <div class="chart">
+                            <div class="common_chart js_retailline"></div>
+                        </div>
+                    </div>
+                    <div class="chart_box">
+                        <div class="chart_title">【商品品类分析】</div>
+                        <div class="chart">
+                            <ul class="menu_box">
+                                <li class="active">年累</li>
+                                <li>月累</li>
+                            </ul>
+                            <div class="common_chart js_goodspie"></div>
+                        </div>
+                    </div>
+                    <div class="chart_box ">
+                        <div class="chart_title">【各国销售情况 轮播】</div>
+                        <div class="chart">
+                            <ul class="menu_box">
+                                <li class="active">年累</li>
+                                <li>月累</li>
+                            </ul>
+                            <div class="common_chart js_countrypie"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right_box">
+            <div class="realtime_box">
+                <div class="realtime_title_box">实时数据</div>
+                <div class="deal_box">
+                    <div class="deal_title">
+                        实时交易
+                    </div>
+                    <div class="deal_list">
+                        <!--<ul>
+                            <li>
+                                <img class="control_icon" src="images/Ghana.png" alt="">
+                            </li>
+                            <li class="deal_name">Ghana Accra</li>
+                            <li class="deal_time">08-10 20:13</li>
+                            <li class="deal_amount">$ 1000</li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <img class="control_icon" src="images/Ghana.png" alt="">
+                            </li>
+                            <li class="deal_name">Ghana Accra</li>
+                            <li class="deal_time">10-13 15:46</li>
+                            <li class="deal_amount">$ 300</li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <img class="control_icon" src="images/Uganda.png" alt="">
+                            </li>
+                            <li class="deal_name">Ghana Kuparla</li>
+                            <li class="deal_time">12-12 12:20</li>
+                            <li class="deal_amount">$ 60</li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <img class="control_icon" src="images/Uganda.png" alt="">
+                            </li>
+                            <li class="deal_name">Ghana Kuparla</li>
+                            <li class="deal_time">12-28 12:20</li>
+                            <li class="deal_amount">$ 300</li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <img class="control_icon" src="images/India.png" alt="">
+                            </li>
+                            <li class="deal_name">India Algraph</li>
+                            <li class="deal_time">01-04 11:38</li>
+                            <li class="deal_amount">$ 5000</li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <img class="control_icon" src="images/India.png" alt="">
+                            </li>
+                            <li class="deal_name">India New Delph</li>
+                            <li class="deal_time">03-25 07:45</li>
+                            <li class="deal_amount">$ 66000</li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <img class="control_icon" src="images/India.png" alt="">
+                            </li>
+                            <li class="deal_name">India Algraph</li>
+                            <li class="deal_time">06-18 12:20</li>
+                            <li class="deal_amount">$ 200</li>
+                        </ul>-->
+                    </div>
+
+                </div>
+                <div class="active_user_box">
+                    <div class="active_user_title">活跃用户</div>
+                    <div class="active_list">
+                        <div class="user_info active">
+                            <div class="caption">Ghana Accra Alice 4 Actions 6s</div>
+                               <!-- <div class="active_user">-->
+                                    <ol class="detail_list">
+                                        <li>Event Activity - FirstPage - com.transsion.shopnc.ac</li>
+                                        <li>Event PushInfo - isFromMessageActivity</li>
+                                        <li>Event HomeFragment - homeData - time [282]</li>
+                                        <li>SwitchApp</li>
+                                    </ol>
+                                <!--</div>-->
+                        </div>
+                        <div class="user_info">
+                            <div class="caption">Ghana Accra Nick 1 Action</div>
+                            <ol class="detail_list">
+                                <li>Event Activity - FirstPage - com.transsion.shopnc.ac</li>
+                                <li>Event PushInfo - isFromMessageActivity</li>
+                                <li>Event HomeFragment - homeData - time [282]</li>
+                                <li>SwitchApp</li>
+                            </ol>
+                        </div>
+                        <div class="user_info">
+                            <div class="caption">Uganda Kuparla *** 8 Actions - 1 min 9s</div>
+                            <ol class="detail_list">
+                                <li>Event Activity - FirstPage - com.transsion.shopnc.ac</li>
+                                <li>Event PushInfo - isFromMessageActivity</li>
+                            </ol>
+                        </div>
+                        <div class="user_info">
+                            <div class="caption">Uganda Kuparla Dainal 17 Actions - 2 min 28s</div>
+                            <ol class="detail_list">
+                                <li>Event Activity - FirstPage - com.transsion.shopnc.ac</li>
+                                <li>Event PushInfo - isFromMessageActivity</li>
+                            </ol>
+                        </div>
+                        <div class="user_info">
+                            <div class="caption">India Algraph Jim 1 Action</div>
+                            <ol class="detail_list">
+                                <li>Event Activity - FirstPage - com.transsion.shopnc.ac</li>
+                                <li>Event PushInfo - isFromMessageActivity</li>
+                            </ol>
+                        </div>
+                        <div class="user_info active">
+                            <div class="caption">India New Delph Davy 5 Action - 29s</div>
+                            <ol class="detail_list">
+                                <li>Event Activity - FirstPage - com.transsion.shopnc.ac</li>
+                                <li>Event PushInfo - isFromMessageActivity</li>
+                                <li>HomeActivity</li>
+                                <li>SwitchApp</li>
+                                <li>Event HomeFragment - homeData - time [26555]</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="screen_loading">
+    <div class="loader">
+        <div class="loader-inner ball-spin-fade-loader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+<script src="libs/require.min.js"></script>
+<script src="libs/underscore.min.js"></script>
+<script src="index.js"></script>
+
+</body>
+
+</html>

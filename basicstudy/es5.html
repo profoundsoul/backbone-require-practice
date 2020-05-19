@@ -1,9 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>ES5常规练习</title>
+    <title>ES5常规练习</title>
+    <meta http-equiv="Cache-Control" content="max-age=30" />
+    <script src="libs/jquery-1.12.3.js"></script>
 </head>
 <body>
+<div id="container" style="height: 100vh;width: 100%;background-color: greenyellow;">
+    <a class='button_top' id='fullscreen' align='center' style='text-decoration:none;'>全屏</a>
+</div>
+
+<script>
+    $('#fullscreen').click(function () {
+        var elem = document.getElementById('container')
+        requestFullScreen(elem)
+    })
+
+    function requestFullScreen (element) {
+        var requestMethod = element.requestFullScreen || element.webkitRequestFullScreen || element.mozRequestFullScreen || element.msRequestFullScreen
+        console.log(requestMethod)
+        if (requestMethod) {
+            requestMethod.call(element)
+        } else if (typeof window.ActiveXObject !== 'undefined') {
+            var wscript = new ActiveXObject('WScript.Shell')
+            if (wscript !== null) {
+                wscript.SendKeys('{F11}')
+            }
+        }
+    }
+</script>
+
 
 </body>
 </html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title02 页面</title>
+</head>
+<body>
+<h1>TEST 02</h1>
+<a href="test1.html"> To TEST 01</a>
+<br>
+<a href="index.html"> To INDEX</a>
+
+<button id="test">测试调用Android Api</button>
+<script src="jquery-1.12.3.js"></script>
+<script>
+    var yiwill = {
+        getUserName:function(callbackid, id, mm) {
+            console.log('调用android 后台API啦！callbackid：' + callbackid + '，arguments id：' + id + '，mm：'+ mm)
+        }
+    }
+</script>
+<script src="yw.js"></script>
+<script>
+    (function(){
+        $('#test').on('click', function(){
+            yiwillJSBridge.getUserName('888', function(name){
+                console.log('Android后台回调，传回回调参数为：', name);
+            },'tttttt');
+
+            var currentCallBackId = yiwillJSBridge._getCallbackId() -1;
+            setTimeout(function(){
+                yiwillJSBridge.__handleMessageFromYiwill({
+                    __msg_type: 'callback',
+                    __callbackid: currentCallBackId,
+                    __param:[1,3,5,'linq']
+                })
+            }, 2000)
+        })
+        yiwillJSBridge.on('event:homeback', function(e) {
+            console.log('homeBack Execute !!!', e);
+        })
+
+        setTimeout(function(){
+            yiwillJSBridge.__handleMessageFromYiwill({
+                __msg_type: 'event',
+                __eventid: 'event:homeback',
+                __param: ['test']
+            })
+        }, 5000)
+    })();
+</script>
+</body>
+</html>

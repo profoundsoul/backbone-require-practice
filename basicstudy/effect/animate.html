@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>基础动画八大属性熟悉</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .basic {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            /*margin: 0 auto;*/
+            /*animation-name: basic;*/
+            /*animation-duration: 2s;*/
+            /*animation-timing-function: ease;*/
+            /*animation-fill-mode: backwards;*/
+            /*animation-iteration-count: infinite;*/
+            /*animation-direction: alternate;*/
+            /*animation-delay: 2s;*/
+            /*animation-play-state:  running;*/
+            animation: basic 2s ease 2s alternate infinite none running;
+        }
+
+        .shutterh {
+            margin: 10px;
+            width: 200px;;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 5px;
+            position: relative;
+            display: inline-block;
+            background: cornflowerblue;
+            overflow: hidden;
+            cursor: pointer;
+            transform: perspective(1px);
+            transition: all 1s ease;
+        }
+        .shutterh:before{
+            content: '';
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            bottom: 0px;
+            right: 0px;
+            background: gray;
+            color: #333;
+            z-index: -1;
+            transform: scaleX(1);
+            transform-origin:  50% 50%;
+            transition: all 1s ease;
+        }
+        .shutterh:hover{
+            color: white;
+        }
+        .shutterh:hover:before{
+            transform: scaleX(0);
+        }
+
+        .radialout {
+            position: relative;
+            cursor: pointer;
+            margin: 10px;
+            display: inline-block;
+            width: 200px;
+            height: 40px;
+            line-height: 40px;
+            background: blue;
+            border-radius: 5px;
+            text-align: center;
+            transform:  perspective(1px) translateZ(0);
+            transition: all 1s ease;
+            overflow: hidden;
+        }
+
+        .radialout:hover{
+            color: white;
+        }
+
+        .radialout:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0px;
+            z-index: -1;
+            transform: scale(1);
+            background: gray;
+            transition: all 1s ease;
+        }
+
+        .radialout:hover:before {
+            transform: scale(0);
+        }
+
+        .content {
+            height: 200px;;
+            background: lightblue;
+        }
+
+        @keyframes basic {
+            0% {
+                transform: translate3d(0, 0, 0);
+                background-color: red;
+                border-radius: 100%;
+            }
+            30% {
+                transform: translate3d(0, calc(100vh - 100%), 300vh);
+                background: green;
+            }
+            50% {
+                transform: translate3d(calc(100vw - 100%), calc(100vh - 100%), 500vh);
+                background-color: orange;
+            }
+            80% {
+                transform: translate3d(calc(100vw - 100%), 0, 800vh);
+                background-color: hotpink;
+            }
+            100% {
+                border-radius: 20%;
+                background-color: yellow;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="basic"></div>
+<br>
+<div class="content"></div>
+
+<div class="shutterh">
+    Shutter In Hevertial
+</div>
+
+<div class="radialout">Radial Out</div>
+</body>
+</html>

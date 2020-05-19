@@ -1,0 +1,18 @@
+<%for(var t=0;t<active_user.length;t++){
+    var user_info = active_user[t];
+    var total_action = user_info.children.length
+%>
+<div class="user_info active">
+    <div class="caption"><%=user_info.idsite%>  <%=total_action%> Actions <%=user_info.spent_time%></div>
+    <div class="active_user">
+    <ol class="detail_list">
+        <%for(var k=0;k<user_info.children.length;k++){%>
+            <li>Event Activity - <%=user_info.children[k].pageTitle%></li>
+        <%}%>
+       <!-- <li>Event PushInfo - isFromMessageActivity</li>
+        <li>Event HomeFragment - homeData - time [282]</li>
+        <li>SwitchApp</li>-->
+    </ol>
+    </div>
+</div>
+<%}%>
